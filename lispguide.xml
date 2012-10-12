@@ -3082,13 +3082,18 @@ Robert Brown
       <p>
       </p>
       <p>
-        The purpose of the <code>DYNAMIC-EXTENT</code> declaration
-        is to improve performance by reducing garbage collection
-        in cases where it appears to be obvious that an object's lifetime
-        is within the "dynamic extent" of a function.
-        That means the object is created at some point
-        after the function is called, and
-        the object is always inaccessible after the function exits by any means.
+        <!-- The purpose of the <code>DYNAMIC-EXTENT</code> declaration -->
+        <!-- is to improve performance by reducing garbage collection -->
+        <!-- in cases where it appears to be obvious that an object's lifetime -->
+        <!-- is within the "dynamic extent" of a function. -->
+        <!-- That means the object is created at some point -->
+        <!-- after the function is called, and -->
+        <!-- the object is always inaccessible after the function exits by any means. -->
+        <code>DYNAMIC-EXTENT</code> 宣言の目的は、
+        該当オブジェクトの生存期間が関数の“動的エクステント″の範囲に収まっていることが明白な場合に、
+        ガベージ・コレクションの発生を抑制し、パフォーマンスを向上させることにあります。
+        この動作が意味するところは、関数が呼ばれることによりある時点で該当オブジェクトが生成されるとして、
+        関数の実行が終了した後には、該当オブジェクトには、どのような意味でも常にアクセス不可能になる、ということです。
       </p>
       <p>
         By declaring a variable or a local function <code>DYNAMIC-EXTENT</code>,
