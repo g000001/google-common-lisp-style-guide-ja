@@ -1547,17 +1547,24 @@ Robert Brown
         We recommend the first convention for new packages.
       </p>
       <p>
-        Regarding <code>SETF</code> and <code>SETQ</code>,
-        there are two schools:
-        this first regards <code>SETQ</code>
-        as an archaic implementation detail,
-        and avoids it entirely in favor of <code>SETF</code>;
-        the second regards <code>SETF</code>
-        as an additional layer of complexity,
-        and avoids it in favor of <code>SETQ</code> whenever possible
-        (i.e. whenever the assigned place is a variable or symbol-macro).
-        You should follow the convention used in the package you are hacking.
-        We recommend the first convention for new packages.
+        <!-- Regarding <code>SETF</code> and <code>SETQ</code>, -->
+        <!-- there are two schools: -->
+        <!-- this first regards <code>SETQ</code> -->
+        <!-- as an archaic implementation detail, -->
+        <!-- and avoids it entirely in favor of <code>SETF</code>; -->
+        <!-- the second regards <code>SETF</code> -->
+        <!-- as an additional layer of complexity, -->
+        <!-- and avoids it in favor of <code>SETQ</code> whenever possible -->
+        <!-- (i.e. whenever the assigned place is a variable or symbol-macro). -->
+        <!-- You should follow the convention used in the package you are hacking. -->
+        <!-- We recommend the first convention for new packages. -->
+        
+        <code>SETF</code> と <code>SETQ</code> の使い分けに関しては、二つの流派があります:
+        第一の流派は、<code>SETF</code>の利用を支持し、<code>SETQ</code>は、古式ゆかしいLISPのあれこれと捉え、これを一切排除します。
+        第二の流派は、<code>SETF</code>を、<code>SETQ</code>に複雑さを付け加えたものであると解釈し、<code>SETQ</code>が使えるところには<code>SETF</code>は使わないことを支持します。
+        (i.e. 書式上、変数として代入可能な場合には、変数とシンボルマクロを問わず)。
+        既存のパッケージをハックしている場合には、その流儀に沿う*べき*です。
+        我々としては、新たなパッケージには、第一の流派を推奨します。
       </p>
       <p>
         In the spirit of a mostly pure functional style,
@@ -3093,7 +3100,7 @@ Robert Brown
         該当オブジェクトの生存期間が関数の“動的エクステント″の範囲に収まっていることが明白な場合に、
         ガベージ・コレクションの発生を抑制し、パフォーマンスを向上させることにあります。
         この動作が意味するところは、関数が呼ばれることによりある時点で該当オブジェクトが生成されるとして、
-        関数の実行が終了した後には、該当オブジェクトには、どのような意味でも常にアクセス不可能になる、ということです。
+        この関数の実行が終了した後には、該当オブジェクトには、どのような意味でも常にアクセス不可能になる、ということです。
       </p>
       <p>
         By declaring a variable or a local function <code>DYNAMIC-EXTENT</code>,
@@ -3250,7 +3257,7 @@ Robert Brown
       <!-- you should use <code>APPEND</code> instead, -->
       <!-- or better data structures. -->
       <code>NCONC</code>は利用す*べき*ではありません 
-      ——代りに <code>APPEND</code> を利用す*べき*です。もしくは他のデータ構造の利用しましょう
+      ——代りに <code>APPEND</code> を利用す*べき*です。もしくはよりよい他のデータ構造を利用しましょう
     </SUMMARY>
     <BODY>
       <p>
