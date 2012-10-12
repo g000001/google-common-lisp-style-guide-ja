@@ -1457,9 +1457,10 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Special variables">
+  <!-- <STYLEPOINT title="Special variables"> -->
+  <STYLEPOINT title="スペシャル変数">
     <SUMMARY>
-      Use special variables sparingly.
+      スペシャル変数の利用は控え目にしましょう。
     </SUMMARY>
     <BODY>
       <p>
@@ -1508,9 +1509,11 @@ Robert Brown
       
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Assignment">
+  <!-- <STYLEPOINT title="Assignment"> -->
+  <STYLEPOINT title="代入">
     <SUMMARY>
-      Be consistent in assignment forms.
+      <!-- Be consistent in assignment forms. -->
+      代入の書法には一貫性を持たせましょう。
     </SUMMARY>
     <BODY>
       <p>
@@ -1554,9 +1557,10 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Packages">
+  <STYLEPOINT title="パッケージ">
     <SUMMARY>
-      Use packages appropriately.
+      <!-- Use packages appropriately. -->
+      パッケージは適切に使いましょう。
     </SUMMARY>
     <BODY>
       <p>
@@ -1965,10 +1969,13 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Read-time evaluation">
+  <!-- <STYLEPOINT title="Read-time evaluation"> -->
+  <STYLEPOINT title="読み取り時評価">
     <SUMMARY>
-      You should use <code>#.</code> sparingly,
-      and you must avoid read-time side-effects.
+      <!-- You should use <code>#.</code> sparingly, -->
+      <!-- and you must avoid read-time side-effects. -->
+      <code>#.</code> の利用は控え目にす*べき*です。また、読み取り時に起こす副作用の利用は*絶対に*控えましょう。
+      <!-- and you must avoid read-time side-effects. -->
     </SUMMARY>
     <BODY>
       <p>
@@ -2009,7 +2016,8 @@ Robert Brown
   </STYLEPOINT>
   <STYLEPOINT title="EVAL-WHEN">
     <SUMMARY>
-      <code>EVAL-WHEN</code> is tricky. Be aware.
+      <!-- <code>EVAL-WHEN</code> is tricky. Be aware. -->
+      <code>EVAL-WHEN</code> の動作はトリッキーです。注意して使いましょう。
     </SUMMARY>
     <BODY>
       <p>
@@ -2046,7 +2054,8 @@ Robert Brown
   </STYLEPOINT>
   <STYLEPOINT title="CLOS">
     <SUMMARY>
-      Use CLOS appropriately.
+      <!-- Use CLOS appropriately. -->
+      CLOS は適切に使いましょう。
     </SUMMARY>
     <BODY>
       <p>
@@ -2340,9 +2349,10 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Lists vs. Pairs">
+  <STYLEPOINT title="リストかペアか">
     <SUMMARY>
-      Use the appropriate functions when manipulating lists.
+      <!-- Use the appropriate functions when manipulating lists. -->
+      リスト操作には適切な関数を用いましょう。
     </SUMMARY>
     <BODY>
       <p>
@@ -2403,9 +2413,11 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Lists vs. Sets">
+  <STYLEPOINT title="リストか集合か">
+  <!-- <STYLEPOINT title="Lists vs. Sets"> -->
     <SUMMARY>
-      You should only use lists as sets for very small lists.
+      <!-- You should only use lists as sets for very small lists. -->
+      集合としてのリストの用法は、それが非常に小さいサイズのものに限る*べき*です。
     </SUMMARY>
     <BODY>
       <p>
@@ -2432,9 +2444,10 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="#'FUN vs. 'FUN">
+  <STYLEPOINT title="#'FUN か 'FUN か">
     <SUMMARY>
-      You should usually refer to a function as <code>#'FUN</code> rather than <code>'FUN</code>.
+      <!-- You should usually refer to a function as <code>#'FUN</code> rather than <code>'FUN</code>. -->
+      関数の参照は、<code>'FUN</code>ではなく、通常 <code>#'FUN</code> として参照す*べき*です。
     </SUMMARY>
     <BODY>
       <p>
@@ -2482,9 +2495,11 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Pathnames">
+  <!-- <STYLEPOINT title="Pathnames"> -->
+  <STYLEPOINT title="パスネーム">
     <SUMMARY>
-      Common Lisp pathnames are tricky. Be aware of pitfalls.
+      <!-- Common Lisp pathnames are tricky. Be aware of pitfalls. -->
+      Common Lisp のパスネームはトリッキーです。落とし穴にはまらないよう注意しましょう。
     </SUMMARY>
     <BODY>
       <p>
