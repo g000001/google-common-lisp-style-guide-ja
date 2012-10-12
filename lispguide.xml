@@ -716,9 +716,11 @@ Robert Brown
       
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Vertical white space">
+  <!-- <STYLEPOINT title="Vertical white space"> -->
+  <STYLEPOINT title="空行">
     <SUMMARY>
-      Vertical white space: one blank line between top-level forms.
+      <!-- Vertical white space: one blank line between top-level forms. -->
+      空行: トップレベルの式は空行一つで隔てられます。
     </SUMMARY>
     <BODY>
       <p>
@@ -760,9 +762,11 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Horizontal white space">
+  <!-- <STYLEPOINT title="Horizontal white space"> -->
+  <STYLEPOINT title="水平方向の空白">
     <SUMMARY>
-      Horizontal white space: none around parentheses. No tabs.
+      <!-- Horizontal white space: none around parentheses. No tabs. -->
+      水平方向の空白: 括弧を空白で包んだりはしません。タブ文字の利用もしません。
     </SUMMARY>
     <BODY>
       <p>
@@ -1151,12 +1155,17 @@ Robert Brown
 
 </CATEGORY>
 
-<CATEGORY title="Naming">
-  <STYLEPOINT title="Symbol guidelines">
+<!-- <CATEGORY title="Naming"> -->
+<CATEGORY title="命名">
+  <!-- <STYLEPOINT title="Symbol guidelines"> -->
+  <STYLEPOINT title="シンボル書法のガイドライン">
     <SUMMARY>
-      You should use lower case.
-      You should not abbreviate.
-      You should follow punctuation conventions.
+      <!-- You should use lower case. -->
+      <!-- You should not abbreviate. -->
+      <!-- You should follow punctuation conventions. -->
+      小文字を用いる*べき*です。
+      略語は用いる*べき*ではありません。
+      句読点法の慣習には従う*べき*です。
     </SUMMARY>
     <BODY>
       <p>
@@ -2994,7 +3003,8 @@ Robert Brown
   </STYLEPOINT>
   <STYLEPOINT title="EVAL">
     <SUMMARY>
-      You should not use <code>EVAL</code>.
+      <!-- You should not use <code>EVAL</code>. -->
+      <code>EVAL</code> の利用は控える*べき*です。
     </SUMMARY>
     <BODY>
       <p>
@@ -3024,10 +3034,13 @@ Robert Brown
   </STYLEPOINT>
 </CATEGORY>
 
-<CATEGORY title="Optimization">
-  <STYLEPOINT title="Avoid Allocation">
+<!-- <CATEGORY title="Optimization"> -->
+<CATEGORY title="最適化">
+  <!-- <STYLEPOINT title="Avoid Allocation"> -->
+  <STYLEPOINT title="アロケーションを避ける">
     <SUMMARY>
-      You should avoid unnecessary allocation of memory.
+      <!-- You should avoid unnecessary allocation of memory. -->
+      メモリの無用なアロケーションは避ける*べき*です。
     </SUMMARY>
     <BODY>
       <p>
@@ -3056,11 +3069,14 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="DYNAMIC-EXTENT declarations">
+  <!-- <STYLEPOINT title="DYNAMIC-EXTENT declarations"> -->
+  <STYLEPOINT title="DYNAMIC-EXTENT 宣言">
     <SUMMARY>
-      You should only use <code>DYNAMIC-EXTENT</code>
-      where it matters for performance,
-      and you can document why it is correct.
+      <!-- You should only use <code>DYNAMIC-EXTENT</code> -->
+      <!-- where it matters for performance, -->
+      <!-- and you can document why it is correct. -->
+      <code>DYNAMIC-EXTENT</code> の利用はパフォーマンスが重要である場合に限る*べき*です。
+      さらには、宣言の利用の正当性を文書化しておきます。
     </SUMMARY>
     <BODY>
       <p>
@@ -3180,10 +3196,12 @@ Robert Brown
       
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="REDUCE vs APPLY">
+  <!-- <STYLEPOINT title="REDUCE vs APPLY"> -->
+  <STYLEPOINT title="REDUCE か APPLY か">
     <SUMMARY>
-      You should use <code>REDUCE</code>
-      instead of <code>APPLY</code> where appropriate.
+      <!-- You should use <code>REDUCE</code> -->
+      <!-- instead of <code>APPLY</code> where appropriate. -->
+      <code>APPLY</code> を利用する方がより適切な場合を除いて <code>REDUCE</code> を利用す*べき*です。
     </SUMMARY>
     <BODY>
       <p>
@@ -3220,11 +3238,14 @@ Robert Brown
       
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Avoid NCONC">
+  <!-- <STYLEPOINT title="Avoid NCONC"> -->
+  <STYLEPOINT title="NCONCの利用は控えましょう">
     <SUMMARY>
-      You should not use <code>NCONC</code>;
-      you should use <code>APPEND</code> instead,
-      or better data structures.
+      <!-- You should not use <code>NCONC</code>; -->
+      <!-- you should use <code>APPEND</code> instead, -->
+      <!-- or better data structures. -->
+      <code>NCONC</code>は利用す*べき*ではありません 
+      ——代りに <code>APPEND</code> を利用す*べき*です。もしくは他のデータ構造の利用しましょう
     </SUMMARY>
     <BODY>
       <p>
