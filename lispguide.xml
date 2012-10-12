@@ -2229,10 +2229,13 @@ Robert Brown
   </STYLEPOINT>
 </CATEGORY>
 
-<CATEGORY title="Data Representation">
-  <STYLEPOINT title="NIL: empty-list, false and I Don't Know">
+<!-- <CATEGORY title="Data Representation"> -->
+<CATEGORY title="データ表現">
+  <!-- <STYLEPOINT title="NIL: empty-list, false and I Don't Know"> -->
+  <STYLEPOINT title="NIL: 空リスト、偽値、なにやら分からない値">
     <SUMMARY>
-      Appropriately use or avoid to use <code>NIL</code>.
+      <!-- Appropriately use or avoid to use <code>NIL</code>. -->
+      <code>NIL</code>の使用/不使用は適切に行ないましょう。
     </SUMMARY>
     <BODY>
       <p>
@@ -2285,10 +2288,12 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Do not abuse lists">
+  <!-- <STYLEPOINT title="Do not abuse lists"> -->
+  <STYLEPOINT title="リストの乱用はしない">
     <SUMMARY>
-      You should select proper data representation.
-      You should not abuse the <code>LIST</code> data structure.
+      <!-- You should select proper data representation. You should not abuse the LIST data structure.  -->
+      データ表現は正しく選択す*べき*です。
+      <code>LIST</code>構造を乱用す*べき*ではありません。
     </SUMMARY>
     <BODY>
       <p>
@@ -2321,9 +2326,11 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Lists vs. structures vs. multiple values">
+  <!-- <STYLEPOINT title="Lists vs. structures vs. multiple values"> -->
+  <STYLEPOINT title="リストか構造体か多値か">
     <SUMMARY>
-      You should use the appropriate representation for product types.
+      <!-- You should use the appropriate representation for product types. -->
+      作るものに応じて適材適所で用いる*べき*です。
     </SUMMARY>
     <BODY>
       <p>
@@ -2564,14 +2571,18 @@ Robert Brown
   </STYLEPOINT>
 </CATEGORY>
 
-<CATEGORY title="Proper Forms">
+<!-- <CATEGORY title="Proper Forms"> -->
+<CATEGORY title="形式の書式">
   <p>
-    You must follow the proper usage regarding
-    well-known functions, macros and special forms.
+    <!-- You must follow the proper usage regarding -->
+    <!-- well-known functions, macros and special forms. -->
+    関数、マクロ、スペシャルフォームの使用方法として正しいと周知されていることには*絶対に*従うべきです。
   </p>
-  <STYLEPOINT title="Defining Constants">
+  <!-- <STYLEPOINT title="Defining Constants"> -->
+  <STYLEPOINT title="定数の定義">
     <SUMMARY>
-      You must use proper defining forms for constant values.
+      <!-- You must use proper defining forms for constant values. -->
+      定数の定義式は、*絶対に*正しく用いるべきです。
     </SUMMARY>
     <BODY>
       <p>
@@ -2630,13 +2641,15 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Defining Functions">
+  <!-- <STYLEPOINT title="Defining Functions"> -->
+  <STYLEPOINT title="関数の定義">
     <SUMMARY>
-      You should make proper use of
-      <code>&amp;OPTIONAL</code>,
-      <code>&amp;KEY</code>,
-      and
-      <code>&amp;AUX</code> arguments.
+      <!-- You should make proper use of -->
+      <!-- <code>&amp;OPTIONAL</code>, -->
+      <!-- <code>&amp;KEY</code>, -->
+      <!-- and -->
+      <!-- <code>&amp;AUX</code> arguments. -->
+      <code>&amp;OPTIONAL</code>、<code>&amp;KEY</code>、<code>&amp;AUX</code>引数は正しく用いる*べき*です。
     </SUMMARY>
     <BODY>
       <p>
@@ -2688,9 +2701,11 @@ Robert Brown
       
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Conditional Expressions">
+  <!-- <STYLEPOINT title="Conditional Expressions"> -->
+  <STYLEPOINT title="条件式">
     <SUMMARY>
-      Use the appropriate conditional form.
+      <!-- Use the appropriate conditional form. -->
+      条件式は適切に利用しましょう。
     </SUMMARY>
     <BODY>
       <p>
@@ -2749,9 +2764,11 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Identity, Equality and Comparisons">
+  <!-- <STYLEPOINT title="Identity, Equality and Comparisons"> -->
+  <STYLEPOINT title="同一性、等価性、比較">
     <SUMMARY>
-      You should the appropriate predicates when comparing objects.
+      <!-- You should the appropriate predicates when comparing objects. -->
+      オブジェクトを比較する場合は適切な述語を使用す*べき*です。
     </SUMMARY>
     <BODY>
       <p>
@@ -2844,9 +2861,11 @@ Robert Brown
       
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Iteration">
+  <!-- <STYLEPOINT title="Iteration"> -->
+  <STYLEPOINT title="繰り返し">
     <SUMMARY>
-      Use the appropriate form for iteration.
+      <!-- Use the appropriate form for iteration. -->
+      繰り返しの式は適切に利用しましょう。
     </SUMMARY>
     <BODY>
       <p>
@@ -2879,9 +2898,11 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="I/O">
+  <!-- <STYLEPOINT title="I/O"> -->
+  <STYLEPOINT title="入出力">
     <SUMMARY>
-      Use the appropriate I/O functions.
+      <!-- Use the appropriate I/O functions. -->
+      入出力関数は適切に利用しましょう。
     </SUMMARY>
     <BODY>
       <p>
@@ -2965,9 +2986,11 @@ Robert Brown
       </dl>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="INTERN and UNINTERN">
+  <!-- <STYLEPOINT title="INTERN and UNINTERN"> -->
+  <STYLEPOINT title="INTERN と UNINTERN">
     <SUMMARY>
-      You must not use <code>INTERN</code> or <code>UNINTERN</code> at runtime.
+      <!-- You must not use <code>INTERN</code> or <code>UNINTERN</code> at runtime. -->
+      実行時の<code>INTERN</code>と<code>UNINTERN</code>の使用は*絶対に*控えるべきです。
     </SUMMARY>
     <BODY>
       <p>
