@@ -28,10 +28,12 @@ Robert Brown
 <CATEGORY title="重要事項">
   <STYLEPOINT title="詳細情報の表示">
      <SUMMARY>
+      <!-- This style guide contains many details that are initially hidden from view. They are marked by the triangle icon, which you see here on your left. Click it now. You should see "Hooray" appear below. -->
        このスタイルガイドには詳細情報がたくさん盛り込まれていますが、最初は表示されていません。左端にある矢印ボタンをクリックしてみてください。 「ヒャッホー!」と表示されるはずです。
      </SUMMARY>
      <BODY>
        <p>
+        <!-- Hooray!  Now you know you can expand points to get more details. Alternatively, there's an "expand all" at the top of this document.-->
         ヒャッホー! このように矢印ボタンをクリックすると詳細情報が表示されます。 このドキュメントの先頭にある大きな矢印ボタンをクリックしても構いません。そうすれば、すべての詳細情報が表示されます。
        </p>
      </BODY>
@@ -39,13 +41,19 @@ Robert Brown
 </CATEGORY>
 <CATEGORY title="背景">
   <p>
+    <!--
     Common Lisp is a powerful multiparadigm programming language.
     With great power comes great responsibility.
     This guide recommends formatting and stylistic choices
     designed to make your code easier for other people to understand.
+    -->
+    Common Lispは強力なマルチパラダイム言語です。
+    強力さには責任が共ないます。
+    このガイドはあなたのコードを他人にとって理解しやすくするよう設計された書式とスタイルの選択を奨励します。
   </p>
   
   <p>
+    <!--
     This guide is not a Common Lisp tutorial.
     For basic information about the language, please consult
     <a HREF="http://www.gigamonkeys.com/book/">Practical Common Lisp</a>.
@@ -53,15 +61,28 @@ Robert Brown
     <a HREF="http://www.lispworks.com/documentation/HyperSpec/Front/index.htm">Common Lisp HyperSpec</a>.
     For more detailed style guidance, take a look at Peter Norvig and Kent Pitman's
     <a HREF="http://norvig.com/luv-slides.ps">style guide</a>.
+    -->
+    このガイドはCommon Lispのチュートリアルではありません。
+    言語についての基礎的な情報については
+    <a HREF="http://www.gigamonkeys.com/book/">Practical Common Lisp</a>を参照下さい。
+    言語リファレンスとしては
+    <a HREF="http://www.lispworks.com/documentation/HyperSpec/Front/index.htm">Common Lisp HyperSpec</a>を参照下さい。
+    より詳細なスタイルガイドについてはPeter Norvig とKent Pitmanの
+    <a HREF="http://norvig.com/luv-slides.ps">style guide</a>を見て下さい。
   </p>
 </CATEGORY>
 </OVERVIEW>
-<CATEGORY title="Meta-Guide">
-  <STYLEPOINT title="Must, Should, May, or Not">
+<CATEGORY title="メタガイド(佐野:日本語的には「ガイドの読み方」 などの方が良い？)"><!-- Meta-Guide -->
+  <STYLEPOINT title="Must,Should,May,Not(佐野:同上な理由で「要求レベルの表記方法」？)"><!-- Must, Should, May, or Not -->
     <SUMMARY>
+      <!--
       Each guideline's level of importance is indicated
       by use of the following keywords and phrases, adapted from
       <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>.
+      -->
+      それぞれのガイドラインの重要度のレベルは
+      <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>から
+      採用した以下の語句で示します。
     </SUMMARY>
     <BODY>
       <table>
@@ -69,9 +90,14 @@ Robert Brown
           <th valign="top">MUST</th>
           <td>
             <p>
+              <!--
               This word, or the terms "REQUIRED" or "SHALL",
               means that the guideline is an absolute requirement.
               You must ask permission to violate a MUST.
+              -->
+              (佐野:実際の訳語をどうするか)"MUST"、"REQUIRED"、"SHALL"といった用語は
+              そのガイドラインが絶対的な要求であることを意味します。
+              MUSTに違反する場合許可を求める必要(佐野:用語統一[must])があります。
             </p>
           </td>
         </tr>
@@ -79,9 +105,14 @@ Robert Brown
           <th valign="top">MUST NOT</th>
           <td>
             <p>
+              <!--
               This phrase, or the phrase "SHALL NOT",
               means that the guideline is an absolute prohibition.
               You must ask permission to violate a MUST NOT.
+              -->
+              "MUST NOT"や"SHALL NOT"といった句は
+              そのガイドラインが絶対的な禁止であることを意味します。
+              MUST NOTに違反する場合許可を求める必要(佐野:用語統一[must])があります。
             </p>
           </td>
         </tr>
@@ -89,12 +120,18 @@ Robert Brown
           <th valign="top">SHOULD</th>
           <td>
             <p>
+              <!--
               This word, or the adjective "RECOMMENDED", means that
               there may exist valid reasons in particular circumstances
               to ignore the demands of the guideline, but
               the full implications must be understood and carefully weighed
               before choosing a different course.
               You must ask forgiveness for violating a SHOULD.
+              -->
+              語"SHOULD"や形容詞"RECOMMENDED"は
+              ある状況ではガイドの要求を無視する適切な理由があるかもしれないことを意味しますが、
+              他のやりかたを選択する前にガイドの含意は理解され注意し重視される必要(佐野:用語統一[must])があります。
+              SHOULDに違反する場合許容を求める必要(佐野:用語統一[must])があります。
             </p>
           </td>
         </tr>
@@ -102,12 +139,18 @@ Robert Brown
           <th valign="top">SHOULD NOT</th>
           <td>
             <p>
+              <!--
               This phrase, or the phrase "NOT RECOMMENDED", means that
               there may exist valid reasons in particular circumstances
               to ignore the prohibitions of this guideline, but
               the full implications should be understood and carefully weighed
               before choosing a different course.
               You must ask forgiveness for violating a SHOULD NOT.
+              -->
+              句"SHOULD NOT"と句"NOT RECOMMENDED"は
+              ある状況ではガイドの禁止を無視する適切な理由があるかもしれないことを意味しますが、
+              他のやりかたを選択する前にガイドの含意は理解され注意し重視される必要(佐野:用語統一[must])があります。
+              SHOULD NOTに違反する場合許容を求める必要(佐野:用語統一[must])があります。
             </p>
           </td>
         </tr>
@@ -115,35 +158,50 @@ Robert Brown
           <th valign="top">MAY</th>
           <td>
             <p>
+              <!--
               This word, or the adjective "OPTIONAL",
               means that an item is truly optional.
+              -->
+              語"MAY"や形容詞"OPTIONAL"はその項目は本当に任意であることを意味する。
             </p>
           </td>
         </tr>
       </table>
       <p>
+        <!--
         Unlike RFCs, we don't capitalize every instance of one of the above
         keywords when it is used.
+        -->
+        RFCとは異なり、上記キーワードの利用全てを大文字で表記するわけではありません。
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Permission and Forgiveness">
+  <STYLEPOINT title="許可と許容"><!-- Permission and Forgiveness -->
     <SUMMARY>
+      <!--
       There are cases where transgression of some of these rules
       is useful or even necessary.
       In some cases, you must seek permission or obtain forgiveness
       from the proper people.
+      -->
+      ガイドで示すルールに対する違反が有効であったり必要であるケースがあります。
+      いくつかのケースでは許可を探すことや適切な人からの許容を求める必要(佐野:[must]訳語統一)があります
     </SUMMARY>
     <BODY>
       <p>
-        Permission comes from the OWNERS of your project.
+        <!--Permission comes from the OWNERS of your project.-->
+        許可はあなたのプロジェクトの所有者に由来する。
       </p>
       <p>
-        Forgiveness is requested in a comment
-        near the point of guideline violation,
+        <!--
+        Forgiveness is requested in a comment near the point of guideline violation, 
         and is granted by your code reviewer.
         The original comment should be signed by you, and
         the reviewer should add a signed approval to the comment at review time.
+        -->
+        許容はガイドライン違反をした場所の近くのコメントの中でリクエストされ、レビューアによって承諾されます。
+        オリジナルのコメントはあなた(佐野:起票行為者の意味で行くと日本語での「あなた」はどうだろう)の名前で署名されるべき(佐野:[should]訳語統一)で、レビューアは
+        レビュー時に署名した承認を追記すべき(佐野:[should]訳語統一)です。
       </p>
       
     </BODY>
