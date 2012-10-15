@@ -1601,30 +1601,39 @@ Robert Brown
   </STYLEPOINT>
 </CATEGORY>
 
-<CATEGORY title="Language usage guidelines">
-  <STYLEPOINT title="Mostly Functional Style">
+<!-- <CATEGORY title="Language usage guidelines"> -->
+<CATEGORY title="言語利用法のガイドライン">
+  <!-- <STYLEPOINT title="Mostly Functional Style"> -->
+  <STYLEPOINT title="概ね関数的スタイル">
     <SUMMARY>
-      You should avoid side-effects when they are not necessary.
+      <!-- You should avoid side-effects when they are not necessary. -->
+      副作用が必要のない場合はこれを避ける*べき*です。
     </SUMMARY>
     <BODY>
       <p>
-        Lisp is best used as a "mostly functional" language.
+        <!-- Lisp is best used as a "mostly functional" language. -->
+        Lispは"概ね関数型"言語としての使うのが最適です。
       </p>
       <p>
-        Avoid modifying local variables, try rebinding instead.
+        <!-- Avoid modifying local variables, try rebinding instead. -->
+        変数は変更(代入)するのではなく、再束縛を試みましょう。
       </p>
       <p>
-        Avoid creating objects and the SETFing their slots.
-        It's better to set the slots during initialization.
+        <!-- Avoid creating objects and the SETFing their slots. -->
+        <!-- It's better to set the slots during initialization. -->
+        オブジェクトを生成してスロットに値をSETFするのではなく、
+        初期化時にスロットに値を設定する方がより好ましいでしょう。
       </p>
       <p>
-        Make classes as immutable as possible, that is, avoid giving slots
-        setter functions if at all possible.
+        <!-- Make classes as immutable as possible, that is, avoid giving slots -->
+        <!-- setter functions if at all possible. -->
+        極力クラスは変更不可なものとして設計しましょう。換言すれば、それが可能な場合には、スロットにはセッター関数を付加しないということです。
       </p>
       <p>
-        Using a mostly functional style makes it much easier
-        to write concurrent code that is thread-safe.
-        It also makes it easier to test the code.
+        <!-- Using a mostly functional style makes it much easier -->
+        <!-- to write concurrent code that is thread-safe. -->
+        <!-- It also makes it easier to test the code. -->
+        概ね関数的スタイルに則せば、スレッドセーフな並行動作のコードを書くこともより易くなり、コードをテストするのもまたより易しくなります。
       </p>
     </BODY>
   </STYLEPOINT>
