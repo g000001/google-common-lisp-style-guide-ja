@@ -3573,28 +3573,38 @@ Robert Brown
         この関数の実行が終了した後には、該当オブジェクトには、どのような意味でも常にアクセス不可能になる、ということです。
       </p>
       <p>
+        <!--
         By declaring a variable or a local function <code>DYNAMIC-EXTENT</code>,
         the programmer <em>asserts</em> to Lisp
         that any object that is ever a value of that variable
         or the closure that is the definition of the function
         has a lifetime within the dynamic extent of the (innermost) function
         that declares the variable.
+        もってまわりすぎ？
+        -->
+        変数や局所関数に<code>DYNAMIC-EXTENT</code>宣言を付けることにより、プログラマは、
+        変数やクロージャーの寿命は(最内周の)関数の動的エクステント内であることを、Lisp処理系に<em>強引に指定</em>することになります。
       </p>
       <p>
-        The Lisp implementation is then free to use that information
-        to make the program faster.
-        Typically, Lisp implementations can take advantage of this knowledge
-        to stack-allocate:
+        <!-- The Lisp implementation is then free to use that information -->
+        <!-- to make the program faster. -->
+        宣言時、Lisp処理系は、任意でこの情報をプログラムの速度向上のために活用することができます。
+        <!-- Typically, Lisp implementations can take advantage of this knowledge -->
+        <!-- to stack-allocate: -->
+        典型的には、Lisp処理系は、この知識をスタック割付に役立てます:
       </p>
       <ul>
         <li>
-          The lists created to store <code>&amp;REST</code> parameters.
+          <!-- The lists created to store <code>&amp;REST</code> parameters. -->
+          <code>&amp;REST</code> 引数により作られるリスト
         </li>
         <li>
-          Lists and vector allocated within a function.
+          <!-- Lists and vector allocated within a function. -->
+          アロケートが関数内で収まっているリストとベクタ
         </li>
         <li>
-          Closures.
+          <!-- Closures. -->
+          クロージャー
         </li>
       </ul>
       <p>
