@@ -1484,7 +1484,7 @@ Robert Brown
         (but not mere cautionary explanations).
       </p>
       <p>
-        This strategy ensures that grepping for <code>;-</codacde>
+        This strategy ensures that grepping for <code>;---</code>
         will always yield all the comments that require caution,
         as well as whom to talk to about each one.
       </p>
