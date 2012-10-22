@@ -1423,38 +1423,56 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Global variables and constants">
+  <STYLEPOINT title="大域変数と定数"><!-- Global variables and constants -->
     <SUMMARY>
-      Name globals according to convention.
+      <!-- Name globals according to convention. -->
+      大域変数および定数の命名は慣習に従います。
     </SUMMARY>
     <BODY>
       <p>
-        The names of global constants should start and end
-        with plus characters.
+        <!-- The names of global constants should start and end -->
+        <!-- with plus characters. -->
+	大域定数の名前には、ばじめとおわりに+(ブラス記号)をつけるべきです。
       </p>
       <p>
-        Global variable names should start and end with asterisks
-        (also known in this context as earmuffs).
+        <!-- Global variable names should start and end with asterisks -->
+	大域変数の名前には、はじめとおわりに*(アスタリスク)をつけるべきです。
+        <!-- (also known in this context as earmuffs). -->
+	(このやり方は耳当てとして知られています。)
       </p>
       <p>
-        In some projects, parameters that are not meant
-        to be usually modified or bound under normal circumstances
-        (but may be during experimentation or exceptional situations)
-        should start (but do not end) with a dollar sign.
-        If such a convention exists within your project,
-        you should follow it consistently.
-        Otherwise, you should avoid naming variables like this.
+        <!-- In some projects, parameters that are not meant -->
+        <!-- to be usually modified or bound under normal circumstances -->
+        <!-- (but may be during experimentation or exceptional situations) -->
+        <!-- should start (but do not end) with a dollar sign. -->
+	いくつかのプロジェクトにおいては、
+	通常修正されるべきではないパラメータや、普段は束縛されるべきではないパラメータ
+	(ただし、試験や例外的な状況の間かもしれません)
+	のはじめ(おわりにはつけない)に$(ドル記号)をつけるべきです。
+        <!-- If such a convention exists within your project, -->
+        <!-- you should follow it consistently. -->
+	こういった慣習があなたのプロジェクトにおいてあるのなら、
+	あなたはそれに従うべきです。
+        <!-- Otherwise, you should avoid naming variables like this. -->
+	一方、あなたは変数をこのように名付けることは避けるべきです。
       </p>
       <p>
-        Common Lisp does not have global lexical variables,
-        so a naming convention is used to ensure that globals,
-        which are dynamically bound,
-        never have names that overlap with local variables.
-        It is possible to fake global lexical variables
-        with a differently named global variable
-        and a <code>DEFINE-SYMBOL-MACRO</code>.
-        You should not use this trick,
-        unless you first publish a library that abstracts it away.
+        <!-- Common Lisp does not have global lexical variables, -->
+        <!-- so a naming convention is used to ensure that globals, -->
+        <!-- which are dynamically bound, -->
+        <!-- never have names that overlap with local variables. -->
+	Common Lispは大域レキシカル変数を持ちません、
+	命名についての慣習は大域変数の動的束縛と
+	ローカル変数による名前の上書きからの保護を行います。
+        <!-- It is possible to fake global lexical variables -->
+        <!-- with a differently named global variable -->
+        <!-- and a <code>DEFINE-SYMBOL-MACRO</code>. -->
+	これは違う名前の大域変数と<code>DEFINE-SYMBOL-MACRO</code>による
+	偽りの大域レキシカル変数によって可能になります。
+        <!-- You should not use this trick, -->
+        <!-- unless you first publish a library that abstracts it away. -->
+	あなたが最初にそれを抽象化するライブラリを発行する場合を除いて、
+	あなたはこのようなトリックを使うべきではありません。
       </p>
       <CODE_SNIPPET>
         (defconstant +hash-results+ #xbd49d10d10cbee50)
