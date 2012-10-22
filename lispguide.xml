@@ -20,7 +20,7 @@ Robert Brown
 </address>
 
 <address>
-   In memoriam Dan Weinreb
+  Dan Weinrebに捧ぐ
 </address>
 
 <p align="center">
@@ -229,22 +229,28 @@ Robert Brown
       
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Conventions">
+  <STYLEPOINT title="慣例"><!-- Conventions -->
     <SUMMARY>
-      You MUST follow conventions. They are not optional.
-
+      <!-- You MUST follow conventions. They are not optional. -->
+      あなたは、慣例を確認しなければなりません。これは自由選択ではありません。
     </SUMMARY>
     <BODY>
       <p>
-        Some of these guidelines are motivated by universal principles of good programming.
-        Some guidelines are motivated by technical peculiarities of Common Lisp.
-        Some guidelines where once motivated by a technical reason,
-        but the guideline remained after the reason subsided.
-        Some guidelines, such those about as comments and indentation,
-        are based purely on convention, rather than on clear technical merit.
-        Whatever the case may be, you must still follow these guidelines,
-        as well as other conventional guidelines
-        that have not been formalized in this document.
+        <!-- Some of these guidelines are motivated by universal principles of good programming. -->
+        これらのガイドラインのいくつかは、よいプログラミングの普遍的な方針として設けられています。
+        <!-- Some guidelines are motivated by technical peculiarities of Common Lisp. -->
+	いくつかのガイドラインは、Common Lispの技術的に特別な面に基づいています。
+        <!-- Some guidelines where once motivated by a technical reason, -->
+        <!-- but the guideline remained after the reason subsided. -->
+	いくつかのガイドラインは単に技術的な理由に基づいていますが、ガイドラインはその理由がなくなったときに、見直されます。
+        <!-- Some guidelines, such those about as comments and indentation, -->
+        <!-- are based purely on convention, rather than on clear technical merit. -->
+	いくつかのガイドラインはコメントや字下げに関するもので、明確な技術的利点よりも純粋な議論に基づいています。
+        <!-- Whatever the case may be, you must still follow these guidelines, -->
+        <!-- as well as other conventional guidelines -->
+        <!-- that have not been formalized in this document. -->
+	いかなる場合でもあなたはこれらのガイドラインだけでなく、他の
+	この文書の中に形式化されていないガイドラインにも従わなければなりません。
       </p>
       <p>
         You MUST follow conventions.
@@ -268,66 +274,84 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Old Code">
+  <STYLEPOINT title="古いコード"><!-- Old Code -->
     <p>
-      A lot of our code was written before these guidelines existed.
-      You should fix violations as you encounter them
-      in the course of your normal coding.
-      You must not fix violations en masse
-      without warning other developers and coordinating with them,
-      so as not to make the merging of large branches
-      more difficult than it already is.
+      <!-- A lot of our code was written before these guidelines existed. -->
+      我々のコードのうちの多くは、これらガイドラインができる以前に書かれました。
+      <!-- You should fix violations as you encounter them -->
+      <!-- in the course of your normal coding. -->
+      あなたは普段のコーディングの間に遭遇したガイドラインに対する違反を修正していくべきです。
+      <!-- You must not fix violations en masse -->
+      <!-- without warning other developers and coordinating with them, -->
+      <!-- so as not to make the merging of large branches -->
+      <!-- more difficult than it already is. -->
+      あなたは、巨大なブランチの統合でいまよりも状況をややこしくすることを避けるために、
+      違反のすべて一時に、他の開発者に対する警告と話し合いなしに修正してはなりません。
     </p>
   </STYLEPOINT>
-  <STYLEPOINT title="Future Topics">
+  <STYLEPOINT title="将来の課題"><!-- Future Topics -->
     <SUMMARY>
-      There are many topics for additional standardization
-      not covered by current version of this document,
-      but deferred to future versions.
+      <!-- There are many topics for additional standardization -->
+      <!-- not covered by current version of this document, -->
+      <!-- but deferred to future versions. -->
+      ここには多くの追加の標準化すべき事柄があり、現在のバージョンのこの文書にはありませんが、将来のバージョンに延期されています。
     </SUMMARY>
     <BODY>
       <ul>
         <li>
-          File and directory structure
+          <!-- File and directory structure -->
+	  ファイルとディレクトリ構造
         </li>
         <li>
-          Packages and modularity
+          <!-- Packages and modularity -->
+	  パッケージとモジュール性
         </li>
         <li>
-          Threads and locking
+          <!-- Threads and locking -->
+	  スレッドとロック
         </li>
         <li>
-          How to add configurable components
+          <!-- How to add configurable components -->
+	  設定可能な部品の追加方法
         </li>
         <li>
-          CLOS style: initforms, slot and accessor names, etc.
+          <!-- CLOS style: initforms, slot and accessor names, etc. -->
+	  CLOSスタイル:初期化方法、スロットおよびアクセサの名前など
         </li>
         <li>
-          Recommendations on max number of slots per class.
+          <!-- Recommendations on max number of slots per class. -->
+	  クラスあたりのスロット数の推奨される最大の数
         </li>
         <li>
-          More concrete examples of good code:
+          <!-- More concrete examples of good code: -->
+	  より具体的なよいコードの例
           <ul>
             <li>
-              exceptions
+              <!-- exceptions -->
+	      例外
             </li>
             <li>
-              transactions, with retry
+              <!-- transactions, with retry -->
+	      トランザクションとリトライ
             </li>
             <li>
               XML
             </li>
             <li>
-              typing
+              <!-- typing -->
+	      型
             </li>
             <li>
-              encapsulation / abstraction
+              <!-- encapsulation / abstraction -->
+	      カプセル化と抽象化
             </li>
             <li>
-              class and slot names
+              <!-- class and slot names -->
+	      クラスとスロットの名前
             </li>
             <li>
-              etc.
+              <!-- etc. -->
+	      など
             </li>
           </ul>
         </li>
@@ -352,13 +376,15 @@ Robert Brown
     </BODY>
   </STYLEPOINT>
   </CATEGORY>
-<CATEGORY title="General Guidelines">
-  <STYLEPOINT title="Principles">
+<CATEGORY title="基本的なガイドライン"><!-- General Guidelines -->
+  <STYLEPOINT title="方針"><!-- Principles -->
     <SUMMARY>
-      There are some basic principles for team software development
-      that every developer must keep in mind.
-      Whenever the detailed guidelines are inadequate, confusing or contradictory,
-      refer back to these principles for guidance:
+      <!-- There are some basic principles for team software development -->
+      <!-- that every developer must keep in mind. -->
+      ここにはチームでソフトウェア開発をするにあたってすべての開発者が心にとめておくべきいくつかの基本的な方針を記してあります。
+      <!-- Whenever the detailed guidelines are inadequate, confusing or contradictory, -->
+      <!-- refer back to these principles for guidance: -->
+      ガイドラインの詳細が、不適切な、混乱を引き起こす、または矛盾している場合は方針について再度参照してください。
       <ul>
         <li>
           Every developer's code must be easy for another developer
@@ -372,87 +398,115 @@ Robert Brown
           and recognize it as "Fred's code" by its style.
         </li>
         <li>
-          Don't be "clever" &#8212;
-          do the simplest thing that could possibly work properly.
+          <!-- Don't be "clever" &#8212; -->
+          <!-- do the simplest thing that could possibly work properly. -->
+	  「切れ味鋭い」コードを書く必要はありません。単純に考えて、間違いなく動作するのに十分なコードを書いてください。
         </li>
         <li>
-          Be precise.
+          <!-- Be precise. -->
+	  精密に。
         </li>
         <li>
-          Be concise.
+          <!-- Be concise. -->
+	  簡潔に。
         </li>
         <li>
-          KISS &#8212; Keep It Simple, Stupid.
+          <!-- KISS &#8212; Keep It Simple, Stupid. -->
+	  KISSの原則を守りましょう。単純にしておきましょう、愚かに(Keep It Simple Stupid)。
         </li>
         <li>
-          Use the smallest hammer for the job.
+          <!-- Use the smallest hammer for the job. -->
+	  牛刀を使って鶏を割くことのないように。
+	  <!-- って書くのが日本語として熟れていると思うのですが、そうすると下の方の「small hammer」をどう処理するかが問題です。TOYOZUMI -->
         </li>
         <li>
-          Use common sense.
+          <!-- Use common sense. -->
+	  一般的な価値基準を用います。
         </li>
         <li>
-          Keep related code together.
-          Minimize the amount of jumping around
-          someone has to do to understand an area of code.
+          <!-- Keep related code together. -->
+          <!-- Minimize the amount of jumping around -->
+          <!-- someone has to do to understand an area of code. -->
+	  関連するコードは近くに。
+	  コードのあいだのジャンプは誰もが把握できる範囲で最小限に抑えます。
         </li>
       </ul>
     </SUMMARY>
     <BODY>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Priorities">
+  <STYLEPOINT title="優先順位"><!-- Priorities -->
     <SUMMARY>
       <p>
-        When making decisions about how to write a given piece of
-        code, aim for the following -ilities in this priority order:
+        <!-- When making decisions about how to write a given piece of -->
+        <!-- code, aim for the following -ilities in this priority order: -->
+	コードをどう書くかということを決定する際に、どんな「~やすさ」に重きをおくかはこの優先順位に従います。
       </p>
       <ul>
         <li>
-          Usability by the customer
+          <!-- Usability by the customer -->
+	  顧客にとっての使いやすさ
         </li>
         <li>
-          Debuggability/Testability
+          <!-- Debuggability/Testability -->
+	  デバッグのしやすさ、テストのしやすさ
         </li>
         <li>
-          Readability/Comprehensibility
+          <!-- Readability/Comprehensibility -->
+	  読みやすさ、理解しやすさ
         </li>
         <li>
-          Extensibility/Modifiability
+          <!-- Extensibility/Modifiability -->
+	  デバッグのしやすさ、テストのしやすさ
         </li>
         <li>
-          Efficiency (of the Lisp code at runtime)
+          <!-- Efficiency (of the Lisp code at runtime) -->
+	  (Lispコードの実行時の)性能の引き出しやすさ
         </li>
       </ul>
     </SUMMARY>
     <BODY>
       <p>
-        Most of these are obvious.
+        <!-- Most of these are obvious. -->
+	これらのうちほとんどは明白です。
       </p>
       <p>
-        Usability by the customer means that the system has to do what the
-        customer requires; it has to handle the customer's transaction
-        volumes, uptime requirements; etc.
+        <!-- Usability by the customer means that the system has to do what the -->
+        <!-- customer requires; it has to handle the customer's transaction -->
+        <!-- volumes, uptime requirements; etc. -->
+	顧客にとっての使いやすさとは、顧客がどうしてほしいかをシステムが持っていることを意味します。
+	これは顧客のトランザクションの大きさや稼働時間要求などによって左右されます。
       </p>
       <p>
-        For the Lisp efficiency point,
-        given two options of equivalent complexity,
-        pick the one that performs better.
-        (This is often the same as the one that conses less,
-        i.e. allocates less storage from the heap.)
+        <!-- For the Lisp efficiency point, -->
+        <!-- given two options of equivalent complexity, -->
+        <!-- pick the one that performs better. -->
+        <!-- (This is often the same as the one that conses less, -->
+        <!-- i.e. allocates less storage from the heap.) -->
+	Lispを効率的なものにするために、二つの同程度を複雑な選択肢から、
+	性能の良いものを選びます。
+	(これはしばしば、コンシングの少ない方、という意味と等価です。
+	つまり、ヒープから割り当てる領域が少なくて済む方、ということです）
       </p>
       <p>
-        Given two options where one is more complex than the other,
-        pick the simpler option and revisit the decision only if
-        profiling shows it to be a performance bottleneck.
+        <!-- Given two options where one is more complex than the other, -->
+        <!-- pick the simpler option and revisit the decision only if -->
+        <!-- profiling shows it to be a performance bottleneck. -->
+	与えられた二つの選択肢のうち、より複雑な方は、
+	簡単な選択肢を選んで、性能のボトルネックとなる点をプロファイリングによって
+	決定できたとき、もう一度やりなおすことです。
       </p>
       <p>
-        However, avoid premature optimization.
-        Don't add complexity to speed up something that runs rarely,
-        since in the long run, it matters less whether such code is fast.
+        <!-- However, avoid premature optimization. -->
+        <!-- Don't add complexity to speed up something that runs rarely, -->
+        <!-- since in the long run, it matters less whether such code is fast. -->
+	しかし、時期尚早な最適化は避けます。
+	滅多に走らない部分の高速化のために複雑ななにかを追加すべきではありません。
+	長い目で見るとそれはコードの高速化のためにさほど役に立ちません。
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Architecture">
+  <STYLEPOINT title="設計"><!-- Architecture -->
     <SUMMARY>
       To build code that is robust and maintainable,
       it matters a lot how the code is divided into components,
@@ -464,13 +518,19 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        If your work affects other groups, might be reusable across groups,
-        adds new components, has an impact on other groups
-        (including QA or Ops), or otherwise isn't purely local,
-        you must write it up using at least a couple of paragraphs,
-        and get a design approval from the other parties involved
-        before starting to write code &#8212; or be ready to scratch what you have
-        when they object.
+        <!-- If your work affects other groups, might be reusable across groups, -->
+        <!-- adds new components, has an impact on other groups -->
+        <!-- (including QA or Ops), or otherwise isn't purely local, -->
+        <!-- you must write it up using at least a couple of paragraphs, -->
+        <!-- and get a design approval from the other parties involved -->
+        <!-- before starting to write code &#8212; or be ready to scratch what you have -->
+        <!-- when they object. -->
+	もしあなたの仕事がほかのグループに影響を及ぼし、もしかするとグループの垣根を越えて再利用可能かもしれず、
+	あたらしい部品を追加され、（QAあるいはOpsを含めて）ほかのグループにおいて衝撃を与えるとき、
+	あるいは純粋に局地的なものでないとき、
+	あなたはそれらを最低でも数行の文章に書き起こし、
+	設計に対する指示をコードを書き始める前にをるいは、彼らのオブジェクトを自ら一から作る前に、
+	関連するほかの集団からも取り付けなければいけません。
       </p>
       <p>
         If you don't know or don't care about these issues,
@@ -478,86 +538,127 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Using Libraries">
+  <STYLEPOINT title="ライブラリの使用"><!-- Using Libraries -->
     <SUMMARY>
-      Often, the smallest hammer is to use an existing library.
-      Or one that doesn't exist yet.
-      In such cases, you are encouraged to use or develop such a library,
-      but you must take appropriate precautions.
+      <!-- Often, the smallest hammer is to use an existing library. -->
+      <!-- Or one that doesn't exist yet. -->
+      <!-- In such cases, you are encouraged to use or develop such a library, -->
+      <!-- but you must take appropriate precautions. -->
+      しばしば、鶏を捌くのに最適な包丁<!-- 上記の牛刀に合わせました -->は既存のライプラリの中にあります。
+      あるいは、どこにもありません。
+      それぞれの場合において、あなたはそれぞれライブラリを使うか開発することを
+      奨められますが、あなたは適切な備えを講じなければなりません。
     </SUMMARY>
     <BODY>
       <ul>
         <li>
-          You MUST NOT start a new library
-          unless you established that none is already available
-          that can be fixed or completed into becoming what you need.
-          That's a rule against the NIH syndrome ("Not Invented Here"),
-          which is particularly strong amongst Lisp hackers.
+          <!-- You MUST NOT start a new library -->
+          <!-- unless you established that none is already available -->
+          <!-- that can be fixed or completed into becoming what you need. -->
+	  自分が必要とするものが修正や補完で手に入るにもかかわらず、
+	  既存のライブラリにそれがない場合を除いて、あなたは新しいライブラリの開発を開始してはなりません。
+          <!-- That's a rule against the NIH syndrome ("Not Invented Here"), -->
+          <!-- which is particularly strong amongst Lisp hackers. -->
+	  このルールはLispハッカーには重症患者の多い、
+	  NIH("Not Invented Here"ここでつくられていない）症候群に対抗するものです。
         </li>
         <li>
-          Whichever library, old or new, you pick, you MUST get permission
-          to incorporate third-party code into the code base.
-          You must discuss the use of such library
-          in the appropriate mailing-list,
-          and have your code reviewed by people knowledgeable in the domain
-          and/or the Lisp library ecosystem (if any).
-          Please be ready to argue why this particular solution makes sense
-          as compared to other available libraries.
+          <!-- Whichever library, old or new, you pick, you MUST get permission -->
+          <!-- to incorporate third-party code into the code base. -->
+	  古いものであれ、新しいものであれ、どちらにせよライブラリをあなたが選んだら、
+	  あなたはコードベースへ第三者の作ったコードを組み込むために、
+	  許可を得なくてはなりません。
+          <!-- You must discuss the use of such library -->
+          <!-- in the appropriate mailing-list, -->
+          <!-- and have your code reviewed by people knowledgeable in the domain -->
+          <!-- and/or the Lisp library ecosystem (if any). -->
+	  あなたはそれぞれのライブラリを使用することについて、
+	  適切なメーリングリストで議論しなければならず、
+	  またあなたのコードをドメインと(もしあれば)Lispライブラリのエコシステムに
+	  詳しい人に査読してもらわなければなりません。
+          <!-- Please be ready to argue why this particular solution makes sense -->
+          <!-- as compared to other available libraries. -->
         </li>
         <li>
-          Some libraries are distributed under licenses not compatible
-          with the software you're writing, and
-          must not be considered available for use.
-          Be aware of these issues, or consult with people who are.
+          <!-- Some libraries are distributed under licenses not compatible -->
+          <!-- with the software you're writing, and -->
+          <!-- must not be considered available for use. -->
+	  いくつかのライブラリはあなたが書いているソフトウェアと互換性のないライセンスで
+	  配布されていて、使用できるものと考えてはなりません。
+          <!-- Be aware of these issues, or consult with people who are. -->
+	  これらの問題を認識し、あるいは認識している人に相談してください。
         </li>
       </ul>
       
       <p>
-        Note that if you have a "clever" implementation trick,
-        and your trick really is clever,
-        then you must definitely not include it in business specific code;
-        but it may have its place in an open-source library used by the code.
-        If your idea is not general purpose enough to have any users
-        beyond your regular business users,
-        then it is definitely either not clever enough or way too clever,
-        and in either case does not belong in the code.
+        <!-- Note that if you have a "clever" implementation trick, -->
+        <!-- and your trick really is clever, -->
+        <!-- then you must definitely not include it in business specific code; -->
+	注意として、あなたが実装についての「切れ味鋭い」技を持っていて、
+	くわえてあなたの技が真に「切れ味鋭い」ものであるとき、
+	あなたはまちがいなく、それを業務に固有のコードに含めるべきではありません。
+        <!-- but it may have its place in an open-source library used by the code. -->
+	しかし、そういったコードは時にオープンソースライブラリの中で使われています。
+        <!-- If your idea is not general purpose enough to have any users -->
+        <!-- beyond your regular business users, -->
+        <!-- then it is definitely either not clever enough or way too clever, -->
+        <!-- and in either case does not belong in the code. -->
+	もしあなたの考えがあなたの普段の業務ユーザのみならず、あらゆるユーザの総合的な用途に
+	対して満足に使えるものでない場合、
+	それは間違いなく、なまくらでも十分か、無駄に「切れ味鋭い」だけのどちらかであり、
+	どちらにせよ、コードにふさわしくありません。
       </p>
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="Open-Sourcing Code">
     <SUMMARY>
       <p>
-        If you write a general-purpose library,
-        or modify an existing open-source library,
-        you are encouraged to publish the result
-        separate from your main project and then
-        have your project import it like any other open-source library.
+        <!-- If you write a general-purpose library, -->
+        <!-- or modify an existing open-source library, -->
+        <!-- you are encouraged to publish the result -->
+        <!-- separate from your main project and then -->
+        <!-- have your project import it like any other open-source library. -->
+	あなたが総合的な用途のライブラリを書いていたり、
+	既存のオープンソースコードを修正しているときは、
+	あなたはその成果をあなたの本来のプロジェクトから切り離して、
+	配布し、他のオープンソースライブラリと同様にあなたのプロジェクトに組み入れる
+	ことを推奨されます。
       </p>
       
     </SUMMARY>
     <BODY>
       <p>
-        Use your judgment to distinguish
-        general-purpose versus business-specific code,
-        and open-source the general-purpose parts,
-        while keeping the business-specific parts a trade secret.
+        <!-- Use your judgment to distinguish -->
+        <!-- general-purpose versus business-specific code, -->
+        <!-- and open-source the general-purpose parts, -->
+        <!-- while keeping the business-specific parts a trade secret. -->
+	総合的な用途のための部品をオープンソース化し、
+	業務に固有の部品を企業秘密に保ち続けるために、
+	総合的な用途に使われるコードか、業務に固有のコードかを識別するあなたの判断が利用されます。
       </p>
       
       <p>
-        Open-Sourcing code has many advantages,
-        including being able to leverage third parties for development,
-        letting the development of features be user-directed,
-        and keeping you honest with respect to code quality.
-        Whatever code you write, you will have to maintain anyway,
-        and make sure its quality is high enough to sustain use in production.
-        There should therefore be no additional burden to Open-Sourcing,
-        even of code that (at least initially)
-        is not directly usable by third parties.
+        <!-- Open-Sourcing code has many advantages, -->
+        <!-- including being able to leverage third parties for development, -->
+        <!-- letting the development of features be user-directed, -->
+        <!-- and keeping you honest with respect to code quality. -->
+	オープンソース化されたコードは開発に第三者の梃子を入れ、
+	ユーザが直接機能を開発することを許し、あなたがコードの品質に対して経緯を持ち続けるようにすることをはじめとして、
+	多くの長所を持ちます。
+        <!-- Whatever code you write, you will have to maintain anyway, -->
+        <!-- and make sure its quality is high enough to sustain use in production. -->
+	あなたはどんなコードを書く時でも、とにかくそれを維持し、
+	製品の中で使い続けるために、必要十分なだけの高い品質を作り出さなければなりません。
+        <!-- There should therefore be no additional burden to Open-Sourcing, -->
+        <!-- even of code that (at least initially) -->
+        <!-- is not directly usable by third parties. -->
+	第三者にとって直接的に使いやすさにつながらない(最小限の)コードでも同じことですから、
+	オープンソース化によって新たに負荷があなたにかかることはないでしょう。
       </p>
       
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Development Process">
+  <STYLEPOINT title="開発手順"><!-- Development Process -->
     <SUMMARY>
       Development process is outside the scope of this document.
       However, developers should remember at least these bits:
@@ -568,53 +669,85 @@ Robert Brown
       </p>
       <ul>
         <li>
-          All code changes must be reviewed.
-          You should expect that your code will be reviewed by other hackers,
-          and that you will be assigned other hackers' code to review.
-          Part of the review criteria will be that code obeys
-          the coding standards in this document.
+          <!--   All code changes must be reviewed. -->
+	  すべてのコードの変更は査読されなければなりません。
+          <!--   You should expect that your code will be reviewed by other hackers, -->
+          <!--   and that you will be assigned other hackers' code to review. -->
+	  あなたは自分のコードが他のハッカーに査読されることを期待すべきですし、
+	  またあなたは他のハッカーのコードの査読に参加すべきです。
+          <!--   Part of the review criteria will be that code obeys -->
+          <!--   the coding standards in this document. -->
+	  査読の際の基準は、この文書にあるコーディング基準をそのコードが守っているか、ということです。
         </li>
         <li>
-          You must write and check-in tests for new code that you write and old bugs you fix.
-          There must be a unit test for every API function,
-          and any previously failing case.
-          Your work is not truly done until this activity is complete.
-          Estimating tasks must include the time it takes to produce such tests.
+          <!--   You must write and check-in tests for new code that you write and old bugs you fix. -->
+	  あなたは、古いバグを修正するためのあなたの書いた新しいコードのために、
+	  テストを書いてチェックインしなければなりません。
+          <!--   There must be a unit test for every API function, -->
+          <!--   and any previously failing case. -->
+	  それらは、すべてのAPI関数についてのものであり、
+	  また既知の失敗する条件のためのユニットテストでなければなりません。
+          <!--   Your work is not truly done until this activity is complete. -->
+	  あなたの仕事はこの活動が終了するまで真に終了したとはいえません。
+          <!--   Estimating tasks must include the time it takes to produce such tests. -->
+	  工数の見積もりは、その工程についてのテストが要する時間を含んでいなければなりません。
         </li>
         <li>
-          Your code must compile
-          without any compilation error or warning messages whatsoever.
-          If the compiler issues warnings that should be ignored,
-          muffle those warnings using the
-          <code>xcvb-driver:with-controlled-compiler-conditions</code> and
-          <code>xcvb-driver:*uninteresting-conditions*</code>
-          framework (also available as <code>asdf-condition-control</code>),
-          either around the entire project, or around individual files
-          (using asdf's <code>:around-compile</code> hooks).
+          <!--   Your code must compile -->
+          <!--   without any compilation error or warning messages whatsoever. -->
+	  あなたのコードは、あらゆるコンパイルエラーや警告メッセージを発生させずにコンパイルされなければなりません。
+          <!--   If the compiler issues warnings that should be ignored, -->
+          <!--   muffle those warnings using the -->
+          <!--   <code>xcvb-driver:with-controlled-compiler-conditions</code> and -->
+          <!--   <code>xcvb-driver:*uninteresting-conditions*</code> -->
+          <!--   framework (also available as <code>asdf-condition-control</code>), -->
+          <!--   either around the entire project, or around individual files -->
+          <!--   (using asdf's <code>:around-compile</code> hooks). -->
+	  もし、コンパイラの問題で警告を無視させるときはそれぞれの警告を
+          <code>xcvb-driver:with-controlled-compiler-conditions</code>と
+          <code>xcvb-driver:*uninteresting-conditions*</code>フレームワーク 
+	  (ときには<code>asdf-condition-control</code>という名前で使用可能です)を使って
+	  プロジェクト全体にわたってあるいは独立したファイルを包みます
+          (asdfの<code>:around-compile</code>フックを使います)。
         </li>
         <li>
-          All code should be checked in an appropriate source control system,
-          in a way that allows for complete reproducibility of
-          build, test and execution of
-          the code that is, has been or may be deployed.
+          <!--   All code should be checked in an appropriate source control system, -->
+          <!--   in a way that allows for complete reproducibility of -->
+          <!--   build, test and execution of -->
+          <!--   the code that is, has been or may be deployed. -->
+	  すべてのコードは、完全にビルドを再構築できて、そのコードをテストし、実行し、
+	  配布されたあるいは配布されるかもしれない状態で、
+	  適切なソースコード管理システムにチェックインすべきです。
         </li>
         <li>
-          You must run the "precheckin" tests, and each component must pass
-          its unit tests successfully before you commit any code.
+          <!--   You must run the "precheckin" tests, and each component must pass -->
+          <!--   its unit tests successfully before you commit any code. -->
+	  あなたはいかなるコードをチェックインするときでも、その前に、
+	  「チェックイン前」テストを走らせ、それぞれの部品がそのユニットテストを通過することを
+	  確認しなければなりません。
         </li>
         <li>
-          You should incorporate code coverage into your testing process.
-          Tests are not sufficient
-          if they do not cover all new and updated code;
+          <!--   You should incorporate code coverage into your testing process. -->
+          <!--   Tests are not sufficient -->
+          <!--   if they do not cover all new and updated code; -->
+	  あなたはあなたのテスト工程の範囲にコードを取り入れるようにすべきです。
+	  テストがすべての新しい、あるいは更新されたコードを対象にできていないのなら、
+	  そのテストは十分ではありません。
           code that for whatever reason cannot be included in coverage results
           should be clearly marked as such including the reason.
         </li>
         <li>
-          Many people develop on branches.
-          You must get permission to undertake mass-changes
-          (e.g. mass reindentations)
-          so that we can coordinate in advance,
-          and give branch residents time to get back on the mainline
+          <!--   Many people develop on branches. -->
+	  多くの人々はブランチ上で開発します。
+          <!--   You must get permission to undertake mass-changes -->
+          <!--   (e.g. mass reindentations) -->
+          <!--   so that we can coordinate in advance, -->
+          <!--   and give branch residents time to get back on the mainline -->
+	  あなたは巨大な変更（例えば全体にわたる字下げのやり直し）に対して、
+	  それによって起きる影響を事前に調整して、
+	  ブランチ上での開発者にメインラインとの差分を小さくするための、
+	  十分な時間を与えるために、
+	  その変更についての権限を得なければなりません。
         </li>
       </ul>
     </BODY>
@@ -709,55 +842,71 @@ Robert Brown
       
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Line length">
+  <STYLEPOINT title="行の長さ"><!-- Line length -->
     <SUMMARY>
-      You should format source code so that no line is longer than 100 characters.
+      <!-- You should format source code so that no line is longer than 100 characters. -->
+      あなたはソースコードの中に100文字を超える行がないように整形すべきです。
     </SUMMARY>
     <BODY>
       <p>
-        Some line length restriction is better than none at all.
-        While old text terminals used to make 80 columns the standard,
-        these days, allowing 100 columns seems better,
-        since good style encourages the use of
-        descriptive variables and function names.
+        <!-- Some line length restriction is better than none at all. -->
+	いくつかの行の長さについての制限はないよりはましです。
+        <!-- While old text terminals used to make 80 columns the standard, -->
+        <!-- these days, allowing 100 columns seems better, -->
+        <!-- since good style encourages the use of -->
+        <!-- descriptive variables and function names. -->
+	100文字の制限は、その意味を示した変数や関数の名前を使う、
+	良い姿勢へと誘導します。
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Indentation">
+  <STYLEPOINT title="字下げ"><!-- Indentation -->
     <SUMMARY>
       <p>
-        Indent your code the way a properly configured GNU Emacs does.
+        <!-- Indent your code the way a properly configured GNU Emacs does. -->
+	コードの字下げはGNU Emacsにあらかじめ設定されている値に従います。
       </p>
       <p>
-        Indent carefully to make the code easier to understand.
+        <!-- Indent carefully to make the code easier to understand. -->
+	コードの理解を簡単にするため、字下げは慎重に行います。
       </p>
     </SUMMARY>
     <BODY>
       <p>
-        By default, GNU Emacs does an excellent job indenting Common Lisp code.
-        It can be taught how to indent new defining forms
-        and special rules for domain specific languages.
-        Each project may have some file to customize indentation; use it.
+        <!-- By default, GNU Emacs does an excellent job indenting Common Lisp code. -->
+	GNU EmacsはCommon Lispのコードの字下げについて、初期設定のままで素晴らしい仕事をします。
+        <!-- It can be taught how to indent new defining forms -->
+        <!-- and special rules for domain specific languages. -->
+	新しい定義形式やドメイン固有言語のための特別なルールを教えることもできます。
+        <!-- Each project may have some file to customize indentation; use it. -->
+	それぞれのプロジェクトがカスタマイズされた字下げのルールを記したファイルを持っている場合もありますが、
+	その際はそれを使います。
       </p>
       
       
       <p>
-        Use indentation to make complex function applications easier to read.
-        When an application does not fit on one line
-        or the function takes many arguments,
-        consider inserting newlines between the arguments
-        so that each one is on a separate line.
-        However, do not insert newlines in a way that makes it hard to tell
-        how many arguments the function takes
-        or where an argument form starts and ends.
+        <!-- Use indentation to make complex function applications easier to read. -->
+	字下げは、複雑な機能を持ったアプリケーションを簡単に読めるようにするために使われます。
+        <!-- When an application does not fit on one line -->
+        <!-- or the function takes many arguments, -->
+        <!-- consider inserting newlines between the arguments -->
+        <!-- so that each one is on a separate line. -->
+	アプリケーションが一行に収まらないときや、関数が数多くの引数をとるとき、
+	引数と引数の間に開業をいれ、それぞれを分割された行に収めることを考えます。
+        <!-- However, do not insert newlines in a way that makes it hard to tell -->
+        <!-- how many arguments the function takes -->
+        <!-- or where an argument form starts and ends. -->
+	しかし、改行を関数がいくつの引数をとるのかわかりづらくするような位置に入れたり、引数リストの最初や最後にいれてはなりません。
       </p>
       <BAD_CODE_SNIPPET>
-        ;; Bad
+        <!-- ;; Bad -->
+        ;; 悪い例
         (do-something first-argument second-argument (lambda (x)
             (frob x)) fourth-argument last-argument)
       </BAD_CODE_SNIPPET>
       <CODE_SNIPPET>
-        ;; Better
+        <!-- ;; Better -->
+        ;; 良い例
         (do-something first-argument
                       second-argument
                       #'(lambda (x) (frob x))
@@ -766,47 +915,67 @@ Robert Brown
       </CODE_SNIPPET>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="File Header">
+  <STYLEPOINT title="ファイルヘッダ">
     <SUMMARY>
       <p>
-        You must include maintainership and other important information
-        at the top of each source file.
+        <!-- You must include maintainership and other important information -->
+        <!-- at the top of each source file. -->
+	あなたはそれぞれのソースファイルの最初に維持やそのほかの重要な情報を含めなければなりません。
       </p>
       <p>
-        You should not include a copyright statement in source files.
+        <!-- You should not include a copyright statement in source files. -->
+	あなたはソースファイルに著作権情報を含めるべきではありません。
       </p>
     </SUMMARY>
     <BODY>
       <p>
-        Every source file may begin with a one-line description of the file.
+        <!-- Every source file may begin with a one-line description of the file. -->
+	すべてのソースはファイルについての一行の解説から始まるとよいです。
       </p>
       <p>
-        After that optional description,
-        every source file may prominently include a statement
-        about who originally wrote the code,
-        made major changes, and/or is the current owner/maintainer.
-        This makes it easier for hackers to locate
-        whom to ask questions about the code,
-        or to identify that no one is left to reply to such inquiries.
-        However, consider that the information
-        is not very helpful if it is not maintained;
-        unless it brings information
-        that cannot be easily extracted from source control,
-        it is better skipped.
+        <!-- After that optional description, -->
+        <!-- every source file may prominently include a statement -->
+        <!-- about who originally wrote the code, -->
+        <!-- made major changes, and/or is the current owner/maintainer. -->
+	すべてのファイルには、必要であれば追加の解説を記したあとに、
+	誰がコードの初版を書き、大きな変更をし、現在の保有者あるいは保守担当なのか、
+	という提示を記しても良いでしょう。
+        <!-- This makes it easier for hackers to locate -->
+        <!-- whom to ask questions about the code, -->
+        <!-- or to identify that no one is left to reply to such inquiries. -->
+	これはハッカー達が簡単にコードについての質問をする相手を探すことができるようしたり、
+	そのような問い合わせをできる人がいないことを識別することができるようにするためです。
+        <!-- However, consider that the information -->
+        <!-- is not very helpful if it is not maintained; -->
+        <!-- unless it brings information -->
+        <!-- that cannot be easily extracted from source control, -->
+        <!-- it is better skipped. -->
+	この部分が保守されていないと、これは混乱を引き起こす要因になりますが、
+	これはソースコード管理システムから簡単にこの手の情報を切り出すことができない場合に限りますので、
+	ソースコード管理システムからこの手の情報を引き出せるときは、書かない方が良いでしょう。
       </p>
       <p>
-        After that optional statement, every file should follow with
-        a brief explanation of what the file contains.
+        <!-- After that optional statement, every file should follow with -->
+        <!-- a brief explanation of what the file contains. -->
+	すべてのファイルには、必要であれば追加の提示を記したあとに、
+	ファイルの内容についての概要説明を記すべきです。
       </p>
       <p>
-        After that explanation, every file should start the code itself with an
-        <code>(in-package :<em>package-name</em>)</code> form.
+        <!-- After that explanation, every file should start the code itself with an -->
+        <!-- <code>(in-package :<em>package-name</em>)</code> form. -->
+	すべてのファイルでは、説明のあとに、コード自体を
+        <code>(in-package :<em>package-name</em>)</code>フォームで
+	始めるべきです。
       </p>
       <p>
-        After that <code>in-package</code> form,
-        every file should follow with any file-specific
-        <code>(declaim (optimize ...))</code> declaration
-        that is not covered by an asdf <code>:around-compile</code> hook.
+        <!-- After that <code>in-package</code> form, -->
+        <!-- every file should follow with any file-specific -->
+        <!-- <code>(declaim (optimize ...))</code> declaration -->
+        <!-- that is not covered by an asdf <code>:around-compile</code> hook. -->
+	すべてのファイルは、<code>in-package</code>フォームのあとに、
+	asdf <code>:around-compile</code>が関与しない、
+	ファイル固有の
+        <code>(declaim (optimize ...))</code>などの形式で行われる宣言を記すべきです。
       </p>
       <CODE_SNIPPET>
         ;;;; Author: brown (Robert Brown)
@@ -817,13 +986,17 @@ Robert Brown
         (declaim #.*optimize-default*)
       </CODE_SNIPPET>
       <p>
-        You should not include copyright information in individual source code files.
-        An exception is made for files meant to be disseminated as standalone.
+        <!-- You should not include copyright information in individual source code files. -->
+        <!-- An exception is made for files meant to be disseminated as standalone. -->
+	あなたはそれぞれのソースコードファイルに対して著作権表示を含めるべきではありません。
+	この例外はファイルを単体で配布することを予定して作っているときです。
       </p>
       <p>
-        Each project or library has a single file specifying its license.
-        Absence of a <tt>LICENSE</tt> or <tt>COPYING</tt> file
-        means the project is proprietary code.
+        <!-- Each project or library has a single file specifying its license. -->
+        <!-- Absence of a <tt>LICENSE</tt> or <tt>COPYING</tt> file -->
+        <!-- means the project is proprietary code. -->
+	それぞれのプロジェクトとライブラリにはその固有のライセンスを記した単体のファイルを含めます。
+	<tt>LICENSE</tt>あるいは<tt>COPYING</tt>というファイルがない場合はそのプロジェクトが独占的なものであることを示します。
       </p>
       
     </BODY>
@@ -836,11 +1009,13 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        You should include one blank line between top-level forms,
-        such as function definitions.
-        Exceptionally, blank lines can be omitted
-        between simple, closely related defining forms of the same kind,
-        such as a group of related type declarations or constant definitions.
+        <!-- You should include one blank line between top-level forms, -->
+        <!-- such as function definitions. -->
+	あなたは、関数定義のようなトップレベルフォームを、空行一つで隔てるべきです。
+        <!-- Exceptionally, blank lines can be omitted -->
+        <!-- between simple, closely related defining forms of the same kind, -->
+        <!-- such as a group of related type declarations or constant definitions. -->
+	型宣言や定数宣言のような単純で、近しい関係にある同等の定義が隣り合う場合は、例外的に一行の空行を入れなくてもかまいません。
       </p>
       <CODE_SNIPPET>
         (defconstant +mix32+ #x12b9b0a1 "pi, an arbitrary number")
@@ -857,20 +1032,30 @@ Robert Brown
           `(setf ,x (logand (+ ,x ,y) #xffffffffffffffff)))
       </CODE_SNIPPET>
       <p>
-        Blank lines can be used to separate parts of a complicated function.
-        Generally, however, you should break a large function into smaller ones
-        instead of trying to make it more readable by adding vertical space.
-        If you can't, you should document with a <code>;;</code> comment
-        what each of the separated parts of the function does.
+        <!-- Blank lines can be used to separate parts of a complicated function. -->
+	空行は複雑な関数をいくつかに分解するためにも有用です。
+        <!-- Generally, however, you should break a large function into smaller ones -->
+        <!-- instead of trying to make it more readable by adding vertical space. -->
+        <!-- If you can't, you should document with a <code>;;</code> comment -->
+        <!-- what each of the separated parts of the function does. -->
+	しかしながら、あなたは、総じて巨大な関数は小さな関数に割ってやり、より読みやすいように、
+	縦方向の空白を追加して読みやすくすべきです。
+	あなたにそれができない場合は、あなたは<code>;;</code>で始まるコメントを
+	関数のそれぞれの分割点に書き残すべきです。
       </p>
       <p>
-        Every top-level form
-        should be fewer than 61 lines long,
-        including comments but excluding the documentation string.
-        This applies to each of the forms in an <code>eval-when</code>,
-        rather than to the <code>eval-when</code> itself.
-        Additionally, <code>defpackage</code> forms may be longer,
-        since they may include long lists of symbols.
+        <!-- Every top-level form -->
+        <!-- should be fewer than 61 lines long, -->
+        <!-- including comments but excluding the documentation string. -->
+	すべてのトップレベルフォームはコメントを含め、docstringを除いて61行以下に収めるべきです。
+        <!-- This applies to each of the forms in an <code>eval-when</code>, -->
+        <!-- rather than to the <code>eval-when</code> itself. -->
+        <!-- Additionally, <code>defpackage</code> forms may be longer, -->
+        <!-- since they may include long lists of symbols. -->
+	これは一つの<code>eval-when</code>それ自体ではなくて
+	<code>eval-when</code>のなかに含まれたそれぞれのフォームに
+	適用されます。また、<code>defpackage</code>フォームは
+	長いシンボルのリストを含めるため、これよりも長くなります。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -882,15 +1067,20 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        You must not include extra horizontal whitespace
-        before or after parentheses or around symbols.
+        <!-- You must not include extra horizontal whitespace -->
+        <!-- before or after parentheses or around symbols. -->
+	あなたは、余計な水平方向の空白を括弧やシンボルの間には含めてはなりません。
       </p>
       <p>
-        You must not place right parentheses by themselves on a line.
-        A set of consecutive trailing parentheses must appear on the same line.
+        <!-- You must not place right parentheses by themselves on a line. -->
+        <!-- A set of consecutive trailing parentheses must appear on the same line. -->
+	あなたは右括弧のためだけの行を設けてはなりません。
+	連続する括弧は同じ行に収めなければなりません。
+
       </p>
       <BAD_CODE_SNIPPET>
-        ;; Very Bad
+        <!-- ;; Very Bad -->
+        ;; 酷すぎる例
         ( defun factorial ( limit )
           ( let (( product 1 ))
             ( loop for i from 1 upto limit
@@ -900,7 +1090,8 @@ Robert Brown
         )
       </BAD_CODE_SNIPPET>
       <CODE_SNIPPET>
-        ;; Better
+        <!-- ;; Better -->
+        ;; 良い例
         (defun factorial (limit)
           (let ((product 1))
             (loop for i from 1 upto limit
@@ -908,51 +1099,64 @@ Robert Brown
             product))
       </CODE_SNIPPET>
       <p>
-        You should use only one space between forms.
+        <!-- You should use only one space between forms. -->
+	あなたはフォームを一つの空白で隔てるべきです。
       </p>
       <p>
-        You should not use spaces to vertically align forms
-        in the middle of consecutive lines.
-        An exception is made when the code possesses
-        an important yet otherwise not visible symmetry
-        that you want to emphasize.
+        <!-- You should not use spaces to vertically align forms -->
+        <!-- in the middle of consecutive lines. -->
+	あなたは行の間に縦方向にフォームを揃えるために空白を挿入すべきではありません。
+        <!-- An exception is made when the code possesses -->
+        <!-- an important yet otherwise not visible symmetry -->
+        <!-- that you want to emphasize. -->
+	これについての例外はコードの支配をするために見えない対称性を強調することを、
+	あなたが重要視するときです。
       </p>
       <BAD_CODE_SNIPPET>
-        ;; Bad
+        <!-- ;; Bad -->
+        ;; 悪い例
         (let* ((low    1)
                (high   2)
                (sum    (+ (* low low) (* high high))))
           ...)
       </BAD_CODE_SNIPPET>
       <CODE_SNIPPET>
-        ;; Better
+        <!-- ;; Better -->
+        ;; 良い例
         (let* ((low 1)
                (high 2)
                (sum (+ (* low low) (* high high))))
           ...))
       </CODE_SNIPPET>
       <p>
-        You must align nested forms if they occur across more than one line.
+        <!-- You must align nested forms if they occur across more than one line. -->
+	あなたは入れ子になったフォームが複数行にわたるとき、これを縦揃えしなければなりません。
       </p>
       <BAD_CODE_SNIPPET>
-        ;; Bad
+        <!-- ;; Bad -->
+        ;; 悪い例
         (defun munge (a b c)
         (* (+ a b)
         c))
       </BAD_CODE_SNIPPET>
       <CODE_SNIPPET>
-        ;; Better
+        <!-- ;; Better -->
+        ;; 良い例
         (defun munge (a b c)
           (* (+ a b)
              c))
       </CODE_SNIPPET>
       <p>
-        The convention is that the body of a binding form
-        is indented two spaces after the form.
-        Any binding data before the body is usually indented four spaces.
-        Arguments to a function call are aligned with the first argument;
-        if the first argument is on its own line,
-        it is aligned with the function name.
+        <!-- The convention is that the body of a binding form -->
+        <!-- is indented two spaces after the form. -->
+	慣例では変数束縛のフォームのあと、二つの空白で字下げします。
+        <!-- Any binding data before the body is usually indented four spaces. -->
+	値の束縛を行うフォームは通常四つの空白で字下げします。
+        <!-- Arguments to a function call are aligned with the first argument; -->
+        <!-- if the first argument is on its own line, -->
+        <!-- it is aligned with the function name. -->
+	関数呼び出しの引数は最初の引数の位置で縦揃えします。
+	もし、最初の引数が、関数名の行に存在しない場合は、関数名で縦揃えします。
       </p>
       <CODE_SNIPPET>
         (multiple-value-bind (a b c d)
@@ -962,67 +1166,102 @@ Robert Brown
           (also-using b d))
       </CODE_SNIPPET>
       <p>
-        An exception to the rule against lonely parentheses
-        is made for an <code>eval-when</code> form around several definitions;
-        in this case, include a comment <code>; eval-when</code>
-        after the closing parenthesis.
+        <!-- An exception to the rule against lonely parentheses -->
+        <!-- is made for an <code>eval-when</code> form around several definitions; -->
+        <!-- in this case, include a comment <code>; eval-when</code> -->
+        <!-- after the closing parenthesis. -->
+	括弧を単体で行においてはならないルールの例外は
+	いくつかの定義をくるんだ<code>eval-when</code>フォームを置いたことによって
+	括弧が単体で行に置かれる場合です。
+	この場合、閉じ括弧の行に <code>; eval-when</code>を記しておきます。
       </p>
       <p>
-        You must set your editor to
-        avoid inserting tab characters in the files you edit.
-        Tabs cause confusion when editors disagree
-        on how many spaces they represent.
-        In Emacs, do <code>(setq-default indent-tabs-mode nil)</code>.
+        <!-- You must set your editor to -->
+        <!-- avoid inserting tab characters in the files you edit. -->
+	あなたはあなたが編集するファイルにタブ文字が挿入されることを防ぐために、
+	エディタを設定しなければなりません。
+        <!-- Tabs cause confusion when editors disagree -->
+        <!-- on how many spaces they represent. -->
+        <!-- In Emacs, do <code>(setq-default indent-tabs-mode nil)</code>. -->
+	タブはエディタによって表現するために使用される空白の個数が違うため、
+	混乱を引き起こします。
+        Emacsにおいては<code>(setq-default indent-tabs-mode nil)</code>を実行すれば、
+	この問題を回避できます。
       </p>
     </BODY>
   </STYLEPOINT>
 </CATEGORY>
 
-<CATEGORY title="Documentation">
-  <STYLEPOINT title="Document everything">
+<CATEGORY title="文書化"><!-- Documentation -->
+  <STYLEPOINT title=""><!-- Document everything -->
     <SUMMARY>
-      You should use document strings on all visible functions
-      to explain how to use your code.
+      <!-- You should use document strings on all visible functions -->
+      <!-- to explain how to use your code. -->
+      あなたはあなたのコードの使い方について説明するために、すべての見える関数に対して文書化用文字列を使うべきです。
     </SUMMARY>
     <BODY>
       <p>
-        Unless some bit of code is painfully self-explanatory,
-        document it with a documentation string (also known as docstring).
+        <!-- Unless some bit of code is painfully self-explanatory, -->
+        <!-- document it with a documentation string (also known as docstring). -->
+	それ自体が十分すぎる自己の解説になっているような、いくつかのコード片は除いて、
+	それについて（docstringとして知られている）文書化用文字列で文書化します。
       </p>
       <p>
-        Documentation strings are destined to be read
-        by the programmers who use your code.
-        They can be extracted from functions, types, classes, variables and macros,
-        and displayed by programming tools, such as IDEs,
-        or by REPL queries such as <code>(describe 'foo)</code>;
-        web-based documentation or other reference works
-        can be created based on them.
-        Documentation strings are thus the perfect locus to document your API.
-        They should describe how to use the code
-        (including what pitfalls to avoid),
-        as opposed to how the code works (and where more work is needed),
-        which is what you'll put in comments.
+        <!-- Documentation strings are destined to be read -->
+        <!-- by the programmers who use your code. -->
+	文書化用文字列はあなたのコードを使うプログラマ達が読むためのものです。
+        <!-- They can be extracted from functions, types, classes, variables and macros, -->
+        <!-- and displayed by programming tools, such as IDEs, -->
+        <!-- or by REPL queries such as <code>(describe 'foo)</code>; -->
+	文書化用文字列は関数や型、クラス、変数及びマクロから切り出すことができ、IDEのような開発ツールで表示させたり、
+	REPLにおいて<code>(describe 'foo)</code>といった
+	クエリを発行して利用することができます。
+        <!-- web-based documentation or other reference works -->
+        <!-- can be created based on them. -->
+	Webベースの文書やその他の手引きも文書化用文字列から作り出すことができます。
+        <!-- Documentation strings are thus the perfect locus to document your API. -->
+	文書化用文字列はそれ故、あなたのAPIの完全な指標となります。
+        <!-- They should describe how to use the code -->
+        <!-- (including what pitfalls to avoid), -->
+        <!-- as opposed to how the code works (and where more work is needed), -->
+        <!-- which is what you'll put in comments. -->
+	文書化用文字列は、（落とし穴の回避方法を含んだ）コードの使い方について解説すべきであり、
+	コードがどう働くかということ（それから必要なその他のこと）を書く、コメントとは対照的です。
       </p>
       <p>
-        Supply a documentation string when defining
-        top-level functions, types, classes, variables and macros.
-        Generally, add a documentation string wherever the language allows.
+        <!-- Supply a documentation string when defining -->
+        <!-- top-level functions, types, classes, variables and macros. -->
+	（docstringのような）文書化用文字列は、トップレベル関数や、型、クラスおよびマクロの定義時に供給されます。
+
+        <!-- Generally, add a documentation string wherever the language allows. -->
+	総合的に、どんな言語でも文書化用文字列は追加できます。
       </p>
       <p>
-        For functions, the docstring should describe the function's contract:
-        what the function does,
-        what the arguments mean,
-        what values are returned,
-        what conditions the function can signal.
-        It should be expressed at the appropriate level of abstraction,
-        explaining the intended meaning rather than, say, just the syntax.
-        In documentation strings, capitalize the names of Lisp symbols,
-        such as function arguments.
-        For example, "The value of LENGTH should be an integer."
+        <!-- For functions, the docstring should describe the function's contract: -->
+        <!-- what the function does, -->
+        <!-- what the arguments mean, -->
+        <!-- what values are returned, -->
+        <!-- what conditions the function can signal. -->
+	関数のためのdocstringはその関数が、
+	この関数は何をするのか、
+	引数は何を意味するのか、
+	どんな値が返ってくるのか、
+	関数はどんなコンディションを発信するのか、
+	について説明すべきです。
+        <!-- It should be expressed at the appropriate level of abstraction, -->
+        <!-- explaining the intended meaning rather than, say, just the syntax. -->
+        <!-- In documentation strings, capitalize the names of Lisp symbols, -->
+        <!-- such as function arguments. -->
+	これは適切な抽象化レベルにおいて表現されるべきで、
+	単なる文法を述べるのではなく、何をするためのものかということを説明すべきです。
+	文書文字列のなかにおいては、関数の引数のような、Lispシンボルは大文字にします。
+        <!-- For example, "The value of LENGTH should be an integer." -->
+        例えば、 "LENGTHの値は整数値であるべきです。"といった具合です。
       </p>
       <CODE_SNIPPET>
         (defun small-prime-number-p (n)
-          "Return T if N, an integer, is a prime number. Otherwise, return NIL."
+          <!-- "Return T if N, an integer, is a prime number. Otherwise, return NIL." -->
+          "Nが整数でかつ素数ならTが返ります。そうでない場合はNILが返ります。"
           (cond ((or (&lt; n 2))
                  nil)
                 ((= n 2)
@@ -1040,17 +1279,21 @@ Robert Brown
             associations, and returns the table itself."))
       </CODE_SNIPPET>
       <p>
-        A long docstring may usefully
-        begin with a short, single-sentence summary,
-        followed by the larger body of the docstring.
+        <!-- A long docstring may usefully -->
+        <!-- begin with a short, single-sentence summary, -->
+        <!-- followed by the larger body of the docstring. -->
+	長いDocstringは、短い、そのあとに続くdocstringの概要を示す単文で始めることで便利になります。
       </p>
       <p>
-        When the name of a type is used,
-        the symbol may be quoted by surrounding it with
-        a back quote at the beginning and a single quote at the end.
-        Emacs will highlight the type, and the highlighting serves
-        as a cue to the reader that <kbd>M-.</kbd>
-        will lead to the symbol's definition.
+        <!-- When the name of a type is used, -->
+        <!-- the symbol may be quoted by surrounding it with -->
+        <!-- a back quote at the beginning and a single quote at the end. -->
+	型の名前を使うときはバッククォートを名前の最初におき、最後に単一引用符をおいて囲んでやります。
+        <!-- Emacs will highlight the type, and the highlighting serves -->
+        <!-- as a cue to the reader that <kbd>M-.</kbd> -->
+        <!-- will lead to the symbol's definition. -->
+	Emacsは型をハイライトし、ハイライトされた部分でキーバインド<kbd>M-.</kbd>を実行することで、
+	シンボルの定義部へと導いてくれます。
       </p>
       <CODE_SNIPPET>
         (defun bag-tag-expected-itinerary (bag-tag)
@@ -1059,22 +1302,30 @@ Robert Brown
           ...)
       </CODE_SNIPPET>
       <p>
-        Every method of a generic function should be independently documented
-        when the specialization affects what the method does,
-        beyond what is described in its generic function's docstring.
+        <!-- Every method of a generic function should be independently documented -->
+        <!-- when the specialization affects what the method does, -->
+        <!-- beyond what is described in its generic function's docstring. -->
+	総称関数におけるすべてのメソッドにおいては、それぞれの特殊化された場合において
+	メソッドが何をするかということを、その総称関数のdocstringに書かれていないより詳しい点について、
+	個別に文書化されるべきです。
       </p>
       <p>
-        When you fix a bug,
-        consider whether what the fixed code does is obviously correct or not;
-        if not, you must add a comment explaining
-        the reason for the code in terms of fixing the bug.
-        Adding the bug number, if any, is also recommended.
+        <!-- When you fix a bug, -->
+        <!-- consider whether what the fixed code does is obviously correct or not; -->
+	バグを修正するときは、その修正がはっきりと正しいかそうではないか考えます。
+        <!-- if not, you must add a comment explaining -->
+        <!-- the reason for the code in terms of fixing the bug. -->
+	もしそうではないなら、あなたはバグを修正するためにそのコードを用いた理由を説明するコメントを
+	追加しなければなりません。
+        <!-- Adding the bug number, if any, is also recommended. -->
+	もしバグ番号があるならそれも追加します。
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Comment semicolons">
+  <STYLEPOINT title="コメントのセミコロン"><!-- Comment semicolons -->
     <SUMMARY>
-      You must use the appropriate number of semicolons to introduce comments.
+      <!-- You must use the appropriate number of semicolons to introduce comments. -->
+      あなたは、適切な数のセミコロンでコメントを開始しなくてはなりません。
     </SUMMARY>
     <BODY>
        <p>
@@ -1101,26 +1352,35 @@ Robert Brown
       </p>
       <ul>
         <li>
-          File headers and important comments
-          that apply to large sections of code in a source file
-          should begin with four semicolons.
+          <!-- File headers and important comments -->
+          <!-- that apply to large sections of code in a source file -->
+          <!-- should begin with four semicolons. -->
+	  ファイルヘッダやソースファイル中のコードの巨大な領域に適用される重要なコメントは、
+	  四つのセミコロンで始めるべきです。
         </li>
         <li>
-          You should use three semicolons
-          to begin comments that apply to just
-          one top-level form or small group of top-level forms.
+          <!-- You should use three semicolons -->
+          <!-- to begin comments that apply to just -->
+          <!-- one top-level form or small group of top-level forms. -->
+	  あなたは、一つのトップレベルフォームや、トップレベルフォームの小さな集合に適用されるコメントを、
+	  三つのセミコロンで始めるべきです。
         </li>
         <li>
-          Inside a top-level form, you should use two semicolons
-          to begin a comment if it appears between lines.
+          <!-- Inside a top-level form, you should use two semicolons -->
+          <!-- to begin a comment if it appears between lines. -->
+	  トップレベルフォームの中において、行と行の間でコメントを開始するときは、
+	  二つのセミコロンで開始すべきです。
         </li>
         <li>
-          You should use one semicolon if it is a parenthetical remark
-          and occurs at the end of a line.
-          You should use spaces to separate the comment
-          from the code it refers to so the comment stands out.
-          You should try to vertically align
-          consecutive related end-of-line comments.
+          <!-- You should use one semicolon if it is a parenthetical remark -->
+          <!-- and occurs at the end of a line. -->
+	  あなたは行末において補足的な情報を含めたい時に一つのセミコロンを使うべきです。
+          <!-- You should use spaces to separate the comment -->
+          <!-- from the code it refers to so the comment stands out. -->
+	  あなたはコメントを空白を使って関連するコードから目立つように分離すべきです。
+          <!-- You should try to vertically align -->
+          <!-- consecutive related end-of-line comments. -->
+	  あなたは連続する行末コメントを縦揃えすることを試みるべきです。
         </li>
       </ul>
       <CODE_SNIPPET>
@@ -1156,45 +1416,58 @@ Robert Brown
                        never (divisorp i n)))))
       </CODE_SNIPPET>
       <p>
-        You should include a space between the semicolon and the text of the comment.
+        <!-- You should include a space between the semicolon and the text of the comment. -->
+	あなたはコメントのセミコロンと文章の間に空白を含めるべきです。
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Grammar and punctuation">
+  <STYLEPOINT title="文法と句読点"><!-- Grammar and punctuation -->
     <SUMMARY>
       You should punctuate documentation correctly.
     </SUMMARY>
     <BODY>
       <p>
-        When a comment is a full sentence,
-        you should capitalize the initial letter of the first word
-        and end the comment with a period.
-        In general, you should use correct punctuation.
+        <!-- When a comment is a full sentence, -->
+        <!-- you should capitalize the initial letter of the first word -->
+        <!-- and end the comment with a period. -->
+	コメントの全文において、あなたは最初の単語の最初の文字を大文字にして、
+	コメントの最後をピリオドで終えるべきです。
+        <!-- In general, you should use correct punctuation. -->
+	総合的に、あなたは句読点について校正を行うべきです。
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Attention Required">
+  <STYLEPOINT title="注目の集め方"><!-- Attention Required -->
     <SUMMARY>
-      You must follow the convention of using <code>---</code>
-      for comments requiring special attention,
-      including unobvious tricks, TODO items, questions, breakage, danger.
+      <!-- You must follow the convention of using /code/ -->
+      <!-- for comments requiring special attention, -->
+      <!-- including unobvious tricks, TODO items, questions, breakage, danger. -->
+      あなたは、コメントにおいて、特異なトリックや、TODOのアイテム、質問、破壊的行為、危険な箇所について、
+      特別な注目を集めたい時は、<code>---</code>を使用した慣例に従わなければなりません。
     </SUMMARY>
     <BODY>
       <ul>
         <li>
-          <code>;--- </code> prefixes a cautionary comment,
-          e.g. explaining why the code in question is particularly
-          tricky, delicate, or non-obvious.
+          <!-- <code>;- </code> prefixes a cautionary comment, -->
+          <!-- e.g. explaining why the code in question is particularly -->
+          <!-- tricky, delicate, or non-obvious. -->
+          <code>;--- </code> で始まるコメントは、局所的に技巧的であったり、機敏であったり、
+	  また一般的ではないために説明を必要とするコードに対する、注意を含んだコメントです。 
         </li>
         <li>
-          <code>;---??? </code> prefixes a serious question
-          which needs to be resolved soon,
-          by fixing either the code or its documentation.
+          <!-- <code>;-??? </code> prefixes a serious question -->
+          <!-- which needs to be resolved soon, -->
+          <!-- by fixing either the code or its documentation. -->
+          <code>;---??? </code> で始まるコメントは、コードあるいは文書の修正によって
+	  早期の解決が求められる真面目な問題を含んだコメントです。
         </li>
         <li>
-          <code>;---!!! </code> identifies code which is broken,
-          but which for some reason you cannot fix at this time.
-          You should not use this often for new code.
+          <!-- <code>;-!!! </code> identifies code which is broken, -->
+          <!-- but which for some reason you cannot fix at this time. -->
+          <code>;---!!! </code> は、そのコードが壊れているけれどもいくつかの理由によって
+	  あなたには今解決できないことを示しています。
+          <!-- You should not use this often for new code. -->
+	  あなたは新しいコードに対して頻繁にこれを使うべきではありません。
         </li>
         <li>
           <code>;---*** </code> identifies active <em>DANGER</em>,
@@ -1205,49 +1478,65 @@ Robert Brown
         </li>
       </ul>
       <p>
-        You must sign and date
-        any of the above "requiring further attention" comments
+        <!-- You must sign and date -->
+        <!-- any of the above "requiring further attention" comments -->
+	あなたは日付つきの署名を「注目を集めさせている」コメントの上にしなければなりません。
         (but not mere cautionary explanations).
       </p>
       <p>
-        This strategy ensures that grepping for <code>;---</code>
+        This strategy ensures that grepping for <code>;-</codacde>
         will always yield all the comments that require caution,
         as well as whom to talk to about each one.
       </p>
       <p>
-        Only use <code>;---</code> on the first line of such a comment.
-        Other lines should use spaces to align vertically.
-        This way, grepping will also yield a count of the number of issues.
+        <!-- Only use <code>;-</code> on the first line of such a comment. -->
+        <!-- Other lines should use spaces to align vertically. -->
+        <!-- This way, grepping will also yield a count of the number of issues. -->
+	<code>;---</code>はそれぞれのコメントの最初の行にのみ起きます。
+	他の行では空白を用いて縦揃えします。
+	こうしておけば、grepを使って問題の数を数えられます。
       </p>
       <p>
-        You should insert a space after this comment prefix.
+        <!-- You should insert a space after this comment prefix. -->
+	あなたは、コメントの接頭辞のあとに空白を挿入すべきです。
       </p>
       <p>
-        You may use these with multiple-semicolon comments as well.
+        <!-- You may use these with multiple-semicolon comments as well. -->
+	あなたは、複数のセミコロンで始まるコメントにこの接頭辞についての慣例を適用することもできます。
       </p>
       <p>
-        Some people like to use words like <code>FIXME</code> or <code>TODO</code>.
-        You may use these, but they must be preceded with <code>---</code>.
+        <!-- Some people like to use words like <code>FIXME</code> or <code>TODO</code>. -->
+        <!-- You may use these, but they must be preceded with <code>-</code>. -->
+	人によっては <code>FIXME</code>あるいは<code>TODO</code>という単語を好んで使うことでしょう。
+	あなたはこれを使うこともできますが、その前に<code>---</code>を置かなければなりません。
       </p>
       <p>
-        Use TODO comments when the code is known to be incomplete
-        and you want to indicate what work remains to be done.
+        <!-- Use TODO comments when the code is known to be incomplete -->
+        <!-- and you want to indicate what work remains to be done. -->
+	TODOコメントは既知の未完了のコードがあって、あなたがそれを忘れないように
+	示しておきたいときに使います。
       </p>
       <p>
-        The comments begin with <code>TODO</code> in all capital letters,
-        followed by your email address or other identifier in parentheses,
-        followed by a colon, a space, and
-        an explanation of what additional work is desirable or required.
-        The user name included in the comment is that
-        of a person who understands the deficiency.
-        A TODO comment is not a commitment to fix the problem.
+        <!-- The comments begin with <code>TODO</code> in all capital letters, -->
+        <!-- followed by your email address or other identifier in parentheses, -->
+        <!-- followed by a colon, a space, and -->
+        <!-- an explanation of what additional work is desirable or required. -->
+	コメントはすべて大文字の<code>TODO</code>で始めて、
+	あなたのEメールアドレスかその他識別に使えるIDを括弧の中に収め、
+	コロンと空白に続けて、望ましいあるいは要求している作業についての説明を書きます。
+        <!-- The user name included in the comment is that -->
+        <!-- of a person who understands the deficiency. -->
+	ユーザ名をコメント内に含めるのは、誰が求めているかを明らかにするためです。
+        <!-- A TODO comment is not a commitment to fix the problem. -->
+	TODOコメントは問題が修正されるという公約ではありません。
       </p>
       <p>
-        When signing comments,
-        you should use your username (for code within the company)
-        or full email address (for code visible outside the company),
-        not just initials.
-        
+        <!-- When signing comments, -->
+        <!-- you should use your username (for code within the company) -->
+        <!-- or full email address (for code visible outside the company), -->
+        <!-- not just initials. -->
+        コメントに署名する際は、あなたはユーザ名（コードが会社内のものである場合）あるいは、
+	Eメールアドレス（コードが社内からでも見られる場合）を使い、イニシャルを使うべきではありません。
       </p>
       <CODE_SNIPPET>
         ;;--- TODO(george@gmail.com): Refactor to provide a better API.
@@ -1261,34 +1550,47 @@ Robert Brown
       </CODE_SNIPPET>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Domain-Specific Languages">
+  <STYLEPOINT title="ドメイン固有言語(DSL)"><!-- Domain-Specific Languages -->
     <SUMMARY>
-      You should document DSLs and
-      any terse program in a DSL.
+      <!-- You should document DSLs and -->
+      <!-- any terse program in a DSL. -->
+      あなたはDSLとDSLによって書かれた簡潔なプログラムについて文書化すべきです。
     </SUMMARY>
     <BODY>
       <p>
-        You should design your Domain Specific Language
-        to be easy to read and understand by people familiar with the domain.
+        <!-- You should design your Domain Specific Language -->
+        <!-- to be easy to read and understand by people familiar with the domain. -->
+	あなたはあなたのドメイン固有言語を同じような仕事をする人々にとって簡単に読めて理解できるよう
+	設計すべきです。
       </p>
       <p>
-        You must properly document all your Domain Specific Language.
+        <!-- You must properly document all your Domain Specific Language. -->
+	あなたはあなたのドメイン固有言語について徹底的に文書化しなければなりません。
       </p>
       <p>
-        Sometimes, your DSL is designed for terseness.
-        In that case, it is important to document what each program does,
-        if it's not painfully obvious from the context.
+        <!-- Sometimes, your DSL is designed for terseness. -->
+	ときにあなたのDSLは無愛想に設計されています。
+        <!-- In that case, it is important to document what each program does, -->
+        <!-- if it's not painfully obvious from the context. -->
+	そのような場合は、文脈から自明のことは除いて、
+	それぞれのプログラムの為すことについて重要な点を文書化してください。
       </p>
       <p>
-        Notably, when you use regular expressions
-        (e.g. with the <code>CL-PPCRE</code> package),
-        you MUST ALWAYS put in a comment
-        (usually a two-semicolon comment on the previous line)
-        explaining, at least basically, what the regular expression does,
-        or what the purpose of using it is.
-        The comment need not spell out every bit of the syntax, but
-        it should be possible for someone to follow the logic of the code
-        without actually parsing the regular expression.
+        <!-- Notably, when you use regular expressions -->
+        <!-- (e.g. with the <code>CL-PPCRE</code> package), -->
+        <!-- you MUST ALWAYS put in a comment -->
+        <!-- (usually a two-semicolon comment on the previous line) -->
+        <!-- explaining, at least basically, what the regular expression does, -->
+        <!-- or what the purpose of using it is. -->
+	特に、あなたは正規表現（例えば<code>CL-PPCRE</code>パッケージ）を使うとき、
+	あなたは、いつも、
+	最低限基本的な部分について正規表現がなにを為すのかあるいはそれをどのような用途に供するのか、
+	（前の行に二つのセミコロンを入れたコメントを使って）コメントを入れなければなりません。
+        <!-- The comment need not spell out every bit of the syntax, but -->
+        <!-- it should be possible for someone to follow the logic of the code -->
+        <!-- without actually parsing the regular expression. -->
+	このコメントは文法の一つ一つを子細に説明する必要はありませんが、
+	実際に正規表現をパーズすることなく、誰かがコードの論理を追うには十分であるべきです。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -1309,40 +1611,61 @@ Robert Brown
     </SUMMARY>
     <BODY>
       <p>
-        Use lower case for all symbols.
-        Consistently using lower case makes searching for symbol names easier
-        and is more readable.
+        <!-- Use lower case for all symbols. -->
+        <!-- Consistently using lower case makes searching for symbol names easier -->
+        <!-- and is more readable. -->
+	すべてのシンボルにおいて小文字を使います。
+	一貫して小文字を使うことで、シンボル名を探しやすくし、より読みやすくします。
       </p>
       <p>
-        Note that Common Lisp is case-converting,
-        and that the <code>symbol-name</code> of your symbols
-        will be upper case.
-        Because of this case-converting,
-        attempts to distinguish symbols by case are defeated,
-        and only result in confusion.
-        While it is possible to escape characters in symbols
-        to force lower case,
-        you should not use this capability
-        unless this is somehow necessary
-        to interoperate with third-party software.
+        <!-- Note that Common Lisp is case-converting, -->
+        <!-- and that the <code>symbol-name</code> of your symbols -->
+        <!-- will be upper case. -->
+	気に留めておくべき点として、Common Lispは大文字小文字変換を行い、あなたのシンボルの<code>symbol-name</code>は、
+	大文字になるということがあります。
+        <!-- Because of this case-converting, -->
+        <!-- attempts to distinguish symbols by case are defeated, -->
+        <!-- and only result in confusion. -->
+	これは大文字小文字変換によるもので、
+	シンボルを大文字や小文字によって識別することを困難にし、結果的に混乱を引き起こします。
+        <!-- While it is possible to escape characters in symbols -->
+        <!-- to force lower case, -->
+        <!-- you should not use this capability -->
+        <!-- unless this is somehow necessary -->
+        <!-- to interoperate with third-party software. -->
+	シンボル内の文字をエスケープして強制的に小文字にすることができますが、
+	あなたはどうにかして第三者によるソフトウェアを補完するために必要な場合を除いて、
+	これをすべきではありません。
       </p>
       <p>
-        Place hyphens between all the words in a symbol.
-        If you can't easily say an identifier out loud,
-        it is probably badly named.
+        <!-- Place hyphens between all the words in a symbol. -->
+	シンボル内の単語と単語の間にはハイフンを置きます。
+        <!-- If you can't easily say an identifier out loud, -->
+        <!-- it is probably badly named. -->
+	もしあなたが識別子を大声で読み上げることができないのなら、おそらくひどい名前がつけられています。
       </p>
       <p>
-        You must not use <code>"/"</code> or <code>"."</code>
-        instead of <code>"-"</code>
-        unless you have a well-documented overarching reason to,
-        and permission from other hackers who review your proposal.
+        <!-- You must not use <code>"/"</code> or <code>"."</code> -->
+        <!-- instead of <code>"-"</code> -->
+        <!-- unless you have a well-documented overarching reason to, -->
+        <!-- and permission from other hackers who review your proposal. -->
+        あなたは
+	よく文書化されたすべてにおける理由がある場合や、
+	あなたの提案を査読した他のハッカーが権限を与えた場合を除いて
+	<code>"-"</code>ではなく、<code>"/"</code>や<code>"."</code>を
+	使うべきではありません。
       </p>
       <p>
-        Generally, you should do not abbreviate words.
-        You must avoid using abbreviations for words,
-        unless it's a word that is used very frequently,
-        in which case you must use
-        the <em>same</em> abbreviation <em>consistently</em>.
+        <!-- Generally, you should do not abbreviate words. -->
+	総合的に言って、あなたは単語を短縮すべきではありません。
+        <!-- You must avoid using abbreviations for words, -->
+        <!-- unless it's a word that is used very frequently, -->
+        <!-- in which case you must use -->
+        <!-- the <em>same</em> abbreviation <em>consistently</em>. -->
+	あなたは
+	その単語があまりにも頻繁に現れる場合で、
+	あなたが必ず、<em>一貫して</em><em>同等の</em>短縮形を使っている場合を除いて、
+	単語に対する短縮を避けなければなりません。
         Abbreviations may also be used sparingly to avoid overly-long symbol names;
         it's easy to run into 100-column limit when there are very long names!
         You must especially avoid inconsistent abbreviations in exported names.
@@ -1351,38 +1674,49 @@ Robert Brown
       <p>
       </p>
       <BAD_CODE_SNIPPET>
-        ;; Bad
+        <!-- ;; Bad -->
+	;; 悪い例
         (defvar *default-username* "Ann")
         (defvar *max-widget-cnt* 200)
       </BAD_CODE_SNIPPET>
       <CODE_SNIPPET>
-        ;; Better
+        <!-- ;; Better -->
+	;; 良い例
         (defvar *default-user-name* "Ann")
         (defvar *maximum-widget-count* 200)
       </CODE_SNIPPET>
       <p>
-        There are conventions in Common Lisp
-        for the use of punctuation in symbols.
-        You should not use punctuation in symbols outside these conventions.
+        <!-- There are conventions in Common Lisp -->
+        <!-- for the use of punctuation in symbols. -->
+        <!-- You should not use punctuation in symbols outside these conventions. -->
+        これはCommon Lispだけの慣例で、シンボル内で句読点を使います。
+	あなたはこの慣例の外で、シンボル内に句読点を使うべきではありません。
       </p>
       <p>
-        Unless the scope of a variable is very small,
-        do not use overly short names like
-        <code>i</code> and <code>zq</code>.
+        <!-- Unless the scope of a variable is very small, -->
+        <!-- do not use overly short names like -->
+        <!-- <code>i</code> and <code>zq</code>. -->
+	変数のスコープが極端に小さい場合を除いて、
+	異様に短い
+	<code>i</code>とか<code>zq</code>といった名前を使うべきではありません。
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Denote intent, not content">
+  <STYLEPOINT title="意図を示して内容を示さない"><!-- Denote intent, not content -->
     <SUMMARY>
-      Name your variables according to their intent,
-      not their content.
+      <!-- Name your variables according to their intent, -->
+      <!-- not their content. -->
+      あなたの変数名は意図から名付けられ、内容から名付けられません。
     </SUMMARY>
     <BODY>
       <p>
-        You should name a variable according
-        to the high-level concept that it represents,
-        not according to the low-level implementation details
-        of how the concept is represented.
+        <!-- You should name a variable according -->
+        <!-- to the high-level concept that it represents, -->
+        <!-- not according to the low-level implementation details -->
+        <!-- of how the concept is represented. -->
+	あなたは高レベルの概念を低レベルの実装がどう表現するかという
+	詳細からではなくて、
+	その概念そのものの表現から変数を名付けるべきです。
       </p>
       <p>
         Thus, you should avoid embedding
