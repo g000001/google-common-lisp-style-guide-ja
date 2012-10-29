@@ -2057,17 +2057,15 @@ Robert Brown
         <!-- &#8212; which is known as proper tail calls (PTC), -->
         <!-- tail call elimination (TCE), -->
         <!-- or tail call optimization (TCO). -->
-	Common Lispシステムは、最適末尾呼び出しや末尾呼び出し削除、および末尾呼び出し最適化などとして知られる、
-	スタック空間から漏れない末尾からの関数呼び出しの実装を求めてはいません。
+	Common Lispシステムは、真正な末尾呼び出し(PTC)や末尾呼び出しの削除(TCE)、および末尾呼び出し最適化(TCO)などとして知られる、
+	スタック空間の溢れることがない末尾位置での関数呼び出しの実装が要求されていません。
         <!-- This means that indefinite recursion through tail calls -->
         <!-- may quickly blow out the stack, -->
         <!-- which hampers functional programming. -->
-	これは末尾呼び出しを経由する再帰がスタックから即座に飛び出し、関数型プログラミングを阻止するかどうかが
-	不明瞭であることをを意味します。
+	これが意味するところは、末尾再帰での無限再帰であったとしてもスタックが即座に溢れてしまうかもしれず、これが関数的なプログラミングの妨げになる、ということです。
         <!-- Still, most serious implementations (including SBCL and CCL) -->
         <!-- do implement proper tail calls, but with restrictions: -->
-	依然として、もっとも実用的な実装は最適末尾呼び出しを実装していますが、
-	これは決まりごとではありません。
+	とはいうものの、制約付きでもっとも実用的な実装(SBCLやCCL)は最適末尾呼び出しを実装しています:
       </p>
       <ul>
         <li>
@@ -2081,15 +2079,16 @@ Robert Brown
 	  しなければなりません
           <!-- (For instance, in SBCL, you should avoid <code>(SPEED 0)</code> -->
           <!-- and <code>(DEBUG 3)</code> to achieve proper tail calls.) -->
-	  （例えばSBCLにおいて、あなたは末尾呼び出しの優先を結果として得るために、
+	  （例えばSBCLにおいて、あなたは末尾呼び出しの優先を結果として得るためには、
 	  <code>(SPEED 0)</code>と<code>(DEBUG 3)</code>を回避すべきです）。
         </li>
         <li>
           <!-- There should not be dynamic bindings around the call -->
           <!-- (even though some Scheme compilers are able to properly treat -->
           <!-- such dynamic bindings, called parameters in Scheme parlance). -->
+	  関数呼び出しを包むような動的な束縛は避けるべきです。(訳注: 再帰的な関数呼び出しに伴ない、動的束縛が入れ子になると動的束縛も関数呼び出しとは別にスタックを消費するため、これが原因でスタックが溢れる)
+          <!-- 動的束縛が再帰呼び出しで入れ子になり、結果としてスタックを溢れさせるのを避けるという意味だと思われますが原文が曖昧で良く分かりません -g000001 -->
 	  （いくつかのSchemeコンパイラはこのような、Schemeの用法でパラメタと呼ばれる動的束縛を適切に修正することができますが）
-	  これらは呼び出しの周辺で動的に束縛されるべきではありません。
         </li>
       </ul>
       <p>
@@ -2098,7 +2097,7 @@ Robert Brown
         <!-- you should prefer iteration or the built in mapping functions -->
         <!-- to relying on proper tail calls. -->
 	すべてのコンパイラと最適化設定、そしてデバッグ時のスタックオーバフローを回避するために、
-	反復あるいは組み込みの最適末尾呼び出しに依存するマッピング関数を、あなたは優先すべきです。
+	組み込みの末尾再帰の最適化に依存するよりも、繰り返し構文、もしくはマッピング関数の利用をあなたは優先すべきです。
       </p>
       <p>
         <!-- If you do rely on proper tail calls, -->
@@ -2109,8 +2108,7 @@ Robert Brown
 	あなたは、その動作の実際について明確に文書化し、適切な最適化設定と共に適切なコンパイラを使用することを保証するために
 	適切な措置を講じなければなりません。
         <!-- For fully portable code, you may have to use trampolines instead. -->
-	完全な移植性をもつコードのために、あなたは代わりにトランポリン
-	を使ってもかまいません。
+	完全な移植性をもつコード(訳注: 挙動がコンパイラのセッティングに依らないコード)のためには、あなたは代わりにトランポリンを使わなければならないかもしれません。
       </p>
     </BODY>
   </STYLEPOINT>
