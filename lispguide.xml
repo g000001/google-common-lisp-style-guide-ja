@@ -2045,50 +2045,72 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Recursion">
+  <STYLEPOINT title="再帰"><!-- Recursion -->
     <SUMMARY>
-      You should favor iteration over recursion.
+      <!-- You should favor iteration over recursion. -->
+      あなたは再帰よりも反復を好むべきです。
     </SUMMARY>
     <BODY>
       <p>
-        Common Lisp systems are not required to implement
-        function calls from tail positions without leaking stack space
-        &#8212; which is known as proper tail calls (PTC),
-        tail call elimination (TCE),
-        or tail call optimization (TCO).
-        This means that indefinite recursion through tail calls
-        may quickly blow out the stack,
-        which hampers functional programming.
-        Still, most serious implementations (including SBCL and CCL)
-        do implement proper tail calls, but with restrictions:
+        <!-- Common Lisp systems are not required to implement -->
+        <!-- function calls from tail positions without leaking stack space -->
+        <!-- &#8212; which is known as proper tail calls (PTC), -->
+        <!-- tail call elimination (TCE), -->
+        <!-- or tail call optimization (TCO). -->
+	Common Lispシステムは、最適末尾呼び出しや末尾呼び出し削除、および末尾呼び出し最適化などとして知られる、
+	スタック空間から漏れない末尾からの関数呼び出しの実装を求めてはいません。
+        <!-- This means that indefinite recursion through tail calls -->
+        <!-- may quickly blow out the stack, -->
+        <!-- which hampers functional programming. -->
+	これは末尾呼び出しを経由する再帰がスタックから即座に飛び出し、関数型プログラミングを阻止するかどうかが
+	不明瞭であることをを意味します。
+        <!-- Still, most serious implementations (including SBCL and CCL) -->
+        <!-- do implement proper tail calls, but with restrictions: -->
+	依然として、もっとも実用的な実装は最適末尾呼び出しを実装していますが、
+	これは決まりごとではありません。
       </p>
       <ul>
         <li>
-          The <code>(DECLARE (OPTIMIZE ...))</code> settings
-          must favor <code>SPEED</code> enough and
-          not favor <code>DEBUG</code> too much,
-          for some compiler-dependent meanings of "enough" and "too much".
-          (For instance, in SBCL, you should avoid <code>(SPEED 0)</code>
-          and <code>(DEBUG 3)</code> to achieve proper tail calls.)
+          <!-- The <code>(DECLARE (OPTIMIZE ...))</code> settings -->
+          <!-- must favor <code>SPEED</code> enough and -->
+          <!-- not favor <code>DEBUG</code> too much, -->
+          <!-- for some compiler-dependent meanings of "enough" and "too much". -->
+	  <code>(DECLARE (OPTIMIZE ...))</code>設定は、
+	  いくつかのコンパイラにおける「十分」と「過度」の意味のために、
+	  <code>SPEED</code>を十分に優先して、必要以上に<code>DEBUG</code>を優先しないように
+	  しなければなりません
+          <!-- (For instance, in SBCL, you should avoid <code>(SPEED 0)</code> -->
+          <!-- and <code>(DEBUG 3)</code> to achieve proper tail calls.) -->
+	  （例えばSBCLにおいて、あなたは末尾呼び出しの優先を結果として得るために、
+	  <code>(SPEED 0)</code>と<code>(DEBUG 3)</code>を回避すべきです）。
         </li>
         <li>
-          There should not be dynamic bindings around the call
-          (even though some Scheme compilers are able to properly treat
-          such dynamic bindings, called parameters in Scheme parlance).
+          <!-- There should not be dynamic bindings around the call -->
+          <!-- (even though some Scheme compilers are able to properly treat -->
+          <!-- such dynamic bindings, called parameters in Scheme parlance). -->
+	  （いくつかのSchemeコンパイラはこのような、Schemeの用法でパラメタと呼ばれる動的束縛を適切に修正することができますが）
+	  これらは呼び出しの周辺で動的に束縛されるべきではありません。
         </li>
       </ul>
       <p>
-        For compatibility with all compilers and optimization settings,
-        and to avoid stack overflow when debugging,
-        you should prefer iteration or the built in mapping functions
-        to relying on proper tail calls.
+        <!-- For compatibility with all compilers and optimization settings, -->
+        <!-- and to avoid stack overflow when debugging, -->
+        <!-- you should prefer iteration or the built in mapping functions -->
+        <!-- to relying on proper tail calls. -->
+	すべてのコンパイラと最適化設定、そしてデバッグ時のスタックオーバフローを回避するために、
+	反復あるいは組み込みの最適末尾呼び出しに依存するマッピング関数を、あなたは優先すべきです。
       </p>
       <p>
-        If you do rely on proper tail calls,
-        you must prominently document the fact,
-        and take appropriate measures to ensure an appropriate compiler is used
-        with appropriate optimization settings.
-        For fully portable code, you may have to use trampolines instead.
+        <!-- If you do rely on proper tail calls, -->
+        <!-- you must prominently document the fact, -->
+        <!-- and take appropriate measures to ensure an appropriate compiler is used -->
+        <!-- with appropriate optimization settings. -->
+	もしあなたが最適末尾呼び出しに依存することをするのなら、
+	あなたは、その動作の実際について明確に文書化し、適切な最適化設定と共に適切なコンパイラを使用することを保証するために
+	適切な措置を講じなければなりません。
+        <!-- For fully portable code, you may have to use trampolines instead. -->
+	完全な移植性をもつコードのために、あなたは代わりにトランポリン
+	を使ってもかまいません。
       </p>
     </BODY>
   </STYLEPOINT>
