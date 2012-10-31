@@ -2279,7 +2279,7 @@ Robert Brown
           <!-- You should prefer to use <code>CHECK-TYPE</code> -->
           <!-- over (DECLARE (TYPE ...)) -->
           <!-- for the inputs of functions. -->
-	  あなたは、関数の入力に対して<code>(DECLARE (TYPE ...))</code>の上に
+	  あなたは、関数の入力に対しては<code>(DECLARE (TYPE ...))</code>より
 	  <code>CHECK-TYPE</code>を使うようにするべきです。
         </li>
         <li>
@@ -2290,15 +2290,14 @@ Robert Brown
           <!-- Only code in the critical path for performance -->
           <!-- and internal helpers should eschew -->
           <!-- explicit assertions and type checks. -->
-	  性能を左右する経路にある、あるいは内部のヘルパのコードにおいてのみ、
-	  明示的なアサーションや型チェックを慎むべきです。
+	  明示的なアサーションや型チェックを省くのは、
+	  パフォーマンスのクリティカル・パス上にあるコード、もしくは内部のヘルパにおいてのみであるべきです。
         </li>
         <li>
           <!-- Invalid input, such as files that are read -->
           <!-- but do not conform to the expected format, -->
           <!-- should not be treated as assertion violations. -->
-	  読むことはできるが、予想している形式にそぐわぬファイルやのような、
-	  打倒でない入力を、アサーション違反で取り扱うべきではありません。
+	  ファイルのようなものの入力で、読むことはできるが、予想している形式にそぐわぬ妥当でない入力を、アサーション違反で取り扱うべきではありません。
           <!-- Always check to make sure that input is valid, -->
           <!-- and take appropriate action if it is not, -->
           <!-- such as signalling a real error. -->
@@ -2309,19 +2308,19 @@ Robert Brown
           <!-- <code>ERROR</code> should be used -->
           <!-- to detect problems with user data, requests, permissions, etc., -->
           <!-- or to report "unusual outcomes" to the caller. -->
+	  <code>ERROR</code>は
 	  ユーザデータ、要求、権限等についての問題検出等々や、
-	  呼び出し元へと異常な結果が出たことを知らせるために、
-	  <code>ERROR</code>を使うべきです。
+	  呼び出し元へと異常な結果が出たことを知らせるために使うべきです。
         </li>
         <li>
           <!-- <code>ERROR</code> should always be called -->
           <!-- with an explicit condition type; -->
-	  <code>ERROR</code>は常に明示的なコンディションタイプと共に
+	  <code>ERROR</code>は常に明示的なコンディションタイプの指定と共に
 	  呼ばれるべきです。
           <!-- it should never simply be called with a string. -->
-	  これを文字列と共に単に呼び出すべきではありません。
+	  これを文字列(訳注: エラーメッセージ)のみの簡単な形式で呼び出すべきではありません。
           <!-- This enables internationalization. -->
-	  これは国際化を可能にします。
+	  この明示的なコンディションの指定は国際化を可能にします。(訳注: 具体的にはどう実現するのだろう。コンディションと言語をmixinしたりするのだろうか -g000001)
         </li>
         <li>
           <!-- Functions that report unusual outcomes -->
@@ -2333,18 +2332,17 @@ Robert Brown
 	  に明確に知らせるべきです。
           <!-- When a function signals a condition -->
           <!-- that is not specified by its contract, that's a bug. -->
-	  関数がコンディションを通知したとき、そのコンディションの後始末について契約として
-	  知らされていないのなら、それはバグです。
+	  関数がコンディションを通知したとき、そのコンディションの後始末について規約として
+	  規定されていないのなら、それはバグです。
           <!-- The contract should specify the condition class(es) clearly. -->
-	  契約はコンディションクラスについて明確に規定すべきです。
+	  コンディションの規約はコンディションクラスについて明確に規定すべきです。<!-- コンディションの規約ってなんだよというところですが、規約と書いても分からないので… -g000001) -->
           <!-- The function may then signal any condition -->
           <!-- that is a type-of any of those conditions. -->
 	  関数は、それらコンディションのうちのいずれかの型の、
 	  何らかのコンディションを通知してかまいません。
           <!-- That is, signaling instances of subclasses -->
-          <!-- of the documented condition classes is fine. -->
-	  これは、明快に文書化されたコンディションクラスのサブクラスのインスタンスを通知する、
-	  ということです。
+          <!-- of the documented condition classes is fine. --> <!-- 原文の意味が良く分からないです… -g000001 -->
+	  つまり、明快に文書化されたコンディションクラスのサブクラスのインスタンスからの通知は好ましいということです。
         </li>
         <li>
           <!-- Complex bug-checks may need to use <code>ERROR</code> -->
@@ -2378,27 +2376,27 @@ Robert Brown
           <!-- Instead, let unknown conditions propagate to -->
           <!-- the standard ultimate handler for processing. -->
 	  そうではなく、未知のコンディションについては、
-	  基本的かつ究極のハンドラに処理させるために伝搬させます。
+	  標準で定めた最上位のハンドラに処理させるために伝搬させます。<!-- standard が何を指してるのか分からないですね。ANSI標準なのか社内の規約なのか -g000001 -->
         </li>
         <li>
           <!-- There are a few places where handling all conditions is appropriate, -->
           <!-- but they are rare. -->
-	  数少ない箇所においては、すべてのコンディションを総合的に<!-- って書かないと意味が
+	  数少ない箇所においては、すべてのコンディションをまとめて(訳注:捕捉して)<!-- って書かないと意味が
 	  通らないだろうという判断で、以後全部書いています。：とよずみ -->始末することが、
 	  適していることがありますが、こういった場合は稀です。
           <!-- The problem is that handling all conditions can mask program bugs. -->
-	  問題は、すべてのコンディションを総合的に始末することが、プログラムのバグの隠蔽を可能にすることです。
+	  問題は、すべてのコンディションをまとめて始末することが、プログラムのバグの隠蔽を可能にすることです。
           <!-- If you <em>do</em> need to handle "all conditions", -->
           <!-- you MUST handle only <code>ERROR</code>, <em>not</em> <code>T</code> -->
           <!-- and not <code>SERIOUS-CONDITION</code>. -->
-	  もしあなたがすべてのコンディションを総合的に始末するの<em>のなら</em>
+	  もしあなたがすべてのコンディションをまとめて始末するの<em>のなら</em>
 	  あなたは、<code>ERROR</code>のみをその対象にしなければならず、<code>T</code>
           や<code>SERIOUS-CONDITION</code>を<em>その対象に含めてはなりません</em>。
           <!-- (This is notably because CCL's process shutdown -->
           <!-- depends on being able to signal <code>process-reset</code> -->
           <!-- and have it handled by CCL's handler, -->
           <!-- so we must not interpose our own handler.) -->
-	  （CCLはブロセスの終了を、<code>process-reset</code>の
+	  （CCLではブロセスの終了を、<code>process-reset</code>の
 	  通知とそれをCCLのハンドラで始末することに依存しているため、
 	  とりわけ問題となります。）
         </li>
@@ -2408,22 +2406,25 @@ Robert Brown
           <!-- code must use the shorter form. -->
           <code>(error (make-condition 'foo-error ...))</code>
           は、<code>(error 'foo-error ...)</code> &#8212;
-	  と同等ですが、コードはより短いフォームを使わなければなりません。
+	  と同等ですが、コードはより短い形式を使わなければなりません。
         </li>
         <li>
-          Code should not signal conditions from inside the cleanup form of
-          <code>UNWIND-PROTECT</code>
-          (unless they are always handled inside the cleanup form),
-          or otherwise do non-local exits from cleanup handers
-          outside of the handler e.g. <code>INVOKE-RESTART</code>.
+          <!-- Code should not signal conditions from inside the cleanup form of -->
+          <!-- <code>UNWIND-PROTECT</code> -->
+          <!-- (unless they are always handled inside the cleanup form), -->
+          <!-- or otherwise do non-local exits from cleanup handers -->
+          <!-- outside of the handler e.g. <code>INVOKE-RESTART</code>. -->
+          コードは、<code>UNWIND-PROTECT</code>内でのクリーンアップ節内でコンディションを通知するべきではありません。
+          （常にクリーンアップ節内でコンディションを扱っているのでもない限り）
+          あるいはまた別に、クリーンアップの処理部からその外に向けての非局所脱出もすべきでありません。例:<code>INVOKE-RESTART</code>.
         </li>
         <li>
           <!-- Do not clean up by resignaling. -->
-	  再通知によって片付けてはなりません。
+	  再通知によって処理の後始末をしてはなりません。
           <!-- If you do that, and the condition is not handled, -->
           <!-- the stack trace will halt at the point of the resignal, -->
           <!-- hiding the rest. -->
-	  もしそうして、コンディションが始末されないと、
+	  もしそうした場合、コンディションが始末されないと、
 	  スタックトレースは、再通知された地点で停止し、
 	  残りを隠してしまいます。
           And the rest is the part we really care about!
