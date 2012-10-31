@@ -2238,112 +2238,177 @@ Robert Brown
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Assertions and Conditions">
+  <STYLEPOINT title="アサーションとコンディション"><!-- Assertions and Conditions -->
     <SUMMARY>
-      You must make proper usage of assertions and conditions.
+      <!-- You must make proper usage of assertions and conditions. -->
+      あなたはアサーションとコンディションを適切に使わなければなりません。
     </SUMMARY>
     <BODY>
       <ul>
         <li>
-          <code>ASSERT</code> should be used ONLY to detect internal bugs.
-          Code should <code>ASSERT</code> invariants whose failure indicates
-          that the software is itself broken.
-          Incorrect input should be handled properly at runtime,
-          and must not cause an assertion violation.
-          The audience for an <code>ASSERT</code> failure is a developer.
-          Do not use the data-form and argument-form in <code>ASSERT</code>
-          to specify a condition to signal.
-          It's fine to use them to print out a message for debugging purposes
-          (and since it's only for debugging, there's no issue of
-          internationalization).
+          <!-- <code>ASSERT</code> should be used ONLY to detect internal bugs. -->
+	  <code>ASSERT</code>は内部的のバグの検出のため「だけ」に使われなければなりません。
+          <!-- Code should <code>ASSERT</code> invariants whose failure indicates -->
+          <!-- that the software is itself broken. -->
+	  コードはソフトウェア自身が破壊される可能性のある、不変性の破壊を指摘するために、
+	  <code>ASSERT</code>を使うべきです。<!-- こんなに意訳しちゃっていいのかな：とよずみ -->
+          <!-- Incorrect input should be handled properly at runtime, -->
+          <!-- and must not cause an assertion violation. -->
+	  実行時のまちがった入力は適切に始末されるべきであり，
+	  アサーション違反を発生させてはなりません。
+          <!-- The audience for an <code>ASSERT</code> failure is a developer. -->
+	  <code>ASSERT</code>の失敗は開発者に向けられるものです。
+          <!-- Do not use the data-form and argument-form in <code>ASSERT</code> -->
+          <!-- to specify a condition to signal. -->
+	  <code>ASSERT</code>のなかで状態を知らせるためにデータ形式や引数の形式を
+	  使ってはなりません。
+          <!-- It's fine to use them to print out a message for debugging purposes -->
+          <!-- (and since it's only for debugging, there's no issue of -->
+          <!-- internationalization). -->
+	  これはデバッグの目的のために、メッセージを出力するために使います
+	  （またこれはデバッグの用途に供する場合のみのためのものであり、
+	  国際化に対応していません）。
         </li>
         <li>
-          <code>CHECK-TYPE</code>,
-          <code>ETYPECASE</code> are also forms of assertion.
-          When one of these fails, that's a detected bug.
-          You should prefer to use <code>CHECK-TYPE</code>
-          over (DECLARE (TYPE ...))
-          for the inputs of functions.
+          <!-- <code>CHECK-TYPE</code>, -->
+          <!-- <code>ETYPECASE</code> are also forms of assertion. -->
+          <code>CHECK-TYPE</code>と
+          <code>ETYPECASE</code>はアサーションと同様のフォームです。
+          <!-- When one of these fails, that's a detected bug. -->
+	  これらのうちどちらかが失敗する場合は、パグが検出されたということです。
+          <!-- You should prefer to use <code>CHECK-TYPE</code> -->
+          <!-- over (DECLARE (TYPE ...)) -->
+          <!-- for the inputs of functions. -->
+	  あなたは、関数の入力に対して<code>(DECLARE (TYPE ...))</code>の上に
+	  <code>CHECK-TYPE</code>を使うようにするべきです。
         </li>
         <li>
-          Your code should use assertions and type checks liberally.
-          The sooner a bug is discovered, the better!
-          Only code in the critical path for performance
-          and internal helpers should eschew
-          explicit assertions and type checks.
+          <!-- Your code should use assertions and type checks liberally. -->
+	  あなたのコードはアサーションと型チェックを十分に使用するべきです。
+          <!-- The sooner a bug is discovered, the better! -->
+	  早期のバグ発見は良いことです!
+          <!-- Only code in the critical path for performance -->
+          <!-- and internal helpers should eschew -->
+          <!-- explicit assertions and type checks. -->
+	  性能を左右する経路にある、あるいは内部のヘルパのコードにおいてのみ、
+	  明示的なアサーションや型チェックを慎むべきです。
         </li>
         <li>
-          Invalid input, such as files that are read
-          but do not conform to the expected format,
-          should not be treated as assertion violations.
-          Always check to make sure that input is valid,
-          and take appropriate action if it is not,
-          such as signalling a real error.
+          <!-- Invalid input, such as files that are read -->
+          <!-- but do not conform to the expected format, -->
+          <!-- should not be treated as assertion violations. -->
+	  読むことはできるが、予想している形式にそぐわぬファイルやのような、
+	  打倒でない入力を、アサーション違反で取り扱うべきではありません。
+          <!-- Always check to make sure that input is valid, -->
+          <!-- and take appropriate action if it is not, -->
+          <!-- such as signalling a real error. -->
+	  常に入力が妥当であるかを確認し、
+	  そうでない場合は、真のエラーを通知するといった適切な対応をとってください。
         </li>
         <li>
-          <code>ERROR</code> should be used
-          to detect problems with user data, requests, permissions, etc.,
-          or to report "unusual outcomes" to the caller.
+          <!-- <code>ERROR</code> should be used -->
+          <!-- to detect problems with user data, requests, permissions, etc., -->
+          <!-- or to report "unusual outcomes" to the caller. -->
+	  ユーザデータ、要求、権限等についての問題検出等々や、
+	  呼び出し元へと異常な結果が出たことを知らせるために、
+	  <code>ERROR</code>を使うべきです。
         </li>
         <li>
-          <code>ERROR</code> should always be called
-          with an explicit condition type;
-          it should never simply be called with a string.
-          This enables internationalization.
+          <!-- <code>ERROR</code> should always be called -->
+          <!-- with an explicit condition type; -->
+	  <code>ERROR</code>は常に明示的なコンディションタイプと共に
+	  呼ばれるべきです。
+          <!-- it should never simply be called with a string. -->
+	  これを文字列と共に単に呼び出すべきではありません。
+          <!-- This enables internationalization. -->
+	  これは国際化を可能にします。
         </li>
         <li>
-          Functions that report unusual outcomes
-          by signaling a condition should say so explicitly in their contracts
-          (their textual descriptions, in documentation and docstrings etc.).
-          When a function signals a condition
-          that is not specified by its contract, that's a bug.
-          The contract should specify the condition class(es) clearly.
-          The function may then signal any condition
-          that is a type-of any of those conditions.
-          That is, signaling instances of subclasses
-          of the documented condition classes is fine.
+          <!-- Functions that report unusual outcomes -->
+          <!-- by signaling a condition should say so explicitly in their contracts -->
+          <!-- (their textual descriptions, in documentation and docstrings etc.). -->
+	  関数がコンディションの通知によって異常な結果を知らせることについて、
+	  （テキスト形式の説明、マニュアルあるいは文書化用文字列を用いて）
+	  そのコンディションの後始末を請け負う者<!-- contractsってこういう意味ですよね？：とよずみ -->
+	  に明確に知らせるべきです。
+          <!-- When a function signals a condition -->
+          <!-- that is not specified by its contract, that's a bug. -->
+	  関数がコンディションを通知したとき、そのコンディションの後始末について契約として
+	  知らされていないのなら、それはバグです。
+          <!-- The contract should specify the condition class(es) clearly. -->
+	  契約はコンディションクラスについて明確に規定すべきです。
+          <!-- The function may then signal any condition -->
+          <!-- that is a type-of any of those conditions. -->
+	  関数は、それらコンディションのうちのいずれかの型の、
+	  何らかのコンディションを通知してかまいません。
+          <!-- That is, signaling instances of subclasses -->
+          <!-- of the documented condition classes is fine. -->
+	  これは、明快に文書化されたコンディションクラスのサブクラスのインスタンスを通知する、
+	  ということです。
         </li>
         <li>
-          Complex bug-checks may need to use <code>ERROR</code>
-          instead of <code>ASSERT</code>.
-          
+          <!-- Complex bug-checks may need to use <code>ERROR</code> -->
+          <!-- instead of <code>ASSERT</code>. -->
+          複雑なバグチェックには<code>ASSERT</code>ではなく、
+	  <code>ERROR</code>を使う必要があるかもしれません。
         </li>
         <li>
-          When writing a server, you must not call <code>WARN</code>.
-          Instead, you should use the appropriate logging framework.
-          
+          <!-- When writing a server, you must not call <code>WARN</code>. -->
+          サーバを書いているときに、あなたは<code>WARN</code>を呼んではなりません。
+          <!-- Instead, you should use the appropriate logging framework. -->
+	  そうではなく、あなたは、適切なロギングフレームワークを使うべきです。
         </li>
         <li>
-          Code must not call <code>SIGNAL</code>.
-          Instead, use <code>ERROR</code> or <code>ASSERT</code>.
+          <!-- Code must not call <code>SIGNAL</code>. -->
+	  コードは、<code>SIGNAL</code>を呼んではなりません。
+          <!-- Instead, use <code>ERROR</code> or <code>ASSERT</code>. -->
+	  そうではなく、<code>ERROR</code>あるいは<code>ASSERT</code>を使うべきです。
         </li>
         <li>
-          Code should not use <code>THROW</code> and <code>CATCH</code>;
-          instead use the <code>restart</code> facility.
+          <!-- Code should not use <code>THROW</code> and <code>CATCH</code>; -->
+	  コードは、<code>THROW</code>と<code>CATCH</code>を使ってはなりません。
+          <!-- instead use the <code>restart</code> facility. -->
+	  そうではなく、<code>restart</code>(訳注:再起動)機能を使うべきです。
         </li>
         <li>
-          Code should not generically handle all conditions,
-          e.g. type <code>T</code>, or use <code>IGNORE-ERRORS</code>.
-          Instead, let unknown conditions propagate to
-          the standard ultimate handler for processing.
-          
+          <!-- Code should not generically handle all conditions, -->
+          <!-- e.g. type <code>T</code>, or use <code>IGNORE-ERRORS</code>. -->
+	  コードは<code>T</code>型や、<code>IGNORE-ERRORS</code>を使用して、
+	  すべてのコンディションを、総合的に始末すべきではありません。
+          <!-- Instead, let unknown conditions propagate to -->
+          <!-- the standard ultimate handler for processing. -->
+	  そうではなく、未知のコンディションについては、
+	  基本的かつ究極のハンドラに処理させるために伝搬させます。
         </li>
         <li>
-          There are a few places where handling all conditions is appropriate,
-          but they are rare.
-          The problem is that handling all conditions can mask program bugs.
-          If you <em>do</em> need to handle "all conditions",
-          you MUST handle only <code>ERROR</code>, <em>not</em> <code>T</code>
-          and not <code>SERIOUS-CONDITION</code>.
-          (This is notably because CCL's process shutdown
-          depends on being able to signal <code>process-reset</code>
-          and have it handled by CCL's handler,
-          so we must not interpose our own handler.)
+          <!-- There are a few places where handling all conditions is appropriate, -->
+          <!-- but they are rare. -->
+	  数少ない箇所においては、すべてのコンディションを総合的に<!-- って書かないと意味が
+	  通らないだろうという判断で、以後全部書いています。：とよずみ -->始末することが、
+	  適していることがありますが、こういった場合は稀です。
+          <!-- The problem is that handling all conditions can mask program bugs. -->
+	  問題は、すべてのコンディションを総合的に始末することが、プログラムのバグの隠蔽を可能にすることです。
+          <!-- If you <em>do</em> need to handle "all conditions", -->
+          <!-- you MUST handle only <code>ERROR</code>, <em>not</em> <code>T</code> -->
+          <!-- and not <code>SERIOUS-CONDITION</code>. -->
+	  もしあなたがすべてのコンディションを総合的に始末するの<em>のなら</em>
+	  あなたは、<code>ERROR</code>のみをその対象にしなければならず、<code>T</code>
+          や<code>SERIOUS-CONDITION</code>を<em>その対象に含めてはなりません</em>。
+          <!-- (This is notably because CCL's process shutdown -->
+          <!-- depends on being able to signal <code>process-reset</code> -->
+          <!-- and have it handled by CCL's handler, -->
+          <!-- so we must not interpose our own handler.) -->
+	  （CCLはブロセスの終了を、<code>process-reset</code>の
+	  通知とそれをCCLのハンドラで始末することに依存しているため、
+	  とりわけ問題となります。）
         </li>
         <li>
+          <!-- <code>(error (make-condition 'foo-error ...))</code> -->
+          <!-- is equivalent to <code>(error 'foo-error ...)</code> &#8212; -->
+          <!-- code must use the shorter form. -->
           <code>(error (make-condition 'foo-error ...))</code>
-          is equivalent to <code>(error 'foo-error ...)</code> &#8212;
-          code must use the shorter form.
+          は、<code>(error 'foo-error ...)</code> &#8212;
+	  と同等ですが、コードはより短いフォームを使わなければなりません。
         </li>
         <li>
           Code should not signal conditions from inside the cleanup form of
@@ -2353,13 +2418,17 @@ Robert Brown
           outside of the handler e.g. <code>INVOKE-RESTART</code>.
         </li>
         <li>
-          Do not clean up by resignaling.
-          If you do that, and the condition is not handled,
-          the stack trace will halt at the point of the resignal,
-          hiding the rest.
+          <!-- Do not clean up by resignaling. -->
+	  再通知によって片付けてはなりません。
+          <!-- If you do that, and the condition is not handled, -->
+          <!-- the stack trace will halt at the point of the resignal, -->
+          <!-- hiding the rest. -->
+	  もしそうして、コンディションが始末されないと、
+	  スタックトレースは、再通知された地点で停止し、
+	  残りを隠してしまいます。
           And the rest is the part we really care about!
           <BAD_CODE_SNIPPET>
-            ;; Bad
+            ;; 悪い例
             (handler-case
               (catch 'ticket-at
                 (etd-process-blocks))
@@ -2368,7 +2437,7 @@ Robert Brown
                   (error c)))
           </BAD_CODE_SNIPPET>
           <CODE_SNIPPET>
-            ;; Better
+            ;; 良い例
             (unwind-protect
               (catch 'ticket-at
                 (etd-process-blocks))
