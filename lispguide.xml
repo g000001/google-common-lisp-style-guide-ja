@@ -2371,12 +2371,12 @@ Robert Brown
         <li>
           <!-- Code should not generically handle all conditions, -->
           <!-- e.g. type <code>T</code>, or use <code>IGNORE-ERRORS</code>. -->
-	  コードは<code>T</code>型や、<code>IGNORE-ERRORS</code>を使用して、
-	  すべてのコンディションを、総合的に始末すべきではありません。
+	  コードは、すべてのコンディションをまとめて始末すべきではありません。
+	  例: (訳注: コンディションタイプとして)<code>T</code>クラスの指定や、<code>IGNORE-ERRORS</code>の使用
           <!-- Instead, let unknown conditions propagate to -->
           <!-- the standard ultimate handler for processing. -->
 	  そうではなく、未知のコンディションについては、
-	  標準で定めた最上位のハンドラに処理させるために伝搬させます。<!-- standard が何を指してるのか分からないですね。ANSI標準なのか社内の規約なのか -g000001 -->
+	  標準で定めた最上位のハンドラに処理させるために伝搬させます。<!-- the standard が何を指してるのか分からないですね。ANSI標準なのか社内の規約なのか -g000001 -->
         </li>
         <li>
           <!-- There are a few places where handling all conditions is appropriate, -->
