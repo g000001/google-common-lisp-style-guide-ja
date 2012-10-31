@@ -2414,7 +2414,7 @@ Robert Brown
           <!-- (unless they are always handled inside the cleanup form), -->
           <!-- or otherwise do non-local exits from cleanup handers -->
           <!-- outside of the handler e.g. <code>INVOKE-RESTART</code>. -->
-          コードは、<code>UNWIND-PROTECT</code>内でのクリーンアップ節内でコンディションを通知するべきではありません。
+          コードは、<code>UNWIND-PROTECT</code>のクリーンアップ節内でコンディションを通知するべきではありません。
           （常にクリーンアップ節内でコンディションを扱っているのでもない限り）
           あるいはまた別に、クリーンアップの処理部からその外に向けての非局所脱出もすべきでありません。例:<code>INVOKE-RESTART</code>.
         </li>
