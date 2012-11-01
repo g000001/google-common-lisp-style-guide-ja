@@ -1431,7 +1431,7 @@ g000001
       </CODE_SNIPPET>
       <p>
         <!-- You should include a space between the semicolon and the text of the comment. -->
-	あなたはコメントのセミコロンと文章の間に空白を含めるべきです。
+	コメントのセミコロンと文章の間には一つ空白が入るべきです。
       </p>
     </BODY>
   </STYLEPOINT>
