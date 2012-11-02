@@ -1863,25 +1863,31 @@ g000001
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Omit library prefixes">
+  <STYLEPOINT title="ライブラリ名の接頭辞は使わない">
     <SUMMARY>
-      You should not include a library or package name
-      as a prefix within the name of symbols.
+      <!-- You should not include a library or package name -->
+      <!-- as a prefix within the name of symbols. -->
+      ライブラリやパッケージの名前を接頭辞としてシンボル名に含めないようにするべきです。
     </SUMMARY>
     <BODY>
       <p>
-        When naming a symbol (external or internal) in a package,
-        you should not include the package name
-        as a prefix within the name of the symbol.
-        Naming a symbol this way makes it awkward to use
-        from a client package accessing the symbol
-        by qualifying it with a package prefix,
-        where the package name then appears twice
-        (once as a package prefix,
-        another time as a prefix within the symbol name).
+        <!-- When naming a symbol (external or internal) in a package, -->
+        パッケージ内でシンボル(外部もしくは内部)シンボルを命名する時
+        <!-- you should not include the package name -->
+        <!-- as a prefix within the name of the symbol. -->
+        ライブラリやパッケージの名前を接頭辞としてシンボル名に含めないようにするべきです。
+        <!-- Naming a symbol this way makes it awkward to use -->
+        <!-- from a client package accessing the symbol -->
+        <!-- by qualifying it with a package prefix, -->
+        このようなシンボルの命名は、パッケージを使う側がシンボルを扱う際に、
+        パッケージ名が重複して修飾される形になり不恰好なものになります。
+        (一つはパッケージ名、一つはシンボルに含まれた接頭辞)
+        <!-- where the package name then appears twice -->
+        <!-- (once as a package prefix, -->
+        <!-- another time as a prefix within the symbol name). -->
       </p>
       <BAD_CODE_SNIPPET>
-        ;; Bad
+        ;; 悪い
         (in-package #:varint)
         (defun varint-length64 () ... )
 
@@ -1889,7 +1895,7 @@ g000001
         (defconst +padding+ (varint:varint-length64 +end-token+))
       </BAD_CODE_SNIPPET>
       <CODE_SNIPPET>
-        ;; Better
+        ;; より良い
         (in-package #:varint)
         (defun length64 () ... )
 
@@ -1897,12 +1903,15 @@ g000001
         (defconst +padding+ (varint:length64 +end-token+))
       </CODE_SNIPPET>
       <p>
-        An exception to the above rule would be to include a prefix
-        for the names of variables that would otherwise be expected to clash
-        with variables in packages that use the current one.
-        For instance, <code>ASDF</code> exports a variable <code>*ASDF-VERBOSE*</code>
-        that controls the verbosity of <code>ASDF</code> only,
-        rather than of the entire Lisp program.
+        <!-- An exception to the above rule would be to include a prefix -->
+        <!-- for the names of variables that would otherwise be expected to clash -->
+        <!-- with variables in packages that use the current one. -->
+        上記ルールの例外として、変数名に接頭辞を含めなければ、使われる先で名前が競合してしまうことが予想される場合があります。
+        <!-- For instance, <code>ASDF</code> exports a variable <code>*ASDF-VERBOSE*</code> -->
+        <!-- that controls the verbosity of <code>ASDF</code> only, -->
+        <!-- rather than of the entire Lisp program. -->
+        例えば、<code>ASDF</code>は、<code>ASDF</code>の(訳注: メッセージの)冗長さを制御する変数として<code>*ASDF-VERBOSE*</code>(訳注:という名前で)エクスポートしていますが、
+        これは、<code>ASDF</code>にだけ作用し、Lispプログラム全体に作用するものではありません。<!-- 分かり難いので分割した -g000001 -->
       </p>
     </BODY>
   </STYLEPOINT>
