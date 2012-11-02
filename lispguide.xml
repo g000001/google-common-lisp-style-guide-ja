@@ -51,7 +51,7 @@ g000001
      <BODY>
        <p>
         <!-- Hooray!  Now you know you can expand points to get more details. Alternatively, there's an "expand all" at the top of this document.-->
-        ヒャッホー! このように矢印ボタンをクリックすると詳細情報が表示されます。 このドキュメントの先頭にある大きな矢印ボタンをクリックしても構いません。そうすれば、すべての詳細情報が表示されます。
+        ヒャッホー! このように矢印ボタンをクリックすると詳細情報が表示されます。 このドキュメントの先頭にある大きな矢印ボタンをクリックしても構いません。そうすれば、すべての詳細情報が表示されます。訳注は[]で囲んで表わします。<!-- とりあえず []で表記することにしてみました。-->
        </p>
      </BODY>
   </STYLEPOINT>
@@ -3379,19 +3379,24 @@ g000001
   <!-- <STYLEPOINT title="Lists vs. Sets"> -->
     <SUMMARY>
       <!-- You should only use lists as sets for very small lists. -->
-      集合としてのリストの用法は、それが非常に小さいサイズのものに限る*べき*です。
+      集合としてのリストの用法は、それが非常に小さいサイズのものに限らなければなりません。
     </SUMMARY>
     <BODY>
       <p>
-        Using lists as representations of sets is a bad idea
-        unless you know the lists will be small,
-        for accessors are <i>O(n)</i> instead of <i>O(log n)</i>.
-        For arbitrary big sets, use balanced binary trees,
-        for instance using <code>lisp-interface-library</code>.
+        <!-- Using lists as representations of sets is a bad idea -->
+        <!-- unless you know the lists will be small, -->
+        <!-- for accessors are <i>O(n)</i> instead of <i>O(log n)</i>. -->
+        <!-- For arbitrary big sets, use balanced binary trees, -->
+        <!-- for instance using <code>lisp-interface-library</code>. -->
+        リストが小規模であることが事前に把握できる場合を除いて、リストを集合の表現として利用するのはまずい考えです。
+        [リスト表現の場合]アクセサは<i>O(log n)</i>で済むところが<i>O(n)</i>のコストをかけることになります。
+        任意で大きい集合には、<code>lisp-interface-library</code>での例のように平衡2分木を使います。
       </p>
       <p>
-        If you still use lists as sets,
-        you should not <code>UNION</code> lists just to search them.
+        <!-- If you still use lists as sets, -->
+        <!-- you should not <code>UNION</code> lists just to search them. -->
+        それでもなお集合としてのリストを使いたいという場合、
+        単に要素を探索するようなことに<code>UNION</code>[で合成した]リストを使うべきではありません。
       </p>
       <BAD_CODE_SNIPPET>
         (member foo (union list-1 list-2)) ; Bad
@@ -3400,9 +3405,12 @@ g000001
         (or (member foo list-1) (member foo list-2)) ; Better
       </CODE_SNIPPET>
       <p>
-        Indeed, <code>UNION</code> not only conses unnecessarily,
-        but it can be <i>O(n^2)</i> on some implementations,
-        and is rather slow even when it's <i>O(n)</i>.
+        <!-- Indeed, <code>UNION</code> not only conses unnecessarily, -->
+        <!-- but it can be <i>O(n^2)</i> on some implementations, -->
+        <!-- and is rather slow even when it's <i>O(n)</i>. -->
+        勿論、<code>UNION</code>は不要なコンスを発生させるだけでなく、
+        幾つかの処理系では、<i>O(n^2)</i>[の処理コスト]となることもあり、
+        [良くて]<i>O(n)</i>[のコスト]だったとしても依然として遅いものです。
       </p>
     </BODY>
   </STYLEPOINT>
