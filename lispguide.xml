@@ -3339,10 +3339,9 @@ g000001
       <p>
         <!-- The latter case should be rare outside of alists, -->
         <!-- since you should be using structures and classes where they apply, -->
-        <!-- and data structure libraries when you want trees. --><!-- 英語が解読できない‥ -g000001 -->
-        ???
-        後者の場合は、alist[としての表現]の範疇から逸脱することは稀であるべきで、適材適所で[alistより適切な]構造体やクラスを用いるべきですが、データ構造ライブラリを木構造としたい場合はあるでしょう。
-        ???
+        <!-- and data structure libraries when you want trees. -->
+        <!-- @nfunato https://twitter.com/nfunato/status/264814210570129408 -->
+        後者の場合はalistを別とすれば稀でしょう。構造体やクラスが適切なときはそちらを、木構造を使いたいときはデータ構造のライブラリを使うべきだからです。
       </p>
       <p>
         <!-- Exceptionally, you may use <code>CDADR</code> and other variants -->
@@ -3356,7 +3355,7 @@ g000001
         手動でリストを腑分けするような場合、リストのアクセス関数を組み合わせる代わりに、
         例外的に<code>CDADR</code>やそれに類するものを使っても良いでしょう。
         この文脈では<code>FIRST</code>や<code>REST</code>でなく、代りに<code>CAR</code>や<code>CDR</code>を利用するのも理にかなったことでしょう。
-        しかし、これらの場合、より高い[視点の]構造を扱うものとして、
+        しかし、これらの場合、より高い[視点で]構造を扱うものとして、
         <code>DESTRUCTURING-BIND</code>や<code>FARE-MATCHER:MATCH</code>
         を使った方が適切な場合もあるということを常に念頭に置いておきましょう。
       </p>
