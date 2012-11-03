@@ -3311,38 +3311,54 @@ g000001
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="リストかペアか">
+  <STYLEPOINT title="リストかペアか"><!-- Lists vs. Pairs -->
     <SUMMARY>
       <!-- Use the appropriate functions when manipulating lists. -->
       リスト操作には適切な関数を用いましょう。
     </SUMMARY>
     <BODY>
       <p>
-        Use <code>FIRST</code> to access the first element of a list,
-        <code>SECOND</code> to access the second element, etc.
-        Use <code>REST</code> to access the tail of a list.
-        Use <code>ENDP</code> to test for the end of the list.
+        <!-- Use <code>FIRST</code> to access the first element of a list, -->
+        <!-- <code>SECOND</code> to access the second element, etc. -->
+        <!-- Use <code>REST</code> to access the tail of a list. -->
+        <!-- Use <code>ENDP</code> to test for the end of the list. -->
+        リストの第一要素へのアクセスには<code>FIRST</code>を使いましょう。
+        また、<code>SECOND</code>は第二要素へのアクセスに使いましょう(以降同様)。
+        リストのテール部へのアクセスには<code>REST</code>を使いましょう。
+        リスト終端のテストには<code>ENDP</code>を使いましょう。
       </p>
       <p>
-        Use <code>CAR</code> and <code>CDR</code>
-        when the cons cell is not being used to implement a proper list
-        and is instead being treated as a pair of more general objects.
-        Use <code>NULL</code> to test for <code>NIL</code> in this context.
+        <!-- Use <code>CAR</code> and <code>CDR</code> -->
+        <!-- when the cons cell is not being used to implement a proper list -->
+        <!-- and is instead being treated as a pair of more general objects. -->
+        <!-- Use <code>NULL</code> to test for <code>NIL</code> in this context. -->
+        <code>CAR</code>と<code>CDR</code>は、
+        コンスセルが真正リストとして使われない場合や、[コンスセルに限らず]オブジェクト一般のペアの表現とみなされるものに使いましょう。
+        また、この[用法の]文脈では、<code>NULL</code>を<code>NIL</code>かどうかのテストに使います。
       </p>
       <p>
-        The latter case should be rare outside of alists,
-        since you should be using structures and classes where they apply,
-        and data structure libraries when you want trees.
+        <!-- The latter case should be rare outside of alists, -->
+        <!-- since you should be using structures and classes where they apply, -->
+        <!-- and data structure libraries when you want trees. --><!-- 英語が解読できない‥ -g000001 -->
+        ???
+        後者の場合は、alist[としての表現]の範疇から逸脱することは稀であるべきで、適材適所で[alistより適切な]構造体やクラスを用いるべきですが、データ構造ライブラリを木構造としたい場合はあるでしょう。
+        ???
       </p>
       <p>
-        Exceptionally, you may use <code>CDADR</code> and other variants
-        on lists when manually destructuring them,
-        instead of using a combination of several list accessor functions.
-        In this context, using <code>CAR</code> and <code>CDR</code>
-        instead of <code>FIRST</code> and <code>REST</code> also makes sense.
-        However, keep in mind that it might be more appropriate in such cases
-        to use higher-level constructs such as
-        <code>DESTRUCTURING-BIND</code> or <code>FARE-MATCHER:MATCH</code>.
+        <!-- Exceptionally, you may use <code>CDADR</code> and other variants -->
+        <!-- on lists when manually destructuring them, -->
+        <!-- instead of using a combination of several list accessor functions. -->
+        <!-- In this context, using <code>CAR</code> and <code>CDR</code> -->
+        <!-- instead of <code>FIRST</code> and <code>REST</code> also makes sense. -->
+        <!-- However, keep in mind that it might be more appropriate in such cases -->
+        <!-- to use higher-level constructs such as -->
+        <!-- <code>DESTRUCTURING-BIND</code> or <code>FARE-MATCHER:MATCH</code>. -->
+        手動でリストを腑分けするような場合、リストのアクセス関数を組み合わせる代わりに、
+        例外的に<code>CDADR</code>やそれに類するものを使っても良いでしょう。
+        この文脈では<code>FIRST</code>や<code>REST</code>でなく、代りに<code>CAR</code>や<code>CDR</code>を利用するのも理にかなったことでしょう。
+        しかし、これらの場合、より高い[視点の]構造を扱うものとして、
+        <code>DESTRUCTURING-BIND</code>や<code>FARE-MATCHER:MATCH</code>
+        を使った方が適切な場合もあるということを常に念頭に置いておきましょう。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -3371,7 +3387,7 @@ g000001
         The exception is for code outside the critical path
         where the list is known to be small anyway.
         -->
-        例外的利用として、クリティカルパスの外側で、かつ、そのサイズが小さいことが予期されている場合等はあります。
+        クリティカルパスの外側で、かつ、そのサイズが小さいことが予期されている場合等の例外的利用はあります。
       </p>
     </BODY>
   </STYLEPOINT>
