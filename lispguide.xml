@@ -39,7 +39,9 @@ g000001
 <address>
 (訳文アドバイスを頂いた皆さん: @nfunato, etc)
 </address>
-
+<address>
+Takashi Kato
+</address>
 <p align="center">
 <cite>Patterns mean "I have run out of language."</cite> &#8212; Rich Hickey
 </p>
@@ -74,14 +76,22 @@ g000001
     designed to make your code easier for other people to understand.
     -->
     このガイドはあなたのコードを他人にとって理解しやすくするよう設計された書式とスタイルの選択を奨励します。
+    <!--
     Its guidelines apply to all the Common Lisp code we write at Google,
     including our internal applications as well as
     free software libraries we maintain and publish.
     If you contribute to this code base,
     you must follow these guidelines before you submit your patch,
     or your code will be fixed to follow the guidelines after you do.
+    -->
+    このガイドラインはGoogleで書かれるCommon Lispのコード全てに適用されます、
+    それらには我々がメンテナンス及び公開を行っているフリーソフトと
+    同様にGoogle内部のアプリケーションも含まれます。
+    もし、このコードベースに貢献するのなら、パッチを送信する前にこれらのガイドラインに
+    従うか、送信されたコードはこのガイドラインに従うように修正されます。
   </p>
   <p>
+    <!--
     If you're writing Common Lisp code outside Google,
     we invite you to consider the guidelines we expound in this guide.
     You may apply some or all of them to your own projects, at your leisure:
@@ -91,6 +101,16 @@ g000001
     what alternate styles work are successful for you.
     Finally, we hope that our guide will inspire useful thoughts
     in hackers who read it, especially so newcomers to Common Lisp.
+    -->
+    もしあなたがGoogle以外でCommon Lispのコードを書くのであれば、このガイドで説明する
+    ガイドラインを考慮にいれることをお勧めします。
+    これらの一部または全てをご自身のプロジェクトに、暇な時に、適用してもかまいません。
+    我々はこれらがあなたにとっても有益であることを願っています。
+    たとえあなたがこれらを適用しなくても、このガイドをどのように改善するか、または
+    別のスタイルがあなたにとって成功しているという意見や建設的なフィードバックを
+    我々は歓迎します。
+    最後に、我々はこのガイドがこれを読んだハッカー達、とくにCommon Lisp初心者、
+    の有益な思考を起こすことを願っています。
   </p>
   <p>
     <!--
