@@ -3417,7 +3417,7 @@ Takashi Kato
   <!-- <STYLEPOINT title="Lists vs. Sets"> -->
     <SUMMARY>
       <!-- You should only use lists as sets for very small lists. -->
-      集合としてのリストの用法は、それが非常に小さいサイズのものに限らなければなりません。
+      集合としてのリストの用法は、それが非常に小さいサイズのものに限るべきです。
     </SUMMARY>
     <BODY>
       <p>
