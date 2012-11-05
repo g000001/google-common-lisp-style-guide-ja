@@ -3292,24 +3292,23 @@ Takashi Kato
   <STYLEPOINT title="リストか構造体か多値か">
     <SUMMARY>
       <!-- You should use the appropriate representation for product types. -->
-      作るものに応じて適材適所で用いる*べき*です。
+      作るものに応じて適材適所で用いる<!-- SOULD -->べきです。 
     </SUMMARY>
     <BODY>
       <p>
-        You should avoid using a list as anything
-        besides a container of elements of like type.
-        You must not use a list as method of passing
-        multiple separate values of different types
-        in and out of function calls.
-        Sometimes it is convenient to use a list
-        as a little ad hoc structure,
-        i.e. "the first element of the list is a FOO, and the second is a BAR",
-        but this should be used minimally
-        since it gets harder to remember the little convention.
-        You must only use a list that way
-        when destructuring the list of arguments from a function,
-        or creating a list of arguments
-        to which to <code>APPLY</code> a function.
+        <!-- You should avoid using a list as anything besides a container of elements of like type. -->
+        リストをなにか似たようなタイプもの入れ物として使うことからそれて使うべきではありません。
+        <!-- You must not use a list as method of passing multiple separate values of different types in and out of function calls. -->
+        リストを関数の手法として使ってはなりません。
+        <!-- Sometimes it is convenient to use a list as a little ad hoc structure, -->
+        時にはリストを少しアドホックな構造体と見做して使うのも便利でしょう
+        <!-- i.e. "the first element of the list is a FOO, and the second is a BAR", -->
+        すなわち、"そのリストの最初の第一の要素はFOO、そして第二はBARとする"、のように。
+        <!-- but this should be used minimally since it gets harder to remember the little convention. -->
+        しかし、このような使い方は最小限であるべきて、なぜならこのような細々とした取り決めを思い出すのは難しいからです。
+        <!-- You must only use a list that way when destructuring the list of arguments from a function, -->
+        なければなりません だけにしなけれ
+        <!-- or creating a list of arguments to which to <code>APPLY</code> a function. -->
       </p>
       <p>
         The proper way to pass around an object
@@ -3318,19 +3317,27 @@ Takashi Kato
         or <code>DEFCLASS</code>.
       </p>
       <p>
-        You should use multiple values only
-        when function returns a small number of values
-        that are meant to be destructured immediately by the caller,
-        rather than passed together as arguments to further functions.
+        <!-- You should use multiple values only -->
+        <!-- when function returns a small number of values -->
+        <!-- that are meant to be destructured immediately by the caller, -->
+        <!-- rather than passed together as arguments to further functions. -->
+        多値の利用は、関数が少数の値を返し、[これらの値が、]呼び出し側よりさらに先の関数に引数などとして一緒に渡されたりするよりは寧ろ、呼び出し側によって値が即座に分解されるように使われる場合に限るべきです。
       </p>
       <p>
-        You should not return a condition object
-        as one of a set of multiple values.
+        <!-- You should not return a condition object -->
+        <!-- as one of a set of multiple values. -->
+        <!-- Instead, you should signal the condition to denote an unusual outcome. -->
+        ??? <!-- なにこれ？訳す坪どこ？外人？歌？ -->
+        You should not return a condition object as one of a set of multiple values.
+        コンディションオブジェクトを多値のセットと見做して返すべきではありません。
         Instead, you should signal the condition to denote an unusual outcome.
+        代わりに、普通でない結果となったこととしてコンディションを発するべきです。
+        ???
       </p>
       <p>
-        You should signal a condition to denote an unusual outcome,
-        rather than relying on a special return type.
+        <!-- You should signal a condition to denote an unusual outcome, -->
+        <!-- rather than relying on a special return type. -->
+        普通でない結果であることを示したい場合は、特殊な型を返すよりもコンディションを発するべきです。
       </p>
     </BODY>
   </STYLEPOINT>
