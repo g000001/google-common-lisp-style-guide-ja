@@ -3,7 +3,7 @@
 <GUIDE title="Google Common Lisp スタイルガイド 日本語訳">
 
 <div align="center">
-これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.15)</a>の日本語訳です。<br/>オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>最終更新: 2012-11-05
+これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.15)</a>の日本語訳です。<br/>オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>最終更新: 2012-11-07
 </div>
 
 <p align="right">
@@ -3296,19 +3296,18 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        <!-- You should avoid using a list as anything besides a container of elements of like type. -->
-        リストをなにか似たようなタイプもの入れ物として使うことからそれて使うべきではありません。
-        <!-- You must not use a list as method of passing multiple separate values of different types in and out of function calls. -->
-        リストを関数の手法として使ってはなりません。
+        You should avoid using a list as anything besides a container of elements of like type.
+        <!-- リストをなにか似たようなタイプもの入れ物として使うことからそれて使うべきではありません。??? -->
+        You must not use a list as method of passing multiple separate values of different types in and out of function calls.
+        <!-- リストを関数の手法として使ってはなりません。 -->
         <!-- Sometimes it is convenient to use a list as a little ad hoc structure, -->
-        時にはリストを少しアドホックな構造体と見做して使うのも便利でしょう
+        時にはリストを少しアドホックな構造体と見做して使うのも便利でしょう。
         <!-- i.e. "the first element of the list is a FOO, and the second is a BAR", -->
         すなわち、"そのリストの最初の第一の要素はFOO、そして第二はBARとする"、のように。
         <!-- but this should be used minimally since it gets harder to remember the little convention. -->
         しかし、このような使い方は最小限であるべきて、なぜならこのような細々とした取り決めを思い出すのは難しいからです。
-        <!-- You must only use a list that way when destructuring the list of arguments from a function, -->
-        なければなりません だけにしなけれ
-        <!-- or creating a list of arguments to which to <code>APPLY</code> a function. -->
+        You must only use a list that way when destructuring the list of arguments from a function,
+        or creating a list of arguments to which to <code>APPLY</code> a function.
       </p>
       <p>
         The proper way to pass around an object
