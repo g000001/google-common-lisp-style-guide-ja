@@ -1852,37 +1852,49 @@ Takashi Kato
       </CODE_SNIPPET>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Predicate names">
+  <!-- <STYLEPOINT title="Predicate names"> -->
+  <STYLEPOINT title="述語の命名">
     <SUMMARY>
-      Names of predicate functions end with a <code>"P"</code>.
+      <!-- Names of predicate functions end with a <code>"P"</code>. -->
+      <code>"P"</code>で終わる述語関数の名前について
     </SUMMARY>
     <BODY>
       <p>
-        You should name boolean-valued functions with a trailing
-        <code>"P"</code> or <code>"-P"</code>,
-        to indicate they are predicates.
-        Generally, you should use
-        <code>"P"</code> when the rest of the function name is one word
-        and <code>"-P"</code> when it is more than one word.
+        <!-- You should name boolean-valued functions with a trailing -->
+        <!-- <code>"P"</code> or <code>"-P"</code>, -->
+        <!-- to indicate they are predicates. -->
+        <!-- Generally, you should use -->
+        <!-- <code>"P"</code> when the rest of the function name is one word -->
+        <!-- and <code>"-P"</code> when it is more than one word. -->
+        ブール値を返す関数はそれらが述語であることを示すために<code>"P"</code>か<code>"-P"</code>で終わる名前とすべきです。
+        一般的に名前が単語の場合は、<code>"P"</code>を使い、複数語の場合は、<code>"-P"</code>を使うべきです。
       </p>
       <p>
-        A rationale for this convention is given in
-        <a href="http://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node69.html">the CLtL2 chapter on predicates</a>.
+        <!-- A rationale for this convention is given in -->
+        <!-- <a href="http://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node69.html">the CLtL2 chapter on predicates</a>. -->
+        この慣習の根拠となるものには、
+        <a href="http://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node69.html">CLtL2 predicatesの章</a>
+        があります。
       </p>
       <p>
-        For uniformity, you should follow the convention above,
-        and not one of the alternatives below.
+        <!-- For uniformity, you should follow the convention above, -->
+        <!-- and not one of the alternatives below. -->
+        一貫性の為に、上記の慣習にしたがうべきで、下記に挙げる別の慣習には従わないようにすべきです。
       </p>
       <p>
-        An alternative rule used in some existing packages
-        is to always use <code>"-P"</code>.
-        Another alternative rule used in some existing packages
-        is to always use <code>"?"</code>.
-        When you develop such a package,
-        you must be consistent with the rest of the package.
-        When you start a new package,
-        you should not use such an alternative rule
-        without a very good documented reason.
+        <!-- An alternative rule used in some existing packages -->
+        <!-- is to always use <code>"-P"</code>. -->
+        <!-- Another alternative rule used in some existing packages -->
+        <!-- is to always use <code>"?"</code>. -->
+        <!-- When you develop such a package, -->
+        <!-- you must be consistent with the rest of the package. -->
+        <!-- When you start a new package, -->
+        <!-- you should not use such an alternative rule -->
+        <!-- without a very good documented reason. -->
+        とある既存のパッケージで使われている別のルールで、常に<code>"-P"</code>を付けるというもの。
+        また、とある既存のパッケージで使われている別のルールで、常に<code>"?"</code>を付けるというもの。
+        このような[別ルールの命名の]パッケージで開発を行う場合は、パッケージ内の他の箇所との一貫性を維持しなくてはなりません。
+        新しいパッケージを作成して始める場合は、かなり良く文書化された理由でもない限り、このような別のルールを用いるべきではありません。
       </p>
     </BODY>
   </STYLEPOINT>
