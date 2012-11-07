@@ -3326,12 +3326,11 @@ Takashi Kato
         <!-- You should not return a condition object -->
         <!-- as one of a set of multiple values. -->
         <!-- Instead, you should signal the condition to denote an unusual outcome. -->
-        ??? <!-- なにこれ？訳す坪どこ？外人？歌？ -->
-        You should not return a condition object as one of a set of multiple values.
-        コンディションオブジェクトを多値のセットと見做して返すべきではありません。
+        <!-- なにこれ？訳す坪どこ？外人？歌？ -->
+        You should not return a condition object as one of a set of multiple values. 
         Instead, you should signal the condition to denote an unusual outcome.
-        代わりに、普通でない結果となったこととしてコンディションを発するべきです。
-        ???
+        <!-- 多値のセットをコンディションと見做して返すべきではありません。 -->
+        <!-- 代わりに、普通でない結果となったこととしてコンディションを発するべきです。 -->
       </p>
       <p>
         <!-- You should signal a condition to denote an unusual outcome, -->
