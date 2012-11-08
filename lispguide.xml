@@ -697,9 +697,12 @@ Takashi Kato
   </STYLEPOINT>
   <STYLEPOINT title="開発手順"><!-- Development Process -->
     <SUMMARY>
-      Development process is outside the scope of this document.
-      However, developers should remember at least these bits:
-      get reviewed, write tests, eliminate warnings, run tests, avoid mass-changes.
+      <!-- Development process is outside the scope of this document. -->
+      開発手順は、このドキュメントの対象範囲外です。
+      <!-- However, developers should remember at least these bits: -->
+      <!-- get reviewed, write tests, eliminate warnings, run tests, avoid mass-changes. -->
+      しかし、開発者は少なくとも次に示すことに気をとどめておくべきです:
+      査読を受けること、テストを書くこと、警告をなくすこと、テストを走らせること、大規模な変更を避けること。
     </SUMMARY>
     <BODY>
       <p>
