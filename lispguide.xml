@@ -806,7 +806,7 @@ Takashi Kato
       <p>
         <!-- You must use correct spelling in your comments, -->
         <!-- and most importantly in your identifiers. -->
-        あなたの書くコメントでは正しい綴りを用いなければなりません。とりわけ識別子では正しい綴りが重要になります。
+        コメントでは正しい綴りを用いなければなりません。とりわけ識別子では正しい綴りが重要になります。
       </p>
       <p>
         <!-- When several correct spellings exist (including American vs English), -->
