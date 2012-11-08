@@ -26,22 +26,28 @@ Robert Brown
 <p align="right">
 日本語訳:現在進行中(求共訳者)
 </p>
-<!-- 皆さんお名前はご自由に直してください -g000001 -->
+<!-- 皆さんお名前はご自由に直してください -g000001 
+     順番は大体の量に比例
+-->
 <address>
 TOYOZUMIKouichi
-</address>
-<address>
-佐野匡俊
 </address>
 <address>
 g000001
 </address>
 <address>
-(訳文アドバイスを頂いた皆さん: @nfunato, etc)
+佐野匡俊
 </address>
 <address>
 Takashi Kato
 </address>
+<address>
+@ponkore
+</address>
+<address>
+(訳文アドバイスを頂いた皆さん: @nfunato, etc)
+</address>
+
 <p align="center">
 <cite>Patterns mean "I have run out of language."</cite> &#8212; Rich Hickey
 </p>
