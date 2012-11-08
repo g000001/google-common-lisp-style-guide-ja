@@ -133,7 +133,7 @@ Takashi Kato
 </CATEGORY>
 </OVERVIEW>
 <CATEGORY title="メタガイド"><!-- Meta-Guide -->
-  <STYLEPOINT title="Must,Should,May,Not(佐野:同上な理由で「要求レベルの表記方法」？)"><!-- Must, Should, May, or Not -->
+  <STYLEPOINT title="Must,Should,May,Not<!-- (佐野:同上な理由で「要求レベルの表記方法」？) -->"><!-- Must, Should, May, or Not -->
     <SUMMARY>
       <!--
       Each guideline's level of importance is indicated
