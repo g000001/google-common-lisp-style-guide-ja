@@ -791,89 +791,115 @@ Takashi Kato
   </STYLEPOINT>
 </CATEGORY>
 <CATEGORY title="Formatting">
-  <STYLEPOINT title="Spelling">
+  <!-- <STYLEPOINT title="Spelling"> -->
+    <STYLEPOINT title="綴り">
     <SUMMARY>
       <p>
-        You must use correct spelling in your comments,
-        and most importantly in your identifiers.
+        <!-- You must use correct spelling in your comments, -->
+        <!-- and most importantly in your identifiers. -->
+        あなたの書くコメントでは正しい綴りを用いなければなりません。とりわけ識別子では正しい綴りが重要になります。
       </p>
       <p>
-        When several correct spellings exist (including American vs English),
-        and there isn't a consensus amongst developers as which to use,
-        you should choose the shorter spelling.
+        <!-- When several correct spellings exist (including American vs English), -->
+        <!-- and there isn't a consensus amongst developers as which to use, -->
+        <!-- you should choose the shorter spelling. -->
+        複数の正しい綴りが存在する場合(米国式綴り vs 英国式綴り)で、
+        開発者間でどちらの綴りを採用するかのコンセンサスが存在していない場合、短い方の綴りを採用するべきです。
       </p>
       <p>
-        You must avoid using abbreviations for words,
-        unless it's a word that is used very frequently,
-        in which case you must use
-        the <em>same</em> abbreviation <em>consistently</em>.
+        <!-- You must avoid using abbreviations for words, -->
+        <!-- unless it's a word that is used very frequently, -->
+        <!-- in which case you must use -->
+        <!-- the <em>same</em> abbreviation <em>consistently</em>. -->
+        とても良く使われている略語でもない限り、略語の利用は避けなければなりませんし、
+        利用する場合でも、<em>一貫性をもって</em><em>同じ</em>略語を使わなければなりません。
       </p>
     </SUMMARY>
     <BODY>
       <p>
-        If you're not sure, consult a dictionary,
-        Google for alternative spellings,
-        or ask a local expert.
+        <!-- If you're not sure, consult a dictionary, -->
+        <!-- Google for alternative spellings, -->
+        <!-- or ask a local expert. -->
+        不確かな場合、辞書で調べたり、他の綴りがないかGoogleで検索したり、近くの詳しい人に訊きましょう。
       </p>
       <p>
-        Here are examples of choosing the correct spelling:
+        <!-- Here are examples of choosing the correct spelling: -->
+        下記に正しい綴りの選択例を挙げます:
       </p>
       <ul>
         <li>
-          Use "complimentary" in the sense of a meal or beverage
-          that is not paid for by the recipient, not "complementary".
+          <!-- Use "complimentary" in the sense of a meal or beverage -->
+          <!-- that is not paid for by the recipient, not "complementary". -->
+          "complimentary"は、受給者が無料でドリンクや、食べ物を得るようなことに使う。"complementary"(補足的な)ではない。
         </li>
         <li>
-          Use "existent" and "nonexistent", not "existant".
-          Use "existence", not "existance".
+          <!-- Use "existent" and "nonexistent", not "existant". -->
+          <!-- Use "existence", not "existance". -->
+          "existent"(実在する)か"nonexistent"(存在しない)を使い、"existant"という綴りは使わない。
+          "existence"と綴り、"existance"とは綴らない。
         </li>
         <li>
-          Use "hierarchy" not "heirarchy".
+          <!-- Use "hierarchy" not "heirarchy". -->
+          "hierarchy"と綴り、"heirarchy"とは綴らない。
         </li>
         <li>
-          Use "precede" not "preceed".
+          <!-- Use "precede" not "preceed". -->
+          "precede"と綴り、"preceed"とは綴らない。
         </li>
         <li>
-          Use "weird", not "wierd".
+          <!-- Use "weird", not "wierd". -->
+          "weird"と綴り、"wierd"とは綴らない。
         </li>
       </ul>
       <p>
-        Here are examples of choosing the shorter spelling:
+        <!-- Here are examples of choosing the shorter spelling: -->
+        下記は、短い綴りの採択例です:
       </p>
       <ul>
         <li>
-          Use "canceled", not "cancelled"
+          <!-- Use "canceled", not "cancelled" -->
+          "canceled"と綴り、"cancelled"とは綴らない。
         </li>
         <li>
-          Use "queuing", not "queueing".
+          <!-- Use "queuing", not "queueing". -->
+          "queuing"と綴り、"queueing"とは綴らない。
         </li>
         <li>
-          Use "signaled", not "signalled";
+          <!-- Use "signaled", not "signalled"; -->
+          "signaled"と綴り、"signalled"とは綴らない。
         </li>
         <li>
-          Use "traveled", not "travelled".
+          <!-- Use "traveled", not "travelled". -->
+          "traveled"と綴り、"travelled"とは綴らない。
         </li>
         <li>
-          Use "aluminum", not "aluminium"
+          <!-- Use "aluminum", not "aluminium" -->
+          "aluminum"と綴り、"aluminium"とは綴らない。
         </li>
         <li>
-          Use "oriented", not "orientated"
+          <!-- Use "oriented", not "orientated" -->
+          "oriented"と綴り、"orientated"とは綴らない。
         </li>
         <li>
-          Use "color", not "colour"
+          <!-- Use "color", not "colour" -->
+          "color"と綴り、"colour"とは綴らない。
         </li>
         <li>
-          Use "behavior", not "behaviour"
+          <!-- Use "behavior", not "behaviour" -->
+          "behavior"と綴り、"behaviour"とは綴らない。
         </li>
       </ul>
       <p>
-        Make appropriate exceptions for industry standard nomenclature/jargon,
-        including plain misspellings.
-        For instance:
+        <!-- Make appropriate exceptions for industry standard nomenclature/jargon, -->
+        <!-- including plain misspellings. -->
+        <!-- For instance: -->
+        工業的な述語/ジャーゴン(単なる綴り間違いも含む)は適切に例外として扱います。
+        例えば:
       </p>
       <ul>
         <li>
-          Use "referer", not "referrer", in the context of the HTTP protocol.
+          <!-- Use "referer", not "referrer", in the context of the HTTP protocol. -->
+          HTTPプロトコルの文脈では、"referer"と綴り、"referrer"とは綴らない。
         </li>
       </ul>
       
