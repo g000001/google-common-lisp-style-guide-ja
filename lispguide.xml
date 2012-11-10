@@ -3868,32 +3868,41 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        You should simpler forms such as
-        <code>DOLIST</code> or <code>DOTIMES</code>
-        instead of <code>LOOP</code>
-        in simple cases when you're not going to use any
-        of the <code>LOOP</code> facilities such as
-        bindings, collection or block return.
+        <!-- You should simpler forms such as -->
+        <!-- <code>DOLIST</code> or <code>DOTIMES</code> -->
+        <!-- instead of <code>LOOP</code> -->
+        <!-- in simple cases when you're not going to use any -->
+        <!-- of the <code>LOOP</code> facilities such as -->
+        <!-- bindings, collection or block return. -->
+        <code>LOOP</code>の機能である、変数の束縛・値の集約・ブロックからの脱出、等を使ったりしない、より単純な場合には、<code>DOLIST</code>や<code>DOTIMES</code>のような、より単純な構文を使うべきです。
       </p>
       <p>
-        Use the <code>WITH</code> clause of <code>LOOP</code>
-        when it will avoid a level of nesting with <code>LET</code>.
-        You may use <code>LET</code> if it makes it clearer
-        to return one of bound variables after the <code>LOOP</code>,
-        rather than use a clumsy <code>FINALLY (RETURN ...)</code> form.
+        <!-- Use the <code>WITH</code> clause of <code>LOOP</code> -->
+        <!-- when it will avoid a level of nesting with <code>LET</code>. -->
+        <!-- You may use <code>LET</code> if it makes it clearer -->
+        <!-- to return one of bound variables after the <code>LOOP</code>, -->
+        <!-- rather than use a clumsy <code>FINALLY (RETURN ...)</code> form. -->
+        <code>LOOP</code>の<code>WITH</code>節は、<code>LET</code>でネストレベルが深くなるのを避ける場合に使いましょう。
+        束縛された変数が<code>LOOP</code>フォームの後で返されることが明確な場合は、体裁の悪い<code>FINALLY (RETURN ...)</code>を使うよりも、<code>LET</code>を使うというのも手でしょう。(訳注:<code>LOOP</code>を<code>LET</code>で囲む)
       </p>
       <p>
-        In the body of a <code>DOTIMES</code>,
-        do not set the iteration variable.
-        (CCL will issue a compiler warning if you do.)
-      </p>
+        <!-- In the body of a <code>DOTIMES</code>, -->
+        <!-- do not set the iteration variable. -->
+        <!-- (CCL will issue a compiler warning if you do.) -->
+        <code>DOTIMES</code>のボディ部の内側では、繰り返し変数に値を代入してはいけません。(訳注: 要求レベルは？)
+        (CCLではコンパイラはこれに警告を出します)。
+        </p>
       <p>
-        Most systems use unadorned symbols in the current package
-        as <code>LOOP</code> keywords.
-        Other systems use actual <code>:keywords</code>
-        from the <code>KEYWORD</code> package
-        as <code>LOOP</code> keywords.
-        You must be consistent with the convention used in your system.
+        <!-- Most systems use unadorned symbols in the current package -->
+        <!-- as <code>LOOP</code> keywords. -->
+        <!-- Other systems use actual <code>:keywords</code> -->
+        <!-- from the <code>KEYWORD</code> package -->
+        <!-- as <code>LOOP</code> keywords. -->
+        <!-- You must be consistent with the convention used in your system. -->
+        <!-- g000001: system は 他のところでいうパッケージ/コードを指す? -->
+        大抵のコードでは、<code>LOOP</code>のキーワードには、カレントパッケージの「飾りのない」シンボルを使いますが、
+        あるコードでは、<code>LOOP</code>のキーワードとして、実際に<code>KEYWORD</code>パッケージの<code>:keywords</code>を使うこともあります。
+        既存のコードの慣習に従い、一貫性を持たせなくてはなりません。
       </p>
     </BODY>
   </STYLEPOINT>
