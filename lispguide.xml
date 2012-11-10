@@ -3,12 +3,12 @@
 <GUIDE title="Google Common Lisp スタイルガイド 日本語訳">
 
 <div align="center">
-これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.15)</a>の日本語訳です。<br/>オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>最終更新: 2012-11-08
+これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.16)</a>の日本語訳です。<br/>オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>最終更新: 2012-11-10
 </div>
 
 <p align="right">
 
-Revision 1.15
+Revision 1.16
 </p>
 
 
@@ -82,41 +82,26 @@ Takashi Kato
     designed to make your code easier for other people to understand.
     -->
     このガイドはあなたのコードを他人にとって理解しやすくするよう設計された書式とスタイルの選択を奨励します。
-    <!--
-    Its guidelines apply to all the Common Lisp code we write at Google,
-    including our internal applications as well as
-    free software libraries we maintain and publish.
-    If you contribute to this code base,
-    you must follow these guidelines before you submit your patch,
-    or your code will be fixed to follow the guidelines after you do.
-    -->
-    このガイドラインはGoogleで書かれるCommon Lispのコード全てに適用されます、
-    それらには我々がメンテナンス及び公開を行っているフリーソフトと
-    同様にGoogle内部のアプリケーションも含まれます。
-    もし、このコードベースに貢献するのなら、パッチを送信する前にこれらのガイドラインに
-    従うか、送信されたコードはこのガイドラインに従うように修正されます。
+
+    For those internal applications and free software libraries that
+    we develop at Google,
+    you should keep within these guidelines when making changes.
+    Note however that each project has its own rules and customs
+    that complement or override these general guidelines;
+    the speed-oriented QPX low fare search engine notably
+    has a very different style and feel from the QRes reservation system.
   </p>
   <p>
     <!--
     If you're writing Common Lisp code outside Google,
-    we invite you to consider the guidelines we expound in this guide.
-    You may apply some or all of them to your own projects, at your leisure:
-    we hope you find them as useful as we do.
-    Even if you don't, we welcome remarks and constructive feedback
-    you may have on how to improve our guide, and
-    what alternate styles work are successful for you.
-    Finally, we hope that our guide will inspire useful thoughts
-    in hackers who read it, especially so newcomers to Common Lisp.
+    we invite you to consider these guidelines.
     -->
-    もしあなたがGoogle以外でCommon Lispのコードを書くのであれば、このガイドで説明する
-    ガイドラインを考慮にいれることをお勧めします。
-    これらの一部または全てをご自身のプロジェクトに、暇な時に、適用してもかまいません。
-    我々はこれらがあなたにとっても有益であることを願っています。
-    たとえあなたがこれらを適用しなくても、このガイドをどのように改善するか、または
-    別のスタイルがあなたにとって成功しているという意見や建設的なフィードバックを
-    我々は歓迎します。
-    最後に、我々はこのガイドがこれを読んだハッカー達、とくにCommon Lisp初心者、
-    の有益な思考を起こすことを願っています。
+    もしあなたがGoogle以外でCommon Lispのコードを書くのであれば、これらガイドラインの項目を考慮にいれることをお勧めします。
+    You may find some of them useful
+    where they don't conflict with other priorities you have.
+    We welcome remarks and constructive feedback
+    on how to improve our guide, and
+    on what alternate styles work for you and why.
   </p>
   <p>
     <!--
@@ -3717,7 +3702,7 @@ Takashi Kato
         and make sure not to leak sensitive data this way.
         These are meant for interactive use,
         and can cause interesting damage
-        if they cause data or control leak to attackers.
+        if they cause data or control to leak to attackers.
       </p>
       <p>
         You must not use gratuitous single quotes in <code>CASE</code> forms.
@@ -4270,7 +4255,7 @@ Takashi Kato
         and does not risk going beyond <code>CALL-ARGUMENTS-LIMIT</code>
         on implementations where that limit is small,
         which could blow away the stack on long lists
-        (we want our code to not be gratuitously unportable).
+        (we want to avoid gratuitous non-portability in our code).
       </p>
       <p>
         However, you must be careful not to use <code>REDUCE</code>
@@ -4305,18 +4290,18 @@ Takashi Kato
         when you need to update a variable.
         You should probably not depend on games
         being played with the <code>CDR</code>
-        of the current cons cell;
-        and if you do, you must include a prominent
+        of the current CONS cell
+        (which some might argue is suggested but not guaranteed by the specification);
+        if you do, you must include a prominent
         comment explaining the use of <code>NCONC</code>;
-        and you should probably reconsider your data representation.
+        and you should probably reconsider your data representation strategy.
       </p>
       <p>
         By extension, you should avoid <code>MAPCAN</code>
         or the <code>NCONC</code> feature of <code>LOOP</code>.
         You should instead respectively use
         <code>ALEXANDRIA:MAPPEND</code>
-        and the <code>APPEND</code> feature of <code>LOOP</code>
-        respectively.
+        and the <code>APPEND</code> feature of <code>LOOP</code>.
       </p>
       <p>
         <code>NCONC</code> is very seldom a good idea,
@@ -4343,7 +4328,8 @@ Takashi Kato
         where the use of lists as a data structure has been vetted
         because these lists are known to be short,
         and when the function or expression the result of which are accumulated
-        explicitly promises in its contract that it only returns fresh lists.
+        explicitly promises in its contract that it only returns fresh lists
+        (in particular, it can't be a constant quote or backquote expression).
         Even then, the use of such primitives must be rare,
         and accompanied by justifying documentation.
       </p>
@@ -4395,6 +4381,7 @@ Takashi Kato
         Unlike the case of <code>#'symbol</code> vs <code>'symbol</code>,
         it is only a syntactic difference with no semantic impact,
         except that the former works on Genera and the latter doesn't.
+
         You must use the former style if your code is intended as a library
         with maximal compatibility to all Common Lisp implementations;
         otherwise, it is optional which style you use.
@@ -4612,7 +4599,7 @@ Takashi Kato
 </small>
 
 <p align="right">
-Revision 1.15
+Revision 1.16
 </p>
 
 
