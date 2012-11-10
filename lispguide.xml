@@ -96,12 +96,14 @@ Takashi Kato
     If you're writing Common Lisp code outside Google,
     we invite you to consider these guidelines.
     -->
-    もしあなたがGoogle以外でCommon Lispのコードを書くのであれば、これらガイドラインの項目を考慮にいれることをお勧めします。
-    You may find some of them useful
-    where they don't conflict with other priorities you have.
-    We welcome remarks and constructive feedback
-    on how to improve our guide, and
-    on what alternate styles work for you and why.
+    もしあなたがGoogle以外でCommon Lispのコードを書くのであれば、これらガイドラインの項目について検討されることをお勧めします。
+    <!-- You may find some of them useful -->
+    <!-- where they don't conflict with other priorities you have. -->
+    <!-- We welcome remarks and constructive feedback -->
+    <!-- on how to improve our guide, and -->
+    <!-- on what alternate styles work for you and why. -->
+    他のあなたが規範としている既定の[ガイドライン]と競合しない限りにおいて、これらの中に有用とされるものがあるかもしれません。
+    我々のガイドを改善することについてのご意見、そして別のスタイルの提案と、その別のスタイルが、どうしてあなたの元では上手く機能するのか、の建設的なフィードバックを歓迎しています。
   </p>
   <p>
     <!--
@@ -115,9 +117,9 @@ Takashi Kato
     -->
     このガイドはCommon Lispのチュートリアルではありません。
     言語についての基礎的な情報については
-    <a HREF="http://www.gigamonkeys.com/book/">Practical Common Lisp</a>を参照下さい。
+    <a HREF="http://www.gigamonkeys.com/book/">Practical Common Lisp</a>を参照して下さい。
     言語リファレンスとしては
-    <a HREF="http://www.lispworks.com/documentation/HyperSpec/Front/index.htm">Common Lisp HyperSpec</a>を参照下さい。
+    <a HREF="http://www.lispworks.com/documentation/HyperSpec/Front/index.htm">Common Lisp HyperSpec</a>を参照して下さい。
     より詳細なスタイルガイドについてはPeter Norvig とKent Pitmanの
     <a HREF="http://norvig.com/luv-slides.ps">style guide</a>を見て下さい。
   </p>
