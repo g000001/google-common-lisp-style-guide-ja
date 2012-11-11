@@ -2092,7 +2092,7 @@ Takashi Kato
 <!-- <CATEGORY title="Language usage guidelines"> -->
 <CATEGORY title="言語利用法のガイドライン">
   <!-- <STYLEPOINT title="Mostly Functional Style"> -->
-  <STYLEPOINT title="概ね関数的スタイル">
+  <STYLEPOINT title="極力関数的スタイル">
     <SUMMARY>
       <!-- You should avoid side-effects when they are not necessary. -->
       副作用が必要のない場合はこれを避ける*べき*です。
@@ -2100,7 +2100,7 @@ Takashi Kato
     <BODY>
       <p>
         <!-- Lisp is best used as a "mostly functional" language. -->
-        Lispは"概ね関数型"言語としての使うのが最適です。
+        Lispは"極力関数型"言語としての使うのが最適です。
       </p>
       <p>
         <!-- Avoid modifying local variables, try rebinding instead. -->
@@ -2121,7 +2121,7 @@ Takashi Kato
         <!-- Using a mostly functional style makes it much easier -->
         <!-- to write concurrent code that is thread-safe. -->
         <!-- It also makes it easier to test the code. -->
-        概ね関数的スタイルに則せば、スレッドセーフな並行動作のコードを書くこともより易くなり、コードをテストするのもまたより易しくなります。
+        極力関数的スタイルに則せば、スレッドセーフな並行動作のコードを書くこともより易くなり、コードをテストするのもまたより易しくなります。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -2271,25 +2271,37 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        There are several styles for dealing with assignment and side-effects;
-        whichever a given package is using,
-        keep using the same consistently when hacking said package.
-        Pick a style that makes sense when starting a new package.
+        <!-- There are several styles for dealing with assignment and side-effects; -->
+        <!-- whichever a given package is using, -->
+        <!-- keep using the same consistently when hacking said package. -->
+        <!-- Pick a style that makes sense when starting a new package. -->
+        代入と副作用の処方については、(既存のパッケージが採用しているルールを含めて)いくつかのスタイルがありますが、
+        何れにせよ既存のパッケージをハックする場合にはパッケージのスタイルとの一貫性を維持しましょう。
+        新しくパッケージを作成する場合に道理にかなったスタイルを採択しましょう。
       </p>
       <p>
-        Regarding multiple assignment in a same form, there are two schools:
-        the first style groups as many assignments as possible into a single
-        <code>SETF</code> or <code>PSETF</code> form
-        thus minimizing the number of forms with side-effects;
-        the second style splits assignments into as many individual
-        <code>SETF</code> (or <code>SETQ</code>, see below) forms as possible,
-        to maximize the chances of locating forms that modify a kind of place
-        by grepping for <code>(setf (foo ...</code>.
-        A grep pattern must actually contain as many place-modifying forms
-        as you may use in your programs, which may make this rationale either
-        convincing or moot depending on the rest of the style of your code.
-        You should follow the convention used in the package you are hacking.
-        We recommend the first convention for new packages.
+        <!-- Regarding multiple assignment in a same form, there are two schools: -->
+        <!-- the first style groups as many assignments as possible into a single -->
+        <!-- <code>SETF</code> or <code>PSETF</code> form -->
+        <!-- thus minimizing the number of forms with side-effects; -->
+        一つのフォームで、複数の代入を行なうことについては、二つの流儀があります:
+        第一の流儀は、複数の代入を可能な限り一つの<code>SETF</code>または、<code>PSETF</code>のフォーム内で行うこととするというものであり、
+        従って、副作用を持つフォームの数を最小化するというものです。
+        <!-- the second style splits assignments into as many individual -->
+        <!-- <code>SETF</code> (or <code>SETQ</code>, see below) forms as possible, -->
+        <!-- to maximize the chances of locating forms that modify a kind of place -->
+        <!-- by grepping for <code>(setf (foo ...</code>. -->
+        第二の流儀は、代入を可能な限り個別の<code>SETF</code> (もしくは、<code>SETQ</code>、下記参照)フォームに分割し、
+        grepした時に、<code>(setf (foo ...</code>のような結果となることで、
+        代入が行なわれているようなフォームの箇所を特定する機会を最大化するものです。
+        <!-- A grep pattern must actually contain as many place-modifying forms -->
+        <!-- as you may use in your programs, which may make this rationale either -->
+        <!-- convincing or moot depending on the rest of the style of your code. -->
+        [このスタイルが]納得できるものか、議論の余地があるものかは、プログラムの残りの箇所がどのようなスタイルかに依るでしょうが、grepの検索結果のパターンは、プログラムで代入が行われている場所の数と実質同じにならなくてはなりません。
+        <!-- You should follow the convention used in the package you are hacking.  -->
+        <!-- We recommend the first convention for new packages.  -->
+        ハックしているパッケージが採用している慣習に従うべきです。
+        新規のパッケージの場合は、我々は、最初の慣習をお勧めします。
       </p>
       <p>
         <!-- Regarding <code>SETF</code> and <code>SETQ</code>, -->
@@ -2307,14 +2319,15 @@ Takashi Kato
         <code>SETF</code> と <code>SETQ</code> の使い分けに関しては、二つの流儀があります:
         第一の流儀は、<code>SETF</code>の利用を支持し、<code>SETQ</code>は、古式ゆかしいLISPのあれこれと捉え、これを一切排除します。
         第二の流儀は、<code>SETF</code>を、<code>SETQ</code>に複雑さを付け加えたものであると解釈し、<code>SETQ</code>が使えるところには<code>SETF</code>は使わないことを支持します。
-        (i.e. 書式上、変数として代入可能な場合には、変数とシンボルマクロを問わず)。
-        既存のパッケージをハックしている場合には、その流儀に沿う*べき*です。
+        (つまり、書式上、変数として代入可能な場合には、変数とシンボルマクロを問わずに)。
+        既存のパッケージをハックしている場合には、その流儀に沿うべきです。
         我々としては、新たなパッケージには、第一の流儀を推奨します。
       </p>
       <p>
-        In the spirit of a mostly pure functional style,
-        which makes testing and maintenance easier,
-        we invite you to consider how to do things with the fewest assignments required.
+        <!-- In the spirit of a mostly pure functional style, -->
+        <!-- which makes testing and maintenance easier, -->
+        <!-- we invite you to consider how to do things with the fewest assignments required. -->
+        テストと保守が容易になるという、極力純粋関数型スタイルの精神に則り、どうすれば代入の必要性が最小限になるかを考慮することをお勧めします。
       </p>
     </BODY>
   </STYLEPOINT>
