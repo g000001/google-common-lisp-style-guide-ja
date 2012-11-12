@@ -3,7 +3,7 @@
 <GUIDE title="Google Common Lisp スタイルガイド 日本語訳">
 
 <div align="center">
-これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.16)</a>の日本語訳です。<br/>オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>最終更新: 2012-11-11
+これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.16)</a>の日本語訳です。<br/>オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>最終更新: 2012-11-12
 </div>
 
 <p align="right">
@@ -3159,50 +3159,63 @@ Takashi Kato
       </p>
           </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="INTERN and UNINTERN">
+  <!-- <STYLEPOINT title="INTERN and UNINTERN"> -->
+  <STYLEPOINT title="INTERNとUNINTERN">
     <SUMMARY>
       <!--
       You must not use <code>INTERN</code> or <code>UNINTERN</code> at runtime. 
       -->
-      実行時の<code>INTERN</code>と<code>UNINTERN</code>の使用は*絶対に*控えるべきです。
+      実行時に<code>INTERN</code>と<code>UNINTERN</code>は使用してはなりません。
     </SUMMARY>
     <BODY>
       <p>
-        You must not use <code>INTERN</code> at runtime.
-        Not only does it cons,
-        it either creates a permanent symbol that won't be collected
-        or gives access to internal symbols.
-        This creates opportunities for memory leaks, denial of service attacks,
-        unauthorized access to internals, clashes with other symbols.
+        <!-- You must not use <code>INTERN</code> at runtime. -->
+        <!-- Not only does it cons, -->
+        <!-- it either creates a permanent symbol that won't be collected -->
+        <!-- or gives access to internal symbols. -->
+        <!-- This creates opportunities for memory leaks, denial of service attacks, -->
+        <!-- unauthorized access to internals, clashes with other symbols. -->
+        <code>INTERN</code>を実行時に使用してはなりません。
+        これは[GCに]回収されない恒久的なシンボルの生成であろうと、内部シンボルの生成であろうと良くありません。
+        <!-- pros and consのconsか、それともはboxingのことか、それとも「construct」の意味か -g000001 -->
+        これらの実行は、メモリリーク・DoS攻撃・内部への不正アクセス・他のシンボルとの競合、等の発生を生む可能性があります。
       </p>
       <p>
-        You must not <code>INTERN</code> a string
-        just to compare it to a keyword;
-        use <code>STRING=</code> or <code>STRING-EQUAL</code>.
+        <!-- You must not <code>INTERN</code> a string -->
+        <!-- just to compare it to a keyword; -->
+        <!-- use <code>STRING=</code> or <code>STRING-EQUAL</code>. -->
+        単にキーワード[シンボル]を比較するためだけに、文字列を<code>INTERN</code>してはなりません。
+        <code>STRING=</code>か<code>STRING-EQUAL</code>を使いましょう。
       </p>
       <BAD_CODE_SNIPPET>
-        (member (intern str :keyword) $keys) ; Bad
+        (member (intern str :keyword) $keys) ; 悪い
       </BAD_CODE_SNIPPET>
       <CODE_SNIPPET>
-        (member str $keys :test #'string-equal) ; Better
+        (member str $keys :test #'string-equal) ; より良い
       </CODE_SNIPPET>
       <p>
-        You must not use <code>UNINTERN</code> at runtime.
-        It can break code that relies on dynamic binding.
-        It makes things harder to debug.
-        You must not dynamically intern any new symbol,
-        and therefore you need not dynamically unintern anything.
+        <!-- You must not use <code>UNINTERN</code> at runtime. -->
+        <!-- It can break code that relies on dynamic binding. -->
+        <!-- It makes things harder to debug. -->
+        <!-- You must not dynamically intern any new symbol, -->
+        <!-- and therefore you need not dynamically unintern anything. -->
+        <code>UNINTERN</code>を実行時に使用してはなりません。
+        これは、動的な束縛に依存したコードを破壊する可能性があります。
+        また、これは、デバッグを困難なものにします。
+        動的に新しいシンボルを<code>INTERN</code>してはなりませんし、そうなると、まったく動的にシンボルを<code>UNINTERN</code>する必要もありません。<!-- un/internは別個のものでは？ -g000001 -->
       </p>
       <p>
-        You may of course use <code>INTERN</code> at compile-time,
-        in the implementation of some macros.
-        Even so, it is usually more appropriate
-        to use abstractions on top of it, such as
-        <code>ALEXANDRIA:SYMBOLICATE</code> or
-        <code>ALEXANDRIA:FORMAT-SYMBOL</code>
-        to create the symbols you need.
+        <!-- You may of course use <code>INTERN</code> at compile-time, -->
+        <!-- in the implementation of some macros. -->
+        <!-- Even so, it is usually more appropriate -->
+        <!-- to use abstractions on top of it, such as -->
+        <!-- <code>ALEXANDRIA:SYMBOLICATE</code> or -->
+        <!-- <code>ALEXANDRIA:FORMAT-SYMBOL</code> -->
+        <!-- to create the symbols you need. -->
+        勿論、コンパイル時には、マクロの組み立ての中で<code>INTERN</code>は使えるでしょう。
+        とはいえ、大抵は[<code>INTERN</code>を直に使うより]、それを抽象化したものを使うのがより適切であり、
+        必要なシンボルを生成するのには<code>ALEXANDRIA:SYMBOLICATE</code>や<code>ALEXANDRIA:FORMAT-SYMBOL</code>のようなものを使うことでしょう。
       </p>
-      
     </BODY>
   </STYLEPOINT>
 </CATEGORY>
