@@ -3,7 +3,7 @@
 <GUIDE title="Google Common Lisp スタイルガイド 日本語訳">
 
 <div align="center">
-これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.16)</a>の日本語訳です。<br/>オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>最終更新: 2012-11-12
+これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.16)</a>の日本語訳です。<br/>オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>最終更新: 2012-11-13
 </div>
 
 <p align="right">
@@ -2760,11 +2760,15 @@ Takashi Kato
     </BODY>
   </STYLEPOINT>
 </CATEGORY>
-<CATEGORY title="Meta-language guidelines">
-  <STYLEPOINT title="Macros">
+<!-- <CATEGORY title="Meta-language guidelines"> -->
+<CATEGORY title="メタ言語ガイドライン">
+  <!-- <STYLEPOINT title="Macros"> -->
+  <STYLEPOINT title="マクロ">
     <SUMMARY>
-      Use macros when appropriate, which is often.
-      Define macros when appropriate, which is seldom.
+      <!-- Use macros when appropriate, which is often. -->
+      <!-- Define macros when appropriate, which is seldom. -->
+      マクロを使うことは多いですが、適切な場合に利用しましょう。
+      それほど多くありませんが、それが適切な場合にはマクロを定義しましょう。
     </SUMMARY>
     <BODY>
       <p>
@@ -2882,18 +2886,23 @@ Takashi Kato
         which parameters are Lisp forms to be evaluated, and which are not.
       </p>
       <p>
-        You should follow the so-called <code>CALL-WITH</code> style when it applies.
-        This style is explained at length in
-        <a href="http://random-state.net/log/3390120648.html">http://random-state.net/log/3390120648.html</a>.
-        The general principle is that the macro is strictly limited to processing the syntax,
-        and as much of the semantics as possible is kept in normal functions.
-        Therefore, a macro <code>WITH-<em>FOO</em></code> is often limited to
-        generating a call to an auxiliary function
-        <code>CALL-WITH-<em>FOO</em></code>
-        with arguments deduced from the macro arguments.
-        Macro <code>&amp;body</code> arguments are typically
-        wrapped into a lambda expression of which they become the body,
-        which is passed as one of the arguments of the auxiliary function.
+        <!-- You should follow the so-called <code>CALL-WITH</code> style when it applies. -->
+        <!-- This style is explained at length in -->
+        <!-- <a href="http://random-state.net/log/3390120648.html">http://random-state.net/log/3390120648.html</a>. -->
+        <!-- The general principle is that the macro is strictly limited to processing the syntax, -->
+        <!-- and as much of the semantics as possible is kept in normal functions. -->
+        <!-- Therefore, a macro <code>WITH-<em>FOO</em></code> is often limited to -->
+        <!-- generating a call to an auxiliary function -->
+        <!-- <code>CALL-WITH-<em>FOO</em></code> -->
+        <!-- with arguments deduced from the macro arguments. -->
+        <!-- Macro <code>&amp;body</code> arguments are typically -->
+        <!-- wrapped into a lambda expression of which they become the body, -->
+        <!-- which is passed as one of the arguments of the auxiliary function. -->
+        適用できる場合は、<code>CALL-WITH</code>スタイルと呼ばれるスタイルに倣うべきです。
+        このスタイルは、<a href="http://random-state.net/log/3390120648.html">http://random-state.net/log/3390120648.html</a>で詳細に説明されています。
+        一般的原理としては、マクロは構文の処理に限定して用い、意味論はできる限り通常の関数内に保ったままにしておくというものです。
+        つまり、大体のところ<code>WITH-<em>FOO</em></code>というマクロは、<code>CALL-WITH-<em>FOO</em></code>というマクロの引数から加工された引数を持つ補助関数の呼び出しを生成するためだけのものということです。
+        マクロの<code>&amp;body</code>引数は、典型的には、補助関数に与えられる引数の一つとしてのラムダ式で、ラムダ式のボディ部となるところにまとめられます。
       </p>
       <p>
         The separation of syntactic and semantic concerns
