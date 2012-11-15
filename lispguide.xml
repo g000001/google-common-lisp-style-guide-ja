@@ -2937,48 +2937,68 @@ Takashi Kato
         このスタイルは、マクロが、タイトループ内のようなパフォーマンスが重要な場所以外で適用するべきです(最適化の項を参照してください)。
       </p>
       <p>
-        Any functions (closures) created by the macro should be named,
-        which can be done using <code>FLET</code>.
+        <!-- Any functions (closures) created by the macro should be named, -->
+        <!-- which can be done using <code>FLET</code>. -->
         
-        This also allows you to declare the function to be of dynamic extent
-        (if it is &#8212; and often it is; yet see below regarding
-        <a href="#DYNAMIC-EXTENT">DYNAMIC-EXTENT</a>).
+        <!-- This also allows you to declare the function to be of dynamic extent -->
+        <!-- (if it is &#8212; and often it is; yet see below regarding -->
+        <!-- <a href="#DYNAMIC-EXTENT">DYNAMIC-EXTENT</a>). -->
+        マクロによって作られる関数(クロージャー)は、名前を持つべきです。
+        これは、<code>FLET</code>を使うことによって可能です。
+        これはまた、関数のDYNAMIC-EXTENT宣言を可能にします。
+        (必要に応じて下記の<a href="#DYNAMIC-EXTENT">DYNAMIC-EXTENT</a>の項を参照してください)
       </p>
       <p>
-        If a macro call contains a form,
-        and the macro expansion includes more than one copy of that form,
-        the form can be evaluated more than once,
-        and code it contains macro-expanded and compiled more than once.
-        If someone uses the macro and calls it
-        with a form that has side effects or that takes a long time to compute,
-        the behavior will be undesirable
-        (unless you're intentionally writing
-        a control structure such as a loop).
-        A convenient way to avoid this problem
-        is to evaluate the form only once,
-        and bind a (generated) variable to the result.
-        There is a very useful macro called <code>ALEXANDRIA:ONCE-ONLY</code>
-        that generates code to do this.
-        See also <code>ALEXANDRIA:WITH-GENSYMS</code>,
-        to make some temporary variables in the generated code.
-        Note that if you follow our <code>CALL-WITH</code> style,
-        you typically expand the code only once, as either
-        an argument to the auxiliary function, or
-        the body of a lambda passed as argument to it;
-        you therefore avoid the above complexity.
+        <!-- If a macro call contains a form, -->
+        <!-- and the macro expansion includes more than one copy of that form, -->
+        <!-- the form can be evaluated more than once, -->
+        <!-- and code it contains macro-expanded and compiled more than once. -->
+        <!-- If someone uses the macro and calls it -->
+        <!-- with a form that has side effects or that takes a long time to compute, -->
+        <!-- the behavior will be undesirable -->
+        <!-- (unless you're intentionally writing -->
+        <!-- a control structure such as a loop). -->
+        <!-- A convenient way to avoid this problem -->
+        <!-- is to evaluate the form only once, -->
+        <!-- and bind a (generated) variable to the result. -->
+        <!-- There is a very useful macro called <code>ALEXANDRIA:ONCE-ONLY</code> -->
+        <!-- that generates code to do this. -->
+        <!-- See also <code>ALEXANDRIA:WITH-GENSYMS</code>, -->
+        <!-- to make some temporary variables in the generated code. -->
+        <!-- Note that if you follow our <code>CALL-WITH</code> style, -->
+        <!-- you typically expand the code only once, as either -->
+        <!-- an argument to the auxiliary function, or -->
+        <!-- the body of a lambda passed as argument to it; -->
+        <!-- you therefore avoid the above complexity. -->
+        マクロが、ある一つのフォームを含んでいて、
+        マクロの展開により、そのフォームがマクロ中に複数のコピーを作るという場合、
+        そのフォームは、複数回評価され得ることになります。
+        また、コードは、複数回マクロ展開やコンパイルされたものを含むことになります。
+        もし誰かがこのマクロ使い、その中で、副作用を利用していたり、長時間の計算をさせていた場合、この振舞いは望ましくないものでしょう(故意にあなたがループのような制御構文を書いているのでもない限り)。
+        この問題を避ける手短な解決策は、フォームの評価は一度きりにして、その結果を(生成した)変数に束縛することです。
+        このようなコードを生成するのには、
+        <code>ALEXANDRIA:ONCE-ONLY</code>というとても便利なマクロがあります。
+        また、コード生成内で一時的な変数を生成するのには、<code>ALEXANDRIA:WITH-GENSYMS</code>を参照してください。
+        我々の<code>CALL-WITH</code>スタイルに従うならば、
+        典型的には、マクロの展開は、補助関数への引数も、補助関数に渡されるボディ部も同じく一度きりであり、従って上述の複雑さも回避することになる、ということに留意しておきましょう。
       </p>
       <p>
-        When you write a macro with a body,
-        such as a <code>WITH-xxx</code> macro,
-        even if there aren't any parameters,
-        you should leave space for them anyway.
-        For example, if you invent <code>WITH-LIGHTS-ON</code>,
-        do not make the call to it look like
-        <code>(defmacro with-lights-on (&amp;body b) ...)</code>.
-        Instead, do <code>(defmacro with-lights-on (() &amp;body b) ...)</code>.
-        That way, if parameters are needed in the future,
-        you can add them without necessarily having to change
-        all the uses of the macro.
+        <!-- When you write a macro with a body, -->
+        <!-- such as a <code>WITH-xxx</code> macro, -->
+        <!-- even if there aren't any parameters, -->
+        <!-- you should leave space for them anyway. -->
+        <!-- For example, if you invent <code>WITH-LIGHTS-ON</code>, -->
+        <!-- do not make the call to it look like -->
+        <!-- <code>(defmacro with-lights-on (&amp;body b) ...)</code>. -->
+        <!-- Instead, do <code>(defmacro with-lights-on (() &amp;body b) ...)</code>. -->
+        <!-- That way, if parameters are needed in the future, -->
+        <!-- you can add them without necessarily having to change -->
+        <!-- all the uses of the macro. -->
+        <code>WITH-xxx</code>のようなボディ部を持ったマクロを書く場合には、引数を取ることがなくても、とりあえず、その為の場所は確保して置くべきです。
+        例を挙げると、<code>WITH-LIGHTS-ON</code>を作成しているとすれば、
+        <code>(defmacro with-lights-on (&amp;body b) ...)</code>のような形式にはせず、
+        代りに、<code>(defmacro with-lights-on (() &amp;body b) ...)</code>のような形式にしましょう。
+        この方式であれば、将来、引数が必要になった場合、利用中の全部のマクロを変更する必要とは無縁に引数の追加が可能になります。
       </p>
     </BODY>
   </STYLEPOINT>
