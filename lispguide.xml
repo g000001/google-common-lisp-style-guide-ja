@@ -2867,23 +2867,29 @@ Takashi Kato
         since these are hard for the uninitiated to understand.
       </p>
       <p>
-        You must not install new reader macros
-        without a consensus among the developers of your system.
-        Reader macros must not leak out of the system that uses them
-        to clients of that system or other systems used in the same project.
-        You must software such as
-        <code>cl-syntax</code> or <code>named-readtables</code>
-        to control how reader macros are used.
-        This clients who desire it may use the same reader macros as you do.
-        In any case, your system must be usable
-        even to clients who do not use these reader macros.
+        <!-- You must not install new reader macros -->
+        <!-- without a consensus among the developers of your system. -->
+        <!-- Reader macros must not leak out of the system that uses them -->
+        <!-- to clients of that system or other systems used in the same project. -->
+        <!-- You must software such as -->
+        <!-- <code>cl-syntax</code> or <code>named-readtables</code> -->
+        <!-- to control how reader macros are used. -->
+        <!-- This clients who desire it may use the same reader macros as you do. -->
+        <!-- In any case, your system must be usable -->
+        <!-- even to clients who do not use these reader macros. -->
+        あなたは、携わっているシステムの開発者間での合意なしに、新しいリーダーマクロを導入してはなりません。
+        リーダーマクロ[の影響範囲]がシステムを使う側や、同じプロジェクトの他のシステムに漏れ出すようなことがあってはなりません。
+        リーダーマクロの利用を制御するためには、<code>cl-syntax</code>や<code>named-readtables</code>のようなソフトウェアを使わなければなりません。<!-- ???:g000001 -->
+        [システムを]使う側は、あなたと同じように同じリーダーマクロを使うかもしれませんが、どうであれ、システムは、リーダーマクロを使わない利用者でも[リーダーマクロを使う場合と]同じように使えるものであらなくてはなりません。
       </p>
       <p>
-        If your macro has a parameter that is a Lisp form
-        that will be evaluated when the expanded code is run,
-        you should name the parameter with the suffix <code>-form</code>.
-        This convention helps make it clearer to the macro's user
-        which parameters are Lisp forms to be evaluated, and which are not.
+        <!-- If your macro has a parameter that is a Lisp form -->
+        <!-- that will be evaluated when the expanded code is run, -->
+        <!-- you should name the parameter with the suffix <code>-form</code>. -->
+        <!-- This convention helps make it clearer to the macro's user -->
+        <!-- which parameters are Lisp forms to be evaluated, and which are not. -->
+        もしマクロが、マクロが展開された後に、Lispの式として評価されるような引数を持っている場合、その引数には、<code>-form</code>という接尾辞を付けた名前を付けるべきです。
+        この取り決めは、マクロの利用者から見てどの引数がLispの式として展開され、またそうでないのかを、より分かりやすくします。
       </p>
       <p>
         <!-- You should follow the so-called <code>CALL-WITH</code> style when it applies. -->
