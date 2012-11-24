@@ -2799,34 +2799,42 @@ Takashi Kato
         you must not write the expansion rather than use the macro.
       </p>
       <p>
-        New macros should be defined as appropriate,
-        which should be seldom,
-        for common macros have already been provided
-        by the language and its various libraries,
-        and your program typically only needs few new ones
-        relative to its size.
+        <!-- New macros should be defined as appropriate, -->
+        <!-- which should be seldom, -->
+        <!-- for common macros have already been provided -->
+        <!-- by the language and its various libraries, -->
+        <!-- and your program typically only needs few new ones -->
+        <!-- relative to its size. -->
+        新しいマクロの定義は適切に、そしてめったに定義することはないようにすべきです。
+        共通で利用されるようなマクロは、既に言語やいくつかのライブラリによって提供されていますし、あなたのプログラムが新しいマクロを必要とすることは通常少しだけです。また、プログラムの小ささに比例して少なくなります。
       </p>
       <p>
-        You should follow the OAOOM rule of thumb
-        for deciding when to create a new abstraction,
-        whether syntactic or not:
-        if a particular pattern is used more than twice,
-        it should probably be abstracted away.
-        A more refined rule to decide when to use abstraction
-        should take into account
-        the benefit in term of number of uses and gain at each use,
-        to the costs in term of having to get used to reading the code.
-        For syntactic abstractions, costs and benefits to the reader
-        is usually more important than costs and benefits to the writer,
-        because good code is usually written once
-        and read many times by many people
-        (including the same programmer
-        who has to maintain the program after having forgotten it).
-        Yet the cost to the writer of the macro
-        should also be taken into account;
-        however, in doing so it should rather be compared
-        to the cost of the programmer writing other code instead
-        that may have higher benefits.
+        <!-- You should follow the OAOOM rule of thumb -->
+        <!-- for deciding when to create a new abstraction, -->
+        <!-- whether syntactic or not: -->
+        <!-- if a particular pattern is used more than twice, -->
+        <!-- it should probably be abstracted away. -->
+        <!-- A more refined rule to decide when to use abstraction -->
+        <!-- should take into account -->
+        <!-- the benefit in term of number of uses and gain at each use, -->
+        <!-- to the costs in term of having to get used to reading the code. -->
+        <!-- For syntactic abstractions, costs and benefits to the reader -->
+        <!-- is usually more important than costs and benefits to the writer, -->
+        <!-- because good code is usually written once -->
+        <!-- and read many times by many people -->
+        <!-- (including the same programmer -->
+        <!-- who has to maintain the program after having forgotten it). -->
+        <!-- Yet the cost to the writer of the macro -->
+        <!-- should also be taken into account; -->
+        <!-- however, in doing so it should rather be compared -->
+        <!-- to the cost of the programmer writing other code instead -->
+        <!-- that may have higher benefits. -->
+        新しい構文の抽象化を作成するか否かを判断する際には、大まかな目安として、OOAOOM[Once And Only Once More]に従うべきです:
+        『もし特定のパターンが二度より多く使われているならば、それは恐らく抽象化されるべきである』 
+        抽象化を利用するにあたってのさらに洗練されたルールとして、使われる数とそれら一つ一つがもたらす利益と、コードを読むのに慣れるまでのコストを勘案すべきです。<!-- 厳しい:g000001 -->
+        構文の抽象化についての読み手が負担するコストと利益は、通常、書き手が負担するコストと利益より重要なものです。
+        なぜなら、良いコードは、通常、書かれるのは一度だけですが、沢山の人々によって何度も読まれるからです。(プログラムの内容を忘れてしまってから保守しなければならないプログラマ本人を含む)
+        しかし、[抽象化しないで]代わりのコードを書くコストより、[抽象化した]利益の方が大きいならば、書き手のコストの方が考慮されるべき時もまたあります。<!-- 厳しい:g000001 -->
       </p>
       <p>
         <!-- Using Lisp macros properly requires taste. -->
