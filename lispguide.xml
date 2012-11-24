@@ -2829,7 +2829,7 @@ Takashi Kato
         <!-- however, in doing so it should rather be compared -->
         <!-- to the cost of the programmer writing other code instead -->
         <!-- that may have higher benefits. -->
-        新しい構文の抽象化を作成するか否かを判断する際には、大まかな目安として、OOAOOM[Once And Only Once More]に従うべきです:
+        新しい構文の抽象化を作成するか否かを判断する際には、大まかな目安として、OAOOM[Once And Only Once More]に従うべきです:
         『もし特定のパターンが二度より多く使われているならば、それは恐らく抽象化されるべきである』 
         抽象化を利用するにあたってのさらに洗練されたルールとして、使われる数とそれら一つ一つがもたらす利益と、コードを読むのに慣れるまでのコストを勘案すべきです。<!-- 厳しい:g000001 -->
         構文の抽象化についての読み手が負担するコストと利益は、通常、書き手が負担するコストと利益より重要なものです。
