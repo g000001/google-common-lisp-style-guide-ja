@@ -3,7 +3,7 @@
 <GUIDE title="Google Common Lisp スタイルガイド 日本語訳">
 
 <div align="center">
-これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.16)</a>の日本語訳です。<br/>オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>最終更新: 2012-11-22
+これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.16)</a>の日本語訳です。<br/>オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>最終更新: 2012-11-24
 </div>
 
 <p align="right">
@@ -2829,42 +2829,54 @@ Takashi Kato
         that may have higher benefits.
       </p>
       <p>
-        Using Lisp macros properly requires taste.
-        Avoid writing complicated macros
-        unless the benefit clearly outweighs the cost.
-        It takes more effort for your fellow developers to learn your macro,
-        so you should only use a macro if the gain in expressiveness
-        is big enough to justify that cost.
-        As usual, feel free to consult your colleagues if you're not sure,
-        since without a lot of Lisp experience,
-        it can be hard to make this judgment.
+        <!-- Using Lisp macros properly requires taste. -->
+        <!-- Avoid writing complicated macros -->
+        <!-- unless the benefit clearly outweighs the cost. -->
+        <!-- It takes more effort for your fellow developers to learn your macro, -->
+        <!-- so you should only use a macro if the gain in expressiveness -->
+        <!-- is big enough to justify that cost. -->
+        <!-- As usual, feel free to consult your colleagues if you're not sure, -->
+        <!-- since without a lot of Lisp experience, -->
+        <!-- it can be hard to make this judgment. -->
+        Lispのマクロの利用は、分別を弁えて。
+        [複雑にすることによる]恩恵がそのコストを明確に上回ることがない限り、複雑なマクロを書くのは避けましょう。
+        同僚の開発者があなたのマクロを理解するのにより多くの労力を使うことになるので、理解のコストに十分見合うだけの分かりやすさを持つ場合だけ[複雑な]マクロを使用すべきです。
+        判断がつかない場合には、いつでも同僚に遠慮しないで助言を求めましょう。
+        Lispの多くの経験を積んでいなければ、この判断は難しいものだからです。
       </p>
       <p>
-        You must never use a macro where a function will do.
-        That is, if the semantics of what you are writing
-        conforms to the semantics of a function,
-        then you must write it as a function rather than a macro.
+        <!-- You must never use a macro where a function will do. -->
+        <!-- That is, if the semantics of what you are writing -->
+        <!-- conforms to the semantics of a function, -->
+        <!-- then you must write it as a function rather than a macro. -->
+        関数で目的を果せるところでマクロを使ってはなりません。
+        つまり、あなたが書こうとしているものの意味論が、関数の意味論に適合しているならば、マクロではなく、関数で書かなくてはならない、ということです。
       </p>
       <p>
-        You must not transform a function into a macro for performance reasons.
-        If profiling shows that you have a performance problem
-        with a specific function <code>FOO</code>,
-        document the need and profiling-results appropriately,
-        and
-        <code>(declaim (inline foo))</code>.
-      </p>
-      
-      <p>
-        You can also use a compiler-macro
-        as a way to speed up function execution
-        by specifying a source-to-source transformation.
-        Beware that it interferes with tracing the optimized function.
+        <!-- You must not transform a function into a macro for performance reasons. -->
+        <!-- If profiling shows that you have a performance problem -->
+        <!-- with a specific function <code>FOO</code>, -->
+        <!-- document the need and profiling-results appropriately, -->
+        <!-- and -->
+        <!-- <code>(declaim (inline foo))</code>. -->
+        パフォーマンス上の理由で関数をマクロに書き直してはなりません。
+        プロファイリングの結果が、特定の関数<code>FOO</code>にパフォーマンス上の問題があることを示したとすれば、その必要性と適切なプロファイリングの結果を文章化した上で、<code>(declaim (inline foo))</code>を宣言します。
       </p>
       <p>
-        When you write a macro-defining macro
-        (a macro that generates macros),
-        document and comment it particularly clearly,
-        since these are hard for the uninitiated to understand.
+        <!-- You can also use a compiler-macro -->
+        <!-- as a way to speed up function execution -->
+        <!-- by specifying a source-to-source transformation. -->
+        <!-- Beware that it interferes with tracing the optimized function. -->
+        また、関数の実行の速度向上の方法として、ソースコードからソースコードへの変換手順を指定するコンパイラ・マクロを使うこともできるでしょう。
+        ただし、これは最適化された関数をトレースする場合には邪魔になることに用心しておきましょう。
+      </p>
+      <p>
+        <!-- When you write a macro-defining macro -->
+        <!-- (a macro that generates macros), -->
+        <!-- document and comment it particularly clearly, -->
+        <!-- since these are hard for the uninitiated to understand. -->
+        マクロを書くマクロ(マクロを定義するマクロ)を書く場合には、とりわけ分かりやすいドキュメントとコメントを書きましょう。
+        慣れない人には、これらはとても分かり難いものだからです。
       </p>
       <p>
         <!-- You must not install new reader macros -->
@@ -2877,7 +2889,7 @@ Takashi Kato
         <!-- This clients who desire it may use the same reader macros as you do. -->
         <!-- In any case, your system must be usable -->
         <!-- even to clients who do not use these reader macros. -->
-        あなたは、携わっているシステムの開発者間での合意なしに、新しいリーダーマクロを導入してはなりません。
+        携わっているシステムの開発者間での合意なしに、新しいリーダーマクロを導入してはなりません。
         リーダーマクロ[の影響範囲]がシステムを使う側や、同じプロジェクトの他のシステムに漏れ出すようなことがあってはなりません。
         リーダーマクロの利用を制御するためには、<code>cl-syntax</code>や<code>named-readtables</code>のようなソフトウェアを使わなければなりません。<!-- ???:g000001 -->
         [システムを]使う側は、あなたと同じように同じリーダーマクロを使うかもしれませんが、どうであれ、システムは、リーダーマクロを使わない利用者でも[リーダーマクロを使う場合と]同じように使えるものであらなくてはなりません。
