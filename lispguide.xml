@@ -444,8 +444,10 @@ Takashi Kato
           &#8212; even if the first developer isn't around to explain it.
           (This is the "hit by a truck" principle.)
 	  -->
-	  全ての開発者が書いたコードは他の開発者にとって簡単に読めて、理解でき、修正できなければならない。
-	  例え最初の開発者が近くに居らず説明不可能であっても。(トラックにはねられるの原理)<!-- なんのこと？ -->
+	  全ての開発者が書いたコードは他の開発者にとって簡単に読めて、理解でき、修正できなければなりません。
+	  例え最初の開発者が近くに居らず説明不可能であっても。([もし主要開発者が]トラックにはねられたらの原理)
+          <!-- なんのこと？ -->
+          <!-- http://en.wikipedia.org/wiki/Bus_factor 主要開発者がトラックにはねられて死んだもプロジェクトは続行できなくてはならない的な比喩みたいです: g000001 -->
         </li>
         <li>
 	  <!-- 
@@ -453,8 +455,8 @@ Takashi Kato
           Ideally, there should be no way to look at lines of code
           and recognize it as "Fred's code" by its style.
 	  -->
-	  全ての人のコードは同じに見えるべきである。
-	  理想としては、コードのを見て「Fredが書いたな」と判別できるべきではない。<!-- 単語を全部入れるべき？ -->
+	  全ての人のコードは同じに見えるべきです。
+	  理想としては、コードを見て「Fredが書いたな」と判別できるべきではありません。<!-- 単語を全部入れるべき？ -->
         </li>
         <li>
           <!-- Don't be "clever" &#8212; -->
