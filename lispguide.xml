@@ -83,6 +83,7 @@ Takashi Kato
     -->
     このガイドはあなたのコードを他人にとって理解しやすくするよう設計された書式とスタイルの選択を奨励します。
 
+    <!--
     For those internal applications and free software libraries that
     we develop at Google,
     you should keep within these guidelines when making changes.
@@ -90,6 +91,10 @@ Takashi Kato
     that complement or override these general guidelines;
     the speed-oriented QPX low fare search engine notably
     has a very different style and feel from the QRes reservation system.
+    -->
+    Googleで開発される内製アプリケーション及びフリーソフトに対して変更を行う際は、このガイドラインに沿ったものにする必要があります。
+    しかし、それぞれのプロジェクトには独自のルールや習慣があり、それらはこれらの一般的なガイドラインを補足もしくは上書きします;
+    とりわけ速度重視の低コスト検索エンジンQPXはQRes予約システムとはとても異なるスタイル、感覚<!-- feelのうまい訳が思いつかない-->で作られています。
   </p>
   <p>
     <!--
@@ -283,6 +288,7 @@ Takashi Kato
 	この文書の中に形式化されていないガイドラインにも従わなければなりません。
       </p>
       <p>
+	<!--
         You MUST follow conventions.
         They are important for readability.
         When conventions are followed by default,
@@ -291,12 +297,22 @@ Takashi Kato
         When conventions are systematically violated,
         violations of the convention are a distracting noise
         that needs to be ignored.
+	-->
+	慣例には従わなければなりません。慣例は可読性を向上させます。<!-- 直訳だと日本語がおかしくなるので意訳。-->
+	慣例が既定にしたがっていれば、慣例違反は注目に値する何かが起きていて、注意を払う必要があるシグナルになります。
+	意図的に違反された慣例は、無視されなければならない邪魔なノイズになります。<!-- 訳微妙 -->
       </p>
       <p>
+	<!--
         Conventional guidelines <em>are</em> indoctrination.
         Their purpose is to make you follow the mores of the community,
-        
+        -->
+	慣例に沿ったガイドラインはある種の宗教に<em>なります</em>。<!-- 教化と訳すよりは・・・ -->
+	これらの目的はあなたをコミュニティの教義に則らせ、より効果的に既存のメンバーと協力することを可能にすることです。
+	<!-- ちょっと日本語がおかしい。-->
+	<!--
         so you can more effectively cooperate with existing members.
+	-->
         It is still useful to distinguish the parts that are technically motivated
         from the parts that are mere conventions,
         so you know when best to defy conventions for good effect,
@@ -386,19 +402,24 @@ Takashi Kato
           </ul>
         </li>
         <li>
-          When (not) to use conditional compilation:
+          <!-- When (not) to use conditional compilation: -->
+	  条件付コンパイルの(非)使用時：<!-- compilation = コンパイル？ or 編集?-->
           <ul>
             <li>
-              modifying the product
+              <!-- modifying the product -->
+	      プロダクトの修正
             </li>
             <li>
-              conditional debugging/console output/etc.
+              <!-- conditional debugging/console output/etc. -->
+	      条件付デバッグ、コンソール出力、など
             </li>
             <li>
-              "temporarily" commenting-out blocks of code
+              <!-- "temporarily" commenting-out blocks of code -->
+	      "一時的な"コードのコメント化
             </li>
             <li>
-              etc.
+              <!-- etc. -->
+	      など
             </li>
           </ul>
         </li>
@@ -417,15 +438,23 @@ Takashi Kato
       ガイドラインの詳細が、不適切な、混乱を引き起こす、または矛盾している場合は方針について再度参照してください。
       <ul>
         <li>
+	  <!--
           Every developer's code must be easy for another developer
           to read, understand, and modify
           &#8212; even if the first developer isn't around to explain it.
           (This is the "hit by a truck" principle.)
+	  -->
+	  全ての開発者が書いたコードは他の開発者にとって簡単に読めて、理解でき、修正できなければならない。
+	  例え最初の開発者が近くに居らず説明不可能であっても。(トラックにはねられるの原理)<!-- なんのこと？ -->
         </li>
         <li>
+	  <!-- 
           Everybody's code should look the same.
           Ideally, there should be no way to look at lines of code
           and recognize it as "Fred's code" by its style.
+	  -->
+	  全ての人のコードは同じに見えるべきである。
+	  理想としては、コードのを見て「Fredが書いたな」と判別できるべきではない。<!-- 単語を全部入れるべき？ -->
         </li>
         <li>
           <!-- Don't be "clever" &#8212; -->
