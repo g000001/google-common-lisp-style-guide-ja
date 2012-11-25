@@ -2772,31 +2772,40 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        Macros bring syntactic abstraction, which is a wonderful thing.
-        It helps make your code clearer, by describing your intent
-        without getting bogged in implementation details
-        (indeed abstracting those details away).
-        It helps make your code more concise and more readable,
-        by eliminating both redundancy and irrelevant details.
-        But it comes at a cost to the reader,
-        which is learning a new syntactic concept for each macro.
-        And so it should not be abused.
+        <!-- Macros bring syntactic abstraction, which is a wonderful thing. -->
+        <!-- It helps make your code clearer, by describing your intent -->
+        <!-- without getting bogged in implementation details -->
+        <!-- (indeed abstracting those details away). -->
+        <!-- It helps make your code more concise and more readable, -->
+        <!-- by eliminating both redundancy and irrelevant details. -->
+        <!-- But it comes at a cost to the reader, -->
+        <!-- which is learning a new syntactic concept for each macro. -->
+        <!-- And so it should not be abused. -->
+        マクロは構文的抽象をもたらし、これは素晴らしいことです。
+        実装の詳細に囚われることなく意図を記述することを可能にし、コードを明確にするのを助けます(まさにそれらの詳細を抽象化します)。
+        冗長であったり、無関係であったりする詳細のどちらも省くことで、より簡潔に、より読みやすくすることを助けます。
+        しかし、マクロごとに新しい構文概念の学習という読み手への負担をもたらします。
+        それ故にマクロは乱用すべきではありません。
       </p>
       <p>
-        The general conclusion is that there shouldn't be
-        any recognizable <em>design pattern</em>
-        in a good Common Lisp program.
-        The one and only pattern is: <em>use the language</em>,
-        which includes defining and using syntactic abstractions.
+        <!-- The general conclusion is that there shouldn't be -->
+        <!-- any recognizable <em>design pattern</em> -->
+        <!-- in a good Common Lisp program. -->
+        <!-- The one and only pattern is: <em>use the language</em>, -->
+        <!-- which includes defining and using syntactic abstractions. -->
+        一般的結論として、良いCommon Lispのプログラムの中に、何か<em>デザイン・パターン</em>とされるようなものはない筈です。
+        <em>言語を使う</em>のが唯一のパターンであり、これは構文的抽象化の定義と利用を含みます。
       </p>
       <p>
-        Existing macros must be used
-        whenever they make code clearer
-        by conveying intent in a more concise way,
-        which is often.
-        When a macro is available in your project
-        that expresses the concept you're using,
-        you must not write the expansion rather than use the macro.
+        <!-- Existing macros must be used -->
+        <!-- whenever they make code clearer -->
+        <!-- by conveying intent in a more concise way, -->
+        <!-- which is often. -->
+        <!-- When a macro is available in your project -->
+        <!-- that expresses the concept you're using, -->
+        <!-- you must not write the expansion rather than use the macro. -->
+        既存のマクロは、意図をより簡潔に伝えることにより、コードがより明確になる場合であれば、いつでも利用されなければなりません。 <!-- which is oftenってなんなの であればあるほど なのか-->
+        マクロがプロジェクトで利用可能な場合で、それがあなたのしたいことを表現できている場合に、そのマクロは利用せず、その展開結果を手書きするようなことをしてはなりません。
       </p>
       <p>
         <!-- New macros should be defined as appropriate, -->
@@ -2805,7 +2814,7 @@ Takashi Kato
         <!-- by the language and its various libraries, -->
         <!-- and your program typically only needs few new ones -->
         <!-- relative to its size. -->
-        新しいマクロの定義は適切に、そしてめったに定義することはないようにすべきです。
+        新しいマクロの定義は適切に、しかし滅多に定義することはないようにすべきです。
         共通で利用されるようなマクロは、既に言語やいくつかのライブラリによって提供されていますし、あなたのプログラムが新しいマクロを必要とすることは通常少しだけです。また、プログラムの小ささに比例して少なくなります。
       </p>
       <p>
@@ -2848,7 +2857,7 @@ Takashi Kato
         <!-- it can be hard to make this judgment. -->
         Lispのマクロの利用は、分別を弁えて。
         [複雑にすることによる]恩恵がそのコストを明確に上回ることがない限り、複雑なマクロを書くのは避けましょう。
-        同僚の開発者があなたのマクロを理解するのにより多くの労力を使うことになるので、理解のコストに十分見合うだけの分かりやすさを持つ場合だけ[複雑な]マクロを使用すべきです。
+        同僚の開発者があなたのマクロを理解するのにより多くの労力を使うことになるため、理解のコストに十分見合うだけの分かりやすさを持つ場合だけ[複雑な]マクロを使用すべきです。
         判断がつかない場合には、いつでも同僚に遠慮しないで助言を求めましょう。
         Lispの多くの経験を積んでいなければ、この判断は難しいものだからです。
       </p>
@@ -2934,13 +2943,13 @@ Takashi Kato
         <!-- The separation of syntactic and semantic concerns -->
         <!-- is a general principle of style that applies -->
         <!-- beyond the case of <code>WITH-</code> macros. -->
-        構文的な関心と意味論的な関心の分離は、<code>WITH-</code>の事例を敷衍し、スタイルの一般的原理としたたものです。
+        構文的な関心と意味論的な関心の分離は、<code>WITH-</code>の事例を敷衍し、スタイルの一般的原理としたものです。
         <!-- Its advantages are many. -->
         この手法には沢山のアドバンテージがあります。
         <!-- By keeping semantics outside the macro, -->
         <!-- the macro is made simpler, easier to get right, and less subject to change, -->
         <!-- which makes it easier to develop and maintain. -->
-        意味論をマクロの外側に保持することにより、マクロは、より単純で、分かり易く、変更の影響を受けにくくなり、開発と保守が容易になります。        
+        意味論をマクロの外側に保持することにより、マクロは、より単純で、分かりやすく、変更の影響を受けにくくなり、開発と保守が容易になります。        
         <!-- The semantics is written in a simpler language &#8212; one without staging &#8212; -->
         <!-- which also makes it easier to develop and maintain. -->
         意味論は、土台なしのより単純な言語で書かれますが、そのことがまた、開発と保守を容易にします。<!-- one without staging ?? -->
