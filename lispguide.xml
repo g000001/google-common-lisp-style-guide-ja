@@ -8,7 +8,7 @@
 
 <p align="right">
 
-Revision 1.16
+Revision 1.17
 </p>
 
 
@@ -1572,6 +1572,9 @@ Takashi Kato
         <!-- any of the above "requiring further attention" comments -->
 	あなたは日付つきの署名を「注目を集めさせている」コメントの上にしなければなりません。
         (but not mere cautionary explanations).
+        You must use the
+        <a HREF="http://www.w3.org/TR/NOTE-datetime">YYYY-MM-DD</a>
+        format for dates to make automated processing of such dates easier.
       </p>
       <p>
         This strategy ensures that grepping for <code>;---</code>
@@ -4484,15 +4487,15 @@ Takashi Kato
     <STYLEPOINT title="#'FUN vs. 'FUN">
     <SUMMARY>
       <!--
-      You should usually refer to a function as <code>#'FOO</code> rather than <code>'FOO</code>.
+      You should usually refer to a function as <code>#'FUN</code> rather than <code>'FUN</code>.
       -->
-      関数の参照は、<code>'FOO</code>ではなく、通常 <code>#'FOO</code> として参照す*べき*です。
+      関数の参照は、<code>'FUN</code>ではなく、通常 <code>#'FUN</code> として参照すべきです。
     </SUMMARY>
     <BODY>
       <p>
-        The former, which reads as <code>(FUNCTION FOO)</code>,
-        refers to the function object, and is properly scoped.
-        The latter, which reads as <code>(QUOTE FOO)</code>,
+        The former, which reads as <code>(FUNCTION FUN)</code>,
+        refers to the function object, and is lexically scoped.
+        The latter, which reads as <code>(QUOTE FUN)</code>,
         refers to the symbol, which when called
         uses the global <code>FDEFINITION</code> of the symbol.
       </p>
@@ -4500,7 +4503,7 @@ Takashi Kato
         When using functions that take a functional argument
         (e.g., <code>MAPCAR</code>, <code>APPLY</code>,
         <code>:TEST</code> and <code>:KEY</code> arguments),
-        you should use the <code>#'</code> to quote the function,
+        you should use the <code>#'</code> to refer to the function,
         not just single quote.
       </p>
       <p>
@@ -4740,7 +4743,7 @@ Takashi Kato
 </small>
 
 <p align="right">
-Revision 1.16
+Revision 1.17
 </p>
 
 
