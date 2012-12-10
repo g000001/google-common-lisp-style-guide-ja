@@ -3,7 +3,7 @@
 <GUIDE title="Google Common Lisp スタイルガイド 日本語訳">
 
 <div align="center">
-これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.16)</a>の日本語訳です。<br/>オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>最終更新: 2012-11-29
+これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.17)</a>の日本語訳です。<br/>オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>最終更新: 2012-12-11
 </div>
 
 <p align="right">
@@ -2580,7 +2580,7 @@ Takashi Kato
       <!-- If you know the type of something, you should make it explicit -->
       <!-- in order to enable compile-time and run-time sanity-checking. -->
       もし、なんらかの要素について、その型が何であるかあなたが知っているのなら、
-      コンパイル時そして実行時の正常性を確かめるために、あなたはそれを明確にすべきです。
+      コンパイル時そして実行時の正常性を確かめるために、あなたはそれを明示すべきです。
     </SUMMARY>
     <BODY>
       
@@ -2591,9 +2591,9 @@ Takashi Kato
         <!-- to clue in the person reading the code -->
         <!-- that this variable is being used implicitly as an argument, -->
         <!-- and also to help detect bugs. -->
-	もしあなたの関数が特殊変数を暗黙の引数として使うときは、
-	他人がコードを読むときに、その変数が暗黙の引数として扱われていること理解し、バグを検出するための手がかりとなるため、
-	その特殊変数を<code>CHECK-TYPE</code>の中におきます。
+	もしあなたの関数がスペシャル変数を暗黙の引数として使うときは、 
+	他人がコードを読むときに、その変数が暗黙の引数として扱われていること理解し、バグを検出するための手がかりとなるよう、
+	そのスペシャル変数を<code>CHECK-TYPE</code>の中におきます。
       </p>
       
       <p>
@@ -2609,24 +2609,24 @@ Takashi Kato
           <!-- The fact is, <code>(declare (type ...))</code> does different things -->
           <!-- depending on the compiler settings of speed, safety, etc. -->
 	  実際のところ、<code>(declare (type ...))</code>は
-	  コンパイラの速度や安全性などに関する設定に依存しているのとは
+	  コンパイラ設定のspeedや、safetyの設定に依存している。
 
           <!-- In some compilers, when speed is greater than safety, -->
           <!-- <code>(declare (type ...))</code> will tell the compiler -->
           <!-- "please assume that these variables have these types" -->
           <!-- <em>without</em> generating any type-checks. -->
-	  いくつかのコンパイラは安全性より速度を優先するとき、
+	  いくつかのコンパイラはsafetyよりspeedを優先した場合、
 	  <code>(declare (type ...))</code>
 	  を、コンパイラに対する
 	  「これらの変数はこれらの型だと信用してください」
-	  というメッセージとして、いくつかの型判定を<em>しない</em>ために使います。
+	  というメッセージとし、いくつかの型判定を<em>しない</em>ために使います。
 
           <!-- That is, if some variable has the value <code>1432</code> in it, -->
           <!-- and you declare it to be of type <code>string</code>, -->
           <!-- the compiler might just go ahead and use it as though it's a string. -->
 	  例えば、ある変数が値<code>1432</code>を持ち、
 	  あなたがその型を<code>string</code>として宣言すると、
-	  コンパイラはそれを文字列として使用します。
+	  コンパイラはそれを文字列と見做して使用します。
         </p>
         <p>
           <!-- Moral: don't use <code>(declare (type ...))</code> -->
@@ -2643,8 +2643,7 @@ Takashi Kato
         <!-- You should, of course, use appropriate declarations -->
         <!-- in internal low-level functions -->
         <!-- where these declarations are used for optimization. -->
-	もちろん、内部の低レベル関数の中で、
-	これらの宣言を最適化のために、あなたは使用すべきです。
+	もちろん、これらの宣言は、内部の低レベル関数の中で最適化のために使用すべきです。
         <!-- When you do, however, see our recommendations for -->
         <!-- <a href="#Unsafe_Operations">Unsafe Operations</a>. -->
 	そのようにするときは、我々の
