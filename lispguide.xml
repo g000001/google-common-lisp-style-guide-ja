@@ -2575,52 +2575,81 @@ Takashi Kato
       </ul>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="Type Checking">
+  <STYLEPOINT title="型の判定"><!-- Type Checking -->
     <SUMMARY>
-      If you know the type of something, you should make it explicit
-      in order to enable compile-time and run-time sanity-checking.
+      <!-- If you know the type of something, you should make it explicit -->
+      <!-- in order to enable compile-time and run-time sanity-checking. -->
+      もし、なんらかの要素について、その型が何であるかあなたが知っているのなら、
+      コンパイル時そして実行時の正常性を確かめるために、あなたはそれを明確にすべきです。
     </SUMMARY>
     <BODY>
       
       <p>
-        If your function is using a special variable as an implicit argument,
-        it's good to put in a <code>CHECK-TYPE</code> for the special variable,
-        for two reasons:
-        to clue in the person reading the code
-        that this variable is being used implicitly as an argument,
-        and also to help detect bugs.
+        <!-- If your function is using a special variable as an implicit argument, -->
+        <!-- it's good to put in a <code>CHECK-TYPE</code> for the special variable, -->
+        <!-- for two reasons: -->
+        <!-- to clue in the person reading the code -->
+        <!-- that this variable is being used implicitly as an argument, -->
+        <!-- and also to help detect bugs. -->
+	もしあなたの関数が特殊変数を暗黙の引数として使うときは、
+	他人がコードを読むときに、その変数が暗黙の引数として扱われていること理解し、バグを検出するための手がかりとなるため、
+	その特殊変数を<code>CHECK-TYPE</code>の中におきます。
       </p>
       
       <p>
-        Using <code>(declare (type ...))</code>
-        is the least-desirable mechanism to use
-        because, as Scott McKay puts it:
+        <!-- Using <code>(declare (type ...))</code> -->
+        <!-- is the least-desirable mechanism to use -->
+        <!-- because, as Scott McKay puts it: -->
+	<code>(declare (type ...))</code>の使用は、
+	最低限にすることが望ましいです。その理由については、
+	Scott McKayによって説明されています。
       </p>
       <blockquote>
         <p>
-          The fact is, <code>(declare (type ...))</code> does different things
-          depending on the compiler settings of speed, safety, etc.
-          In some compilers, when speed is greater than safety,
-          <code>(declare (type ...))</code> will tell the compiler
-          "please assume that these variables have these types"
-          <em>without</em> generating any type-checks.
-          That is, if some variable has the value <code>1432</code> in it,
-          and you declare it to be of type <code>string</code>,
-          the compiler might just go ahead and use it as though it's a string.
+          <!-- The fact is, <code>(declare (type ...))</code> does different things -->
+          <!-- depending on the compiler settings of speed, safety, etc. -->
+	  実際のところ、<code>(declare (type ...))</code>は
+	  コンパイラの速度や安全性などに関する設定に依存しているのとは
+
+          <!-- In some compilers, when speed is greater than safety, -->
+          <!-- <code>(declare (type ...))</code> will tell the compiler -->
+          <!-- "please assume that these variables have these types" -->
+          <!-- <em>without</em> generating any type-checks. -->
+	  いくつかのコンパイラは安全性より速度を優先するとき、
+	  <code>(declare (type ...))</code>
+	  を、コンパイラに対する
+	  「これらの変数はこれらの型だと信用してください」
+	  というメッセージとして、いくつかの型判定を<em>しない</em>ために使います。
+
+          <!-- That is, if some variable has the value <code>1432</code> in it, -->
+          <!-- and you declare it to be of type <code>string</code>, -->
+          <!-- the compiler might just go ahead and use it as though it's a string. -->
+	  例えば、ある変数が値<code>1432</code>を持ち、
+	  あなたがその型を<code>string</code>として宣言すると、
+	  コンパイラはそれを文字列として使用します。
         </p>
         <p>
-          Moral: don't use <code>(declare (type ...))</code>
-          to declare the contract of any API functions,
-          it's not the right thing.
-          Sure, use it for "helper" functions, but not API functions.
+          <!-- Moral: don't use <code>(declare (type ...))</code> -->
+          <!-- to declare the contract of any API functions, -->
+          <!-- it's not the right thing. -->
+	  良識：<code>(declare (type ...))</code>を、
+	  なんらかのAPI関数の契約として使ってはいけません。
+	  それはうまいやり方ではありません。
+          <!-- Sure, use it for "helper" functions, but not API functions. -->
+	  もちろん、ヘルパー関数のためには使えますが、API関数のために使ってはいけません。
         </p>
       </blockquote>
       <p>
-        You should, of course, use appropriate declarations
-        in internal low-level functions
-        where these declarations are used for optimization.
-        When you do, however, see our recommendations for
-        <a href="#Unsafe_Operations">Unsafe Operations</a>.
+        <!-- You should, of course, use appropriate declarations -->
+        <!-- in internal low-level functions -->
+        <!-- where these declarations are used for optimization. -->
+	もちろん、内部の低レベル関数の中で、
+	これらの宣言を最適化のために、あなたは使用すべきです。
+        <!-- When you do, however, see our recommendations for -->
+        <!-- <a href="#Unsafe_Operations">Unsafe Operations</a>. -->
+	そのようにするときは、我々の
+	<a href="#Unsafe_Operations">安全でない操作</a>
+	の節も読んでください。
       </p>
     </BODY>
   </STYLEPOINT>
