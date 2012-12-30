@@ -2668,7 +2668,7 @@ Takashi Kato
         <!-- It's generally good to do explicit <code>DEFGENERIC</code> forms, -->
         <!-- but for module entry points it is mandatory. -->
         総称関数が、他のモジュール(コードの他の部分)から呼び出される場合、
-        <code>DEFGENERIC</code>は、[省略されず]明示され、<code>:DOCUMENTATION</code>のドキュメンテーション文字列で、関数がどのように総称的な規約を持つかが説明されているべきです。(何らかの特定のクラスでの振舞いではなしに[総称的に])
+        <code>DEFGENERIC</code>は、[省略されず]明示され、<code>:DOCUMENTATION</code>のドキュメンテーション文字列で、関数がどのように総称的な規約を持つかが説明されているべきです(何らかの特定のクラスでの振舞いではなしに[総称的に])。
         一般に、<code>DEFGENERIC</code>を省略しないで記述することは、良いこととされていますが、モジュールのエントリーポイントがないのであれば、これは必須です。
       </p>
       <p>
