@@ -2659,14 +2659,17 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        When a generic function is intended to be called from other
-        modules (other parts of the code), there should be an
-        explicit <code>DEFGENERIC</code> form,
-        with a <code>:DOCUMENTATION</code> string
-        explaining the generic contract of the function
-        (as opposed to its behavior for some specific class).
-        It's generally good to do explicit <code>DEFGENERIC</code> forms,
-        but for module entry points it is mandatory.
+        <!-- When a generic function is intended to be called from other -->
+        <!-- modules (other parts of the code), there should be an -->
+        <!-- explicit <code>DEFGENERIC</code> form, -->
+        <!-- with a <code>:DOCUMENTATION</code> string -->
+        <!-- explaining the generic contract of the function -->
+        <!-- (as opposed to its behavior for some specific class). -->
+        <!-- It's generally good to do explicit <code>DEFGENERIC</code> forms, -->
+        <!-- but for module entry points it is mandatory. -->
+        総称関数が、他のモジュール(コードの他の部分)から呼び出される場合、
+        <code>DEFGENERIC</code>は、[省略されず]明示され、<code>:DOCUMENTATION</code>のドキュメンテーション文字列で、関数がどのように総称的な規約を持つかが説明されているべきです。(何らかの特定のクラスでの振舞いではなしに[総称的に])
+        一般に、<code>DEFGENERIC</code>を省略しないで記述することは、良いこととされていますが、モジュールのエントリーポイントがないのであれば、これは必須です。
       </p>
       <p>
         When the argument list of a generic function includes
