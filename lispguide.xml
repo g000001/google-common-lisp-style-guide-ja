@@ -2683,15 +2683,20 @@ Takashi Kato
         (Common Lispは、このことを要求していません。しかし、これは理に叶ったことですし、SBCL上で処理系が出す誤った警告を避けることにもなるでしょう)
       </p>
       <p>
-        You should avoid <code>SLOT-VALUE</code> and <code>WITH-SLOTS</code>,
-        unless you absolutely intend to circumvent
-        any sort of method combination that might be in effect for the slot.
-        Rare exceptions include <code>INITIALIZE-INSTANCE</code>
-        and <code>PRINT-OBJECT</code> methods and
-        accessing normally hidden slots in the low-level implementation of
-        methods that provide user-visible abstractions.
-        Otherwise, you should use accessors,
-        <code>WITH-ACCESSORS</code>
+        <!-- You should avoid <code>SLOT-VALUE</code> and <code>WITH-SLOTS</code>, -->
+        <!-- unless you absolutely intend to circumvent -->
+        <!-- any sort of method combination that might be in effect for the slot. -->
+        <!-- Rare exceptions include <code>INITIALIZE-INSTANCE</code> -->
+        <!-- and <code>PRINT-OBJECT</code> methods and -->
+        <!-- accessing normally hidden slots in the low-level implementation of -->
+        <!-- methods that provide user-visible abstractions. -->
+        <!-- Otherwise, you should use accessors, -->
+        <!-- <code>WITH-ACCESSORS</code> -->
+        一切のメソッドコンビネーションがスロットに影響を及ぼすことを回避するという、はっきりとした意図がある場合でもない限り、<code>SLOT-VALUE</code>や<code>WITH-SLOTS</code>の
+        利用は避けるべきです。
+        稀な例外として、<code>INITIALIZE-INSTANCE</code>と<code>PRINT-OBJECT</code>メソッドがあります。
+        これらは、通常、ユーザーに見える抽象化層を持っているメソッドの中の低レベルな実装である、隠蔽されたスロットにアクセスします。
+        これら以外は、<code>WITH-ACCESSORS</code>を使うべきです。
       </p>
       
       <p>
