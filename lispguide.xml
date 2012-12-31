@@ -2672,13 +2672,15 @@ Takashi Kato
         一般に、<code>DEFGENERIC</code>を省略しないで記述することは、良いこととされていますが、モジュールのエントリーポイントがないのであれば、これは必須です。
       </p>
       <p>
-        When the argument list of a generic function includes
-        <code>&amp;KEY</code>,
-        the <code>DEFGENERIC</code> should always explicitly list
-        all of the keyword arguments that are acceptable,
-        and explain what they mean.
-        (Common Lisp does not require this, but it is good form,
-        and it may avoid spurious warnings on SBCL.)
+        <!-- When the argument list of a generic function includes -->
+        <!-- <code>&amp;KEY</code>, -->
+        <!-- the <code>DEFGENERIC</code> should always explicitly list -->
+        <!-- all of the keyword arguments that are acceptable, -->
+        <!-- and explain what they mean. -->
+        <!-- (Common Lisp does not require this, but it is good form, -->
+        <!-- and it may avoid spurious warnings on SBCL.) -->
+        総称関数の引数リストが<code>&amp;KEY</code>を含む場合、その<code>DEFGENERIC</code>では、受け付けられるすべてのキーワード引数が、明示的に一覧になっているべきです。また、それぞれについて説明があるべきです。
+        (Common Lispは、このことを要求していません。しかし、これは理に叶ったことですし、SBCL上で処理系が出す誤った警告を避けることにもなるでしょう)
       </p>
       <p>
         You should avoid <code>SLOT-VALUE</code> and <code>WITH-SLOTS</code>,
