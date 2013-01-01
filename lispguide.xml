@@ -2700,10 +2700,12 @@ Takashi Kato
       </p>
       
       <p>
-        Accessor names generally follow a convention of
-        <code>&lt;protocol-name&gt;-&lt;slot-name&gt;</code>,
-        where a "protocol" in this case loosely indicates
-        a set of functions with well-defined behavior.
+        <!-- Accessor names generally follow a convention of -->
+        <!-- <code>&lt;protocol-name&gt;-&lt;slot-name&gt;</code>, -->
+        <!-- where a "protocol" in this case loosely indicates -->
+        <!-- a set of functions with well-defined behavior. -->
+        一般にアクセサの命名は<code>&lt;protocol-name&gt;-&lt;slot-name&gt;</code>という規約に従います。
+        この場合、"protocol"は、振舞いが良く定義された一組の関数のセットを緩く指し示しています。<!-- ちょっと意味が取れない: g000001 -->
       </p>
       <p>
         No implication of a formal "protocol" concept is necessarily intended,
