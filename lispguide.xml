@@ -2798,13 +2798,16 @@ Takashi Kato
         but you should not use it in normal applications.
       </p>
       <p>
-        If a class definition creates a method
-        as a <code>:READER</code>, <code>:WRITER</code>,
-        or <code>:ACCESSOR</code>,
-        do not redefine that method.
-        It's OK to add <code>:BEFORE</code>, <code>:AFTER</code>,
-        and <code>:AROUND</code> methods,
-        but don't override the primary method.
+        <!-- If a class definition creates a method -->
+        <!-- as a <code>:READER</code>, <code>:WRITER</code>, -->
+        <!-- or <code>:ACCESSOR</code>, -->
+        <!-- do not redefine that method. -->
+        <!-- It's OK to add <code>:BEFORE</code>, <code>:AFTER</code>, -->
+        <!-- and <code>:AROUND</code> methods, -->
+        <!-- but don't override the primary method. -->
+        クラス定義で<code>:READER</code>、<code>:WRITER</code>や<code>:ACCESSOR</code>メソッドがつくられる場合、これらのメソッドを再定義してはいけません。
+        <code>:BEFORE</code>、<code>:AFTER</code>や、<code>:AROUND</code>メソッドを追加することはOKです。
+        しかし、プライマリメソッドをオーバーライドしてはいけません。
       </p>
       <p>
         In methods with keyword arguments,
