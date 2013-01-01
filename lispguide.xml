@@ -2738,7 +2738,8 @@ Takashi Kato
         and in many cases has led to a proliferation of "trampoline" methods.
       </p>
       <p>
-        Accessors named <code>&lt;slot-name&gt;-of</code> should not be used.
+        <!-- Accessors named <code>&lt;slot-name&gt;-of</code> should not be used. -->
+        <code>&lt;slot-name&gt;-of</code>という名前を持つアクセサは利用されるべきではありません。 
       </p>
       <p>
         Explicit <code>DEFGENERIC</code> forms should be used when there are
