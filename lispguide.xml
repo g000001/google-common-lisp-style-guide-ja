@@ -2808,23 +2808,30 @@ Takashi Kato
         but don't override the primary method.
       </p>
       <p>
-        In methods with keyword arguments,
-        you must always use <code>&amp;KEY</code>,
-        even if the method does not care about the values of any keys,
-        and you should never use <code>&amp;ALLOW-OTHER-KEYS</code>.
-        As long as a keyword is accepted by any method of a generic function,
-        it's OK to use it in the generic function,
-        even if the other methods of the same generic function
-        don't mention it explicitly.
-        This is particularly important
-        for <code>INITIALIZE-INSTANCE</code> methods,
-        since if you did use <code>&amp;ALLOW-OTHER-KEYS</code>,
-        it would disable error checking for misspelled or wrong keywords
-        in <code>MAKE-INSTANCE</code> calls!
+        <!-- In methods with keyword arguments, -->
+        <!-- you must always use <code>&amp;KEY</code>, -->
+        <!-- even if the method does not care about the values of any keys, -->
+        <!-- and you should never use <code>&amp;ALLOW-OTHER-KEYS</code>. -->
+        <!-- As long as a keyword is accepted by any method of a generic function, -->
+        <!-- it's OK to use it in the generic function, -->
+        <!-- even if the other methods of the same generic function -->
+        <!-- don't mention it explicitly. -->
+        <!-- This is particularly important -->
+        <!-- for <code>INITIALIZE-INSTANCE</code> methods, -->
+        <!-- since if you did use <code>&amp;ALLOW-OTHER-KEYS</code>, -->
+        <!-- it would disable error checking for misspelled or wrong keywords -->
+        <!-- in <code>MAKE-INSTANCE</code> calls! -->
+        キーワード引数を持つメソッドに於ては、常に<code>&amp;KEY</code>を使わなければなりません。
+        たとえ、メソッドがどのようなキーワード引数を取っても構わない場合でも、<code>&amp;ALLOW-OTHER-KEYS</code>は、使わないようにするべきです。
+        キーワードは、総称関数のどのメソッドでも受け付けられる場合に、これを総称関数で使ってもOKです。
+        たとえ同じ総称関数内の他のメソッドに於てであっても、言うに及びません。
+        これは、<code>INITIALIZE-INSTANCE</code>メソッドにとって特に重要になります。
+        ひと度<code>&amp;ALLOW-OTHER-KEYS</code>を使ったならば、ミススペルであろうと、間違ったキーワードであろうと、<code>MAKE-INSTANCE</code>の呼び出しでのエラーチェックを無効にしてしまうからです!
       </p>
       
       <p>
-        A typical <code>PRINT-OBJECT</code> method might look like this:
+        <!-- A typical <code>PRINT-OBJECT</code> method might look like this: -->
+        典型的な<code>PRINT-OBJECT</code>メソッドは、下記の様になるでしょう:
       </p>
       <CODE_SNIPPET>
         (defmethod print-object ((p person) stream)
