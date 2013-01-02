@@ -2786,17 +2786,24 @@ Takashi Kato
         which might be a symbol or something.
       </p>
       <p>
-        You must not use MOP "intercessory" operations at runtime.
-        You should not use MOP "intercessory" operations at compile-time.
-        At runtime, they are at worst a danger, at best a performance issue.
-        At compile-time, it is usually cleaner that
-        macros should set things up the right way in one pass
-        than have to require a second pass of fixups through intercession;
-        but sometimes, fixups are necessary to resolve forward references,
-        and intercession is allowed then.
-        MOP intercession is a great tool for interactive development,
-        and you may enjoy it while developping and debugging;
-        but you should not use it in normal applications.
+        <!-- You must not use MOP "intercessory" operations at runtime. -->
+        <!-- You should not use MOP "intercessory" operations at compile-time. -->
+        <!-- At runtime, they are at worst a danger, at best a performance issue. -->
+        <!-- At compile-time, it is usually cleaner that -->
+        <!-- macros should set things up the right way in one pass -->
+        <!-- than have to require a second pass of fixups through intercession; -->
+        <!-- but sometimes, fixups are necessary to resolve forward references, -->
+        <!-- and intercession is allowed then. -->
+        <!-- MOP intercession is a great tool for interactive development, -->
+        <!-- and you may enjoy it while developping and debugging; -->
+        <!-- but you should not use it in normal applications. -->
+        MOPの"仲裁的[intercessory]"オペレーターを実行時に使用してはなりません。
+        MOPの"仲裁的[intercessory]"オペレーターをコンパイル時に使用してはなりません。
+        実行時では、最悪の場合、危険を犯すことになり、良くてもパフォーマンス上の問題があります。
+        コンパイル時では、通常、しかるべきマクロでことを正しく1パスで行う方が、2パス目が必要となる仲裁[intercession]による対処より簡潔です。 <!-- g000001: 具体的な操作が見えないので訳もおかしい… -->
+        しかし、時には、前方参照の解決の為に、仲裁[intercession]が必要となることもあるでしょう。その場合は、仲裁[intercession]の利用も許されます。
+        MOPの仲裁[intercession]は、対話的開発では素晴らしい道具ですし、開発中とデバッグ中は、楽しんで使うことができるでしょうが、通常のアプリケーション内でこれを利用するべきではありません。
+        
       </p>
       <p>
         <!-- If a class definition creates a method -->
