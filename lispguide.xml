@@ -2742,13 +2742,15 @@ Takashi Kato
         <code>&lt;slot-name&gt;-of</code>という名前を持つアクセサは利用されるべきではありません。 
       </p>
       <p>
-        Explicit <code>DEFGENERIC</code> forms should be used when there are
-        (or it is anticipated that there will be)
-        more than one <code>DEFMETHOD</code> for that generic function.
-        The reason is that the documentation for the generic function
-        explains the abstract contract for the function,
-        as opposed to explaining what an individual method does for
-        some specific class(es).
+        <!-- Explicit <code>DEFGENERIC</code> forms should be used when there are -->
+        <!-- (or it is anticipated that there will be) -->
+        <!-- more than one <code>DEFMETHOD</code> for that generic function. -->
+        <!-- The reason is that the documentation for the generic function -->
+        <!-- explains the abstract contract for the function, -->
+        <!-- as opposed to explaining what an individual method does for -->
+        <!-- some specific class(es). -->
+        総称関数の定義に一つより多くの<code>DEFMETHOD</code>が使われる場合、(それら[<code>DEFMETHOD</code>]に先行して])<code>DEFGENERIC</code>フォームが明示的に使用されるべきです。
+        クラスに特定的な各々のメソッドが与える説明とは対照的に、総称関数のドキュメンテーションは、総称関数[全体]の規約の要約を与えるのがその理由です。
       </p>
       <p>
         You must not use generic functions where there is no notional protocol.
