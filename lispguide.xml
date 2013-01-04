@@ -2742,48 +2742,65 @@ Takashi Kato
         <code>&lt;slot-name&gt;-of</code>という名前を持つアクセサは利用されるべきではありません。 
       </p>
       <p>
-        Explicit <code>DEFGENERIC</code> forms should be used when there are
-        (or it is anticipated that there will be)
-        more than one <code>DEFMETHOD</code> for that generic function.
-        The reason is that the documentation for the generic function
-        explains the abstract contract for the function,
-        as opposed to explaining what an individual method does for
-        some specific class(es).
+        <!-- Explicit <code>DEFGENERIC</code> forms should be used when there are -->
+        <!-- (or it is anticipated that there will be) -->
+        <!-- more than one <code>DEFMETHOD</code> for that generic function. -->
+        <!-- The reason is that the documentation for the generic function -->
+        <!-- explains the abstract contract for the function, -->
+        <!-- as opposed to explaining what an individual method does for -->
+        <!-- some specific class(es). -->
+        総称関数の定義に一つより多くの<code>DEFMETHOD</code>が使われる場合、(それら[<code>DEFMETHOD</code>]に先行して])<code>DEFGENERIC</code>フォームが明示的に使用されるべきです。
+        クラスに特定的な各々のメソッドが与える説明とは対照的に、総称関数のドキュメンテーションは、総称関数[全体]の規約の要約を与えるのがその理由です。
       </p>
       <p>
-        You must not use generic functions where there is no notional protocol.
-        To put it more concretely,
-        if you have more than one generic function that specializes its Nth argument,
-        the specializing classes should all be descendants of a single class.
-        Generic functions must not be used for "overloading",
-        i.e. simply to use the same name for two entirely unrelated types.
+        <!-- You must not use generic functions where there is no notional protocol. -->
+        <!-- To put it more concretely, -->
+        <!-- if you have more than one generic function that specializes its Nth argument, -->
+        <!-- the specializing classes should all be descendants of a single class. -->
+        <!-- Generic functions must not be used for "overloading", -->
+        <!-- i.e. simply to use the same name for two entirely unrelated types. -->
+        プロトコル概念が無い場合に総称関数を使ってはなりません。
+        より具体的に述べるならば、もし、N番目の引数により特定化されている一つより多い総称関数があるとすれば、特定化された各々のクラスは、すべて単一クラスの子孫のみであるべきです。
+        総称関数は、"オーバーロード"のために使われてはなりません(言い換えれば、全く関連の無い型に単純に同じ名前を付けてしまったりしてはなりません)。
+        <!-- g1: ***TODO 意図が掴めない… -->
       </p>
       <p>
-        More precisely, it's not really
-        whether they descend from a common superclass,
-        but whether they obey the same "protocol".
-        That is, the two classes should handle the same set of generic functions,
-        as if there were an explicit <code>DEFGENERIC</code> for each method.
+        <!-- More precisely, it's not really -->
+        <!-- whether they descend from a common superclass, -->
+        <!-- but whether they obey the same "protocol". -->
+        <!-- That is, the two classes should handle the same set of generic functions, -->
+        <!-- as if there were an explicit <code>DEFGENERIC</code> for each method. -->
+        より正確に述べるならば、それらが実際、共通のスーパークラスを持つのかどうかではなく、同じ"プロトコル"に従うかどうか、ということです。
+        つまり、二つのクラスが同様の総称関数のセットを扱うとすれば、各々のメソッドには、明示的な<code>DEFGENERIC</code>があります。
+        <!-- g1: ***TODO 意図が掴めない… -->
       </p>
       <p>
-        Here's another way to put it.
-        Suppose you have two classes, A and B, and a generic function F.
-        There are two methods for F,
-        which dispatch on an argument being of types A and B.
-        Is it plausible that there might be a function call somewhere
-        in the program that calls F,
-        in which the argument might sometimes, at runtime,
-        be of class A and other times be of class B?
-        If not, you probably are overloading and
-        should not be using a single generic function.
+        <!-- Here's another way to put it. -->
+        <!-- Suppose you have two classes, A and B, and a generic function F. -->
+        <!-- There are two methods for F, -->
+        <!-- which dispatch on an argument being of types A and B. -->
+        <!-- Is it plausible that there might be a function call somewhere -->
+        <!-- in the program that calls F, -->
+        <!-- in which the argument might sometimes, at runtime, -->
+        <!-- be of class A and other times be of class B? -->
+        <!-- If not, you probably are overloading and -->
+        <!-- should not be using a single generic function. -->
+        別の方法で説明すると、AとBの二つのクラスと、総称関数Fがあるとした場合、Fにはメソッドが二つあり、これらは、渡されたAとBの型の引数でディスパッチします。
+        プログラム中のどこかのFの関数呼び出し中で、引数が実行時にAのクラスとなるものと、別の時にはBのクラスとなるようなものでの挙動が妥当なものかどうか。
+        そうでなければ、恐らくオーバーロードしており、単一の総称関数を使用するべきではありません。
+        <!-- g1: ***TODO 全然意図が掴めない… -->
       </p>
       <p>
-        We allow one exception to this rule:
-        it's OK to do overloading
-        if the corresponding argument "means" the same thing.
-        Typically one overloading allows an X object,
-        and the other allows the name of an X object,
-        which might be a symbol or something.
+        <!-- We allow one exception to this rule: -->
+        <!-- it's OK to do overloading -->
+        <!-- if the corresponding argument "means" the same thing. -->
+        <!-- Typically one overloading allows an X object, -->
+        <!-- and the other allows the name of an X object, -->
+        <!-- which might be a symbol or something. -->
+        我々は、このルールから一つの例外を設けています:
+        対応する引数が同じものを"意味"する場合、オーバーロードしても良し、とします。
+        Xオブジェクトでは、オーバーロードが許され、またその他ではXオブジェクトの名前(シンボルかなにかになるでしょう)を許す様なものが典型的です。
+        <!-- g1: ***TODO 全然意図が掴めない… -->
       </p>
       <p>
         <!-- You must not use MOP "intercessory" operations at runtime. -->
