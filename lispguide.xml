@@ -2708,34 +2708,43 @@ Takashi Kato
         この場合、"protocol"は、振舞いが良く定義された一組の関数のセットを緩く指し示しています。<!-- ちょっと意味が取れない: g000001 -->
       </p>
       <p>
-        No implication of a formal "protocol" concept is necessarily intended,
-        much less first-class "protocol" objects.
-        However, there may indeed be an abstract CLOS class
-        or an
-        <a href="http://common-lisp.net/~frideau/lil-ilc2012/lil-ilc2012.html">Interface-Passing Style</a> interface
-        that embodies the protocol.
-        Further (sub)classes or (sub)interfaces may then implement
-        all or part of a protocol by defining
-        some methods for (generic) functions in the protocol,
-        including readers and writers.
+        <!-- No implication of a formal "protocol" concept is necessarily intended, -->
+        <!-- much less first-class "protocol" objects. -->
+        <!-- However, there may indeed be an abstract CLOS class -->
+        <!-- or an -->
+        <!-- <a href="http://common-lisp.net/~frideau/lil-ilc2012/lil-ilc2012.html">Interface-Passing Style</a> interface -->
+        <!-- that embodies the protocol. -->
+        <!-- Further (sub)classes or (sub)interfaces may then implement -->
+        <!-- all or part of a protocol by defining -->
+        <!-- some methods for (generic) functions in the protocol, -->
+        <!-- including readers and writers. -->
+        形式的な"プロトコル"の概念を示唆するものがないことは、必ずしも所望のことではありません。ましてや、ファーストクラスの"プロトコル"オブジェクトがあるわけでもありません。
+        <!-- g000001: 超不明 ipsの説明の前振り？ -->
+        しかし、確かにそれらを抽象CLOSクラスとすることはできるかもしれませんし、もしくは、<a href="http://common-lisp.net/~frideau/lil-ilc2012/lil-ilc2012.html">Interface-Passing Style</a>のインターフェイスがプロトコルを具体化するかもしれません。
+        より下位の(サブ)クラスや、(サブ)インターフェイスは、リーダー[メソッド]とライター[メソッド]を含めて、プロトコル中の(総称)関数へのメソッド定義により、プロトコルのすべて、若しくは一部として実装しても良いでしょう。
       </p>
       <p>
-        For example, if there were a notional protocol called
-        is <code>pnr</code> with accessors <code>pnr-segments</code>
-        and <code>pnr-passengers</code>, then
-        the classes <code>air-pnr</code>, <code>hotel-pnr</code> and
-        <code>car-pnr</code> could each reasonably implement
-        methods for <code>pnr-segments</code> and <code>pnr-passengers</code>
-        as accessors.
+        <!-- For example, if there were a notional protocol called -->
+        <!-- is <code>pnr</code> with accessors <code>pnr-segments</code> -->
+        <!-- and <code>pnr-passengers</code>, then -->
+        <!-- the classes <code>air-pnr</code>, <code>hotel-pnr</code> and -->
+        <!-- <code>car-pnr</code> could each reasonably implement -->
+        <!-- methods for <code>pnr-segments</code> and <code>pnr-passengers</code> -->
+        <!-- as accessors. -->
+        例を挙げると、<code>pnr</code>と呼ばれる概念上のプロトコルがあったとして、それは、<code>pnr-segments</code>と、<code>pnr-passengers</code>いうアクセサを持つとします。
+        そして、<code>air-pnr</code>、<code>hotel-pnr</code>、<code>car-pnr</code>というクラスは、それぞれ<code>pnr-segments</code>や、<code>pnr-passengers</code>のメソッドがアクセサとして理に叶った実装になっている、というようなものです。
       </p>
       <p>
-        By default, an abstract base class name is used
-        as the notional protocol name, so accessor names default
-        to <code>&lt;class-name&gt;-&lt;slot-name&gt;</code>;
-        while such names are thus quite prevalent,
-        this form is neither required nor even preferred.
-        In general, it contributes to "symbol bloat",
-        and in many cases has led to a proliferation of "trampoline" methods.
+        <!-- By default, an abstract base class name is used -->
+        <!-- as the notional protocol name, so accessor names default -->
+        <!-- to <code>&lt;class-name&gt;-&lt;slot-name&gt;</code>; -->
+        <!-- while such names are thus quite prevalent, -->
+        <!-- this form is neither required nor even preferred. -->
+        <!-- In general, it contributes to "symbol bloat", -->
+        <!-- and in many cases has led to a proliferation of "trampoline" methods. -->
+        デフォルトでは、抽象基底クラスの名前は、概念上のプロトコルの名前として使われることになり、アクセサの名前はデフォルトで<code>&lt;class-name&gt;-&lt;slot-name&gt;</code>と名付けられます。
+        このような名前は、とても広く行き渡ってはいますが、この形式は、必須のものでも、望ましいものでもありません。
+        総じてこれは、"シンボルの増殖"[symbol bloat]を助長するものであり、また、多くの場合、"トランポリン"メソッドの蔓延に繋がります。
       </p>
       <p>
         <!-- Accessors named <code>&lt;slot-name&gt;-of</code> should not be used. -->
@@ -2851,7 +2860,7 @@ Takashi Kato
         キーワード引数を持つメソッドに於ては、常に<code>&amp;KEY</code>を使わなければなりません。
         たとえ、メソッドがどのようなキーワード引数を取っても構わない場合でも、<code>&amp;ALLOW-OTHER-KEYS</code>は、使わないようにするべきです。
         キーワードは、総称関数のどのメソッドでも受け付けられる場合に、これを総称関数で使ってもOKです。
-        たとえ同じ総称関数内の他のメソッドに於てであっても、言うに及びません。
+        まして同じ総称関数内のメソッドに於てであれば、言わずもがな。
         これは、<code>INITIALIZE-INSTANCE</code>メソッドにとって特に重要になります。
         ひと度<code>&amp;ALLOW-OTHER-KEYS</code>を使ったならば、ミススペルであろうと、間違ったキーワードであろうと、<code>MAKE-INSTANCE</code>の呼び出しでのエラーチェックを無効にしてしまうからです!
       </p>
