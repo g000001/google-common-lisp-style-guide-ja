@@ -3,11 +3,12 @@
 <GUIDE title="Google Common Lisp スタイルガイド 日本語訳">
 
 <div align="center">
-これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.17)</a>の日本語訳です。<br/>オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>最終更新: 2013-1-7
+これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.17)</a>の日本語訳です。<br/>
+オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>
+最終更新: 2013-1-5
 </div>
 
 <p align="right">
-
 Revision 1.17
 </p>
 
@@ -33,10 +34,13 @@ Robert Brown
 TOYOZUMIKouichi
 </address>
 <address>
-g000001
+@g000001
 </address>
 <address>
 佐野匡俊
+</address>
+<address>
+@guicho271828
 </address>
 <address>
 Takashi Kato
@@ -56,13 +60,23 @@ Takashi Kato
 <CATEGORY title="重要事項">
   <STYLEPOINT title="詳細情報の表示">
      <SUMMARY>
-      <!-- This style guide contains many details that are initially hidden from view. They are marked by the triangle icon, which you see here on your left. Click it now. You should see "Hooray" appear below. -->
-       このスタイルガイドには詳細情報がたくさん盛り込まれていますが、最初は表示されていません。左端にある矢印ボタンをクリックしてみてください。 「ヒャッホー!」と表示されるはずです。
+      <!-- This style guide contains many details that are initially
+           hidden from view. They are marked by the triangle icon,
+           which you see here on your left. Click it now. You should
+           see "Hooray" appear below. -->
+       このスタイルガイドには詳細情報がたくさん盛り込まれていますが、最
+       初は表示されていません。左端にある矢印ボタンをクリックしてみてく
+       ださい。 「ヒャッホー!」と表示されるはずです。
      </SUMMARY>
      <BODY>
        <p>
-        <!-- Hooray!  Now you know you can expand points to get more details. Alternatively, there's an "expand all" at the top of this document.-->
-        ヒャッホー! このように矢印ボタンをクリックすると詳細情報が表示されます。 このドキュメントの先頭にある大きな矢印ボタンをクリックしても構いません。そうすれば、すべての詳細情報が表示されます。訳注は[]で囲んで表わします。<!-- とりあえず []で表記することにしてみました。-->
+        <!-- Hooray!  Now you know you can expand points to get more
+             details. Alternatively, there's an "expand all" at the
+             top of this document.-->
+        ヒャッホー! このように矢印ボタンをクリックすると詳細情報が表示されます。
+	このドキュメントの先頭にある大きな矢印ボタンをクリックしても構いません。
+	そうすれば、すべての詳細情報が表示されます。訳注は[]で囲んで表わします。
+	<!-- とりあえず []で表記することにしてみました。-->
        </p>
      </BODY>
   </STYLEPOINT>
@@ -92,23 +106,29 @@ Takashi Kato
     the speed-oriented QPX low fare search engine notably
     has a very different style and feel from the QRes reservation system.
     -->
-    Googleで開発される内製アプリケーション及びフリーソフトに対して変更を行う際は、このガイドラインに沿ったものにする必要があります。
-    しかし、それぞれのプロジェクトには独自のルールや習慣があり、それらはこれらの一般的なガイドラインを補足もしくは上書きします;
-    とりわけ速度重視の低コスト検索エンジンQPXはQRes予約システムとはとても異なるスタイル、感覚<!-- feelのうまい訳が思いつかない-->で作られています。
+    Googleで開発される内製アプリケーション及びフリーソフトに対して変更を行う際は、
+    このガイドラインに沿ったものにする必要があります。
+    しかし、それぞれのプロジェクトには独自のルールや習慣があり、
+    それらはこれらの一般的なガイドラインを補足もしくは上書きします;
+    とりわけ速度重視の低コスト検索エンジンQPXは
+    QRes予約システムとはとても異なるルック＆フィールで作られています。
   </p>
   <p>
     <!--
     If you're writing Common Lisp code outside Google,
     we invite you to consider these guidelines.
     -->
-    もしあなたがGoogle以外でCommon Lispのコードを書くのであれば、これらガイドラインの項目について検討されることをお勧めします。
+    もしあなたがGoogle以外でCommon Lispのコードを書くのであれば、
+    これらガイドラインの項目について検討されることをお勧めします。
     <!-- You may find some of them useful -->
     <!-- where they don't conflict with other priorities you have. -->
     <!-- We welcome remarks and constructive feedback -->
     <!-- on how to improve our guide, and -->
     <!-- on what alternate styles work for you and why. -->
-    他のあなたが規範としている既定の[ガイドライン]と競合しない限りにおいて、これらの中に有用とされるものがあるかもしれません。
-    我々のガイドを改善することについてのご意見、そして別のスタイルの提案と、その別のスタイルが、どうしてあなたの元では上手く機能するのか、の建設的なフィードバックを歓迎しています。
+    他のあなたが規範としている既定の[ガイドライン]と競合しない限りにおいて、
+    これらの中に有用とされるものがあるかもしれません。
+    我々のガイドを改善することについてのご意見、そして別のスタイルの提案と、
+    その別のスタイルが、どうしてあなたの元では上手く機能するのか、の建設的なフィードバックを歓迎しています。
   </p>
   <p>
     <!--
@@ -124,14 +144,15 @@ Takashi Kato
     言語についての基礎的な情報については
     <a HREF="http://www.gigamonkeys.com/book/">Practical Common Lisp</a>を参照して下さい。
     言語リファレンスとしては
-    <a HREF="http://www.lispworks.com/documentation/HyperSpec/Front/index.htm">Common Lisp HyperSpec</a>を参照して下さい。
-    より詳細なスタイルガイドについてはPeter Norvig とKent Pitmanの
+    <a HREF="http://www.lispworks.com/documentation/HyperSpec/Front/index.htm">Common Lisp HyperSpec</a>
+    を参照して下さい。より詳細なスタイルガイドについてはPeter Norvig とKent Pitmanの
     <a HREF="http://norvig.com/luv-slides.ps">style guide</a>を見て下さい。
   </p>
 </CATEGORY>
 </OVERVIEW>
 <CATEGORY title="メタガイド"><!-- Meta-Guide -->
-  <STYLEPOINT title="Must,Should,May,Not"><!-- (佐野:同上な理由で「要求レベルの表記方法」？) --><!-- Must, Should, May, or Not -->
+  <STYLEPOINT title="Must,Should,May,Not">
+    <!-- (佐野:同上な理由で「要求レベルの表記方法」？) --><!-- Must, Should, May, or Not -->
     <SUMMARY>
       <!--
       Each guideline's level of importance is indicated
@@ -857,7 +878,8 @@ Takashi Kato
         <li>
           <!-- Use "complimentary" in the sense of a meal or beverage -->
           <!-- that is not paid for by the recipient, not "complementary". -->
-          "complimentary"は、受給者が無料でドリンクや、食べ物を得るようなことに使う。"complementary"(補足的な)ではない。
+          "complimentary"は、受給者が無料でドリンクや、食べ物を得るようなことに使う。
+	  "complementary"(補足的な)ではない。
         </li>
         <li>
           <!-- Use "existent" and "nonexistent", not "existant". -->
@@ -986,7 +1008,8 @@ Takashi Kato
         <!-- However, do not insert newlines in a way that makes it hard to tell -->
         <!-- how many arguments the function takes -->
         <!-- or where an argument form starts and ends. -->
-	しかし、改行を関数がいくつの引数をとるのかわかりづらくするような位置に入れたり、引数リストの最初や最後にいれてはなりません。
+	しかし、改行を関数がいくつの引数をとるのかわかりづらくするような位置に入れたり、
+	引数リストの最初や最後にいれてはなりません。
       </p>
       <BAD_CODE_SNIPPET>
         <!-- ;; Bad -->
@@ -2667,7 +2690,9 @@ Takashi Kato
         <!-- (as opposed to its behavior for some specific class). -->
         <!-- It's generally good to do explicit <code>DEFGENERIC</code> forms, -->
         <!-- but for module entry points it is mandatory. -->
-        総称関数が、他のモジュール(コードの他の部分)から呼び出されることになっている場合、その関数の(ある特定のクラスの振る舞いに対するという意味で)包括的な規約を説明するドキュメンテーションストリングの付けられた<code>DEFGENERIC</code>フォームを明示的に書くべきです。一般に、<code>DEFGENERIC</code>フォームを明示的に書くのは良いことですが、 モジュールのエントリポイントに対しては必須です。
+        総称関数が、他のモジュール(コードの他の部分)から呼び出されることになっている場合、
+        その関数の(ある特定のクラスの振る舞いに対するという意味で)包括的な規約を説明するドキュメンテーションストリングの付けられた<code>DEFGENERIC</code>フォームを明示的に書くべきです。
+        一般に、<code>DEFGENERIC</code>フォームを明示的に書くのは良いことですが、 モジュールのエントリポイントに対しては必須です。
       </p>
       <p>
         <!-- When the argument list of a generic function includes -->
@@ -2677,7 +2702,9 @@ Takashi Kato
         <!-- and explain what they mean. -->
         <!-- (Common Lisp does not require this, but it is good form, -->
         <!-- and it may avoid spurious warnings on SBCL.) -->
-        総称関数の引数リストが<code>&amp;KEY</code>を含む場合、その<code>DEFGENERIC</code>には、受付可能な全てのキーワード引数を常に明示的に記載すべきです。(Common Lispは、このことを要求していませんが、これは理に叶ったことですし、SBCLでは不要な警告を避けることができます。)
+        総称関数の引数リストが<code>&amp;KEY</code>を含む場合、その<code>DEFGENERIC</code>には、受付可能な全てのキーワード引数を常に明示的に記載すべきです。
+        また、それぞれについて[docstringで]説明があるべきです。
+        (Common Lispは、このことを要求していませんが、これは理に叶ったことですし、SBCLでは不要な警告を避けることができます。)
       </p>
       <p>
         <!-- You should avoid <code>SLOT-VALUE</code> and <code>WITH-SLOTS</code>, -->
@@ -2689,7 +2716,11 @@ Takashi Kato
         <!-- methods that provide user-visible abstractions. -->
         <!-- Otherwise, you should use accessors, -->
         <!-- <code>WITH-ACCESSORS</code> -->
-        スロットに影響を及ぼす一切のメソッドコンビネーションを回避するという、はっきりとした意図があるのでなければ、<code>SLOT-VALUE</code>や<code>WITH-SLOTS</code>の利用は避けるべきです。数少ない例外には、<code>INITIALIZE-INSTANCE</code>メソッドと<code>PRINT-OBJECT</code>メソッド、そして、通常はユーザーに見える抽象化を提供するメソッドの低レベルの実装に隠蔽されているスロットへのアクセスが含まれます。これら以外は、<code>WITH-ACCESSORS</code>を使うべきです。
+        スロットに影響を及ぼす一切のメソッドコンビネーションを回避するという、はっきりとした意図があるのでなければ、
+        <code>SLOT-VALUE</code>や<code>WITH-SLOTS</code>の利用は避けるべきです。
+        数少ない例外には、<code>INITIALIZE-INSTANCE</code>メソッドと<code>PRINT-OBJECT</code>メソッド、
+        そして、通常はユーザーに見える抽象化を提供するメソッドの低レベルの実装に隠蔽されているスロットへのアクセスが含まれます。
+        これらの例外のどれにも当てはまらない場合は、アクセッサと<code>WITH-ACCESSORS</code>を使うべきです。
       </p>
       <p>
         <!-- Accessor names generally follow a convention of -->
@@ -2702,6 +2733,11 @@ Takashi Kato
       <p>
         <!-- No implication of a formal "protocol" concept is necessarily intended, -->
         <!-- much less first-class "protocol" objects. -->
+	<!-- 直訳: きちんとした"プロトコル"の概念を前提とする・含意する(imply)こと(implication) +
+	     そういったことは必ずしも意図してはいない (no such thing is necessarily intended) = べつに意図していない -->
+	"プロトコル"については、ここではべつにそのきちんとした定義について考えているわけではありません。
+	ましてや、ファーストクラスの"プロトコル"オブジェクトがあるわけでもありません。
+
         <!-- However, there may indeed be an abstract CLOS class -->
         <!-- or an -->
         <!-- <a href="http://common-lisp.net/~frideau/lil-ilc2012/lil-ilc2012.html">Interface-Passing Style</a> interface -->
@@ -2710,9 +2746,11 @@ Takashi Kato
         <!-- all or part of a protocol by defining -->
         <!-- some methods for (generic) functions in the protocol, -->
         <!-- including readers and writers. -->
-        "プロトコル"の考えを形式的に表すことは、必ずしも意図されていません。ましてや、ファーストクラスの"プロトコル"オブジェクトを表すことはです。
-        しかしながら、実際にそのプロトコルを具体的に表現する抽象的なCLOSクラスや<a href="http://common-lisp.net/~frideau/lil-ilc2012/lil-ilc2012.html">Interface-Passing Style</a>のインターフェイスはありえます。
-        そういうときに、さらなる(下位の)クラスや(下位の)インターフェイスが、リーダやライター等の、プロトコルに含まれる(総称)関数のためのメソッドを定義することで、プロトコルの一部または全部を実装することができます。
+        しかしながら、実際にそのプロトコルを具体的に表現する抽象的なCLOSクラスや
+        <a href="http://common-lisp.net/~frideau/lil-ilc2012/lil-ilc2012.html">Interface-Passing Style</a>
+        のインターフェイスはありえます。
+        そういうときに、さらなる(下位の)クラスや(下位の)インターフェイスが、リーダやライター等の、
+        プロトコルに含まれる(総称)関数のためのメソッドを定義することで、プロトコルの一部または全部を実装することができます。
       </p>
       <p>
         <!-- For example, if there were a notional protocol called -->
@@ -2722,8 +2760,10 @@ Takashi Kato
         <!-- <code>car-pnr</code> could each reasonably implement -->
         <!-- methods for <code>pnr-segments</code> and <code>pnr-passengers</code> -->
         <!-- as accessors. -->
-        例を挙げると、<code>pnr</code>と呼ばれる抽象的なプロトコルがあったとして、それは、<code>pnr-segments</code>と、<code>pnr-passengers</code>いうアクセサを持つとします。
-        そのとき、<code>air-pnr</code>、<code>hotel-pnr</code>、<code>car-pnr</code>というクラスが、<code>pnr-segments</code>や、<code>pnr-passengers</code>のメソッドがアクセサとして実装できることは理に叶っているというものです。
+        例を挙げると、<code>pnr</code>と呼ばれる抽象的なプロトコルがあったとして、
+        それは、<code>pnr-segments</code>と、<code>pnr-passengers</code>いうアクセサを持つとします。
+        そのとき、<code>air-pnr</code>、<code>hotel-pnr</code>、<code>car-pnr</code>というクラスが、
+        <code>pnr-segments</code>や、<code>pnr-passengers</code>のメソッドがアクセサとして実装できることは理に叶っているというものです。
       </p>
       <p>
         <!-- By default, an abstract base class name is used -->
@@ -2733,7 +2773,8 @@ Takashi Kato
         <!-- this form is neither required nor even preferred. -->
         <!-- In general, it contributes to "symbol bloat", -->
         <!-- and in many cases has led to a proliferation of "trampoline" methods. -->
-        デフォルトでは、抽象基底クラスの名前は、抽象的なプロトコルの名前として使われるので、アクセサの名前は<code>&lt;class-name&gt;-&lt;slot-name&gt;</code>と名付けられます。
+        デフォルトでは、抽象基底クラスの名前は、抽象的なプロトコルの名前として使われるので、
+        アクセサの名前は<code>&lt;class-name&gt;-&lt;slot-name&gt;</code>と名付けられます。
         このような名前は広く行き渡ってはいますが、この形式は、必須のものでも、望ましいものでもありません。
         総じてこれは、"シンボルが膨れ上がる(symbol bloat)"を助長するものであり、また、多くの場合、"トランポリン"メソッドの蔓延に繋がります。
       </p>
@@ -2749,8 +2790,10 @@ Takashi Kato
         <!-- explains the abstract contract for the function, -->
         <!-- as opposed to explaining what an individual method does for -->
         <!-- some specific class(es). -->
-        総称関数の定義に一つより多くの<code>DEFMETHOD</code>が使われる(ことになると思われる)場合、<code>DEFGENERIC</code>フォームを明示的に使用すべきです。
-        理由は、ある特定的なクラスの個々のメソッドが説明するものに対する意味で、総称関数のドキュメンテーションは、その関数の抽象的な規約を説明するものだからです。
+        総称関数の定義に一つより多くの<code>DEFMETHOD</code>が使われる(ことになると思われる)場合、
+        <code>DEFGENERIC</code>フォームを明示的に使用すべきです。
+        理由は、ある特定的なクラスの個々のメソッドが説明するものに対する意味で、総称関数のドキュメンテーションは、
+        その関数の抽象的な規約を説明するものだからです。
       </p>
       <p>
         <!-- You must not use generic functions where there is no notional protocol. -->
@@ -2760,8 +2803,24 @@ Takashi Kato
         <!-- Generic functions must not be used for "overloading", -->
         <!-- i.e. simply to use the same name for two entirely unrelated types. -->
         抽象的なプロトコルが無い場合に総称関数を使ってはいけません。
-        より具体的に述べるならば、もし、N番目の引数を特定化している複数の総称関数のメソッ ド[訳注: 原文はgeneric functionの後ろにMETHODがあるべきと考えます]があるとすれば、特定化を行なっているのクラスは、すべてある一つのクラスの子孫であるべきです。
-        総称関数は、"オーバーロード"のために使ってはいけません。言い換えれば、全く関連の無い型の総称関数に対して単純に同じ名前を使ってはいけません。
+        より具体的に述べるならば、もし、N番目の引数を特定化している複数の総称関数のメソッド
+        [訳注: 原文はgeneric functionの後ろにMETHODがあるべきと考えます]
+        があるとすれば、特定化を行なっているのクラスは、すべてある一つのクラスの子孫であるべきです。
+        総称関数は、"オーバーロード"のために使ってはいけません。
+        (言い換えれば、全く関連の無い型の総称関数に対して単純に同じ名前を使ってはいけません。)
+        <!-- g1: ***TODO 意図が掴めない… -->
+	<!-- guicho2.71828 : 議論の余地あり、とりあえず書いておきます。
+	[ 訳注解説 : あなたがゲームのプログラマだと考えてみてください。あなたはユーティリティ関数としてDLISTクラス(doubly linked list)
+	と、ゲームのキャラクター(PERSON)クラスの両方を実装します。DLISTは双方向のポインタを持つので、まずあなたはこのアクセッサ関数を
+	TO,FROMと名づけました。PERSONの実装に入った時、あなたはそのAIが行き先の座標ベクトルと一つ前の行き先のベクトルを覚えている
+	必要があることに気づきました。あなたはそれらに再びTOとFROMと名付けようとし、それらが既に使われていることを思い出しました…
+	そして思う、「総称関数を使えば良い！」 これが悪い場合の例です。そうではなく、例えば
+	metabang.cl-containersでそうされているように、DLISTにはprevious-elementなどを、PERSONにはdestinationなどの名前をつけるべきです。
+	もしあくまでtoとfromという名前に固執したいのならば、上で挙げたプロトコルのアクセサの命名規則に従って、
+	たとえばプロトコル[container]とプロトコル[agent]を念頭におき（もしIPSが成功すればそれを定義する構文があるはずです）、
+	メソッドの名前はCONTAINER-TO,AGENT-TOというようにすべきです。AGENTは実際に親クラスを作って、PERSONクラスや他にも
+	MONSTER,SHIP,HORSEなどのサブクラスを作り、プロトコル内のメソッドで実装するのがいいでしょう。] たぶんこういうことです。
+	-->
       </p>
       <p>
         <!-- More precisely, it's not really -->
@@ -2770,7 +2829,7 @@ Takashi Kato
         <!-- That is, the two classes should handle the same set of generic functions, -->
         <!-- as if there were an explicit <code>DEFGENERIC</code> for each method. -->
         より正確には、それらが実際、共通のスーパークラスの子孫なのかどうかではなく、同じ"プロトコル"に従うかどうか、ということです。
-つまり、個々のメソッドに明確な<code>DEFGENERIC</code>があるかのように、二つのクラスは同じ総称関数のセットを扱っているべきなのです。
+        つまり、個々のメソッドに明確な<code>DEFGENERIC</code>があるかのように、二つのクラスは同じ総称関数のセットを扱っているべきなのです。
       </p>
       <p>
         <!-- Here's another way to put it. -->
@@ -2783,8 +2842,17 @@ Takashi Kato
         <!-- be of class A and other times be of class B? -->
         <!-- If not, you probably are overloading and -->
         <!-- should not be using a single generic function. -->
-        別の方法で説明しましょう。AとBの二つのクラスと、総称関数Fがあり、Fにはメソッドが二つあり、これらは、渡されたAとBの型の引数でディスパッチするものとします。
-プログラム中にある一つのFの関数呼び出しについて、実行時にその引数がAのクラスとなる場合とBのクラスとなる場合があると思われるかどうか。もし、思われないのであれば、おそらくオーバーロードしており、一つの総称関数を使用すべきではありません。
+        別の方法で説明しましょう。
+        AとBの二つのクラスと、総称関数Fがあり、Fにはメソッドが二つあり、これらは、渡されたAとBの型の引数でディスパッチするものとします。
+        プログラム中にある一つのFの関数呼び出しについて、実行時にその引数がAのクラスとなる場合とBのクラスとなる場合があると思われるかどうか。
+        もし、思われないのであれば、おそらくオーバーロードしており、一つの総称関数を使用すべきではありません。
+        別の方法で説明すると、AとBの二つのクラスと、総称関数Fがあるとした場合、
+	Fにはメソッドが二つあり、これらは、渡されたAとBの型の引数でディスパッチします。
+        プログラム中のどこかのFの関数呼び出し中で、引数が実行時にAのクラスとなるものと、
+	別の時にはBのクラスとなるようなものでの挙動が妥当なものかどうか。
+        そうでなければ、恐らくオーバーロードしており、単一の総称関数を使用するべきではありません。
+	<!-- guicho2.71828 上記の例では、DLISTの来る場所にいきなりPERSONがくる可能性はありません。
+	     そういう時に同じ名前を使うのはどうよという話 -->
       </p>
       <p>
         <!-- We allow one exception to this rule: -->
@@ -2793,8 +2861,10 @@ Takashi Kato
         <!-- Typically one overloading allows an X object, -->
         <!-- and the other allows the name of an X object, -->
         <!-- which might be a symbol or something. -->
-        このルールには一つの例外が認められます: 対応する引数が同じものを"意味"する場合、オーバーロードしても良し、とします。
-典型的には、一つのオーバーロードではXオブジェクトを認め、他のオーバーロードではXオブジェクトの名前(シンボルかなにかになるでしょう)を認めるというものです。
+        このルールには一つの例外が認められます:
+        対応する引数が同じものを"意味"する場合、オーバーロードしても良し、とします。
+        典型的には、一つのオーバーロードではXオブジェクトを認め、他のオーバーロードではXオブジェクトの名前(シンボルかなにかになるでしょう)を認めるというものです。
+	<!-- guicho2.71828 make-instance は典型的なやつだと思います。引数はクラス自身でもいいしクラス名のシンボルでもいい。 -->
       </p>
       <p>
         <!-- You must not use MOP "intercessory" operations at runtime. -->
@@ -2808,12 +2878,22 @@ Takashi Kato
         <!-- MOP intercession is a great tool for interactive development, -->
         <!-- and you may enjoy it while developping and debugging; -->
         <!-- but you should not use it in normal applications. -->
-        MOPのintercessory(仲裁的)オペレーション[訳注:intercessionは技術用語で、プログラムの構成要素を調べる(introspection)ことに対して、その構成要素を変更することを指します(出典: <a href="http://bc.tech.coop/blog/050919.html">http://bc.tech.coop/blog/050919.html</a>)。このようなオペレータの例としては、<code>defclass</code>の内部で使われる<code>COMPUTE-CLASS-PRECEDENCE-LIST</code>や<code>DEFMETHOD</code>の内部で使われる<code>ADD-METHOD</code>等があります。]を実行時に使用してはなりません。
+        MOPのintercessory(仲裁的)オペレーション[訳注:intercessionは技術用語で、
+        プログラムの構成要素を調べる(introspection)ことに対して、その構成要素を変更することを指します
+        (出典: <a href="http://bc.tech.coop/blog/050919.html">http://bc.tech.coop/blog/050919.html</a>)。
+        このようなオペレータの例としては、<code>defclass</code>の内部で使われる<code>COMPUTE-CLASS-PRECEDENCE-LIST</code>
+        や<code>DEFMETHOD</code>の内部で使われる<code>ADD-METHOD</code>等があります。]を実行時に使用してはなりません。
         MOPの"intercessory"オペレーターをコンパイル時に使用してもなりません。
         実行時では、最悪の場合、危険を犯すことになり、良くてもパフォーマンス上の問題があります。
         コンパイル時では、通常、しかるべきマクロで事を正しく1パスで行う方が、2パス目が必要となるintercessionによる対処より簡潔です。
         しかし、前方参照の解決のための対処が必要なこともあるでしょう。そのときにはintercessionの利用も許されま
-        MOPのintercessionは、対話的開発では素晴らしい道具ですし、開発中とデバッグ中は、楽しんで使うことができるでしょうが、通常のアプリケーション内でこれを利用するべきではありません。
+        MOPのintercessionは、対話的開発では素晴らしい道具ですし、開発中とデバッグ中は、楽しんで使うことができるでしょうが、
+        通常のアプリケーション内でこれを利用するべきではありません。
+	<!-- MOPのintercession/introspectionについては http://bc.tech.coop/blog/050919.html 
+	     簡単に言うとintrospectionは classのメタ情報の読み出し
+	     intercessionは class への書き込み・変更
+	     ［ラテン語「…の間へ行く」の意 (INTER-+cēdere ‘go'); 【名詞】 intercession］ by weblio
+	-->
       </p>
       <p>
         <!-- If a class definition creates a method -->
@@ -2823,9 +2903,10 @@ Takashi Kato
         <!-- It's OK to add <code>:BEFORE</code>, <code>:AFTER</code>, -->
         <!-- and <code>:AROUND</code> methods, -->
         <!-- but don't override the primary method. -->
-        クラス定義で<code>:READER</code>、<code>:WRITER</code>や<code>:ACCESSOR</code>メソッドがつくられる場合、これらのメソッドを再定義してはいけません。
-        <code>:BEFORE</code>、<code>:AFTER</code>や、<code>:AROUND</code>メソッドを追加することはOKです。
-        しかし、プライマリメソッドをオーバーライドしてはいけません。
+        クラス定義で<code>:READER</code>、<code>:WRITER</code>や<code>:ACCESSOR</code>メソッドがつくられる場合、
+	これらのメソッドを再定義してはいけません。
+        <code>:BEFORE</code>、<code>:AFTER</code>や、<code>:AROUND</code>メソッドを追加することはOKですが、
+        プライマリメソッドをオーバーライドしてはいけません。
       </p>
       <p>
         <!-- In methods with keyword arguments, -->
@@ -2843,8 +2924,11 @@ Takashi Kato
         <!-- in <code>MAKE-INSTANCE</code> calls! -->
         キーワード引数を持つメソッドでは、常に<code>&amp;KEY</code>を使わなければなりません。
         たとえ、メソッドがどのキーワード引数の値にも関知しない場合であっても、<code>&amp;ALLOW-OTHER-KEYS</code>は使うべきではありません。
-        あるキーワードが総称関数のいずれかのメソッドで受け付けられる限り、総称関数でそのキーワードを使うことができます。同じ総称関数の他の全てのメソッドが明示的に触れなくてもです。[訳注: CLHS 3.5.1.4のことですね]
-        このことは、特に<code>INITIALIZE-INSTANCE</code>メソッドで重要です。ひとたび<code>&amp;ALLOW-OTHER-KEYS</code>を使ったならば、ミススペルであろうと、間違ったキーワードであろうと、<code>MAKE-INSTANCE</code>の呼び出しでのエラーチェックを無効にしてしまうからです!
+        あるキーワードが総称関数のいずれかのメソッドで受け付けられる限り、総称関数でそのキーワードを使うことができます。
+        同じ総称関数の他の全てのメソッドが明示的に触れなくてもです。[訳注: CLHS 3.5.1.4のことですね<!-- @nfunato -->]
+        このことは、特に<code>INITIALIZE-INSTANCE</code>メソッドで重要です。
+        ひとたび<code>&amp;ALLOW-OTHER-KEYS</code>を使ったならば、ミススペルであろうと、間違ったキーワードであろうと、
+        <code>MAKE-INSTANCE</code>の呼び出しでのエラーチェックを無効にしてしまうからです!
       </p>
       
       <p>
