@@ -3,13 +3,13 @@
 <GUIDE title="Google Common Lisp スタイルガイド 日本語訳">
 
 <div align="center">
-これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.17)</a>の日本語訳です。<br/>
+これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.18)</a>の日本語訳です。<br/>
 オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>
-最終更新: 2013-1-9
+最終更新: 2013-4-21
 </div>
 
 <p align="right">
-Revision 1.17
+Revision 1.18
 </p>
 
 
@@ -17,7 +17,7 @@ Revision 1.17
 Robert Brown
 </address>
 <address>
-  <a HREF="mailto:tunes@google.com">Fran&#231;ois-Ren&#233; Rideau</a>
+  <a HREF="mailto:tunes@google.com">François-René Rideau</a>
 </address>
 
 <address>
@@ -52,7 +52,7 @@ Takashi Kato
 (訳文アドバイスを頂いた皆さん: @nfunato, @omasanori, etc)
 </address>
 <p align="center">
-<cite>「パターンとは『適切な語彙がなかった』ことの言い換えだ」</cite> &#8212; Rich Hickey
+<cite>「パターンとは『適切な語彙がなかった』ことの言い換えだ」</cite> — Rich Hickey
 <!-- https://twitter.com/omasanori/status/274389170603044864  -->
 <!-- Patterns mean "I have run out of language."  -->
 </p>
@@ -463,7 +463,7 @@ Takashi Kato
 	  <!--
           Every developer's code must be easy for another developer
           to read, understand, and modify
-          &#8212; even if the first developer isn't around to explain it.
+ 	  — even if the first developer isn't around to explain it.
           (This is the "hit by a truck" principle.)
 	  -->
 	  全ての開発者が書いたコードは他の開発者にとって簡単に読めて、理解でき、修正できなければなりません。
@@ -481,7 +481,8 @@ Takashi Kato
 	  理想としては、コードを見て「Fredが書いたな」と判別できるべきではありません。<!-- 単語を全部入れるべき？ -->
         </li>
         <li>
-          <!-- Don't be "clever" &#8212; -->
+          <!-- Don't be "clever" — -->
+
           <!-- do the simplest thing that could possibly work properly. -->
 	  「切れ味鋭い」コードを書く必要はありません。単純に考えて、間違いなく動作するのに十分なコードを書いてください。
         </li>
@@ -494,7 +495,7 @@ Takashi Kato
 	  簡潔に。
         </li>
         <li>
-          <!-- KISS &#8212; Keep It Simple, Stupid. -->
+          <!-- KISS — Keep It Simple, Stupid. -->
 	  KISSの原則を守りましょう。単純にしておきましょう、愚かに(Keep It Simple Stupid)。
         </li>
         <li>
@@ -606,7 +607,7 @@ Takashi Kato
         <!-- (including QA or Ops), or otherwise isn't purely local, -->
         <!-- you must write it up using at least a couple of paragraphs, -->
         <!-- and get a design approval from the other parties involved -->
-        <!-- before starting to write code &#8212; or be ready to scratch what you have -->
+        <!-- before starting to write code — or be ready to scratch what you have -->
         <!-- when they object. -->
 	もしあなたの仕事がほかのグループに影響を及ぼし、もしかするとグループの垣根を越えて再利用可能かもしれず、
 	あたらしい部品を追加され、（QAあるいはOpsを含めて）ほかのグループにおいて衝撃を与えるとき、
@@ -2553,7 +2554,7 @@ Takashi Kato
         </li>
         <li>
           <!-- <code>(error (make-condition 'foo-error ...))</code> -->
-          <!-- is equivalent to <code>(error 'foo-error ...)</code> &#8212; -->
+          <!-- is equivalent to <code>(error 'foo-error ...)</code> — -->
           <!-- code must use the shorter form. -->
           <code>(error (make-condition 'foo-error ...))</code>
           は、<code>(error 'foo-error ...)</code> &#8212;
@@ -3076,8 +3077,8 @@ Takashi Kato
         <!-- When you write a macro-defining macro -->
         <!-- (a macro that generates macros), -->
         <!-- document and comment it particularly clearly, -->
-        <!-- since these are hard for the uninitiated to understand. -->
-        マクロを書くマクロ(マクロを定義するマクロ)を書く場合には、とりわけ分かりやすいドキュメントとコメントを書きましょう。
+        <!-- since these are harder to understand. -->
+        マクロを書くマクロ(マクロを定義するマクロ)を書く場合には、とりわけ分かりやすくドキュメントとコメントを書きましょう。
         慣れない人には、これらはとても分かり難いものだからです。
       </p>
       <p>
@@ -3135,7 +3136,7 @@ Takashi Kato
         <!-- the macro is made simpler, easier to get right, and less subject to change, -->
         <!-- which makes it easier to develop and maintain. -->
         意味論をマクロの外側に保持することにより、マクロは、より単純で、分かりやすく、変更の影響を受けにくくなり、開発と保守が容易になります。        
-        <!-- The semantics is written in a simpler language &#8212; one without staging &#8212; -->
+ 	<!-- The semantics is written in a simpler language — one without staging — -->
         <!-- which also makes it easier to develop and maintain. -->
         意味論は、土台なしのより単純な言語で書かれますが、そのことがまた、開発と保守を容易にします。<!-- one without staging ?? -->
         <!-- It becomes possible to debug and update the semantic function -->
@@ -3161,7 +3162,7 @@ Takashi Kato
         <!-- which can be done using <code>FLET</code>. -->
         
         <!-- This also allows you to declare the function to be of dynamic extent -->
-        <!-- (if it is &#8212; and often it is; yet see below regarding -->
+        <!-- (if it is — and often it is; yet see below regarding -->
         <!-- <a href="#DYNAMIC-EXTENT">DYNAMIC-EXTENT</a>). -->
         マクロによって作られる関数(クロージャー)は、名前を持つべきです。
         これは、<code>FLET</code>を使うことによって可能です。
@@ -3941,7 +3942,7 @@ Takashi Kato
       </p>
       <p>
         However, don't use <code>PROGN</code> for an <code>IF</code> clause
-        &#8212; use <code>COND</code>, <code>WHEN</code>, or <code>UNLESS</code>.
+        — use <code>COND</code>, <code>WHEN</code>, or <code>UNLESS</code>.
       </p>
       <p>
         Note that in Common Lisp,
@@ -4207,7 +4208,7 @@ Takashi Kato
       </p>
       <p>
         Code must not use <code>PRINT-OBJECT</code>
-        to communicate with a user &#8212;
+        to communicate with a user —
         <code>PRINT-OBJECT</code> is for debugging purposes only.
         Modifying any <code>PRINT-OBJECT</code> method
         must not break any public interfaces.
@@ -4454,7 +4455,7 @@ Takashi Kato
         If the assertion is wrong, i.e. if the programmer's claim is not true,
         the results can be <em>catastrophic</em>:
         Lisp can terminate any time after the function returns,
-        or it hang forever, or &#8212; worst of all &#8212;
+        or it hang forever, or — worst of all —
         produce incorrect results without any runtime error!
       </p>
       <p>
@@ -4693,7 +4694,7 @@ Takashi Kato
         in a heavily functional style,
         you may consider using
         <a href="http://cliki.net/lambda-reader">lambda-reader</a>,
-        a system that lets you use the unicode character <code>&#955;</code>
+        a system that lets you use the unicode character <code>λ</code>
         instead of <code>LAMBDA</code>.
         But you must not start using such a syntactic extension
         in an existing system without getting permission from other developers.
@@ -4894,7 +4895,7 @@ Takashi Kato
 </small>
 
 <p align="right">
-Revision 1.17
+Revision 1.18
 </p>
 
 
@@ -4903,7 +4904,7 @@ Robert Brown
 </address>
 
 <address>
-  <a HREF="mailto:tunes@google.com">Fran&#231;ois-Ren&#233; Rideau</a>
+  <a HREF="mailto:tunes@google.com">François-René Rideau</a>
 </address>
 
 
