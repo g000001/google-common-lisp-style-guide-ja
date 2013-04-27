@@ -3354,7 +3354,7 @@ Takashi Kato
         <!-- The <code>#.</code> standard read-macro -->
         <!-- will read one object, evaluate the object, and -->
         <!-- have the reader return the resulting value. -->
-        ANSIのリードマクロ<code>#.</code>は、
+        ANSI標準のリードマクロ<code>#.</code>は、
 	その先のオブジェクトをひとつ読み、これを評価して、評価機にその結果を返させます。
       </p>
       <p>
