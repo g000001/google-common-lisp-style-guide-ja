@@ -5,7 +5,7 @@
 <div align="center">
 これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.18)</a>の日本語訳です。<br/>
 オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>
-最終更新: 2013-4-21
+最終更新: 2013-4-27
 </div>
 
 <p align="right">
@@ -37,10 +37,10 @@ TOYOZUMIKouichi
 @g000001
 </address>
 <address>
-佐野匡俊
+@guicho271828
 </address>
 <address>
-@guicho271828
+佐野匡俊
 </address>
 <address>
 Takashi Kato
@@ -3231,30 +3231,30 @@ Takashi Kato
       <!-- <code>(:compile-toplevel :load-toplevel :execute)</code>. -->
       <code>EVAL-WHEN</code>を使用する場合には、ほぼ必ず
       <code>(:compile-toplevel :load-toplevel :execute)</code>の
-      すべてのオプションを付けて使用する*べき*です。
+      すべてのオプションを付けて使用するべきです。
     </SUMMARY>
     <BODY>
       <p>
         <!-- Lisp evaluation happens at several times, -->
         <!-- some of them interleaved. -->
         <!-- Be aware of them when writing macros. -->
-	Lispでの「評価」は複数回行われる可能性があり、時には評価の順番が入れ替わる時もある。
+	Lispでの「評価」は複数回行われる可能性があり、時には評価の順番が入れ替わる時もあります。
 	マクロを書くときには注意しましょう。
         <!-- <a href="http://fare.livejournal.com/146698.html"> -->
 	<!--   EVAL-WHEN considered harmful to your mental health</a>. -->
         <a href="http://fare.livejournal.com/146698.html">
-	  EVAL-WHEN はあなたの精神衛生を傷つけます。</a>.
+	  「EVAL-WHEN はあなたの精神衛生を害する」</a>.
       </p>
       <p>
-	今リンクした先の記事を要約すると、
-        基本的に<code>(eval-when (:compile-toplevel :load-toplevel :execute) ...)</code>
-	以外の<code>EVAL-WHEN</code>コードはよくない、という事です。
-	例外はマクロを書く<i>本当に</i>優れた技術を持っている場合のみ。
         <!-- In summary of the article linked above, -->
         <!-- unless you're doing truly advanced macrology, -->
         <!-- the only valid combination in an <code>EVAL-WHEN</code> -->
         <!-- is to include all of -->
         <!-- <code>(eval-when (:compile-toplevel :load-toplevel :execute) ...)</code> -->
+	上記にリンクした先の記事を要約すると、
+        基本的に<code>(eval-when (:compile-toplevel :load-toplevel :execute) ...)</code>
+	以外の<code>EVAL-WHEN</code>コードはよくない、という事です。
+	例外はマクロを書く<i>本当に</i>優れた技術を持っている場合のみです。
       </p>
       <p>
         <!-- You must use -->
@@ -3262,19 +3262,9 @@ Takashi Kato
         <!-- whenever you define functions, types, classes, constants, variables, etc., -->
         <!-- that are going to be used in macros. -->
 	マクロの中で使う関数や型、クラス、定数、変数などはすべて
-        <code>(eval-when (:compile-toplevel :load-toplevel :execute) ...)</code>の中で書かなくてはいけません。
+        <code>(eval-when (:compile-toplevel :load-toplevel :execute) ...)</code>の中で書かなくてはなりません。
       </p>
       <p>
-	以下の事はエラーの原因です。
-	<ul>
-	  <li><code>:execute</code>を省くこと :
-	  faslではなくソースの<code>LOAD</code>を妨げてしまうため。</li>
-	  <li><code>:load-toplevel</code>を省くこと (readtableの編集やコンパイル時の設定を除く):
-	  コードの動的コンパイルや遅延評価でコンパイルされるソースを<code>LOAD</code>できなくなるため。
-	  もし省くと、動的コンパイルをする時にそれらコンパイル時の効果を使えなくなる。
-	  ただし、それらのソースが<code>COMPILE-FILE</code>でコンパイルされているときは例外。
-	  </li>
-	</ul>
         <!-- It is usually an error to omit the <code>:execute</code>, -->
         <!-- because it prevents <code>LOAD</code>ing the source rather than the fasl. -->
         <!-- It is usually an error to omit the <code>:load-toplevel</code> -->
@@ -3284,17 +3274,27 @@ Takashi Kato
         <!-- that depends on the effects that happen at compile-time, -->
         <!-- unless the current file was <code>COMPILE-FILE</code>d -->
         <!-- within the same Lisp session. -->
+	下記の事項はエラーの原因になります。
+	<ul>
+	  <li><code>:execute</code>を省くこと :
+	  faslではなくソース[ファイル]の<code>LOAD</code>を妨げてしまうため。</li>
+	  <li><code>:load-toplevel</code>を省くこと (readtableの編集やコンパイル時の設定を除く):
+	  コードの動的コンパイルや遅延評価でコンパイルされるソースを<code>LOAD</code>できなくなるため。
+	  もし省くと、動的コンパイルをする時にそれらコンパイル時の効果を使えなくなる。
+	  ただし、それらのソースが<code>COMPILE-FILE</code>でコンパイルされているときは例外。
+	  </li>
+	</ul>
       </p>
       <p>
-	変数について。マクロを展開するプロセスと展開コードを実行するプロセスは別かもしれない。
-	そのため、コンパイル時と実行時で、それぞれの効果が依存しあってはいけない。
-	ただし、許される使用方法もある:
         <!-- Regarding variables, note that because macros may or may not -->
         <!-- be expanded in the same process that runs the expanded code, -->
         <!-- you must not depend on compile-time and runtime effects -->
         <!-- being either visible or invisible at the other time. -->
         <!-- There are still valid uses of variables in macros: -->
-      </p>
+	変数について。マクロを展開するプロセスと展開コードを実行するプロセスは別かもしれません。
+	そのため、コンパイル時と実行時で、それぞれの効果が依存しあってはいけません。
+	ただし、許容される使用方法もあります:
+       </p>
       <ul>
         <li>
           <!-- Some variables may hold dictionaries -->
@@ -3322,21 +3322,21 @@ Takashi Kato
 	  を使わざるを得ない場合もあるだろう。
         </li>
         <li>
-	  変数によっては、同ファイル内かつコンパイル時にしか使われないような
-	  一時データを保持していることもあるだろう。
-	  それらはコンパイルの終了と共に掃除・消去されることもありうる。
           <!-- Some variables may hold temporary data -->
           <!-- that is only used at compile-time in the same file, -->
           <!-- and can be cleaned up at the end of the file's compilation. -->
-	  定義済みのそういった変数には<code>*readtable*</code>や
-	  最適化設定を保持しているコンパイラ内部変数などが上げられる。
-	  これらのような変数を操作したり新たに作るためには、
-	  <code>ASDF</code>の<code>:AROUND-COMPILE</code>を使える。
+	  変数によっては、同ファイル内かつコンパイル時にしか使われないような
+	  一時データを保持していることもあるだろう。
+	  それらはコンパイルの終了と共に掃除・消去されることもありうる。
           <!-- Predefined such variables would include <code>*readtable*</code> -->
           <!-- or compiler-internal variables holding -->
           <!-- the current optimization settings. -->
           <!-- You can often manage existing and new such variables using -->
           <!-- the <code>:AROUND-COMPILE</code> hooks of <code>ASDF</code>. -->
+	  定義済みのそういった変数には<code>*readtable*</code>や
+	  最適化設定を保持しているコンパイラ内部変数などが上げられる。
+	  これらのような変数を操作したり新たに作るためには、
+	  <code>ASDF</code>の<code>:AROUND-COMPILE</code>を使える。
         </li>
       </ul>
     </BODY>
@@ -3346,40 +3346,33 @@ Takashi Kato
     <SUMMARY>
       <!-- You should use <code>#.</code> sparingly, -->
       <!-- and you must avoid read-time side-effects. -->
-      <code>#.</code> の利用は控え目にす*べき*です。
-      また、読み取り時に起こす副作用の利用は*絶対に*控えましょう。
+      <code>#.</code> の利用は控え目にすべきです。
+      また、読み取り時に起こす副作用の利用は控えなくてはなりません。
     </SUMMARY>
     <BODY>
       <p>
-        ANSIのリードマクロ<code>#.</code>は、
-	その先のオブジェクトをひとつ読み、これを評価して、評価機にその結果を返させる。
         <!-- The <code>#.</code> standard read-macro -->
         <!-- will read one object, evaluate the object, and -->
         <!-- have the reader return the resulting value. -->
+        ANSIのリードマクロ<code>#.</code>は、
+	その先のオブジェクトをひとつ読み、これを評価して、評価機にその結果を返させます。
       </p>
       <p>
-	他の手段が適しているときにこの機能を使ってはいけません。
-        <code>EVAL-WHEN</code>を使えばコンパイル時の副作用を使えます。
-	マクロを使えばコンパイル時にコードを生成できます。
-	<code>LOAD-TIME-VALUE</code>ならばロード時に生成できます。
         <!-- You must not use it where other idioms will do, such as -->
         <!-- using <code>EVAL-WHEN</code> to evaluate side-effects at compile-time, -->
         <!-- using a regular macro to return an expression computed at compile-time, -->
         <!-- using <code>LOAD-TIME-VALUE</code> to compute it at load-time. -->
+	他の手段が適しているときにこの機能を使ってはいけません。
+        <code>EVAL-WHEN</code>を使えばコンパイル時の副作用を使えます。
+	マクロを使えばコンパイル時にコードを生成できます。
+	<code>LOAD-TIME-VALUE</code>を使えばロード時に生成できます。
       </p>
       <p>
-	読み込み時評価はコンパイル時評価を行う手軽な方法として使われることがあります
-	(読み込み時とはいいますがまあコンパイル時とほぼ同じてみてよいでしょう)。
         <!-- Read-time evaluation is often used as a quick way -->
         <!-- to get something evaluated at compile time -->
         <!-- (actually "read time" but it amounts to the same thing). -->
-	しかしこれを使うなら、評価は副作用を持ってはいけないし、
-	大域変数に依存してもいけません。
-	<code>#.</code>は「定数のたたみ込み」を
-	コンパイラのかわりに指定する方法としてのみ使うべきです。
-	本来は「十分に賢いコンパイラ」ならその定数たたみ込みを自分で判断できるはずですが、
-	現実にはそうではありません。そしてその違いが問題となる場合には
-	<code>#.</code>が必要です。
+	読み取り時評価はコンパイル時評価を行う手軽な方法として使われることがあります
+	(「読み取り時」とはいいますがまあコンパイル時とほぼ同じてみてよいでしょう)。
         <!-- If you use this, the evaluation MUST NOT have any side effects -->
         <!-- and MUST NOT depend on any variable global state. -->
         <!-- The <code>#.</code> should be treated as a way -->
@@ -3388,33 +3381,44 @@ Takashi Kato
         <!-- could have figure out all by itself, -->
         <!-- when the compiler isn't sufficiently-clever -->
         <!-- and the difference matters. -->
+	しかしこれを使うなら、評価は副作用を持ってはならず、
+	大域変数に依存してもなりません。
+	<code>#.</code>は「定数のたたみ込み」を
+	コンパイラのかわりに指定する方法としてのみ使うべきです。
+	本来は「十分に賢いコンパイラ」ならそれら定数たたみ込みを自分で判断できるはずですが、
+	現実にはそうではありません。そして、その違いが問題となる場合には
+	<code>#.</code>が必要です。
       </p>
       <p>
-	<code>#.</code>のもうひとつの目的は、式でも(quasi)quotationでもない部分に
-	マクロを展開することです。たとえば変数リストの中など。
-	しかし、それを何度も使うようなら、それ用にマクロを書くべきでしょう。
         <!-- Another use of <code>#.</code> is to expand the equivalent of macros -->
         <!-- in places that are neither expressions nor (quasi)quotations, -->
         <!-- such as lambda-lists. However, if you find yourself using it a lot, -->
         <!-- it might be time to instead define macros to replace your consumers -->
         <!-- of lambda-lists with something that recognizes an extension. -->
+	<code>#.</code>のもうひとつの用法は、式でも(quasi)quotationでもない部分に
+	マクロを展開することです。たとえば変数リストの中など。
+	しかし、それを何度も使うようなら、それ用にマクロを書くべきでしょう。
       </p>
       <p>
-	最後に、<code>#.</code>を使う時のtips。
-	使う前に一度は<code>DEFCONSTANT</code>系マクロを
-	使うことを検討してみましょう(<code>EVAL-WHEN</code>内で)。
-	そうすれば、<code>#.</code>で作った定数に名前を与えられます。
         <!-- Whenever you are going to use <code>#.</code>, -->
         <!-- you should consider using <code>DEFCONSTANT</code> and its variants, -->
         <!-- possibly in an <code>EVAL-WHEN</code>, -->
         <!-- to give the value a name explaining what it means. -->
+	最後に、<code>#.</code>を使う時のtips。
+	使う前に一度は<code>DEFCONSTANT</code>系マクロを
+	使うことを検討してみましょう(<code>EVAL-WHEN</code>内で)。
+	そうすれば、<code>#.</code>で作った定数に名前を与えられます。
+        <!-- 上記なんですが、#.と、defconstantの組み合わせという具体的な方法が
+             思い付かないのですが、
+             #.を使う前に、defconstantで書けるものでないかを良く考えて判断しよう、
+             ということではないんですかね？ g000001 -->
       </p>
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="EVAL">
     <SUMMARY>
       <!-- You must not use <code>EVAL</code> at runtime. -->
-      <code>EVAL</code> の利用は*絶対に*控えるべきです。
+      <code>EVAL</code> の利用は控えなければなりません。
     </SUMMARY>
     <BODY>
       <p>
