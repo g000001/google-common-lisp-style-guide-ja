@@ -4394,8 +4394,8 @@ Takashi Kato
       <!-- You must only use faster unsafe operations -->
       <!-- when there is a clear performance need -->
       <!-- and you can document why it's correct. -->
-      性能を必要とすることが明らかで、あなたがそれについて正確な文書を提供できる場合のみ、
-      あなた、高速で安全でない命令を使用すべきです。
+      性能を必要とすることが明らかで、あなたがそれらの正当性のドキュメントを提供できる場合のみ、
+      あなたは、高速で安全でない命令を使用すべきです。
     </SUMMARY>
     <BODY>
       <p>
@@ -4406,8 +4406,8 @@ Takashi Kato
         <!-- For instance, some libraries provide arithmetic operations -->
         <!-- that are designed to be used with fixnums only, -->
         <!-- and yield the correct result faster if provided proper arguments. -->
-		実例として、いくつかのライブラリは算術命令をfixnumに限定して使用されるように設計し、
-		fixnumの引数が提供されたとき、正確な結果を高速に提供します。
+		実例として、いくつかのライブラリは算術命令をfixnumに限定して使用されるように設計されていて、
+		fixnumの引数が与えられたときのみ正確な結果を高速に提供します。
         <!-- The downside is that the result of such operations -->
         <!-- is incorrect in case of overflow, and can -->
         <!-- have undefined behavior when called with anything but fixnums. -->
@@ -4421,8 +4421,8 @@ Takashi Kato
         <!-- than would the equivalent safe operation -->
         <!-- if the arguments to satisfy some invariant such as -->
         <!-- being of the correct type and small enough; -->
-	　	より一般的に、安全でない命令は、
-		正しい型で十分に小さいといった規定を満たす引数とともに呼び出されたとき、
+	　	より一般的にいうと、安全でない命令は、
+		正しい型で十分に小さい[ある範囲に収まる]といった規定を満たす引数とともに呼び出されたとき、
 		正しい結果を等価で安全な命令より、高速に生み出します。
         <!-- however if the arguments fail to satisfy the required invariants, -->
         <!-- then the operation may have undefined behavior, -->
@@ -4447,7 +4447,7 @@ Takashi Kato
         <!-- You must not define or use unsafe operations without both -->
         <!-- profiling results indicating the need for this optimization, -->
         <!-- and careful documentation explaining why it is safe to use them. -->
-		あなたは、プロファイリングの結果によってその最適化の必要性が示し、
+		あなたは、プロファイリングの結果によってその最適化の必要性を示し、
 		またそれを安全のうちに扱うことができることを充分に説明できる文書なしに、
 		安全でない命令を定義したり、使用してはなりません。
         <!-- Unsafe operations should be restricted to internal functions; -->
@@ -4461,14 +4461,14 @@ Takashi Kato
         <!-- you should document the use of the declarations, -->
         <!-- since calling the functions with arguments of the wrong type -->
         <!-- can lead to undefined behavior. -->
-		あなたは、パッケージないの内部関数においてのみ、安全でない命令を使用すべきであり、
-		またあなたは、不適切な型の引数で関数を呼び出して、未定義の振る舞いを引き出すことを
+		あなたは、パッケージ内の内部関数においてのみ、安全でない命令を使用すべきであり、
+		また、あなたは、不適切な型の引数で関数を呼び出して、未定義の振る舞いを引き出すことを
 		宣言を使用して文書化すべきです。
         <!-- Use <code>check-type</code> in functions exported from a package -->
         <!-- to sanitize input arguments, -->
         <!-- so that internal functions are never passed illegal values. -->
-		<code>check-type</code>をパッケージから出力される関数内で使用し、
-		入力される引数の妥当性を保証すれば、内部関数は異常値を受け取ることはありません。
+		パッケージからエクスポートされる関数内では、<code>check-type</code>を使用し、
+		入力される引数の妥当性を保証すれば、[パッケージ]内部関数は異常値を受け取ることはありません。
       </p>
       <p>
         <!-- On some compilers, -->
@@ -4485,17 +4485,17 @@ Takashi Kato
         <!-- for finding bugs at compile-time, -->
         <!-- on compilers that have type inference. -->
 		くわえて、より速度を必要とする実用に供するコードにおいては、
-		これらの宣言は<code>check-type</code>アサーションよりも便利で、
-		コンパイル時にコンパイラによる型推論がバグを見つけ出してくれます。
+		コンパイル時にコンパイラによる型推論がバグを見つけ出してくれるため、
+		これらの宣言は<code>check-type</code>アサーションよりもより助けになるでしょう。
         <!-- These compilers may interpret those declarations as assertions -->
         <!-- if you switch to safer and slower optimize settings; -->
 		あなたがより遅く安全な最適化設定に変えたときは、
-		これらのアサーションとなる宣言をこれらのコンパイラは逐次実行するかもしれません。
+		これらアサーションとしての宣言をコンパイラは逐次実行するかもしれません。
         <!-- this is good to locate a dynamic error in your code during development, -->
         <!-- but is not to be used for production code since -->
         <!-- it defeats the purpose of declarations as a performance trick. -->
 		これは、あなたがコードを開発している最中に、動的なエラーを見つけやすくしますが、
-		一方で、実用に供するコードにおいて性能を高めるための宣言の目的を無効化してしまいます。
+		一方で、実用に供するコードにおいては性能を高めるための宣言の目的を無効化してしまいます。
       </p>
     </BODY>
   </STYLEPOINT>
