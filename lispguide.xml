@@ -4421,7 +4421,7 @@ Takashi Kato
         <!-- than would the equivalent safe operation -->
         <!-- if the arguments to satisfy some invariant such as -->
         <!-- being of the correct type and small enough; -->
-	　	より一般的にいうと、安全でない命令は、
+	        より一般的にいうと、安全でない命令は、
 		正しい型で十分に小さい[ある範囲に収まる]といった規定を満たす引数とともに呼び出されたとき、
 		正しい結果を等価で安全な命令より、高速に生み出します。
         <!-- however if the arguments fail to satisfy the required invariants, -->
@@ -4436,12 +4436,16 @@ Takashi Kato
         <!-- or whether it is accounting for large amounts money, -->
         <!-- such undefined behavior can kill or bankrupt people. -->
 		航空機の操縦など、生命に多大な影響を及ぼす装置や、
-		大金の取扱が未定義の振る舞いをするソフトウェアに依存することは、
+		大金の取扱い等が、未定義の振る舞いをするソフトウェアに依存することは、
 		人を破産に追い込んだり、死に至らしめます。
-        Yet proper speed can sometimes make the difference between
-        software that's unusably slow and software that does its job;
-        between software that is a net loss
-        and software that can yield a profit.
+
+        <!-- Yet proper speed can sometimes make the difference between -->
+        <!-- software that's unusably slow and software that does its job; -->
+        <!-- between software that is a net loss -->
+        <!-- and software that can yield a profit. -->
+                とはいうものの、適切な速度は、使えない程遅いソフトウェアと仕事をこなせるソフトウェア
+                (ソフトウェアがもたらす損失とソフトウェアがもたらす利潤)
+                の違いを生み出します。
       </p>
       <p>
         <!-- You must not define or use unsafe operations without both -->
@@ -4451,7 +4455,7 @@ Takashi Kato
 		またそれを安全のうちに扱うことができることを充分に説明できる文書なしに、
 		安全でない命令を定義したり、使用してはなりません。
         <!-- Unsafe operations should be restricted to internal functions; -->
-		安全でない命令は内部の関数に限定すべきです。
+		安全でない命令は[パッケージ]内部の関数に限定すべきです。
         <!-- you should carefully documented how unsafe it is -->
         <!-- to use these functions with the wrong arguments. -->
 		あなたは、それらの関数に対して不適切な引数を与えて使用した際に、
