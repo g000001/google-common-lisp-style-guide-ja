@@ -4356,35 +4356,48 @@ Takashi Kato
 <!-- <CATEGORY title="Optimization"> -->
 <CATEGORY title="最適化">
   <!-- <STYLEPOINT title="Avoid Allocation"> -->
-  <STYLEPOINT title="アロケーションを避ける">
+  <STYLEPOINT title="メモリの確保を避ける">
     <SUMMARY>
       <!-- You should avoid unnecessary allocation of memory. -->
-      メモリの無用なアロケーションは避ける*べき*です。
+      メモリの無用な確保は避けるべきです。
     </SUMMARY>
     <BODY>
       <p>
-        In a language with automatic storage management (such as Lisp or Java),
-        the colloquial phrase "memory leak" refers to situation
-        where storage that is not actually needed
-        nevertheless does not get deallocated,
-        because it is still reachable.
+        <!-- In a language with automatic storage management (such as Lisp or Java), -->
+        <!-- the colloquial phrase "memory leak" refers to situation -->
+        <!-- where storage that is not actually needed -->
+        <!-- nevertheless does not get deallocated, -->
+        <!-- because it is still reachable. -->
+        LispやJavaのように、自動でメモリ管理が行われる言語において言われるメモリリークとは、
+		実際にはそのメモリが必要とされていないにもかかわらず、そこに到達可能であるがために、
+		メモリが解放されないことを指しています。
       </p>
       <p>
-        You should be careful that when you create objects,
-        you don't leave them reachable after they are no longer needed!
+        <!-- You should be careful that when you create objects, -->
+        <!-- you don't leave them reachable after they are no longer needed! -->
+        あなたは作り出したオブジェクトが不要になった後にそのオブジェクトに届くことのないように、
+        注意してオブジェクトをつくるべきです。
       </p>
       <p>
-        Here's a particular trap-for-the-unwary in Common Lisp.
-        If you make an array with a fill pointer, and put objects in it,
-        and then set the fill pointer back to zero,
-        those objects are still reachable as far as Lisp goes
-        (the Common Lisp spec says that it's still OK
-        to refer to the array entries past the end of the fill pointer).
+        <!-- Here's a particular trap-for-the-unwary in Common Lisp. -->
+        <!-- If you make an array with a fill pointer, and put objects in it, -->
+        <!-- and then set the fill pointer back to zero, -->
+        <!-- those objects are still reachable as far as Lisp goes -->
+        <!-- (the Common Lisp spec says that it's still OK -->
+        <!-- to refer to the array entries past the end of the fill pointer). -->
+        ここには特定のCommon Lispにおける、誤解しがちな罠があります。
+        あなたがフィルポインタを伴う配列をつくり、そこにオブジェクトを格納した後に、
+        フィルポインタを0に巻き戻した場合、
+        それらのオブジェクトは依然としてLispからは到達可能です。
+        Common Lispのの規格は、フィルポインタの終端であった配列の要素におけるこの仕様を認めています。
       </p>
       <p>
-        Don't cons (i.e., allocate) unnecessarily.
-        Garbage collection is not magic.
-        Excessive allocation is usually a performance problem.
+        <!-- Don't cons (i.e., allocate) unnecessarily. -->
+        不要なコンス（メモリの確保）をしてはなりません。
+        <!-- Garbage collection is not magic. -->
+        ガーベジコレクションは魔法ではありません。
+        <!-- Excessive allocation is usually a performance problem. -->
+        行き過ぎたメモリの確保は、快適な実行性能に問題を与えます。
       </p>
     </BODY>
   </STYLEPOINT>
