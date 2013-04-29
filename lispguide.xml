@@ -4368,14 +4368,14 @@ Takashi Kato
         <!-- where storage that is not actually needed -->
         <!-- nevertheless does not get deallocated, -->
         <!-- because it is still reachable. -->
-        LispやJavaのように、自動でメモリ管理が行われる言語において言われるメモリリークとは、
-		実際にはそのメモリが必要とされていないにもかかわらず、そこに到達可能であるがために、
-		メモリが解放されないことを指しています。
+        自動でメモリ管理が行われる言語(LispやJavaなど)において言われるメモリリークとは、
+	実際にはそのメモリが必要とされていないにもかかわらず、そこに[参照が]到達可能であるがために、
+	メモリが解放されないことを指しています。
       </p>
       <p>
         <!-- You should be careful that when you create objects, -->
         <!-- you don't leave them reachable after they are no longer needed! -->
-        あなたは作り出したオブジェクトが不要になった後にそのオブジェクトに届くことのないように、
+        あなたは作り出したオブジェクトが不要になった後にそのオブジェクトに[参照が]届くことのないように、
         注意してオブジェクトをつくるべきです。
       </p>
       <p>
@@ -4386,18 +4386,18 @@ Takashi Kato
         <!-- (the Common Lisp spec says that it's still OK -->
         <!-- to refer to the array entries past the end of the fill pointer). -->
         ここには特定のCommon Lispにおける、誤解しがちな罠があります。
-        あなたがフィルポインタを伴う配列をつくり、そこにオブジェクトを格納した後に、
-        フィルポインタを0に巻き戻した場合、
+        あなたがフィルポインタ付きの配列をつくり、そこにオブジェクトを格納した後に、
+        フィルポインタを0に巻き戻した場合でも、
         それらのオブジェクトは依然としてLispからは到達可能です。
-        Common Lispのの規格は、フィルポインタの終端であった配列の要素におけるこの仕様を認めています。
+        (Common Lispの規格は、配列の要素がフィルポインタの終端以降となっても依然として参照可能とすることを認めています。)
       </p>
       <p>
         <!-- Don't cons (i.e., allocate) unnecessarily. -->
-        不要なコンス（メモリの確保）をしてはなりません。
+        不要なコンス(メモリの確保)をしてはなりません。
         <!-- Garbage collection is not magic. -->
         ガーベジコレクションは魔法ではありません。
         <!-- Excessive allocation is usually a performance problem. -->
-        行き過ぎたメモリの確保は、快適な実行性能に問題を与えます。
+        行き過ぎたメモリの確保は、大抵、実行性能に問題を与えます。
       </p>
     </BODY>
   </STYLEPOINT>
