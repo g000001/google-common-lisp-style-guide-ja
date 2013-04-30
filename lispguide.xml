@@ -4702,60 +4702,100 @@ Takashi Kato
       <!-- You should not use <code>NCONC</code>; -->
       <!-- you should use <code>APPEND</code> instead, -->
       <!-- or better data structures. -->
-      <code>NCONC</code>は利用す*べき*ではありません 
-      ——代りに <code>APPEND</code> を利用す*べき*です。もしくはよりよい他のデータ構造を利用しましょう
+      <code>NCONC</code>は利用すべきではありません 
+      ——代りに <code>APPEND</code> を利用すべきです。もしくはよりよい他のデータ構造を利用しましょう
     </SUMMARY>
     <BODY>
       <p>
-        You should almost never use <code>NCONC</code>.
-        You should use <code>APPEND</code>
-        when you don't depend on any side-effect.
-        You should use <code>ALEXANDRIA:APPENDF</code>
-        when you need to update a variable.
-        You should probably not depend on games
-        being played with the <code>CDR</code>
-        of the current CONS cell
-        (which some might argue is suggested but not guaranteed by the specification);
-        if you do, you must include a prominent
-        comment explaining the use of <code>NCONC</code>;
-        and you should probably reconsider your data representation strategy.
+        <!-- You should almost never use <code>NCONC</code>. -->
+        <!-- You should use <code>APPEND</code> -->
+        <!-- when you don't depend on any side-effect. -->
+        <!-- You should use <code>ALEXANDRIA:APPENDF</code> -->
+        <!-- when you need to update a variable. -->
+        <!-- You should probably not depend on games -->
+        <!-- being played with the <code>CDR</code> -->
+        <!-- of the current CONS cell -->
+        <!-- (which some might argue is suggested but not guaranteed by the specification); -->
+        <!-- if you do, you must include a prominent -->
+        <!-- comment explaining the use of <code>NCONC</code>; -->
+        <!-- and you should probably reconsider your data representation strategy. -->
+	ほぼ必ずといって良いほど<code>NCONC</code>は使わないようにすべきです。
+	副作用を使っていないならAPPENDを使うべきです。
+        変数を更新する必要があるときなら<code>ALEXANDRIA:APPENDF</code>をつかうべきです。
+	
+	[トラヴァース中の?]現在のCONSセルのCDRをもてあそぶ技法に頼るのは
+	おそらくやめるべきです。
+	(その技法が良いという人もいるかもしれませんが、
+	その動作は仕様で保証されているわけではありません.)
+        もしそういうことをするのならば、
+	<code>NCONC</code>をその場で使っているという事が
+	はっきりとわかるようなコメントを、そこに残すべきです。
+	そして、おそらくテータの表現方法を考えなおしたほうが良いでしょう。
       </p>
       <p>
-        By extension, you should avoid <code>MAPCAN</code>
-        or the <code>NCONC</code> feature of <code>LOOP</code>.
-        You should instead respectively use
-        <code>ALEXANDRIA:MAPPEND</code>
-        and the <code>APPEND</code> feature of <code>LOOP</code>.
+        <!-- By extension, you should avoid <code>MAPCAN</code> -->
+        <!-- or the <code>NCONC</code> feature of <code>LOOP</code>. -->
+        <!-- You should instead respectively use -->
+        <!-- <code>ALEXANDRIA:MAPPEND</code> -->
+        <!-- and the <code>APPEND</code> feature of <code>LOOP</code>. -->
+	このことの延長として、<code>MAPCAN</code>、および
+        <code>LOOP</code>の<code>NCONC</code>節の使用も避けるべきです。
+	それらの代わりに、対応してそれぞれ
+        <code>ALEXANDRIA:MAPPEND</code>と
+	<code>LOOP</code>の<code>APPEND</code>節を使うべきです。
       </p>
       <p>
-        <code>NCONC</code> is very seldom a good idea,
-        since its time complexity class is no better than <code>APPEND</code>,
-        its space complexity class also is no better than <code>APPEND</code>
-        in the common case where no one else is sharing the side-effected list,
-        and its bug complexity class is way higher than <code>APPEND</code>.
+        <!-- <code>NCONC</code> is very seldom a good idea, -->
+        <!-- since its time complexity class is no better than <code>APPEND</code>, -->
+        <!-- its space complexity class also is no better than <code>APPEND</code> -->
+        <!-- in the common case where no one else is sharing the side-effected list, -->
+        <!-- and its bug complexity class is way higher than <code>APPEND</code>. -->
+	<code>NCONC</code>が良い考えであることはほとんどありません。なぜなら、
+	まず、計算時間複雑性が <code>APPEND</code>と変わりませんし、
+        空間複雑性も<code>APPEND</code>と大抵変わりません(副作用つきのリストが共有されていない場合)。
+	そのくせバグの複雑性は<code>APPEND</code>よりはるかに高くなります。
       </p>
       <p>
-        If the small performance hit due
-        to <code>APPEND</code> vs. <code>NCONC</code>
-        is a limiting factor in your program,
-        you have a big problem and are probably using the wrong data structure:
-        you should be using sequences with constant-time append
-        (see Okasaki's book, and add them to lisp-interface-library),
-        or more simply you should be accumulating data in a tree
-        that will get flattened once in linear time
-        after the accumulation phase is complete (see how ASDF does it).
+        <!-- If the small performance hit due -->
+        <!-- to <code>APPEND</code> vs. <code>NCONC</code> -->
+        <!-- is a limiting factor in your program, -->
+        <!-- you have a big problem and are probably using the wrong data structure: -->
+        <!-- you should be using sequences with constant-time append -->
+        <!-- (see Okasaki's book, and add them to lisp-interface-library), -->
+        <!-- or more simply you should be accumulating data in a tree -->
+        <!-- that will get flattened once in linear time -->
+        <!-- after the accumulation phase is complete (see how ASDF does it). -->
+	もし<code>APPEND</code> vs. <code>NCONC</code>のわずかな性能の差が
+	あなたのプログラムの性能を頭打ちにする主な要因だというのなら、
+        あなたは大きな問題を抱えており、恐らく間違ったデータ構造を使っています。
+	O(1)のAPPENDができる種類のsequenceを使いましょう
+	(Okasaki<!-- Chris Okasaki -->の本を参照し、lisp-interface-libraryにそれを実装して追加してください)。
+	あるいは、もっと簡単に、木構造にデータを溜めておけば、
+	溜め終わったら線形時間でそれをflattenできるのでよいでしょう。
+	(ASDFのやり方を参照しましょう)
       </p>
       <p>
-        You may only use <code>NCONC</code>, <code>MAPCAN</code>
-        or the <code>NCONC</code> feature of <code>LOOP</code>
-        in low-level functions where performance matters,
-        where the use of lists as a data structure has been vetted
-        because these lists are known to be short,
-        and when the function or expression the result of which are accumulated
-        explicitly promises in its contract that it only returns fresh lists
-        (in particular, it can't be a constant quote or backquote expression).
-        Even then, the use of such primitives must be rare,
-        and accompanied by justifying documentation.
+        <!-- You may only use <code>NCONC</code>, <code>MAPCAN</code> -->
+        <!-- or the <code>NCONC</code> feature of <code>LOOP</code> -->
+        <!-- in low-level functions where performance matters, -->
+        <!-- where the use of lists as a data structure has been vetted -->
+        <!-- because these lists are known to be short, -->
+        <!-- and when the function or expression the result of which are accumulated -->
+        <!-- explicitly promises in its contract that it only returns fresh lists -->
+        <!-- (in particular, it can't be a constant quote or backquote expression). -->
+        <!-- Even then, the use of such primitives must be rare, -->
+        <!-- and accompanied by justifying documentation. -->
+	<code>NCONC</code>や<code>MAPCAN</code>、
+	および<code>LOOP</code>の<code>NCONC</code>節を使っていいのは、
+	次に挙げるような条件を満たす、低層の関数の中だけに限られるべきです。
+	一、性能が重要であるとき。
+	二、リストが十分に短くその使用が十分に精査されているとき。
+	三、書かれる関数やコード片が新規のリストを返すことを
+	明示的に誓約するとき。
+	(具体的には、それが定数のquoteやbackqupteの式とならない場合)
+	これらの条件を満たすような時であっても、
+	それらの命令は滅多なことでは使ってはなりませんし、
+	その使用を正当化するドキュメントを添付する必要があります。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -4769,63 +4809,102 @@ Takashi Kato
       <!--
       You should usually refer to a function as <code>#'FUN</code> rather than <code>'FUN</code>.
       -->
-      関数の参照は、<code>'FUN</code>ではなく、通常 <code>#'FUN</code> として参照すべきです。
+      関数の参照は、通常 <code>#'FUN</code> として参照すべきで、<code>'FUN</code>を使うべきではありません。
+      <!-- formar,latterという言い方に対応させるため [guicho271828] -->
     </SUMMARY>
     <BODY>
       <p>
-        The former, which reads as <code>(FUNCTION FUN)</code>,
-        refers to the function object, and is lexically scoped.
-        The latter, which reads as <code>(QUOTE FUN)</code>,
-        refers to the symbol, which when called
-        uses the global <code>FDEFINITION</code> of the symbol.
+	前者は <code>(FUNCTION FUN)</code>として読まれ、
+	関数オブジェクトをさし、そしてレキシカルスコープをもちます。
+	後者は<code>(QUOTE FUN)</code>と読まれ、シンボルを刺し、
+	関数として呼ばれた時にはシンボルのグローバルな
+	<code>FDEFINITION</code>が使われます。
+        <!-- The former, which reads as <code>(FUNCTION FUN)</code>, -->
+        <!-- refers to the function object, and is lexically scoped. -->
+        <!-- The latter, which reads as <code>(QUOTE FUN)</code>, -->
+        <!-- refers to the symbol, which when called -->
+        <!-- uses the global <code>FDEFINITION</code> of the symbol. -->
       </p>
       <p>
-        When using functions that take a functional argument
-        (e.g., <code>MAPCAR</code>, <code>APPLY</code>,
-        <code>:TEST</code> and <code>:KEY</code> arguments),
-        you should use the <code>#'</code> to refer to the function,
-        not just single quote.
+	関数を引数に取る関数を使うときは(例:<code>MAPCAR</code>,
+	<code>APPLY</code>,ないし<code>:TEST</code>や<code>:KEY</code>
+	引数),関数を指定するのには<code>#'</code>を使うべきで、ただのシ
+	ングルクオートを使うべきではありません。
+        <!-- When using functions that take a functional argument -->
+        <!-- (e.g., <code>MAPCAR</code>, <code>APPLY</code>, -->
+        <!-- <code>:TEST</code> and <code>:KEY</code> arguments), -->
+        <!-- you should use the <code>#'</code> to refer to the function, -->
+        <!-- not just single quote. -->
       </p>
       <p>
-        An exception is when you explicitly want dynamic linking,
-        because you anticipate that
-        the global function binding will be updated.
+	例外は、グローバルな関数束縛が変更された時のために、
+	ダイナミックな参照を得たい時です。
+        <!-- An exception is when you explicitly want dynamic linking, -->
+        <!-- because you anticipate that -->
+        <!-- the global function binding will be updated. -->
       </p>
       <p>
-        Another exception is when you explicitly want to access
-        a global function binding,
-        and avoid a possible shadowing lexical binding.
-        This shouldn't happen often, as it is usually a bad idea
-        to shadow a function when you will want to use the shadowed function;
-        just use a different name for the lexical function.
+	もうひとつの例外は、
+	グローバルな束縛をシャドウするレキシカルな束縛を無視して
+	グローバルな関数の束縛への参照を明示的に得たい時です。
+        <!-- Another exception is when you explicitly want to access -->
+        <!-- a global function binding, -->
+        <!-- and avoid a possible shadowing lexical binding. -->
+	これはまれにしか起こっては行けません。
+	なぜなら、関数を参照する予定があるのなら、
+	それをシャドウすべきではないからです。
+	そういう時は単純に、レキシカルな束縛に別の名前を使うべきです。
+        <!-- This shouldn't happen often, as it is usually a bad idea -->
+        <!-- to shadow a function when you will want to use the shadowed function; -->
+        <!-- just use a different name for the lexical function. -->
       </p>
       <p>
-        You must consistently use either <code>#'(lambda ...)</code>
-        or <code>(lambda ...)</code> without <code>#'</code> everywhere.
-        Unlike the case of <code>#'symbol</code> vs <code>'symbol</code>,
-        it is only a syntactic difference with no semantic impact,
-        except that the former works on Genera and the latter doesn't.
+	<code>lambda</code>を使うなら、書き方は
+	<code>#'(lambda ...)</code>か、<code>#'</code>なしの
+	<code>(lambda ...)</code>に統一すべきです。
+        この場合は<code>#'symbol</code> vs <code>'symbol</code>の場合とは異なり、
+	意味論上の問題のない単なる構文上の問題です。
+	唯一ある違いといえば、LispマシンのGeneraの上では前者しか動かないというだけです。
 
-        You must use the former style if your code is intended as a library
-        with maximal compatibility to all Common Lisp implementations;
-        otherwise, it is optional which style you use.
-        <code>#'</code> may be seen as a hint
-        that you're introducing a function in expression context;
-        but the <code>lambda</code> itself is usually sufficient hint,
-        and concision is good.
-        Choose wisely, but above all,
-        consistently with yourself and other developers,
-        within a same file, package, system, project, etc.
+        <!-- You must consistently use either <code>#'(lambda ...)</code> -->
+        <!-- or <code>(lambda ...)</code> without <code>#'</code> everywhere. -->
+        <!-- Unlike the case of <code>#'symbol</code> vs <code>'symbol</code>, -->
+        <!-- it is only a syntactic difference with no semantic impact, -->
+        <!-- except that the former works on Genera and the latter doesn't. -->
+
+	全Common Lisp実装への最大限の対応を意図するときには、
+	前者の記法を*絶対に使わなくてはなりません。*
+        そうでないなら、どちらのスタイルでもかまいません。
+        <code>#'</code>は、コード中で関数であることを示すヒントとなることがありえます。
+	しかし、<code>lambda</code>自体もふつう十分なヒントになりますし、十分に丁寧です。
+	お好きな方をどうぞ。しかし何に置いても、スタイルを統一することが重要です。
+	自分の書く中で、あるいは他の開発者間で、あるいはファイル内で、あるいはパッケージ内、あるいは
+	システム内、プロジェクト内でも。
+        <!-- You must use the former style if your code is intended as a library -->
+        <!-- with maximal compatibility to all Common Lisp implementations; -->
+        <!-- otherwise, it is optional which style you use. -->
+        <!-- <code>#'</code> may be seen as a hint -->
+        <!-- that you're introducing a function in expression context; -->
+        <!-- but the <code>lambda</code> itself is usually sufficient hint, -->
+        <!-- and concision is good. -->
+        <!-- Choose wisely, but above all, -->
+        <!-- consistently with yourself and other developers, -->
+        <!-- within a same file, package, system, project, etc. -->
       </p>
       <p>
-        Note that if you start writing a new system
-        in a heavily functional style,
-        you may consider using
-        <a href="http://cliki.net/lambda-reader">lambda-reader</a>,
-        a system that lets you use the unicode character <code>λ</code>
-        instead of <code>LAMBDA</code>.
-        But you must not start using such a syntactic extension
-        in an existing system without getting permission from other developers.
+	注釈ですが、
+	高度に関数型のシステムを作り始める際は、
+	<a href="http://cliki.net/lambda-reader">lambda-reader</a>の使用を考えてみてください。
+	これは、Unicodeの<code>λ</code>を<code>LAMBDA</code>の代わりに使えるライブラリです。
+	でも、既にあるシステムに他の開発者の賛同なくこういった構文拡張を導入するのはいけませんよ。
+        <!-- Note that if you start writing a new system -->
+        <!-- in a heavily functional style, -->
+        <!-- you may consider using -->
+        <!-- <a href="http://cliki.net/lambda-reader">lambda-reader</a>, -->
+        <!-- a system that lets you use the unicode character <code>λ</code> -->
+        <!-- instead of <code>LAMBDA</code>. -->
+        <!-- But you must not start using such a syntactic extension -->
+        <!-- in an existing system without getting permission from other developers. -->
       </p>
     </BODY>
   </STYLEPOINT>
