@@ -4663,35 +4663,51 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        You should use <code>REDUCE</code>
-        instead of <code>APPLY</code> and a consed-up list,
-        where the semantics of the first operator argument
-        otherwise guarantees the same semantics.
-        Of course, you must use <code>APPLY</code>
-        if it does what you want and <code>REDUCE</code> doesn't.
+        <!-- You should use <code>REDUCE</code> -->
+        <!-- instead of <code>APPLY</code> and a consed-up list, -->
+        <!-- where the semantics of the first operator argument -->
+        <!-- otherwise guarantees the same semantics. -->
+        <!-- Of course, you must use <code>APPLY</code> -->
+        <!-- if it does what you want and <code>REDUCE</code> doesn't. -->
+        第一引数の関数の意味論が同じと保証されるなら、<!-- ? -->
+        リストを作って<code>APPLY</code>する代りに<code>REDUCE</code>を使うべきです。 
+        勿論、<code>REDUCE</code>では駄目で、求めるものが<code>APPLY</code>であるなら使わなければなりません。
       </p>
       <p>
-        For instance, <code>(apply #'+ (mapcar #'acc frobs)</code>
-        should instead be <code>(reduce #'+ frobs :key #'acc)</code>
+        <!-- For instance, <code>(apply #'+ (mapcar #'acc frobs)</code> -->
+        <!-- should instead be <code>(reduce #'+ frobs :key #'acc)</code> -->
+        例を挙げるなら、<code>(apply #'+ (mapcar #'acc frobs)</code>
+        の代りに、<code>(reduce #'+ frobs :key #'acc)</code>
+        となるでしょう。
       </p>
       <p>
-        This is preferable because it does not do extra consing,
-        and does not risk going beyond <code>CALL-ARGUMENTS-LIMIT</code>
-        on implementations where that limit is small,
-        which could blow away the stack on long lists
-        (we want to avoid gratuitous non-portability in our code).
+        <!-- This is preferable because it does not do extra consing, -->
+        <!-- and does not risk going beyond <code>CALL-ARGUMENTS-LIMIT</code> -->
+        <!-- on implementations where that limit is small, -->
+        <!-- which could blow away the stack on long lists -->
+        <!-- (we want to avoid gratuitous non-portability in our code). -->
+        これは、余計なコンスをしないのと、<code>CALL-ARGUMENTS-LIMIT</code>
+        の上限が小さい処理系において、長いリストでスタックをあふれさせるリスクがない点で好ましいと言えます。
+        (コードに無用な可搬性の無さを持ち込むのは避けたい)
       </p>
       <p>
-        However, you must be careful not to use <code>REDUCE</code>
-        in ways that needlessly increase
-        the complexity class of the computation.
-        For instance, <code>(REDUCE 'STRCAT ...)</code> is <i>O(n^2)</i>
-        when an appropriate implementation is only <i>O(n)</i>.
-        Moreover, <code>(REDUCE 'APPEND ...)</code>
-        is also <i>O(n^2)</i> unless you specify <code>:FROM-END T</code>.
-        In such cases, you must use proper abstractions
-        that cover those cases instead of calling <code>REDUCE</code>,
-        first defining them in a suitable library if need be.
+        <!-- However, you must be careful not to use <code>REDUCE</code> -->
+        <!-- in ways that needlessly increase -->
+        <!-- the complexity class of the computation. -->
+        <!-- For instance, <code>(REDUCE 'STRCAT ...)</code> is <i>O(n^2)</i> -->
+        <!-- when an appropriate implementation is only <i>O(n)</i>. -->
+        <!-- Moreover, <code>(REDUCE 'APPEND ...)</code> -->
+        <!-- is also <i>O(n^2)</i> unless you specify <code>:FROM-END T</code>. -->
+        <!-- In such cases, you must use proper abstractions -->
+        <!-- that cover those cases instead of calling <code>REDUCE</code>, -->
+        <!-- first defining them in a suitable library if need be. -->
+        とはいうものの、不要に計算量を増大させるような<code>REDUCE</code>の用法には注意しなければなりません。
+        例えば、<code>(REDUCE #'STRCAT ...)</code>を用いれば<i>O(n^2)</i>となりますが、
+        [<code>REDUCE</code>ではなく]適切な実装を用いた場合には<i>O(n)</i>にしかなりません。
+        加えて、<code>(REDUCE #'APPEND ...)</code>
+        もまた、<code>:FROM-END T</code>を指定しない限り<i>O(n^2)</i>となります。
+        このような場合、<code>REDUCE</code>を呼ぶのではなしに、必要とあらば、ふさわしいライブラリを定義し、
+        適切な抽象を用いらなければなりません。
       </p>
       
     </BODY>
