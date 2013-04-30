@@ -1723,9 +1723,9 @@ Takashi Kato
       <!-- You should use lower case. -->
       <!-- You should not abbreviate. -->
       <!-- You should follow punctuation conventions. -->
-      小文字を用いる*べき*です。
-      略語は用いる*べき*ではありません。
-      句読点法の慣習には従う*べき*です。
+      小文字を用いるべきです。
+      略語は用いるべきではありません。
+      句読点法の慣習には従うべきです。
     </SUMMARY>
     <BODY>
       <p>
@@ -2154,7 +2154,7 @@ Takashi Kato
   <STYLEPOINT title="極力関数的スタイル">
     <SUMMARY>
       <!-- You should avoid side-effects when they are not necessary. -->
-      副作用が必要のない場合はこれを避ける*べき*です。
+      副作用が必要のない場合はこれを避けるべきです。
     </SUMMARY>
     <BODY>
       <p>
@@ -3788,7 +3788,7 @@ Takashi Kato
       <!-- 
       You should use arrays rather than lists where random access matters.
       -->
-      (要素に)ランダムアクセスをする場合には、リストではなく配列を用いる*べき*です。
+      (要素に)ランダムアクセスをする場合には、リストではなく配列を用いるべきです。
     </SUMMARY>
     <BODY>
       <p>
@@ -3928,7 +3928,7 @@ Takashi Kato
       <!-- <code>&amp;KEY</code>, -->
       <!-- and -->
       <!-- <code>&amp;AUX</code> arguments. -->
-      <code>&amp;OPTIONAL</code>、<code>&amp;KEY</code>、<code>&amp;AUX</code>引数は正しく用いる*べき*です。
+      <code>&amp;OPTIONAL</code>、<code>&amp;KEY</code>、<code>&amp;AUX</code>引数は正しく用いるべきです。
     </SUMMARY>
     <BODY>
       <p>
@@ -4115,7 +4115,7 @@ Takashi Kato
   <STYLEPOINT title="同一性、等価性、比較">
     <SUMMARY>
       <!-- You should the appropriate predicates when comparing objects. -->
-      オブジェクトを比較する場合は適切な述語を使用す*べき*です。
+      オブジェクトを比較する場合は適切な述語を使用すべきです。
     </SUMMARY>
     <BODY>
       <p>
@@ -4521,7 +4521,7 @@ Takashi Kato
       <!-- You should only use <code>DYNAMIC-EXTENT</code> -->
       <!-- where it matters for performance, -->
       <!-- and you can document why it is correct. -->
-      <code>DYNAMIC-EXTENT</code> の利用はパフォーマンスが重要である場合に限る*べき*です。
+      <code>DYNAMIC-EXTENT</code> の利用はパフォーマンスが重要である場合に限るべきです。
       さらには、宣言の利用の正当性を文書化しておきます。
     </SUMMARY>
     <BODY>
@@ -4659,7 +4659,7 @@ Takashi Kato
     <SUMMARY>
       <!-- You should use <code>REDUCE</code> -->
       <!-- instead of <code>APPLY</code> where appropriate. -->
-      <code>APPLY</code> を利用する方がより適切な場合を除いて <code>REDUCE</code> を利用す*べき*です。
+      <code>APPLY</code> を利用する方がより適切な場合を除いて <code>REDUCE</code> を利用すべきです。
     </SUMMARY>
     <BODY>
       <p>
