@@ -4814,72 +4814,62 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-	前者は <code>(FUNCTION FUN)</code>として読まれ、
-	関数オブジェクトをさし、そしてレキシカルスコープをもちます。
-	後者は<code>(QUOTE FUN)</code>と読まれ、シンボルを刺し、
-	関数として呼ばれた時にはシンボルのグローバルな
-	<code>FDEFINITION</code>が使われます。
         <!-- The former, which reads as <code>(FUNCTION FUN)</code>, -->
         <!-- refers to the function object, and is lexically scoped. -->
         <!-- The latter, which reads as <code>(QUOTE FUN)</code>, -->
         <!-- refers to the symbol, which when called -->
         <!-- uses the global <code>FDEFINITION</code> of the symbol. -->
+	前者は <code>(FUNCTION FUN)</code>として読まれ、
+	関数オブジェクトを指し、そしてレキシカルスコープをもちます。
+	後者は<code>(QUOTE FUN)</code>と読まれ、シンボルを指し、
+	関数として呼ばれた時にはシンボルのグローバルな
+	<code>FDEFINITION</code>が使われます。
       </p>
       <p>
-	関数を引数に取る関数を使うときは(例:<code>MAPCAR</code>,
-	<code>APPLY</code>,ないし<code>:TEST</code>や<code>:KEY</code>
-	引数),関数を指定するのには<code>#'</code>を使うべきで、ただのシ
-	ングルクオートを使うべきではありません。
         <!-- When using functions that take a functional argument -->
         <!-- (e.g., <code>MAPCAR</code>, <code>APPLY</code>, -->
         <!-- <code>:TEST</code> and <code>:KEY</code> arguments), -->
         <!-- you should use the <code>#'</code> to refer to the function, -->
         <!-- not just single quote. -->
+	関数を引数に取る関数を使うときは(例:<code>MAPCAR</code>,
+	<code>APPLY</code>,ないし<code>:TEST</code>や<code>:KEY</code>
+	引数),関数を指定するのには<code>#'</code>を使うべきで、ただのシ
+	ングルクオートを使うべきではありません。
       </p>
       <p>
-	例外は、グローバルな関数束縛が変更された時のために、
-	ダイナミックな参照を得たい時です。
         <!-- An exception is when you explicitly want dynamic linking, -->
         <!-- because you anticipate that -->
         <!-- the global function binding will be updated. -->
+	例外は、グローバルな関数束縛が変更された時のために、
+	ダイナミックな参照を得たい時です。
       </p>
       <p>
-	もうひとつの例外は、
-	グローバルな束縛をシャドウするレキシカルな束縛を無視して
-	グローバルな関数の束縛への参照を明示的に得たい時です。
         <!-- Another exception is when you explicitly want to access -->
         <!-- a global function binding, -->
         <!-- and avoid a possible shadowing lexical binding. -->
+	もうひとつの例外は、
+	グローバルな束縛をシャドウするレキシカルな束縛を無視して
+	グローバルな関数の束縛への参照を明示的に得たい時です。
+        <!-- This shouldn't happen often, as it is usually a bad idea -->
+        <!-- to shadow a function when you will want to use the shadowed function; -->
+        <!-- just use a different name for the lexical function. -->
 	これはまれにしか起こっては行けません。
 	なぜなら、関数を参照する予定があるのなら、
 	それをシャドウすべきではないからです。
 	そういう時は単純に、レキシカルな束縛に別の名前を使うべきです。
-        <!-- This shouldn't happen often, as it is usually a bad idea -->
-        <!-- to shadow a function when you will want to use the shadowed function; -->
-        <!-- just use a different name for the lexical function. -->
       </p>
       <p>
-	<code>lambda</code>を使うなら、書き方は
-	<code>#'(lambda ...)</code>か、<code>#'</code>なしの
-	<code>(lambda ...)</code>に統一すべきです。
-        この場合は<code>#'symbol</code> vs <code>'symbol</code>の場合とは異なり、
-	意味論上の問題のない単なる構文上の問題です。
-	唯一ある違いといえば、LispマシンのGeneraの上では前者しか動かないというだけです。
-
         <!-- You must consistently use either <code>#'(lambda ...)</code> -->
         <!-- or <code>(lambda ...)</code> without <code>#'</code> everywhere. -->
         <!-- Unlike the case of <code>#'symbol</code> vs <code>'symbol</code>, -->
         <!-- it is only a syntactic difference with no semantic impact, -->
         <!-- except that the former works on Genera and the latter doesn't. -->
-
-	全Common Lisp実装への最大限の対応を意図するときには、
-	前者の記法を*絶対に使わなくてはなりません。*
-        そうでないなら、どちらのスタイルでもかまいません。
-        <code>#'</code>は、コード中で関数であることを示すヒントとなることがありえます。
-	しかし、<code>lambda</code>自体もふつう十分なヒントになりますし、十分に丁寧です。
-	お好きな方をどうぞ。しかし何に置いても、スタイルを統一することが重要です。
-	自分の書く中で、あるいは他の開発者間で、あるいはファイル内で、あるいはパッケージ内、あるいは
-	システム内、プロジェクト内でも。
+	<code>lambda</code>を使うなら、書き方は
+	<code>#'(lambda ...)</code>か、<code>#'</code>なしの
+	<code>(lambda ...)</code>に統一すべきです。
+        この場合は<code>#'symbol</code> vs <code>'symbol</code>の場合とは異なり、
+	意味論上の問題のない単なる構文上の問題です。
+	唯一ある違いといえば、[Lispマシンの]Generaの上では前者しか動かないというだけです。
         <!-- You must use the former style if your code is intended as a library -->
         <!-- with maximal compatibility to all Common Lisp implementations; -->
         <!-- otherwise, it is optional which style you use. -->
@@ -4890,13 +4880,16 @@ Takashi Kato
         <!-- Choose wisely, but above all, -->
         <!-- consistently with yourself and other developers, -->
         <!-- within a same file, package, system, project, etc. -->
+	全Common Lisp実装への最大限の対応を意図するときには、
+	前者の記法を使わなくてはなりません。
+        そうでないなら、どちらのスタイルでもかまいません。
+        <code>#'</code>は、コード中で関数であることを示すヒントとなることがありえます。
+	しかし、<code>lambda</code>自体もふつう十分なヒントになりますし、十分に丁寧です。
+	お好きな方をどうぞ。しかし何に置いても、スタイルを統一することが重要です。
+	自分の書く中で、あるいは他の開発者間で、あるいはファイル内で、
+        あるいはパッケージ内、あるいはシステム内、プロジェクト内でも。
       </p>
       <p>
-	注釈ですが、
-	高度に関数型のシステムを作り始める際は、
-	<a href="http://cliki.net/lambda-reader">lambda-reader</a>の使用を考えてみてください。
-	これは、Unicodeの<code>λ</code>を<code>LAMBDA</code>の代わりに使えるライブラリです。
-	でも、既にあるシステムに他の開発者の賛同なくこういった構文拡張を導入するのはいけませんよ。
         <!-- Note that if you start writing a new system -->
         <!-- in a heavily functional style, -->
         <!-- you may consider using -->
@@ -4905,6 +4898,10 @@ Takashi Kato
         <!-- instead of <code>LAMBDA</code>. -->
         <!-- But you must not start using such a syntactic extension -->
         <!-- in an existing system without getting permission from other developers. -->
+	加えて、関数型スタイルを重用してシステムを新規に書き始める際は、
+	<a href="http://cliki.net/lambda-reader">lambda-reader</a>の使用を考えてみても良いでしょう。
+	これは、Unicodeの<code>λ</code>を<code>LAMBDA</code>の代わりに使えるライブラリです。
+	しかし、既にあるシステムに他の開発者の賛同なくこういった構文拡張を導入してはなりません。
       </p>
     </BODY>
   </STYLEPOINT>
