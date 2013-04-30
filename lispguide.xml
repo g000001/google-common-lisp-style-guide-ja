@@ -4702,23 +4702,11 @@ Takashi Kato
       <!-- You should not use <code>NCONC</code>; -->
       <!-- you should use <code>APPEND</code> instead, -->
       <!-- or better data structures. -->
-      <code>NCONC</code>は利用す*べき*ではありません 
-      ——代りに <code>APPEND</code> を利用す*べき*です。もしくはよりよい他のデータ構造を利用しましょう
+      <code>NCONC</code>は利用すべきではありません 
+      ——代りに <code>APPEND</code> を利用すべきです。もしくはよりよい他のデータ構造を利用しましょう
     </SUMMARY>
     <BODY>
       <p>
-	ほぼかならずといってほど<code>NCONC</code>は*使わないべき*でしょう。
-	副作用を使っていないならAPPENDを使う*べき*です。
-        変数を更新する必要があるときなら<code>ALEXANDRIA:APPENDF</code>をつかう*べき*です。
-	
-	(トラヴァース中の?)現在のCONSセルのCDRをもてあそぶ技法に頼るのは
-	おそらくやめるべきです。
-	(その技法が良いという人もいるかもしれませんが、
-	その動作はANSIで保証されているわけではありません.)
-        もしそういうことをするのならば、
-	<code>NCONC</code>をその場で使っているという事が
-	はっきりとわかるようなコメントを、そこに残すべきです。
-	そして、おそらくテータの表現方法を考えなおしたほうが良いでしょう。
         <!-- You should almost never use <code>NCONC</code>. -->
         <!-- You should use <code>APPEND</code> -->
         <!-- when you don't depend on any side-effect. -->
@@ -4731,52 +4719,64 @@ Takashi Kato
         <!-- if you do, you must include a prominent -->
         <!-- comment explaining the use of <code>NCONC</code>; -->
         <!-- and you should probably reconsider your data representation strategy. -->
+	ほぼ必ずといって良いほど<code>NCONC</code>は使わないようにすべきです。
+	副作用を使っていないならAPPENDを使うべきです。
+        変数を更新する必要があるときなら<code>ALEXANDRIA:APPENDF</code>をつかうべきです。
+	
+	[トラヴァース中の?]現在のCONSセルのCDRをもてあそぶ技法に頼るのは
+	おそらくやめるべきです。
+	(その技法が良いという人もいるかもしれませんが、
+	その動作は仕様で保証されているわけではありません.)
+        もしそういうことをするのならば、
+	<code>NCONC</code>をその場で使っているという事が
+	はっきりとわかるようなコメントを、そこに残すべきです。
+	そして、おそらくテータの表現方法を考えなおしたほうが良いでしょう。
       </p>
       <p>
-	このことの延長として、<code>MAPCAN</code>の使用、および
-        <code>LOOP</code>の<code>NCONC</code>文も避ける*べき*です。
-	それらの代わりに、対応してそれぞれ
-        <code>ALEXANDRIA:MAPPEND</code>と
-	<code>LOOP</code>の <code>APPEND</code>文を使うべきです。
         <!-- By extension, you should avoid <code>MAPCAN</code> -->
         <!-- or the <code>NCONC</code> feature of <code>LOOP</code>. -->
         <!-- You should instead respectively use -->
         <!-- <code>ALEXANDRIA:MAPPEND</code> -->
         <!-- and the <code>APPEND</code> feature of <code>LOOP</code>. -->
+	このことの延長として、<code>MAPCAN</code>、および
+        <code>LOOP</code>の<code>NCONC</code>節の使用も避けるべきです。
+	それらの代わりに、対応してそれぞれ
+        <code>ALEXANDRIA:MAPPEND</code>と
+	<code>LOOP</code>の<code>APPEND</code>節を使うべきです。
       </p>
       <p>
-	<code>NCONC</code>がいい考えであることはほとんどありません。なぜなら、
-	まず計算時間複雑性が <code>APPEND</code>とかわらんし、
-        空間複雑性も<code>APPEND</code>とたいていかわらんし(副作用つきのリストが共有されていない時)、
-	そのくせバグの複雑性が<code>APPEND</code>よりはるかに高いからですよ。
         <!-- <code>NCONC</code> is very seldom a good idea, -->
         <!-- since its time complexity class is no better than <code>APPEND</code>, -->
         <!-- its space complexity class also is no better than <code>APPEND</code> -->
         <!-- in the common case where no one else is sharing the side-effected list, -->
         <!-- and its bug complexity class is way higher than <code>APPEND</code>. -->
+	<code>NCONC</code>が良い考えであることはほとんどありません。なぜなら、
+	まず、計算時間複雑性が <code>APPEND</code>と変わりませんし、
+        空間複雑性も<code>APPEND</code>と大抵変わりません(副作用つきのリストが共有されていない場合)。
+	そのくせバグの複雑性は<code>APPEND</code>よりはるかに高くなります。
       </p>
       <p>
+        <!-- If the small performance hit due -->
+        <!-- to <code>APPEND</code> vs. <code>NCONC</code> -->
+        <!-- is a limiting factor in your program, -->
+        <!-- you have a big problem and are probably using the wrong data structure: -->
+        <!-- you should be using sequences with constant-time append -->
+        <!-- (see Okasaki's book, and add them to lisp-interface-library), -->
+        <!-- or more simply you should be accumulating data in a tree -->
+        <!-- that will get flattened once in linear time -->
+        <!-- after the accumulation phase is complete (see how ASDF does it). -->
 	もし<code>APPEND</code> vs. <code>NCONC</code>のわずかな性能の差が
-	コードの性能を頭打ちにする主な要因だというのなら、大問題です。
-	そのコードはたぶん間違ったデータ構造を使っています。
+	あなたのプログラムの性能を頭打ちにする主な要因だというのなら、
+        あなたは大きな問題を抱えており、恐らく間違ったデータ構造を使っています。
 	O(1)のAPPENDができる種類のsequenceを使いましょう
-	(岡崎の本を参照し、lisp-interface-libraryにそれを実装して追加してください)。
-	あるいは、もっと簡単に、木構造にデータをためておけば、
+	(Okasaki<!-- Chris Okasaki -->の本を参照し、lisp-interface-libraryにそれを実装して追加してください)。
+	あるいは、もっと簡単に、木構造にデータを溜めておけば、
 	溜め終わったら線形時間でそれをflattenできるのでよいでしょう。
 	(ASDFのやり方を参照しましょう)
       </p>
       <p>
-	<code>NCONC</code>や<code>MAPCAN</code>、
-	および<code>LOOP</code>の<code>NCONC</code>文を使っていいのは、
-	次に挙げるような条件を満たす、低層の関数の中だけに限られるべきです。
-	ひとつ、性能が重要であるとき。
-	ふたつ、リストが十分に短くその使用が十分に精査されているとき。
-	みっつ、書かれる関数やコード片がfreshなリストを返すことを
-	明示的にに誓約するとき。
-	(とくに、それがquoteやbackqupteでそれが実現できないとき。)
-	これらの条件を満たすような時であっても、
-	それらの命令は滅多なことでは使ってはいけません(must be rare)し、
-	*かならず*その使用を正当化するドキュメントを添付する必要があります。
+        <!-- You may only use <code>NCONC</code>, <code>MAPCAN</code> -->
+        <!-- or the <code>NCONC</code> feature of <code>LOOP</code> -->
         <!-- in low-level functions where performance matters, -->
         <!-- where the use of lists as a data structure has been vetted -->
         <!-- because these lists are known to be short, -->
@@ -4785,6 +4785,17 @@ Takashi Kato
         <!-- (in particular, it can't be a constant quote or backquote expression). -->
         <!-- Even then, the use of such primitives must be rare, -->
         <!-- and accompanied by justifying documentation. -->
+	<code>NCONC</code>や<code>MAPCAN</code>、
+	および<code>LOOP</code>の<code>NCONC</code>節を使っていいのは、
+	次に挙げるような条件を満たす、低層の関数の中だけに限られるべきです。
+	一、性能が重要であるとき。
+	二、リストが十分に短くその使用が十分に精査されているとき。
+	三、書かれる関数やコード片が新規のリストを返すことを
+	明示的に誓約するとき。
+	(具体的には、それが定数のquoteやbackqupteの式とならない場合)
+	これらの条件を満たすような時であっても、
+	それらの命令は滅多なことでは使ってはなりませんし、
+	その使用を正当化するドキュメントを添付する必要があります。
       </p>
     </BODY>
   </STYLEPOINT>
