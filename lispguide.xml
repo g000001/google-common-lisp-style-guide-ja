@@ -3418,77 +3418,111 @@ Takashi Kato
   <STYLEPOINT title="EVAL">
     <SUMMARY>
       <!-- You must not use <code>EVAL</code> at runtime. -->
-      <code>EVAL</code> の利用は控えなければなりません。
+      実行時に<code>EVAL</code>を使ってはなりません。
     </SUMMARY>
     <BODY>
       <p>
-        Places where it is actually appropriate to use <code>EVAL</code>
-        are so few and far between that you must consult with your reviewers;
-        it's easily misused.
+        <!-- Places where it is actually appropriate to use <code>EVAL</code> -->
+        <!-- are so few and far between that you must consult with your reviewers; -->
+        <!-- it's easily misused. -->
+        <code>EVAL</code>を使うごくまれで真に適切な場面について、
+        あなたはあなたの査読者と相談しなければなりません。
+        EVALは容易に誤用できるからです。
       </p>
       <p>
-        If your code manipulates symbols at runtime
-        and needs to get the value of a symbol,
-        use <code>SYMBOL-VALUE</code>, not <code>EVAL</code>.
+        <!-- If your code manipulates symbols at runtime -->
+        <!-- and needs to get the value of a symbol, -->
+        <!-- use <code>SYMBOL-VALUE</code>, not <code>EVAL</code>. -->
+        もしもあなたのコードが、実行時にシンボルを操作したり、
+        シンボルの値を取得することを必要とするときは
+        <code>EVAL</code>ではなく<code>SYMBOL-VALUE</code>を使います。
       </p>
       <p>
-        Often, what you really need is to write a macro,
-        not to use <code>EVAL</code>.
+        <!-- Often, what you really need is to write a macro, -->
+        <!-- not to use <code>EVAL</code>. -->
+        しばしば、あなたはどうしてもマクロを書く必要が生じるかもしれませんが、
+        <code>EVAL</code>を使ってはなりません。
       </p>
       <p>
-        You may be tempted to use <code>EVAL</code> as a shortcut
-        to evaluating expressions in a safe subset of the language.
-        But it often requires more scrutiny to properly check and sanitize
-        all possible inputs to such use of <code>EVAL</code>
-        than to build a special-purpose evaluator.
-        You must not use <code>EVAL</code> in this way at runtime.
+        <!-- You may be tempted to use <code>EVAL</code> as a shortcut -->
+        <!-- to evaluating expressions in a safe subset of the language. -->
+        言語の安全なサプセットにおいて、式を評価するときの近道として、<code>EVAL</code>
+        を利用する誘惑にあなたはかられるでしょう。
+        <!-- But it often requires more scrutiny to properly check and sanitize -->
+        <!-- all possible inputs to such use of <code>EVAL</code> -->
+        <!-- than to build a special-purpose evaluator. -->
+        <!-- You must not use <code>EVAL</code> in this way at runtime. -->
+        しかし、特殊用途の評価器をつくりあげるよりも<code>EVAL</code>を使う方が、
+        大抵の場合より正確な確認とすべての有効な入力について安全を保つための監視の眼の必要に迫られます。
       </p>
       <p>
-        Places where it is OK to use <code>EVAL</code> are:
+        <!-- Places where it is OK to use <code>EVAL</code> are: -->
+        <code>EVAL</code>を使うことが許される状況を以下に記します。
       </p>
       <ul>
         <li>
-          Implementing an interactive development loop.
+          <!-- Implementing an interactive development loop. -->
+          インタラクティブな開発のためのループの実装。
         </li>
         <li>
-          The build infrastructure.
+          <!-- The build infrastructure. -->
+          基盤の構築。
         </li>
         <li>
-          Backdoors that are part of testing frameworks.
-          (You MUST NOT have such backdoors in production code.)
+          <!-- Backdoors that are part of testing frameworks. -->
+          <!-- (You MUST NOT have such backdoors in production code.) -->
+          テストフレームワークにおけるバックドア
+          (実用コードにおいてこの手のバックドアを設けてはなりません)。
         </li>
         <li>
-          Macros that fold constants at compile-time.
+          <!-- Macros that fold constants at compile-time. -->
+          コンパイル時に定数をたたみ込むマクロ。
         </li>
         <li>
-          Macros that register definitions to meta-data structures;
-          the registration form is sometimes evaluated at compile-time
-          as well as included in the macro-expansion,
-          so it is immediately available to other macros.
+          <!-- Macros that register definitions to meta-data structures; -->
+          メタデータ構造のためのレジスタ定義を行うマクロ。
+          <!-- the registration form is sometimes evaluated at compile-time -->
+          <!-- as well as included in the macro-expansion, -->
+          <!-- so it is immediately available to other macros. -->
+          登録を行うフォームは時にコンパイル時に評価され、
+          マクロ展開の中に組み込まれるだけでなく、
+          即座に他のマクロから利用可能になります。
         </li>
       </ul>
       <p>
-        Note that in the latter case,
-        if the macro isn't going to be used at the top-level,
-        it might not be possible to make these definitions available
-        as part of the expansion.
-        The same phenomenon may happen in a <code>DEFTYPE</code> expansion,
-        or in helper functions used by macros.
-        In these cases, you may actually have to use
-        <code>ASDF-FINALIZERS:EVAL-AT-TOPLEVEL</code> in your macro.
+        <!-- Note that in the latter case, -->
+        <!-- if the macro isn't going to be used at the top-level, -->
+        <!-- it might not be possible to make these definitions available -->
+        <!-- as part of the expansion. -->
+        後の例においては、もしマクロがトップレベルで使用できる状態にならない場合、
+        拡張された部分として、それらの定義を利用可能するために
+        十分でないかもしれないということに注意が必要です。
+        <!-- The same phenomenon may happen in a <code>DEFTYPE</code> expansion, -->
+        <!-- or in helper functions used by macros. -->
+        同じような現象は<code>DEFTYPE</code>の拡張や、
+        マクロに利用されるヘルパ関数においても起こります。
+        <!-- In these cases, you may actually have to use -->
+        <!-- <code>ASDF-FINALIZERS:EVAL-AT-TOPLEVEL</code> in your macro. -->
+		こういった場合は、あなたは自分のマクロ内において、
+		実際には<code>ASDF-FINALIZERS:EVAL-AT-TOPLEVEL</code>を使わなくてはなりません。
         It will not only <code>EVAL</code> your definitions
         at macro-expansion time for immediate availability,
         it will also save the form aside, for inclusion in a
         <code>(ASDF-FINALIZERS:FINAL-FORMS)</code>
         that you need to include at the end of the file being compiled
         (or before the form is needed).
-        This way, the side-effects are present when loading the fasl
-        without having compiled it as well as while compiling it;
-        in either case, the form is made available at load-time.
-        <code>ASDF-FINALIZERS</code> ensures that the form is present,
-        by throwing an error if you omit it.
+        <!-- This way, the side-effects are present when loading the fasl -->
+        <!-- without having compiled it as well as while compiling it; -->
+        このやり方はそれをコンパイルする間だけでなく、コンパイル済のものを持ずにFASLをロードする際に
+        副作用を引き起こします。
+        <!-- in either case, the form is made available at load-time. -->
+        どちらの場合も、フォームはロード時に使えるようになります。
+        <!-- <code>ASDF-FINALIZERS</code> ensures that the form is present, -->
+        <!-- by throwing an error if you omit it. -->
+        あなたがそれを無効化しない限り、エラーを投げて、
+        <code>ASDF-FINALIZERS</code>はフォームがあることを保証します。
       </p>
-          </BODY>
+    </BODY>
   </STYLEPOINT>
   <!-- <STYLEPOINT title="INTERN and UNINTERN"> -->
   <STYLEPOINT title="INTERNとUNINTERN">
