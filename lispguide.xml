@@ -5035,19 +5035,26 @@ Takashi Kato
 
   <STYLEPOINT title="SATISFIES">
     <SUMMARY>
-      You must be careful when using a <code>SATISFIES</code> clause in a type specifier.
+      <!-- You must be careful when using a <code>SATISFIES</code> clause in a type specifier.
+      -->
+      <code>SATISFIES</code> 型識別子を使うときは気をつけましょう。
     </SUMMARY>
     <BODY>
       <p>
-        Most Common Lisp implementations can't optimize
-        based on a <code>SATISFIES</code> type,
-        but many of them offer simple optimizations
-        based on a type of the form
-        <code>(AND FOO (SATISFIES BAR-P))</code>
-        where the first term of the <code>AND</code> clause
-        describes the structure of the object
-        without any <code>SATISFIES</code>
-        and the second term is the <code>SATISFIES</code>.
+        <!-- Most Common Lisp implementations can't optimize -->
+        <!-- based on a <code>SATISFIES</code> type, -->
+        <!-- but many of them offer simple optimizations -->
+        <!-- based on a type of the form -->
+        <!-- <code>(AND FOO (SATISFIES BAR-P))</code> -->
+        <!-- where the first term of the <code>AND</code> clause -->
+        <!-- describes the structure of the object -->
+        <!-- without any <code>SATISFIES</code> -->
+        <!-- and the second term is the <code>SATISFIES</code>. -->
+	ほとんどのlisp処理系は <code>SATISFIES</code> で定義された型を
+	最適化できません。一方、 <code>(AND FOO (SATISFIES
+	BAR-P))</code> という形の型ならば簡単な最適化を行います。すなわち、
+	<code>AND</code> 節の最初の型が <code>SATISFIES</code> なしの型であり、
+	２つ目の型が <code>SATISFIES</code> 型である時です。
       </p>
       <BAD_CODE_SNIPPET>
         (deftype prime-number () (satisfies prime-number-p)) ; Bad
@@ -5056,24 +5063,23 @@ Takashi Kato
         (deftype prime-number () (and integer (satisfies prime-number-p)) ; Better
       </CODE_SNIPPET>
       <p>
-        However, <code>AND</code> in the <code>DEFTYPE</code> language
-        isn't a left-to-right short-circuit operator
-        as in the expression language;
-        it is a symmetrical connector that allows for reordering subterms
-        and doesn't guarantee short-circuiting.
-        Therefore, in the above example,
-        you cannot rely on the test for <code>INTEGER</code>ness
-        to protect the function <code>PRIME-NUMBER-P</code>
-        from being supplied non-integer arguments
-        to test for being of instances of the type.
-        Implementations may, and some <em>will</em>,
-        invoke <code>SATISFIES</code>-specified function
-        at compile-time to test various relevant objects.
+        ただし、 <code>DEFTYPE</code> 中の <code>AND</code> は、通常の
+        <code>AND</code>のように、左から評価してどれか一つが真ならすぐ
+        に値を返す、というような動作はしません。これはただの「左右対称」
+        の型連結子であって、子要素を並べる仕組みを提供するだけであり、
+        そのすべての引数を必ず評価します。そのため、上の例では、
+        <code>PRIME-NUMBER-P</code> の引数に与えられるのが必ず
+        <code>INTEGER</code>になる、というような推測は間違いとなります。
+         
+        コンパイル時、Common Lisp 実装は <code>SATISFIES</code> に記さ
+        れた関数を様々なものに呼び出すことが許されていますし、 あるもの
+        は <em>なるべくそうしようと</em> します。
       </p>
       <p>
-        That is why any function specified in a <code>SATISFIES</code> clause
-        MUST accept objects of any type as argument to the function,
-        and MUST be defined within an <code>EVAL-WHEN</code>.
+	これこそが、 <code>SATISFIES</code> で指定された関数がどんな型
+	の引数でも適用できるように<em>しなくてはいけない</em>ことの、そ
+	して<code>EVAL-WHEN</code> の中で定義され<em>なくてはいけない
+	</em>ことの理由です。
       </p>
       <BAD_CODE_SNIPPET>
         (defun prime-number-p (n) ; Doubly bad!
@@ -5092,45 +5098,58 @@ Takashi Kato
                     (big-prime-number-p m))))))
       </CODE_SNIPPET>
       <p>
-        In particular, the above means that the
-        <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_satisf.htm">example</a>
-        used in the Common Lisp Standard is erroneous:
-        <code>(and integer (satisfies evenp))</code>
-        is <em>not</em> a safe, conformant type specifier to use,
-        because <code>EVENP</code> will throw an error
-        rather than return <code>NIL</code>
-        when passed a non-integer as an argument.
+	特に、上のコードは<a
+	href="http://www.lispworks.com/documentation/HyperSpec/Body/t_satisf.htm">Hyperspec
+	の例</a>で Common Lisp 標準として示されたものが間違っていることを示しています。
+	つまり上の例では、<code>(and integer (satisfies evenp))</code> は
+	<em>危険</em>で、標準に沿った適切な型の指定方法ではないということです。
+	上の<code>EVENP</code> は、非整数の引数を渡されることでエラーを投げることでしょう。
       </p>
       <p>
-        Finally, there is a catch when your <code>DEFTYPE</code> code expands
-        to a <code>SATISFIES</code> with a dynamically generated function:
+	最後に。 <code>DEFTYPE</code> が <code>SATISFIES</code> に展開されるとき、
+	動的に生成される関数がありますが、ここの所で落とし穴があります。
+        <!-- Finally, there is a catch when your <code>DEFTYPE</code> code expands -->
+        <!-- to a <code>SATISFIES</code> with a dynamically generated function: -->
       </p>
       <ul>
         <li>
-          You cannot control when implementations will or will not
-          expand a <code>DEFTYPE</code>.
+	  実装が いつ <code>DEFTYPE</code> を展開するか、これを制御することはできません。
+          <!-- You cannot control when implementations will or will not -->
+          <!-- expand a <code>DEFTYPE</code>. -->
         </li>
         <li>
-          The expansion itself cannot contain a function definition
-          or any code in the expression language.
+	  <!-- The expansion itself cannot contain a function definition -->
+          <!-- or any code in the expression language. -->
+	  展開結果は、関数定義や通常のlispコードを含むことができません。
         </li>
         <li>
-          You cannot control when the expansion is used,
-          it may happen in a different process
-          that didn't expand the definition.
+          <!-- You cannot control when the expansion is used, -->
+          <!-- it may happen in a different process -->
+          <!-- that didn't expand the definition. -->
+	  展開系がいつ使われるか、これを制御することはできません。例え
+	  ば、展開を行ったのとは別のプロセスが、展開結果だけを使うこと
+	  も考えられます。
         </li>
       </ul>
       <p>
-        Therefore, you cannot merely create the function
-        as a side-effect of expansion
-        using <code>EVAL</code> at type-expansion time.
-        The solution is to use
-        <code>ASDF-FINALIZERS:EVAL-AT-TOPLEVEL</code> instead.
-        See the very last point
-        in the discussion about <a href="#EVAL">EVAL</a>.
+        <!-- Therefore, you cannot merely create the function -->
+        <!-- as a side-effect of expansion -->
+        <!-- using <code>EVAL</code> at type-expansion time. -->
+        <!-- The solution is to use -->
+        <!-- <code>ASDF-FINALIZERS:EVAL-AT-TOPLEVEL</code> instead. -->
+        <!-- See the very last point -->
+        <!-- in the discussion about <a href="#EVAL">EVAL</a>. -->
+	
+	そういうわけで、型展開時に、<code>EVAL</code>を使った展開の副作用として
+	関数を作ることはできないと考えてください。
+	そういうことをしたいなら、
+        <code>ASDF-FINALIZERS:EVAL-AT-TOPLEVEL</code> を使ってください。
+	この点については、<a href="#EVAL">EVAL</a>の章でより深く議論しています。
       </p>
       <p>
-        Common Lisp is hard to satisfy.
+        <!-- Common Lisp is hard to satisfy. -->
+        Common Lisp は、そう簡単には満足させられない「型破りの」ものなのです。
+	<!-- 意訳・・・ -->
       </p>
     </BODY>
   </STYLEPOINT>
