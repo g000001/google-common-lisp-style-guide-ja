@@ -5,7 +5,7 @@
 <div align="center">
 これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.18)</a>の日本語訳です。<br/>
 オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>
-最終更新: 2013-05-11
+最終更新: 2013-09-07
 </div>
 
 <p align="right">
@@ -5062,22 +5062,42 @@ Takashi Kato
       <CODE_SNIPPET>
         (deftype prime-number () (and integer (satisfies prime-number-p)) ; Better
       </CODE_SNIPPET>
+      <!--
+          However, <code>AND</code> in the <code>DEFTYPE</code> language
+          isn't a left-to-right short-circuit operator
+          as in the expression language;
+          it is a symmetrical connector that allows for reordering subterms
+          and doesn't guarantee short-circuiting.
+          Therefore, in the above example,
+          you cannot rely on the test for <code>INTEGER</code>ness
+          to protect the function <code>PRIME-NUMBER-P</code>
+          from being supplied non-integer arguments
+          to test for being of instances of the type.
+          Implementations may, and some <em>will</em>,
+          invoke <code>SATISFIES</code>-specified function
+          at compile-time to test various relevant objects.
+          </p>
+          <p>
+          That is why any function specified in a <code>SATISFIES</code> clause
+          MUST accept objects of any type as argument to the function,
+          and MUST be defined within an <code>EVAL-WHEN</code>. 
+      -->
       <p>
         ただし、 <code>DEFTYPE</code> 中の <code>AND</code> は、通常の
-        <code>AND</code>のように、左から評価してどれか一つが真ならすぐ
-        に値を返す、というような動作はしません。これはただの「左右対称」
+        <code>AND</code>のように、左から右へ評価する短絡演算子の
+        ような動作はしません。これはただの「対称」
         の型連結子であって、子要素を並べる仕組みを提供するだけであり、
         そのすべての引数を必ず評価します。そのため、上の例では、
         <code>PRIME-NUMBER-P</code> の引数に与えられるのが必ず
         <code>INTEGER</code>になる、というような推測は間違いとなります。
          
-        コンパイル時、Common Lisp 実装は <code>SATISFIES</code> に記さ
-        れた関数を様々なものに呼び出すことが許されていますし、 あるもの
+        コンパイル時、処理系は <code>SATISFIES</code> で記さ
+        れた関数を呼び出し、関連するオブジェクトの検査に使うことが許されていますし、あるもの
         は <em>なるべくそうしようと</em> します。
       </p>
       <p>
-	これこそが、 <code>SATISFIES</code> で指定された関数がどんな型
-	の引数でも適用できるように<em>しなくてはいけない</em>ことの、そ
+	これこそが、 <code>SATISFIES</code> で指定する関数は、どんな型
+	の引数でも適用できるようで<em>なくてはならない</em>ことの、そ
 	して<code>EVAL-WHEN</code> の中で定義され<em>なくてはいけない
 	</em>ことの理由です。
       </p>
@@ -5097,17 +5117,26 @@ Takashi Kato
                     (small-prime-number-p m)
                     (big-prime-number-p m))))))
       </CODE_SNIPPET>
+      <!--
+        In particular, the above means that the
+        <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_satisf.htm">example</a>
+        used in the Common Lisp Standard is erroneous:
+        <code>(and integer (satisfies evenp))</code>
+        is <em>not</em> a safe, conformant type specifier to use,
+        because <code>EVENP</code> will throw an error
+        rather than return <code>NIL</code>
+        when passed a non-integer as an argument. 
+      -->
       <p>
 	特に、上のコードは<a
-	href="http://www.lispworks.com/documentation/HyperSpec/Body/t_satisf.htm">Hyperspec
+	href="http://www.lispworks.com/documentation/HyperSpec/Body/t_satisf.htm">HyperSpec
 	の例</a>で Common Lisp 標準として示されたものが間違っていることを示しています。
 	つまり上の例では、<code>(and integer (satisfies evenp))</code> は
 	<em>危険</em>で、標準に沿った適切な型の指定方法ではないということです。
-	上の<code>EVENP</code> は、非整数の引数を渡されることでエラーを投げることでしょう。
+	上の<code>EVENP</code> は、非整数の引数を渡されれば、<code>NIL</code>を返すのではなしに、エラーを投げることでしょう。
       </p>
       <p>
-	最後に。 <code>DEFTYPE</code> が <code>SATISFIES</code> に展開されるとき、
-	動的に生成される関数がありますが、ここの所で落とし穴があります。
+	最後に。 <code>DEFTYPE</code> が、動的に生成される関数を伴った <code>SATISFIES</code> に展開される場合の落とし穴について触れておきましょう。
         <!-- Finally, there is a catch when your <code>DEFTYPE</code> code expands -->
         <!-- to a <code>SATISFIES</code> with a dynamically generated function: -->
       </p>
@@ -5120,7 +5149,7 @@ Takashi Kato
         <li>
 	  <!-- The expansion itself cannot contain a function definition -->
           <!-- or any code in the expression language. -->
-	  展開結果は、関数定義や通常のlispコードを含むことができません。
+	  展開結果それ自身には、関数定義や通常のlispコードを含むことができません。
         </li>
         <li>
           <!-- You cannot control when the expansion is used, -->
@@ -5148,7 +5177,7 @@ Takashi Kato
       </p>
       <p>
         <!-- Common Lisp is hard to satisfy. -->
-        Common Lisp は、そう簡単には満足させられない「型破りの」ものなのです。
+        Common Lisp は、そう簡単には満足(satisfy)させられない「型破りの」ものなのです。
 	<!-- 意訳・・・ -->
       </p>
     </BODY>
