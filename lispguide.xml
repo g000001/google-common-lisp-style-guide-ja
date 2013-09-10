@@ -3,13 +3,13 @@
 <GUIDE title="Google Common Lisp スタイルガイド 日本語訳">
 
 <div align="center">
-これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.18)</a>の日本語訳です。<br/>
+これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.20)</a>の日本語訳です。<br/>
 オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>
 最終更新: 2013-09-07
 </div>
 
 <p align="right">
-Revision 1.18
+Revision 1.20
 </p>
 
 
@@ -481,12 +481,6 @@ Takashi Kato
 	  理想としては、コードを見て「Fredが書いたな」と判別できるべきではありません。<!-- 単語を全部入れるべき？ -->
         </li>
         <li>
-          <!-- Don't be "clever" — -->
-
-          <!-- do the simplest thing that could possibly work properly. -->
-	  「切れ味鋭い」コードを書く必要はありません。単純に考えて、間違いなく動作するのに十分なコードを書いてください。
-        </li>
-        <li>
           <!-- Be precise. -->
 	  精密に。
         </li>
@@ -673,25 +667,7 @@ Takashi Kato
 	  これらの問題を認識し、あるいは認識している人に相談してください。
         </li>
       </ul>
-      
-      <p>
-        <!-- Note that if you have a "clever" implementation trick, -->
-        <!-- and your trick really is clever, -->
-        <!-- then you must definitely not include it in business specific code; -->
-	注意として、あなたが実装についての「切れ味鋭い」技を持っていて、
-	くわえてあなたの技が真に「切れ味鋭い」ものであるとき、
-	あなたはまちがいなく、それを業務に固有のコードに含めるべきではありません。
-        <!-- but it may have its place in an open-source library used by the code. -->
-	しかし、そういったコードは時にオープンソースライブラリの中で使われています。
-        <!-- If your idea is not general purpose enough to have any users -->
-        <!-- beyond your regular business users, -->
-        <!-- then it is definitely either not clever enough or way too clever, -->
-        <!-- and in either case does not belong in the code. -->
-	もしあなたの考えがあなたの普段の業務ユーザのみならず、あらゆるユーザの総合的な用途に
-	対して満足に使えるものでない場合、
-	それは間違いなく、なまくらでも十分か、無駄に「切れ味鋭い」だけのどちらかであり、
-	どちらにせよ、コードにふさわしくありません。
-      </p>
+
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="Open-Sourcing Code">
@@ -857,12 +833,13 @@ Takashi Kato
         開発者間でどちらの綴りを採用するかのコンセンサスが存在していない場合、短い方の綴りを採用するべきです。
       </p>
       <p>
-        <!-- You must avoid using abbreviations for words, -->
-        <!-- unless it's a word that is used very frequently, -->
-        <!-- in which case you must use -->
-        <!-- the <em>same</em> abbreviation <em>consistently</em>. -->
-        とても良く使われている略語でもない限り、略語の利用は避けなければなりませんし、
-        利用する場合でも、<em>一貫性をもって</em><em>同じ</em>略語を使わなければなりません。
+        <!-- You must use only common and domain-specific abbreviations, and -->
+        <!-- must be consistent with these abbreviations.  You may abbreviate -->
+        <!-- lexical variables of limited scope in order to avoid overly-long -->
+        <!-- symbol names.  -->
+        略語は、良く使われるものか、分野に特化したものだけを利用するようにしなければなりません。
+        また、それらの略語には一貫性を持たせなくてはなりません。
+        スコープが限定されたレキシカル変数の名前では、長すぎる名前を避けるために名前を略しても良いでしょう。
       </p>
     </SUMMARY>
     <BODY>
@@ -1033,54 +1010,26 @@ Takashi Kato
   <STYLEPOINT title="ファイルヘッダ">
     <SUMMARY>
       <p>
-        <!-- You must include maintainership and other important information -->
-        <!-- at the top of each source file. -->
-	あなたはそれぞれのソースファイルの最初に維持やそのほかの重要な情報を含めなければなりません。
+        <!-- You should include a description at the top of each source file.  -->
+        各々のソースファイルの先頭には、説明書きを含めるべきです。
       </p>
       <p>
-        <!-- You should not include a copyright statement in source files. -->
-	あなたはソースファイルに著作権情報を含めるべきではありません。
+        <!-- You should include neither authorship nor copyright information in a source file.  -->
+	ソースファイルには、作者情報や著作権情報は含めるべきではありません。
       </p>
     </SUMMARY>
     <BODY>
       <p>
-        <!-- Every source file may begin with a one-line description of the file. -->
-	すべてのソースはファイルについての一行の解説から始まるとよいです。
+        <!-- Every source file should begin with a brief description -->
+        <!-- of the contents of that file.  -->
+	すべてのソースファイルにおいて、ファイルの要約された説明書きが先頭にあるべきです。
       </p>
       <p>
-        <!-- After that optional description, -->
-        <!-- every source file may prominently include a statement -->
-        <!-- about who originally wrote the code, -->
-        <!-- made major changes, and/or is the current owner/maintainer. -->
-	すべてのファイルには、必要であれば追加の解説を記したあとに、
-	誰がコードの初版を書き、大きな変更をし、現在の保有者あるいは保守担当なのか、
-	という提示を記しても良いでしょう。
-        <!-- This makes it easier for hackers to locate -->
-        <!-- whom to ask questions about the code, -->
-        <!-- or to identify that no one is left to reply to such inquiries. -->
-	これはハッカー達が簡単にコードについての質問をする相手を探すことができるようしたり、
-	そのような問い合わせをできる人がいないことを識別することができるようにするためです。
-        <!-- However, consider that the information -->
-        <!-- is not very helpful if it is not maintained; -->
-        <!-- unless it brings information -->
-        <!-- that cannot be easily extracted from source control, -->
-        <!-- it is better skipped. -->
-	この部分が保守されていないと、これは混乱を引き起こす要因になりますが、
-	これはソースコード管理システムから簡単にこの手の情報を切り出すことができない場合に限りますので、
-	ソースコード管理システムからこの手の情報を引き出せるときは、書かない方が良いでしょう。
-      </p>
-      <p>
-        <!-- After that optional statement, every file should follow with -->
-        <!-- a brief explanation of what the file contains. -->
-	すべてのファイルには、必要であれば追加の提示を記したあとに、
-	ファイルの内容についての概要説明を記すべきです。
-      </p>
-      <p>
-        <!-- After that explanation, every file should start the code itself with an -->
+        <!-- After that description, every file should start the code itself with an -->
         <!-- <code>(in-package :<em>package-name</em>)</code> form. -->
-	すべてのファイルでは、説明のあとに、コード自体を
+	説明書きの後には、どのファイルのコード記述も
         <code>(in-package :<em>package-name</em>)</code>フォームで
-	始めるべきです。
+	開始すべきです。
       </p>
       <p>
         <!-- After that <code>in-package</code> form, -->
@@ -1100,6 +1049,13 @@ Takashi Kato
         (in-package #:varint)
         (declaim #.*optimize-default*)
       </CODE_SNIPPET>
+      <p>
+        You should not include authorship information at the top of a file,
+        that information is available from version control and
+        <code>OWNERS</code>. 
+        ファイルの先頭には作者情報を含めるべきではありません。
+        これは、バージョンコントロールシステムや、<code>OWNERS</code>ファイルから得るような情報の類です。
+      </p>
       <p>
         <!-- You should not include copyright information in individual source code files. -->
         <!-- An exception is made for files meant to be disseminated as standalone. -->
@@ -1554,85 +1510,24 @@ Takashi Kato
   </STYLEPOINT>
   <STYLEPOINT title="注目の集め方"><!-- Attention Required -->
     <SUMMARY>
-      <!-- You must follow the convention of using /code/ -->
-      <!-- for comments requiring special attention, -->
-      <!-- including unobvious tricks, TODO items, questions, breakage, danger. -->
-      あなたは、コメントにおいて、特異なトリックや、TODOのアイテム、質問、破壊的行為、危険な箇所について、
-      特別な注目を集めたい時は、<code>---</code>を使用した慣例に従わなければなりません。
+      <!-- You must follow the convention of using TODO comments -->
+      <!-- for code requiring special attention. -->
+      <!-- For code using unobvious forms, you must include a comment.  -->
+      コードが特に要注意である場合、TODOコメントを使う流儀に従わなければなりせん。
+      コードが自明でない書き方の場合、コメントを含めなくてはなりません。
     </SUMMARY>
     <BODY>
-      <ul>
-        <li>
-          <!-- <code>;- </code> prefixes a cautionary comment, -->
-          <!-- e.g. explaining why the code in question is particularly -->
-          <!-- tricky, delicate, or non-obvious. -->
-          <code>;--- </code> で始まるコメントは、局所的に技巧的であったり、機敏であったり、
-	  また一般的ではないために説明を必要とするコードに対する、注意を含んだコメントです。 
-        </li>
-        <li>
-          <!-- <code>;-??? </code> prefixes a serious question -->
-          <!-- which needs to be resolved soon, -->
-          <!-- by fixing either the code or its documentation. -->
-          <code>;---??? </code> で始まるコメントは、コードあるいは文書の修正によって
-	  早期の解決が求められる真面目な問題を含んだコメントです。
-        </li>
-        <li>
-          <!-- <code>;-!!! </code> identifies code which is broken, -->
-          <!-- but which for some reason you cannot fix at this time. -->
-          <code>;---!!! </code> は、そのコードが壊れているけれどもいくつかの理由によって
-	  あなたには今解決できないことを示しています。
-          <!-- You should not use this often for new code. -->
-	  あなたは新しいコードに対して頻繁にこれを使うべきではありません。
-        </li>
-        <li>
-          <code>;---*** </code> identifies active <em>DANGER</em>,
-          for instance where important functionality is stubbed out,
-          or a large design issue remains unresolved.
-          Anything so marked must be fixed
-          before code is rolled into production.
-        </li>
-      </ul>
-      <p>
-        <!-- You must sign and date -->
-        <!-- any of the above "requiring further attention" comments -->
-	あなたは日付つきの署名を「注目を集めさせている」コメントの上にしなければなりません。
-        (but not mere cautionary explanations).
-        You must use the
-        <a HREF="http://www.w3.org/TR/NOTE-datetime">YYYY-MM-DD</a>
-        format for dates to make automated processing of such dates easier.
-      </p>
-      <p>
-        This strategy ensures that grepping for <code>;---</code>
-        will always yield all the comments that require caution,
-        as well as whom to talk to about each one.
-      </p>
-      <p>
-        <!-- Only use <code>;-</code> on the first line of such a comment. -->
-        <!-- Other lines should use spaces to align vertically. -->
-        <!-- This way, grepping will also yield a count of the number of issues. -->
-	<code>;---</code>はそれぞれのコメントの最初の行にのみ起きます。
-	他の行では空白を用いて縦揃えします。
-	こうしておけば、grepを使って問題の数を数えられます。
-      </p>
-      <p>
-        <!-- You should insert a space after this comment prefix. -->
-	あなたは、コメントの接頭辞のあとに空白を挿入すべきです。
-      </p>
-      <p>
-        <!-- You may use these with multiple-semicolon comments as well. -->
-	あなたは、複数のセミコロンで始まるコメントにこの接頭辞についての慣例を適用することもできます。
-      </p>
-      <p>
-        <!-- Some people like to use words like <code>FIXME</code> or <code>TODO</code>. -->
-        <!-- You may use these, but they must be preceded with <code>-</code>. -->
-	人によっては <code>FIXME</code>あるいは<code>TODO</code>という単語を好んで使うことでしょう。
-	あなたはこれを使うこともできますが、その前に<code>---</code>を置かなければなりません。
-      </p>
       <p>
         <!-- Use TODO comments when the code is known to be incomplete -->
         <!-- and you want to indicate what work remains to be done. -->
 	TODOコメントは既知の未完了のコードがあって、あなたがそれを忘れないように
 	示しておきたいときに使います。
+        <!-- For comments requiring special attention, such as -->
+        <!-- incomplete code, todo items, questions, breakage, and danger, -->
+        <!-- include a TODO comment indicating the type of problem, -->
+        <!-- its nature, and any notes on how it may be addressed.  -->
+        コメントのうち、特別な注意が必要なもの(不完全なコード・TODOアイテム・疑問・破損・危険箇所等)
+        は、TODOコメントに、その問題のタイプと性質や、どのように問題に取り組めるかを、含めましょう。
       </p>
       <p>
         <!-- The comments begin with <code>TODO</code> in all capital letters, -->
@@ -1666,6 +1561,12 @@ Takashi Kato
       <CODE_SNIPPET>
         ;;--- TODO(brown): Remove this code after release 1.7 or before November, 2012.
       </CODE_SNIPPET>
+      <p>
+        <!-- For code that uses unobvious forms to accomplish a task, you must include a comment -->
+        <!-- stating the purpose of the form and the task it accomplishes. -->
+        タスクを遂行するために自明でない書き方を採用したコードには、
+        その書き方を利用した狙いと、それが遂行することについてをコメントに含めなければなりません。
+      </p> 
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="ドメイン固有言語(DSL)"><!-- Domain-Specific Languages -->
@@ -1722,9 +1623,10 @@ Takashi Kato
     <SUMMARY>
       <!-- You should use lower case. -->
       <!-- You should not abbreviate. -->
+      <!-- You should follow the rules for <a href="#Spelling">Spelling and Abbreviations</a> -->
       <!-- You should follow punctuation conventions. -->
       小文字を用いるべきです。
-      略語は用いるべきではありません。
+      略語は<a href="#Spelling">綴りと略語</a>のルールに従うべきです。
       句読点法の慣習には従うべきです。
     </SUMMARY>
     <BODY>
@@ -1774,22 +1676,9 @@ Takashi Kato
 	使うべきではありません。
       </p>
       <p>
-        <!-- Generally, you should do not abbreviate words. -->
-	総合的に言って、あなたは単語を短縮すべきではありません。
-        <!-- You must avoid using abbreviations for words, -->
-        <!-- unless it's a word that is used very frequently, -->
-        <!-- in which case you must use -->
-        <!-- the <em>same</em> abbreviation <em>consistently</em>. -->
-	あなたは
-	その単語があまりにも頻繁に現れる場合で、
-	あなたが必ず、<em>一貫して</em><em>同等の</em>短縮形を使っている場合を除いて、
-	単語に対する短縮を避けなければなりません。
-        Abbreviations may also be used sparingly to avoid overly-long symbol names;
-        it's easy to run into 100-column limit when there are very long names!
-        You must especially avoid inconsistent abbreviations in exported names.
-        For lexical variables of limited scope, abbreviations are fine.
-      </p>
-      <p>
+        <!-- See the section on <a href="#Spelling">Spelling and Abbreviations</a> -->
+        <!-- for guidelines on using abbreviations.  -->
+        略語利用のガイドラインについては、<a href="#Spelling">綴りと略語</a>の章を参照してください。
       </p>
       <BAD_CODE_SNIPPET>
         <!-- ;; Bad -->
@@ -1936,18 +1825,18 @@ Takashi Kato
   <!-- <STYLEPOINT title="Predicate names"> -->
   <STYLEPOINT title="述語の命名">
     <SUMMARY>
-      <!-- Names of predicate functions end with a <code>"P"</code>. -->
-      <code>"P"</code>で終わる述語関数の名前について
+      <!-- Names of predicate functions and variables end with a <code>"P"</code>.  -->
+      <code>"P"</code>で終わる述語関数、もしくは変数の名前について
     </SUMMARY>
     <BODY>
       <p>
-        <!-- You should name boolean-valued functions with a trailing -->
-        <!-- <code>"P"</code> or <code>"-P"</code>, -->
+        <!-- You should name boolean-valued functions and variables with a -->
+        <!-- trailing <code>"P"</code> or <code>"-P"</code>,  -->
         <!-- to indicate they are predicates. -->
         <!-- Generally, you should use -->
         <!-- <code>"P"</code> when the rest of the function name is one word -->
         <!-- and <code>"-P"</code> when it is more than one word. -->
-        ブール値を返す関数はそれらが述語であることを示すために<code>"P"</code>か<code>"-P"</code>で終わる名前とすべきです。
+        ブール値を返す関数や変数はそれらが述語であることを示すために<code>"P"</code>か<code>"-P"</code>で終わる名前とすべきです。
         一般的に名前が単語の場合は、<code>"P"</code>を使い、複数語の場合は、<code>"-P"</code>を使うべきです。
       </p>
       <p>
@@ -3086,7 +2975,7 @@ Takashi Kato
         <!-- without a consensus among the developers of your system. -->
         <!-- Reader macros must not leak out of the system that uses them -->
         <!-- to clients of that system or other systems used in the same project. -->
-        <!-- You must software such as -->
+        <!-- You must use software such as -->
         <!-- <code>cl-syntax</code> or <code>named-readtables</code> -->
         <!-- to control how reader macros are used. -->
         <!-- This clients who desire it may use the same reader macros as you do. -->
@@ -3094,7 +2983,7 @@ Takashi Kato
         <!-- even to clients who do not use these reader macros. -->
         携わっているシステムの開発者間での合意なしに、新しいリーダーマクロを導入してはなりません。
         リーダーマクロ[の影響範囲]がシステムを使う側や、同じプロジェクトの他のシステムに漏れ出すようなことがあってはなりません。
-        リーダーマクロの利用を制御するためには、<code>cl-syntax</code>や<code>named-readtables</code>のようなソフトウェアを使わなければなりません。<!-- ???:g000001 -->
+        リーダーマクロの利用を制御するためには、<code>cl-syntax</code>や<code>named-readtables</code>のようなソフトウェアを使わなければなりません。
         [システムを]使う側は、あなたと同じように同じリーダーマクロを使うかもしれませんが、どうであれ、システムは、リーダーマクロを使わない利用者でも[リーダーマクロを使う場合と]同じように使えるものであらなくてはなりません。
       </p>
       <p>
@@ -3956,12 +3845,12 @@ Takashi Kato
   <!-- <STYLEPOINT title="Defining Functions"> -->
   <STYLEPOINT title="関数の定義">
     <SUMMARY>
-      <!-- You should make proper use of -->
-      <!-- <code>&amp;OPTIONAL</code>, -->
-      <!-- <code>&amp;KEY</code>, -->
-      <!-- and -->
-      <!-- <code>&amp;AUX</code> arguments. -->
-      <code>&amp;OPTIONAL</code>、<code>&amp;KEY</code>、<code>&amp;AUX</code>引数は正しく用いるべきです。
+      <!-- You should make proper use of  -->
+      <!-- <code>&amp;OPTIONAL</code> and -->
+      <!-- <code>&amp;KEY</code> arguments. -->
+      <!-- You should not use <code>&amp;AUX</code> arguments.  -->
+      <code>&amp;OPTIONAL</code>や<code>&amp;KEY</code>は適切に利用すべきです。
+      <code>&amp;AUX</code>引数は利用すべきではありません。
     </SUMMARY>
     <BODY>
       <p>
@@ -5196,7 +5085,7 @@ Takashi Kato
 </small>
 
 <p align="right">
-Revision 1.18
+Revision 1.20
 </p>
 
 
