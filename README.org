@@ -1,5 +1,6 @@
 * Google Common Lisp スタイルガイド 日本語訳
-- Google Common Lisp Style Guide (1.18)の日本語訳です。
-- pull request歓迎(g000001がgithubの操作に不慣れなので、マージにまごつく可能性があります)
+- Google Common Lisp Style Guide (1.20)の日本語訳です。
 - http://google-common-lisp-style-guide-ja.cddddr.org で表示を確認することができます。
 - 表示サイトは、30分に一回程度の頻度でgit pullにより更新されます。
+- 未訳部分は issue を参照してください https://github.com/g000001/google-common-lisp-style-guide-ja/issues
+- 一周目は粗く一通り訳し、二周目から細かいところを修正していく、という流れを考えています。
