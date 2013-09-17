@@ -1400,26 +1400,35 @@ Takashi Kato
     </SUMMARY>
     <BODY>
        <p>
-        Comments are explanations to the future maintainers of the code.
-        Even if you're the only person who will ever see and touch the code,
-        even if you're either immortal and never going to quit,
-        or unconcerned with what happens after you leave
-        (and have your code self-destruct in such an eventuality),
-        you may find it useful to comment your code.
-        Indeed, by the time you revisit your code,
-        weeks, months or years later,
-        you will find yourself a different person from the one who wrote it,
-        and you will be grateful to that previous self
-        for making the code readable.
+        <!-- Comments are explanations to the future maintainers of the code. -->
+	コメントは将来保守する人のための説明です。
+        <!-- Even if you're the only person who will ever see and touch the code, -->
+        <!-- even if you're either immortal and never going to quit, -->
+        <!-- or unconcerned with what happens after you leave -->
+        <!-- (and have your code self-destruct in such an eventuality), -->
+        <!-- you may find it useful to comment your code. -->
+	他の人が触らないと分っているコードでも、仮にあなたが不死身で[開発を]やめない、
+	あるいは自分が離れたあとどうなるか気にしない(そして結局コードは読めなくなる)場合でも、
+	コメントは有用であると気づくでしょう。
+        <!-- Indeed, by the time you revisit your code, -->
+        <!-- weeks, months or years later, -->
+        <!-- you will find yourself a different person from the one who wrote it, -->
+        <!-- and you will be grateful to that previous self -->
+        <!-- for making the code readable. -->
+	実際、何週間、何ヶ月、あるいは何年か経って自分のコードを再度読んだときにはコードを書いたときとは他人になっていて、
+	あのときの自分が読み易いコードを書いてくれたことに感謝することになるでしょう。
       </p>
       <p>
-        You must comment anything complicated
-        so that the next developer can understand what's going on.
-        (Again, the "hit by a truck" principle.)
+        <!-- You must comment anything complicated -->
+        <!-- so that the next developer can understand what's going on. -->
+        <!-- (Again, the "hit by a truck" principle.) -->
+	次の開発者が何をしているのか分かるように複雑なものには全てコメントを残す必要があります。
+	(「トラックにはねられたらの原理」を思い出しましょう。)
       </p>
       <p>
-        Also use comments as a way to guide those who read the code,
-        so they know what to find where.
+        <!-- Also use comments as a way to guide those who read the code, -->
+        <!-- so they know what to find where. -->
+	何がどこにあるのかの案内としてもコメントを使いましょう。
       </p>
       <ul>
         <li>
@@ -1456,13 +1465,14 @@ Takashi Kato
       </ul>
       <CODE_SNIPPET>
         ;;;; project-euler.lisp
-        ;;;; File-level comments or comments for large sections of code.
-
-        ;;; Problems are described in more detail here:  http://projecteuler.net/
-
-        ;;; Divisibility
-        ;;; Comments that describe a group of definitions.
-
+        <!-- ;;;; File-level comments or comments for large sections of code. -->
+	;;;; ファイルレベルでのコメントや大きなセクションのコメント。
+        <!-- ;;; Problems are described in more detail here:  http://projecteuler.net/ -->
+	;;; 詳細はこちらにあります:  http://projecteuler.net/
+        <!-- ;;; Divisibility -->
+	;;; 可分性[dでnをわりきれるか]
+        <!-- ;;; Comments that describe a group of definitions. -->
+	;;; 一群のコードに対するコメント
         (defun divisorp (d n)
           (zerop (mod n d)))
 
@@ -1472,16 +1482,19 @@ Takashi Kato
         (defun divisors (n)
           (cons n (proper-divisors n)))
 
-        ;;; Prime numbers
+        <!-- ;;; Prime numbers -->
+	;;; 素数
 
         (defun small-prime-number-p (n)
           (cond ((or (&lt; n 2))
                  nil)
-                ((= n 2)   ; parenthetical remark here
-                 t)        ; continuation of the remark
+                ((= n 2)   ; 行末の補足はここに<!-- ; parenthetical remark here -->
+                 t)        ; 補足の続き<!-- ; continuation of the remark -->
                 ((divisorp n 2)
-                 nil)  ; different remark
-                ;; Comment that applies to a section of code.
+                 nil)  ; 別の補足<!-- ; different remark -->
+                <!-- ;; Comment that applies to a section of code. -->
+		;; コードの一部に対するコメント
+		<!--sectionは「一部」の意味と「ある程度まとまった」の意味を帯びているのだと思いますが、適当な日本語が思いつきませんでした(κeen)-->
                 (t
                  (loop for i from 3 upto (sqrt n) by 2
                        never (divisorp i n)))))
