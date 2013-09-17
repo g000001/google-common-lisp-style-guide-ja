@@ -1739,41 +1739,58 @@ Takashi Kato
 	その概念そのものの表現から変数を名付けるべきです。
       </p>
       <p>
-        Thus, you should avoid embedding
-        data structure or aggregate type names,
-        such as <code>list</code>, <code>array</code>, or
-        <code>hash-table</code> inside variable names,
-        unless you're writing a generic algorithm that applies to
-        arbitrary lists, arrays, hash-tables, etc.
-        In that case it's perfectly OK to name a variable
-        <code>list</code> or <code>array</code>.
+        <!-- Thus, you should avoid embedding -->
+        <!-- data structure or aggregate type names, -->
+        <!-- such as <code>list</code>, <code>array</code>, or -->
+        <!-- <code>hash-table</code> inside variable names, -->
+        <!-- unless you're writing a generic algorithm that applies to -->
+        <!-- arbitrary lists, arrays, hash-tables, etc. -->
+	それゆえ、リストや配列やハッシュテーブルに限定的な汎用アルゴリズムを書いているのでもない限り、
+	変数名にデータ構造を埋め込んだり、
+	<code>list</code>、<code>array</code>、<code>hash-table</code>
+	などの型の名前を集約することは避けるべきです。
+        <!-- In that case it's perfectly OK to name a variable -->
+        <!-- <code>list</code> or <code>array</code>. -->
+	逆にそのような場合は<code>list</code>や<code>array</code>などの変数名は望ましいものです。
       </p>
       <p>
-        Indeed, you should be introducing new abstract data types
-        with <code>DEFCLASS</code> or <code>DEFTYPE</code>,
-        whenever a new kind of intent appears for objects in your protocols.
-        Functions that manipulate such objects generically may then
-        use variables the name of which reflect that abstract type.
+        <!-- Indeed, you should be introducing new abstract data types -->
+        <!-- with <code>DEFCLASS</code> or <code>DEFTYPE</code>, -->
+        <!-- whenever a new kind of intent appears for objects in your protocols. -->
+	実際、オブジェクトに新たな意図が出てきたときは<code>DEFCLASS</code>や<code>DEFTYPE</code>
+	を使って新たな抽象データ型を導入しているべきです。
+        <!-- Functions that manipulate such objects generically may then -->
+        <!-- use variables the name of which reflect that abstract type. -->
+	そのようなデータ型を汎用的に扱う関数にはその抽象型を反映した変数名を与えても構いません。
       </p>
       <p>
-        For example, if a variable's value is always a row
-        (or is either a row or <code>NIL</code>),
-        it's good to call it <code>row</code> or <code>first-row</code>
-        or something like that.
-        It is alright is <code>row</code> has been
-        <code>DEFTYPE</code>'d to <code>STRING</code> &#8212;
-        precisely because you have abstracted the detail away,
-        and the remaining salient point is that it is a row.
-        You should not name the variable <code>STRING</code> in this context,
-        except possibly in low-level functions that specifically manipulate
-        the innards of rows to provide the suitable abstraction.
+        <!-- For example, if a variable's value is always a row -->
+        <!-- (or is either a row or <code>NIL</code>), -->
+        <!-- it's good to call it <code>row</code> or <code>first-row</code> -->
+        <!-- or something like that. -->
+	例えば、もしその変数の値が常に列(row)(あるいは列または<code>NIL</code>)のときは、
+	<code>row</code>や<code>first-row</code>などの名前を与えるのが適当でしょう。
+        <!-- It is alright is <code>row</code> has been --><!-- 二つめのisはifのミス？ -->
+        <!-- <code>DEFTYPE</code>'d to <code>STRING</code> &#8212; -->
+        <!-- precisely because you have abstracted the detail away, -->
+        <!-- and the remaining salient point is that it is a row. -->
+	<code>row</code>が<code>STRING</code>として<code>DEFTYPE</code>されていても全く問題はありません。
+	明確にこれは詳細を抽象化し、残された特徴がそれが列であるということだけになっているからです。
+        <!-- You should not name the variable <code>STRING</code> in this context, -->
+        <!-- except possibly in low-level functions that specifically manipulate -->
+        <!-- the innards of rows to provide the suitable abstraction. -->
+	この場合、低次の処理が列の内部を処理し、適切に抽象化するのでもない限り、
+	変数名を<code>STRING</code>にすべきではありません。
       </p>
       <p>
-        Be consistent.
-        If a variable is named <code>row</code> in one function,
-        and its value is being passed to a second function,
-        then call it <code>row</code> rather than, say, <code>value</code>
-        (this was a real case).
+        <!-- Be consistent. -->
+	首尾一貫しましょう。
+        <!-- If a variable is named <code>row</code> in one function, -->
+        <!-- and its value is being passed to a second function, -->
+        <!-- then call it <code>row</code> rather than, say, <code>value</code> -->
+        <!-- (this was a real case). -->
+	ある関数で<code>row</code>と名付け、その値が別の関数に渡されたのなら例えば<code>value</code>などと呼ばずに
+	<code>row</code>と呼びましょう(これは実際にあったことなのです)。
       </p>
     </BODY>
   </STYLEPOINT>
