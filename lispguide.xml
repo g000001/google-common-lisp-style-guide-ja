@@ -34,10 +34,13 @@ Robert Brown
 TOYOZUMIKouichi
 </address>
 <address>
-@g000001
+g000001
 </address>
 <address>
 @guicho271828
+</address>
+<address>
+KeenS
 </address>
 <address>
 佐野匡俊
@@ -1746,9 +1749,9 @@ Takashi Kato
         <!-- unless you're writing a generic algorithm that applies to -->
         <!-- arbitrary lists, arrays, hash-tables, etc. -->
 	それゆえ、リストや配列やハッシュテーブルに限定的な汎用アルゴリズムを書いているのでもない限り、
-	変数名にデータ構造を埋め込んだり、
+	変数名にデータ構造名を含んだり、
 	<code>list</code>、<code>array</code>、<code>hash-table</code>
-	などの型の名前を集約することは避けるべきです。
+	などの型名を寄せ集めた名前をつけることは避けるべきです。
         <!-- In that case it's perfectly OK to name a variable -->
         <!-- <code>list</code> or <code>array</code>. -->
 	逆にそのような場合は<code>list</code>や<code>array</code>などの変数名は望ましいものです。
@@ -1757,8 +1760,17 @@ Takashi Kato
         <!-- Indeed, you should be introducing new abstract data types -->
         <!-- with <code>DEFCLASS</code> or <code>DEFTYPE</code>, -->
         <!-- whenever a new kind of intent appears for objects in your protocols. -->
-	実際、オブジェクトに新たな意図が出てきたときは<code>DEFCLASS</code>や<code>DEFTYPE</code>
-	を使って新たな抽象データ型を導入しているべきです。 <!--protocolを無視しました。どう訳せばいいんだろ…(κeen)-->
+	実際、プロトコル[設計]においてオブジェクトに新たな意図が見出される場合
+        であれば<code>DEFCLASS</code>や<code>DEFTYPE</code>
+        を使って新たな抽象データ型を導入しているべきです。 
+        <!-- TODO:  -->
+        <!--protocolを無視しました。どう訳せばいいんだろ…(κeen)-->
+        <!-- 何らかのオブジェクトに新しい振舞いを見出せるなら、
+             リストその他の汎用的なオブジェクトで代用しないで、
+             それ専用のクラス等を作成しましょう、ってことなんでしょうか。
+             自分もさっぱりです…(g000001) 
+             後で整理したいですね。
+        -->
         <!-- Functions that manipulate such objects generically may then -->
         <!-- use variables the name of which reflect that abstract type. -->
 	そのようなデータ型を汎用的に扱う関数にはその抽象型を反映した変数名を与えても構いません。
@@ -1961,11 +1973,13 @@ Takashi Kato
         <!-- Lisp packages are used to demarcate namespaces. -->
 	Lispのパッケージは名前空間を分離するのに使います。
         <!-- Usually, each system has its own namespace. -->
-        普通、それぞれのシステムは自身の名前空間を使います。
+        通常、それぞれのシステムは自身の名前空間を使います。
 	<!-- A package has a set of external symbols, -->
         <!-- which are intended to be used from outside the package, -->
         <!-- in order to allow other modules to use this module's facilities. -->
-	パッケージには他のモジュールがこのモジュールの機能を使えるようにパッケージの外から使うことを意図した外部シンボルの集合があります。
+        パッケージは、外部シンボル一式を持ちますが、
+        これには、パッケージ内のシンボルが、パッケージ外から使われるようにするという意図があり、
+        これによって、別のモジュールがこのモジュールの機能を使うことができます。
       </p>
       <p>
         <!-- The internal symbols of a package -->
@@ -1985,7 +1999,7 @@ Takashi Kato
 	例外として、単体テストはテストのためにパッケージの内部[シンボル]を使っても構いません。
         <!-- So when you refactor, watch out for -->
         <!-- internals used by the package's unit tests. -->
-	なのでリファクタリングするときは単体テストで参照されている内部[シンボル]に気を付けましょう。
+	いきおいリファクタリングするときは単体テストで参照されている内部[シンボル]に気を付けましょう。 <!-- いきおいも変ですね (g000001) -->
       </p>
       <p>
         <!-- The <code>::</code> construct is also useful for very temporary hacks, -->
@@ -1994,24 +2008,24 @@ Takashi Kato
         <!-- But if the symbol really is part of -->
         <!-- the externally-visible definition of the package, -->
         <!-- export it. -->
-	しかしそのシンボルが本当に外部から参照できるパッケージの定義ならエクスポートしましょう。 <!--直訳してみましたけど意味が分からないです。-->
+	しかし、そのシンボルが本来的にパッケージの外部から参照できる筈のもの[定義]ならエクスポートしましょう。 
       </p>
       <p>
         <!-- You may find that some internal symbols represent concepts -->
         <!-- you usually want to abstract away and hide under the hood, -->
         <!-- yet at times are necessary to expose for various extensions. -->
-	内部シンボルには普通は抽象化し、フードの下に隠したいけど様々な拡張のために外部に晒す必要のあるものがあることに気づくでしょう。
+	内部シンボルには、通常は抽象化しフードの下に隠しておきたいものの、その一方で、様々な拡張のために外部に晒す必要のあるものがあることに気づくでしょう。
         <!-- For the former reason, you do not want to export them, -->
         <!-- yet for the latter reason, you have to export them. -->
 	前者の理由のためにはエクスポートしたくはないが、後者の理由のためにはエクスポートする必要がある。
         <!-- The solution is to have two different packages, -->
         <!-- one for your normal users to use, and -->
         <!-- another for the implementation and its extenders to use. -->
-	そのような場合には普通の使用と拡張の実装用にパッケージを2つ用意するとよいでしょう。
+	そのような場合には通常の利用者が利用するものと、実装とその拡張者にパッケージを2つ用意するとよいでしょう。
       </p>
       <p>
         <!-- Each package is one of two types: -->
-	それぞれのパッケージには2種類のタイプがあります：
+	それぞれのパッケージには2種類のタイプがあります:
       </p>
       <ul>
         <li>
@@ -2227,7 +2241,7 @@ Takashi Kato
         <!-- tests have to be written and run with all relevant combinations; -->
         <!-- to isolate some activity, care has to be taken to locally bind -->
         <!-- all relevant variables, including those of indirectly used modules. -->
-	開発者はコードの振舞を理解しようとするとき全ての関係する変数の状態を脳内で追う必要がありますし、テストも関連する[変数の]全ての組み合わせを書いて実行する必要がありますし、ある挙動を分離させようとするときもローカル束縛を作るにあたって間接的に使われているモジュールのものも含む全ての関連する[変数を]頭に入れる必要があります。
+	開発者はコードの振舞いを理解しようとするとき全ての関係する変数の状態を脳内で追う必要がありますし、テストも関連する[変数の]全ての組み合わせを書いて実行する必要がありますし、ある挙動を分離させようとするときもローカル束縛を作るにあたって間接的に使われているモジュールのものも含む全ての関連する[変数を]頭に入れる必要があります。
 	<!-- to isolate some activityがコードの振舞なのかコードに対する開発者の振舞なのか判断つきませんでした。上の訳は前者としてます。(κeen) -->
         <!-- They can hide precious information from being printed in a backtrace. -->
 	重要な情報がバックトレースで印字されなくなり得ます。
@@ -2242,7 +2256,7 @@ Takashi Kato
       <p>
         <!-- Note though that a Lisp special variable is not a global variable -->
         <!-- in the sense of a global variable in, say, BASIC or C. -->
-	しかしLispのスペシャル変数はBASICやCの意味でのグローバス変数ではないことに注意しましょう。
+	しかしLispのスペシャル変数はBASICやCの意味でのグローバル変数ではないことに注意しましょう。
         <!-- As special variables can be dynamically bound to a local value, -->
         <!-- they are much more powerful than -->
         <!-- global value cells where all users necessarily interfere with each other. -->
@@ -2267,7 +2281,7 @@ Takashi Kato
         <!-- with a number of layers that all operate upon a "current" request, -->
         <!-- passing the request object explicitly to every function -->
         <!-- requires that every function in the chain have a request argument. -->
-	リクエストを処理するフローを書いていて、それぞれの処理で「現在の」リクエストを扱うのであれば明示的にリクエストオブジェクトをそれぞれの関数に渡そうと思えば全ての関数がリクエストを引数にとる必要があります。
+	リクエストを処理するフローを書いていて、それぞれの処理で「現在の」リクエストを扱うとして、明示的にリクエストオブジェクトをそれぞれの関数に渡そうと思えば全ての関数がリクエストを引数にとる必要があります。
         <!-- Factoring out code into new functions often requires -->
         <!-- that these functions also have this argument, -->
         <!-- which clutters the code with boilerplate. -->
@@ -2288,10 +2302,10 @@ Takashi Kato
 	これによって不適切な変数の使用に対して"unbound variable"エラーが出ますし、各スレッドは各々の値を参照できます。
         <!-- Variables with a default global value should usually be -->
         <!-- locally bound at thread creation time. -->
-	グローバルな値を持つ変数は通常スレッドを作るときにローカル束縛されす。
+	グローバルな値を持つ変数は通常、スレッドを作るときにローカル束縛されます。
         <!-- You should use suitable infrastructure         -->
         <!-- to automate the appropriate declaration of such variables. -->
-	そのような変数を自動的に適切に宣言してくれる適切な基盤が必要です。
+	そのような変数を自動的に適切に宣言してくれる適切な基盤を利用すべきです。
       </p>
       
     </BODY>
