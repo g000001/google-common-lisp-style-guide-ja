@@ -1400,26 +1400,35 @@ Takashi Kato
     </SUMMARY>
     <BODY>
        <p>
-        Comments are explanations to the future maintainers of the code.
-        Even if you're the only person who will ever see and touch the code,
-        even if you're either immortal and never going to quit,
-        or unconcerned with what happens after you leave
-        (and have your code self-destruct in such an eventuality),
-        you may find it useful to comment your code.
-        Indeed, by the time you revisit your code,
-        weeks, months or years later,
-        you will find yourself a different person from the one who wrote it,
-        and you will be grateful to that previous self
-        for making the code readable.
+        <!-- Comments are explanations to the future maintainers of the code. -->
+	コメントは将来保守する人のための説明です。
+        <!-- Even if you're the only person who will ever see and touch the code, -->
+        <!-- even if you're either immortal and never going to quit, -->
+        <!-- or unconcerned with what happens after you leave -->
+        <!-- (and have your code self-destruct in such an eventuality), -->
+        <!-- you may find it useful to comment your code. -->
+	他の人が触らないと分っているコードでも、仮にあなたが不死身で[開発を]やめない、
+	あるいは自分が離れたあとどうなるか気にしない(そして結局コードは読めなくなる)場合でも、
+	コメントは有用であると気づくでしょう。
+        <!-- Indeed, by the time you revisit your code, -->
+        <!-- weeks, months or years later, -->
+        <!-- you will find yourself a different person from the one who wrote it, -->
+        <!-- and you will be grateful to that previous self -->
+        <!-- for making the code readable. -->
+	実際、何週間、何ヶ月、あるいは何年か経って自分のコードを再度読んだときにはコードを書いたときとは他人になっていて、
+	あのときの自分が読み易いコードを書いてくれたことに感謝することになるでしょう。
       </p>
       <p>
-        You must comment anything complicated
-        so that the next developer can understand what's going on.
-        (Again, the "hit by a truck" principle.)
+        <!-- You must comment anything complicated -->
+        <!-- so that the next developer can understand what's going on. -->
+        <!-- (Again, the "hit by a truck" principle.) -->
+	次の開発者が何をしているのか分かるように複雑なものには全てコメントを残す必要があります。
+	(「トラックにはねられたらの原理」を思い出しましょう。)
       </p>
       <p>
-        Also use comments as a way to guide those who read the code,
-        so they know what to find where.
+        <!-- Also use comments as a way to guide those who read the code, -->
+        <!-- so they know what to find where. -->
+	何がどこにあるのかの案内としてもコメントを使いましょう。
       </p>
       <ul>
         <li>
@@ -1456,13 +1465,14 @@ Takashi Kato
       </ul>
       <CODE_SNIPPET>
         ;;;; project-euler.lisp
-        ;;;; File-level comments or comments for large sections of code.
-
-        ;;; Problems are described in more detail here:  http://projecteuler.net/
-
-        ;;; Divisibility
-        ;;; Comments that describe a group of definitions.
-
+        <!-- ;;;; File-level comments or comments for large sections of code. -->
+	;;;; ファイルレベルでのコメントや大きなセクションのコメント。
+        <!-- ;;; Problems are described in more detail here:  http://projecteuler.net/ -->
+	;;; 詳細はこちらにあります:  http://projecteuler.net/
+        <!-- ;;; Divisibility -->
+	;;; 可分性[dでnをわりきれるか]
+        <!-- ;;; Comments that describe a group of definitions. -->
+	;;; 一群のコードに対するコメント
         (defun divisorp (d n)
           (zerop (mod n d)))
 
@@ -1472,16 +1482,19 @@ Takashi Kato
         (defun divisors (n)
           (cons n (proper-divisors n)))
 
-        ;;; Prime numbers
+        <!-- ;;; Prime numbers -->
+	;;; 素数
 
         (defun small-prime-number-p (n)
           (cond ((or (&lt; n 2))
                  nil)
-                ((= n 2)   ; parenthetical remark here
-                 t)        ; continuation of the remark
+                ((= n 2)   ; 行末の補足はここに<!-- ; parenthetical remark here -->
+                 t)        ; 補足の続き<!-- ; continuation of the remark -->
                 ((divisorp n 2)
-                 nil)  ; different remark
-                ;; Comment that applies to a section of code.
+                 nil)  ; 別の補足<!-- ; different remark -->
+                <!-- ;; Comment that applies to a section of code. -->
+		;; コードの一部に対するコメント
+		<!--sectionは「一部」の意味と「ある程度まとまった」の意味を帯びているのだと思いますが、適当な日本語が思いつきませんでした(κeen)-->
                 (t
                  (loop for i from 3 upto (sqrt n) by 2
                        never (divisorp i n)))))
@@ -1726,41 +1739,58 @@ Takashi Kato
 	その概念そのものの表現から変数を名付けるべきです。
       </p>
       <p>
-        Thus, you should avoid embedding
-        data structure or aggregate type names,
-        such as <code>list</code>, <code>array</code>, or
-        <code>hash-table</code> inside variable names,
-        unless you're writing a generic algorithm that applies to
-        arbitrary lists, arrays, hash-tables, etc.
-        In that case it's perfectly OK to name a variable
-        <code>list</code> or <code>array</code>.
+        <!-- Thus, you should avoid embedding -->
+        <!-- data structure or aggregate type names, -->
+        <!-- such as <code>list</code>, <code>array</code>, or -->
+        <!-- <code>hash-table</code> inside variable names, -->
+        <!-- unless you're writing a generic algorithm that applies to -->
+        <!-- arbitrary lists, arrays, hash-tables, etc. -->
+	それゆえ、リストや配列やハッシュテーブルに限定的な汎用アルゴリズムを書いているのでもない限り、
+	変数名にデータ構造を埋め込んだり、
+	<code>list</code>、<code>array</code>、<code>hash-table</code>
+	などの型の名前を集約することは避けるべきです。
+        <!-- In that case it's perfectly OK to name a variable -->
+        <!-- <code>list</code> or <code>array</code>. -->
+	逆にそのような場合は<code>list</code>や<code>array</code>などの変数名は望ましいものです。
       </p>
       <p>
-        Indeed, you should be introducing new abstract data types
-        with <code>DEFCLASS</code> or <code>DEFTYPE</code>,
-        whenever a new kind of intent appears for objects in your protocols.
-        Functions that manipulate such objects generically may then
-        use variables the name of which reflect that abstract type.
+        <!-- Indeed, you should be introducing new abstract data types -->
+        <!-- with <code>DEFCLASS</code> or <code>DEFTYPE</code>, -->
+        <!-- whenever a new kind of intent appears for objects in your protocols. -->
+	実際、オブジェクトに新たな意図が出てきたときは<code>DEFCLASS</code>や<code>DEFTYPE</code>
+	を使って新たな抽象データ型を導入しているべきです。 <!--protocolを無視しました。どう訳せばいいんだろ…(κeen)-->
+        <!-- Functions that manipulate such objects generically may then -->
+        <!-- use variables the name of which reflect that abstract type. -->
+	そのようなデータ型を汎用的に扱う関数にはその抽象型を反映した変数名を与えても構いません。
       </p>
       <p>
-        For example, if a variable's value is always a row
-        (or is either a row or <code>NIL</code>),
-        it's good to call it <code>row</code> or <code>first-row</code>
-        or something like that.
-        It is alright is <code>row</code> has been
-        <code>DEFTYPE</code>'d to <code>STRING</code> &#8212;
-        precisely because you have abstracted the detail away,
-        and the remaining salient point is that it is a row.
-        You should not name the variable <code>STRING</code> in this context,
-        except possibly in low-level functions that specifically manipulate
-        the innards of rows to provide the suitable abstraction.
+        <!-- For example, if a variable's value is always a row -->
+        <!-- (or is either a row or <code>NIL</code>), -->
+        <!-- it's good to call it <code>row</code> or <code>first-row</code> -->
+        <!-- or something like that. -->
+	例えば、もしその変数の値が常に列(row)(あるいは列または<code>NIL</code>)のときは、
+	<code>row</code>や<code>first-row</code>などの名前を与えるのが適当でしょう。
+        <!-- It is alright is <code>row</code> has been --><!-- 二つめのisはifのミス？ -->
+        <!-- <code>DEFTYPE</code>'d to <code>STRING</code> &#8212; -->
+        <!-- precisely because you have abstracted the detail away, -->
+        <!-- and the remaining salient point is that it is a row. -->
+	<code>row</code>が<code>STRING</code>として<code>DEFTYPE</code>されていても全く問題はありません。
+	明確にこれは詳細を抽象化し、残された特徴がそれが列であるということだけになっているからです。
+        <!-- You should not name the variable <code>STRING</code> in this context, -->
+        <!-- except possibly in low-level functions that specifically manipulate -->
+        <!-- the innards of rows to provide the suitable abstraction. -->
+	この場合、低次の処理が列の内部を処理し、適切に抽象化するのでもない限り、
+	変数名を<code>STRING</code>にすべきではありません。
       </p>
       <p>
-        Be consistent.
-        If a variable is named <code>row</code> in one function,
-        and its value is being passed to a second function,
-        then call it <code>row</code> rather than, say, <code>value</code>
-        (this was a real case).
+        <!-- Be consistent. -->
+	首尾一貫しましょう。
+        <!-- If a variable is named <code>row</code> in one function, -->
+        <!-- and its value is being passed to a second function, -->
+        <!-- then call it <code>row</code> rather than, say, <code>value</code> -->
+        <!-- (this was a real case). -->
+	ある関数で<code>row</code>と名付け、その値が別の関数に渡されたのなら例えば<code>value</code>などと呼ばずに
+	<code>row</code>と呼びましょう(これは実際にあったことなのです)。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -1928,109 +1958,145 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        Lisp packages are used to demarcate namespaces.
-        Usually, each system has its own namespace.
-        A package has a set of external symbols,
-        which are intended to be used from outside the package,
-        in order to allow other modules to use this module's facilities.
+        <!-- Lisp packages are used to demarcate namespaces. -->
+	Lispのパッケージは名前空間を分離するのに使います。
+        <!-- Usually, each system has its own namespace. -->
+        普通、それぞれのシステムは自身の名前空間を使います。
+	<!-- A package has a set of external symbols, -->
+        <!-- which are intended to be used from outside the package, -->
+        <!-- in order to allow other modules to use this module's facilities. -->
+	パッケージには他のモジュールがこのモジュールの機能を使えるようにパッケージの外から使うことを意図した外部シンボルの集合があります。
       </p>
       <p>
-        The internal symbols of a package
-        should never be referred to from other packages.
-        That is, you should never have to use
-        the double-colon <code>::</code> construct.
-        (e.g. <code>QUAKE::HIDDEN-FUNCTION</code>).
-        If you need to use double-colons to write real production code,
-        something is wrong and needs to be fixed.
+        <!-- The internal symbols of a package -->
+        <!-- should never be referred to from other packages. -->
+	パッケージの内部シンボルは他のパッケージから参照されるべきではありません。
+        <!-- That is, you should never have to use -->
+        <!-- the double-colon <code>::</code> construct. -->
+        <!-- (e.g. <code>QUAKE::HIDDEN-FUNCTION</code>). -->
+	これは二重セミコロン<code>::</code>構造(e.g. <code>QUAKE::HIDDEN-FUNCTION</code>)を使ってはいけないということです。
+        <!-- If you need to use double-colons to write real production code, -->
+        <!-- something is wrong and needs to be fixed. -->
+	もし二重セミコロンを実際のプロダクトで使う必要があったときは、それはどこかが間違っていて、修正を必要としています。
       </p>
       <p>
-        As an exception,
-        unit tests may use the internals of the package being tested.
-        So when you refactor, watch out for
-        internals used by the package's unit tests.
+        <!-- As an exception, -->
+        <!-- unit tests may use the internals of the package being tested. -->
+	例外として、単体テストはテストのためにパッケージの内部[シンボル]を使っても構いません。
+        <!-- So when you refactor, watch out for -->
+        <!-- internals used by the package's unit tests. -->
+	なのでリファクタリングするときは単体テストで参照されている内部[シンボル]に気を付けましょう。
       </p>
       <p>
-        The <code>::</code> construct is also useful for very temporary hacks,
-        and at the REPL.
-        But if the symbol really is part of
-        the externally-visible definition of the package,
-        export it.
+        <!-- The <code>::</code> construct is also useful for very temporary hacks, -->
+        <!-- and at the REPL. -->
+	<code>::</code>構造は本当に一時的なハックやREPLにおいても有用です。
+        <!-- But if the symbol really is part of -->
+        <!-- the externally-visible definition of the package, -->
+        <!-- export it. -->
+	しかしそのシンボルが本当に外部から参照できるパッケージの定義ならエクスポートしましょう。 <!--直訳してみましたけど意味が分からないです。-->
       </p>
       <p>
-        You may find that some internal symbols represent concepts
-        you usually want to abstract away and hide under the hood,
-        yet at times are necessary to expose for various extensions.
-        For the former reason, you do not want to export them,
-        yet for the latter reason, you have to export them.
-        The solution is to have two different packages,
-        one for your normal users to use, and
-        another for the implementation and its extenders to use.
+        <!-- You may find that some internal symbols represent concepts -->
+        <!-- you usually want to abstract away and hide under the hood, -->
+        <!-- yet at times are necessary to expose for various extensions. -->
+	内部シンボルには普通は抽象化し、フードの下に隠したいけど様々な拡張のために外部に晒す必要のあるものがあることに気づくでしょう。
+        <!-- For the former reason, you do not want to export them, -->
+        <!-- yet for the latter reason, you have to export them. -->
+	前者の理由のためにはエクスポートしたくはないが、後者の理由のためにはエクスポートする必要がある。
+        <!-- The solution is to have two different packages, -->
+        <!-- one for your normal users to use, and -->
+        <!-- another for the implementation and its extenders to use. -->
+	そのような場合には普通の使用と拡張の実装用にパッケージを2つ用意するとよいでしょう。
       </p>
       <p>
-        Each package is one of two types:
+        <!-- Each package is one of two types: -->
+	それぞれのパッケージには2種類のタイプがあります：
       </p>
       <ul>
         <li>
-          Intended to be included
-          in the <code>:use</code> specification of other packages.
-          If package <code>A</code> "uses" package <code>B</code>,
-          then the external symbols of package <code>B</code>
-          can be referenced from within package <code>A</code>
-          without a package prefix.
-          We mainly use this for low-level modules
-          that provide widely-used facilities.
+          <!-- Intended to be included -->
+          <!-- in the <code>:use</code> specification of other packages. -->
+	  他のパッケージに<code>:use</code>されることを意図したもの。
+          <!-- If package <code>A</code> "uses" package <code>B</code>, -->
+          <!-- then the external symbols of package <code>B</code> -->
+          <!-- can be referenced from within package <code>A</code> -->
+          <!-- without a package prefix. -->
+	  パッケージ<code>A</code>がパッケージ<code>B</code>を"use"したら
+	  <code>B</code>の外部シンボルは<code>A</code>からパッケージプリフィクスなしに参照できます。
+          <!-- We mainly use this for low-level modules -->
+          <!-- that provide widely-used facilities. -->
+	  これは主に広く使われる機能を提供する低レベルモジュールに使われます。
         </li>
         <li>
-          Not intended to be "used".
-          To reference a facility provided by package <code>B</code>,
-          code in package <code>A</code> must use an explicit package prefix,
-          e.g. <code>B:DO-THIS</code>.
+          <!-- Not intended to be "used". -->
+	  "use"されることを意図してないもの。
+          <!-- To reference a facility provided by package <code>B</code>, -->
+          <!-- code in package <code>A</code> must use an explicit package prefix, -->
+          <!-- e.g. <code>B:DO-THIS</code>. -->
+	  パッケージ<code>B</code>で提供される機能をパッケージ<code>A</code>で使うには明示的にパッケージプリフィクスを使う必要があります。
+	  例: <code>B:DO-THIS</code>.
         </li>
       </ul>
       <p>
-        If you add a new package, it should always be of the second type,
-        unless you have a special reason and get permission.
-        Usually a package is designed to be one or the other,
-        by virtue of the names of the functions.
-        For example, if you have an abstraction called <code>FIFO</code>,
-        and it were in a package of the first type
-        you'd have functions named things like
-        <code>FIFO-ADD-TO</code> and <code>FIFO-CLEAR-ALL</code>.
-        If you used a package of the second type,
-        you'd have names like <code>ADD-TO</code> and <code>CLEAR-ALL</code>,
-        because the callers would be saying
-        <code>FIFO:ADD-TO</code> and <code>FIFO:CLEAR-ALL</code>.
-        (<code>FIFO:FIFO-CLEAR-ALL</code> is redundant and ugly.)
+        <!-- If you add a new package, it should always be of the second type, -->
+        <!-- unless you have a special reason and get permission. -->
+	もし新たにパッケージを作るなら、特別な理由と許可がない限り、それは常に[上に挙げた2つのうち]2つめのタイプであるべきです。
+        <!-- Usually a package is designed to be one or the other, -->
+        <!-- by virtue of the names of the functions. -->
+	通常パッケージは関数の名前によって、上の2つのうち、どちらかになるように設計されます。
+        <!-- For example, if you have an abstraction called <code>FIFO</code>, -->
+        <!-- and it were in a package of the first type -->
+        <!-- you'd have functions named things like -->
+        <!-- <code>FIFO-ADD-TO</code> and <code>FIFO-CLEAR-ALL</code>. -->
+	例えば、<code>FIFO</code>という抽象化した1つめのタイプのパッケージがあったら、<code>FIFO-ADD-TO</code>や<code>FIFO-CLEAR-ALL</code>
+	と名付けるでしょう。
+        <!-- If you used a package of the second type, -->
+        <!-- you'd have names like <code>ADD-TO</code> and <code>CLEAR-ALL</code>, -->
+        <!-- because the callers would be saying -->
+        <!-- <code>FIFO:ADD-TO</code> and <code>FIFO:CLEAR-ALL</code>. -->
+        <!-- (<code>FIFO:FIFO-CLEAR-ALL</code> is redundant and ugly.) -->
+	もし2つめのタイプのパッケージなら<code>ADD-TO</code>や<code>CLEAR-ALL</code>といった関数名になるでしょう。なぜなら関数を呼び出すときは
+	<code>FIFO:ADD-TO</code>や<code>FIFO:CLEAR-ALL</code>となるからです(<code>FIFO:FIFO-CLEAR-ALL</code>は冗長ですし醜いです)。
       </p>
       <p>
-        Another good thing about packages is that
-        your symbol names won't "collide" with the names of other packages,
-        except the ones your packages "uses".
-        So you have to stay away from symbols
-        that are part of the Lisp implementation (since you always "use" that)
-        and that are part of any other packages you "use",
-        but otherwise you are free to make up your own names,
-        even short ones, and not worry about some else
-        having used the same name.
-        You're isolated from each other.
+        <!-- Another good thing about packages is that -->
+        <!-- your symbol names won't "collide" with the names of other packages, -->
+        <!-- except the ones your packages "uses". -->
+	パッケージのもう一つ良い点は、自分のシンボルが他の"use"していないパッケージと「衝突」しないことです。
+        <!-- So you have to stay away from symbols -->
+        <!-- that are part of the Lisp implementation (since you always "use" that) -->
+        <!-- and that are part of any other packages you "use", -->
+        <!-- but otherwise you are free to make up your own names, -->
+        <!-- even short ones, and not worry about some else -->
+        <!-- having used the same name. -->
+	だから(常に"use"されている)Lisp処理系のシンボルや他の"use"したパッケージのシンボルは使うべきではありませんが、
+	その他は短縮名でも衝突を気にすることなく自由に名付けることができます。
+        <!-- You're isolated from each other. -->
+	他とは完全に独立しているのです。
       </p>
       <p>
-        Your package must not shadow (and thus effectively redefine)
-        symbols that are part of the Common Lisp language.
-        There are certain exceptions,
-        but they should be very well-justified and extremely rare:
+        <!-- Your package must not shadow (and thus effectively redefine) -->
+        <!-- symbols that are part of the Common Lisp language. -->
+	パッケージでCommon Lispの仕様の一部となっているシンボルをシャドウ(そして事実上再定義も)してはいけません。
+        <!-- There are certain exceptions, -->
+        <!-- but they should be very well-justified and extremely rare: -->
+	例外もありますが、これらはかなり正当化されているべきで、ほとんど起こらないはずです:
       </p>
       <ul>
         <li>
-          If you are explicitly replacing a Common Lisp symbol
-          by a safer or more featureful version.
+          <!-- If you are explicitly replacing a Common Lisp symbol -->
+          <!-- by a safer or more featureful version. -->
+	  より安全、もしくはより多機能になるように明示的にCommon Lispのシンボルを再定義している場合。
         </li>
         <li>
-          If you are defining a package not meant to be "used",
-          and have a good reason to export a symbol
-          that clashes with Common Lisp,
-          such as <code>log:error</code> and <code>log:warn</code>
-          and so on.
+          <!-- If you are defining a package not meant to be "used", -->
+          <!-- and have a good reason to export a symbol -->
+          <!-- that clashes with Common Lisp, -->
+          <!-- such as <code>log:error</code> and <code>log:warn</code> -->
+          <!-- and so on. -->
+	  "use"されることを意図していなくて、Common Lispのシンボルと衝突してまでエクスポートするだけの理由があるパッケージを定義する場合。
+	  例えば<code>log:error</code>や<code>log:warn</code>など。
         </li>
       </ul>
     </BODY>
@@ -2147,66 +2213,85 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        Using Lisp "special" (dynamically bound) variables
-        as implicit arguments to functions should be used sparingly,
-        and only in cases where it won't surprise the person reading the code,
-        and where it offers significant benefits.
+        <!-- Using Lisp "special" (dynamically bound) variables -->
+        <!-- as implicit arguments to functions should be used sparingly, -->
+        <!-- and only in cases where it won't surprise the person reading the code, -->
+        <!-- and where it offers significant benefits. -->
+	Lispの「スペシャル」(動的束縛)変数を関数の暗黙の引数として使うことはできるだけ避け、コードを読む人が驚かず、明確な利点がある場合に留めるべきです。
       </p>
       <p>
-        Indeed, each special variable constitutes state.
-        Developers have to mentally track the state of all relevant variables
-        when trying to understand what the code does and how it does it;
-        tests have to be written and run with all relevant combinations;
-        to isolate some activity, care has to be taken to locally bind
-        all relevant variables, including those of indirectly used modules.
-        They can hide precious information from being printed in a backtrace.
-        Not only is there overhead associated to each new variable,
-        but interactions between variables
-        can make the code exponentially more complex
-        as the number of such variables increases.
-        The benefits have to match the costs.
+        <!-- Indeed, each special variable constitutes state. -->
+	実際、それぞれのスペシャル変数は状態を持ちます。
+        <!-- Developers have to mentally track the state of all relevant variables -->
+        <!-- when trying to understand what the code does and how it does it; -->
+        <!-- tests have to be written and run with all relevant combinations; -->
+        <!-- to isolate some activity, care has to be taken to locally bind -->
+        <!-- all relevant variables, including those of indirectly used modules. -->
+	開発者はコードの振舞を理解しようとするとき全ての関係する変数の状態を脳内で追う必要がありますし、テストも関連する[変数の]全ての組み合わせを書いて実行する必要がありますし、ある挙動を分離させようとするときもローカル束縛を作るにあたって間接的に使われているモジュールのものも含む全ての関連する[変数を]頭に入れる必要があります。
+	<!-- to isolate some activityがコードの振舞なのかコードに対する開発者の振舞なのか判断つきませんでした。上の訳は前者としてます。(κeen) -->
+        <!-- They can hide precious information from being printed in a backtrace. -->
+	重要な情報がバックトレースで印字されなくなり得ます。
+        <!-- Not only is there overhead associated to each new variable, -->
+        <!-- but interactions between variables -->
+        <!-- can make the code exponentially more complex -->
+        <!-- as the number of such variables increases. -->
+	そのような変数が増えるにつれ、新たな変数に関連するオーバーヘッドがあるだけでなく、変数同士の相互作用により指数関数的にコードの複雑さが増していきます。
+        <!-- The benefits have to match the costs. -->
+	利点がコストに見合うようにしなければいけません。
       </p>
       <p>
-        Note though that a Lisp special variable is not a global variable
-        in the sense of a global variable in, say, BASIC or C.
-        As special variables can be dynamically bound to a local value,
-        they are much more powerful than
-        global value cells where all users necessarily interfere with each other.
+        <!-- Note though that a Lisp special variable is not a global variable -->
+        <!-- in the sense of a global variable in, say, BASIC or C. -->
+	しかしLispのスペシャル変数はBASICやCの意味でのグローバス変数ではないことに注意しましょう。
+        <!-- As special variables can be dynamically bound to a local value, -->
+        <!-- they are much more powerful than -->
+        <!-- global value cells where all users necessarily interfere with each other. -->
+	スペシャル変数は動的にローカル束縛できるので全てのユーザー同士の干渉のあるグローバル変数より強力です。
       </p>
       <p>
-        Good candidates for such special variables
-        are items for which "the current" can be naturally used as prefix,
-        such as "the current database connection" or
-        "the current business data source".
-        They are singletons as far as the rest of the code is concerned,
-        and often passing them as an explicit argument
-        does not add anything to the readability or maintainability
-        of the source code in question.
+        <!-- Good candidates for such special variables -->
+        <!-- are items for which "the current" can be naturally used as prefix, -->
+        <!-- such as "the current database connection" or -->
+        <!-- "the current business data source". -->
+	このようなスペシャル変数の候補として、「現在のデーターベースコネクション」や「現在の業務データソース」のように自然に「現在の」(current)という接尾辞をつけられるものがあります。。
+        <!-- They are singletons as far as the rest of the code is concerned, -->
+        <!-- and often passing them as an explicit argument -->
+        <!-- does not add anything to the readability or maintainability -->
+        <!-- of the source code in question. -->
+	それ以降のコードに限れば、それらはシングルトンですし、たいていの場合明示的に引数として渡しても問題のコードの可読性やメンテナンス性は向上しません。
       </p>
       <p>
-        They can make it easier to write code that can be refactored.
-        If you have a request processing chain,
-        with a number of layers that all operate upon a "current" request,
-        passing the request object explicitly to every function
-        requires that every function in the chain have a request argument.
-        Factoring out code into new functions often requires
-        that these functions also have this argument,
-        which clutters the code with boilerplate.
+        <!-- They can make it easier to write code that can be refactored. -->
+	そのようなスペシャル変数によってコードは書きやすくなりますし、リファクタリングも可能になります。
+	<!-- If you have a request processing chain, -->
+        <!-- with a number of layers that all operate upon a "current" request, -->
+        <!-- passing the request object explicitly to every function -->
+        <!-- requires that every function in the chain have a request argument. -->
+	リクエストを処理するフローを書いていて、それぞれの処理で「現在の」リクエストを扱うのであれば明示的にリクエストオブジェクトをそれぞれの関数に渡そうと思えば全ての関数がリクエストを引数にとる必要があります。
+        <!-- Factoring out code into new functions often requires -->
+        <!-- that these functions also have this argument, -->
+        <!-- which clutters the code with boilerplate. -->
+	コードを書き換えて新しく関数を定義するときもこの引数が必要になり、ボイラープレートで散らかることになります。
       </p>
       <p>
-        You should treat special variables
-        as though they are per-thread variables.
-        By default, you should leave a special variable
-        with no top-level binding at all,
-        and each thread of control
-        that needs the variable should bind it explicitly.
-        This will mean that any incorrect use of the variable
-        will result in an "unbound variable" error, and
-        each thread will see its own value for the variable.
-        Variables with a default global value should usually be
-        locally bound at thread creation time.
-        You should use suitable infrastructure        
-        to automate the appropriate declaration of such variables.
+        <!-- You should treat special variables -->
+        <!-- as though they are per-thread variables. -->
+	スペシャル変数はスレッドローカルな変数であるかのように扱うべきです。
+        <!-- By default, you should leave a special variable -->
+        <!-- with no top-level binding at all, -->
+        <!-- and each thread of control -->
+        <!-- that needs the variable should bind it explicitly. -->
+	デフォルトでは、スペシャル変数はトップレベルでは束縛せず、必要とするスレッドで明示的に束縛すべきです。
+        <!-- This will mean that any incorrect use of the variable -->
+        <!-- will result in an "unbound variable" error, and -->
+        <!-- each thread will see its own value for the variable. -->
+	これによって不適切な変数の使用に対して"unbound variable"エラーが出ますし、各スレッドは各々の値を参照できます。
+        <!-- Variables with a default global value should usually be -->
+        <!-- locally bound at thread creation time. -->
+	グローバルな値を持つ変数は通常スレッドを作るときにローカル束縛されす。
+        <!-- You should use suitable infrastructure         -->
+        <!-- to automate the appropriate declaration of such variables. -->
+	そのような変数を自動的に適切に宣言してくれる適切な基盤が必要です。
       </p>
       
     </BODY>
