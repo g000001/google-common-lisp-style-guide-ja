@@ -2213,66 +2213,85 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        Using Lisp "special" (dynamically bound) variables
-        as implicit arguments to functions should be used sparingly,
-        and only in cases where it won't surprise the person reading the code,
-        and where it offers significant benefits.
+        <!-- Using Lisp "special" (dynamically bound) variables -->
+        <!-- as implicit arguments to functions should be used sparingly, -->
+        <!-- and only in cases where it won't surprise the person reading the code, -->
+        <!-- and where it offers significant benefits. -->
+	Lispの「スペシャル」(動的束縛)変数を関数の暗黙の引数として使うことはできるだけ避け、コードを読む人が驚かず、明確な利点がある場合に留めるべきです。
       </p>
       <p>
-        Indeed, each special variable constitutes state.
-        Developers have to mentally track the state of all relevant variables
-        when trying to understand what the code does and how it does it;
-        tests have to be written and run with all relevant combinations;
-        to isolate some activity, care has to be taken to locally bind
-        all relevant variables, including those of indirectly used modules.
-        They can hide precious information from being printed in a backtrace.
-        Not only is there overhead associated to each new variable,
-        but interactions between variables
-        can make the code exponentially more complex
-        as the number of such variables increases.
-        The benefits have to match the costs.
+        <!-- Indeed, each special variable constitutes state. -->
+	実際、それぞれのスペシャル変数は状態を持ちます。
+        <!-- Developers have to mentally track the state of all relevant variables -->
+        <!-- when trying to understand what the code does and how it does it; -->
+        <!-- tests have to be written and run with all relevant combinations; -->
+        <!-- to isolate some activity, care has to be taken to locally bind -->
+        <!-- all relevant variables, including those of indirectly used modules. -->
+	開発者はコードの振舞を理解しようとするとき全ての関係する変数の状態を脳内で追う必要がありますし、テストも関連する[変数の]全ての組み合わせを書いて実行する必要がありますし、ある挙動を分離させようとするときもローカル束縛を作るにあたって間接的に使われているモジュールのものも含む全ての関連する[変数を]頭に入れる必要があります。
+	<!-- to isolate some activityがコードの振舞なのかコードに対する開発者の振舞なのか判断つきませんでした。上の訳は前者としてます。(κeen) -->
+        <!-- They can hide precious information from being printed in a backtrace. -->
+	重要な情報がバックトレースで印字されなくなり得ます。
+        <!-- Not only is there overhead associated to each new variable, -->
+        <!-- but interactions between variables -->
+        <!-- can make the code exponentially more complex -->
+        <!-- as the number of such variables increases. -->
+	そのような変数が増えるにつれ、新たな変数に関連するオーバーヘッドがあるだけでなく、変数同士の相互作用により指数関数的にコードの複雑さが増していきます。
+        <!-- The benefits have to match the costs. -->
+	利点がコストに見合うようにしなければいけません。
       </p>
       <p>
-        Note though that a Lisp special variable is not a global variable
-        in the sense of a global variable in, say, BASIC or C.
-        As special variables can be dynamically bound to a local value,
-        they are much more powerful than
-        global value cells where all users necessarily interfere with each other.
+        <!-- Note though that a Lisp special variable is not a global variable -->
+        <!-- in the sense of a global variable in, say, BASIC or C. -->
+	しかしLispのスペシャル変数はBASICやCの意味でのグローバス変数ではないことに注意しましょう。
+        <!-- As special variables can be dynamically bound to a local value, -->
+        <!-- they are much more powerful than -->
+        <!-- global value cells where all users necessarily interfere with each other. -->
+	スペシャル変数は動的にローカル束縛できるので全てのユーザー同士の干渉のあるグローバル変数より強力です。
       </p>
       <p>
-        Good candidates for such special variables
-        are items for which "the current" can be naturally used as prefix,
-        such as "the current database connection" or
-        "the current business data source".
-        They are singletons as far as the rest of the code is concerned,
-        and often passing them as an explicit argument
-        does not add anything to the readability or maintainability
-        of the source code in question.
+        <!-- Good candidates for such special variables -->
+        <!-- are items for which "the current" can be naturally used as prefix, -->
+        <!-- such as "the current database connection" or -->
+        <!-- "the current business data source". -->
+	このようなスペシャル変数の候補として、「現在のデーターベースコネクション」や「現在の業務データソース」のように自然に「現在の」(current)という接尾辞をつけられるものがあります。。
+        <!-- They are singletons as far as the rest of the code is concerned, -->
+        <!-- and often passing them as an explicit argument -->
+        <!-- does not add anything to the readability or maintainability -->
+        <!-- of the source code in question. -->
+	それ以降のコードに限れば、それらはシングルトンですし、たいていの場合明示的に引数として渡しても問題のコードの可読性やメンテナンス性は向上しません。
       </p>
       <p>
-        They can make it easier to write code that can be refactored.
-        If you have a request processing chain,
-        with a number of layers that all operate upon a "current" request,
-        passing the request object explicitly to every function
-        requires that every function in the chain have a request argument.
-        Factoring out code into new functions often requires
-        that these functions also have this argument,
-        which clutters the code with boilerplate.
+        <!-- They can make it easier to write code that can be refactored. -->
+	そのようなスペシャル変数によってコードは書きやすくなりますし、リファクタリングも可能になります。
+	<!-- If you have a request processing chain, -->
+        <!-- with a number of layers that all operate upon a "current" request, -->
+        <!-- passing the request object explicitly to every function -->
+        <!-- requires that every function in the chain have a request argument. -->
+	リクエストを処理するフローを書いていて、それぞれの処理で「現在の」リクエストを扱うのであれば明示的にリクエストオブジェクトをそれぞれの関数に渡そうと思えば全ての関数がリクエストを引数にとる必要があります。
+        <!-- Factoring out code into new functions often requires -->
+        <!-- that these functions also have this argument, -->
+        <!-- which clutters the code with boilerplate. -->
+	コードを書き換えて新しく関数を定義するときもこの引数が必要になり、ボイラープレートで散らかることになります。
       </p>
       <p>
-        You should treat special variables
-        as though they are per-thread variables.
-        By default, you should leave a special variable
-        with no top-level binding at all,
-        and each thread of control
-        that needs the variable should bind it explicitly.
-        This will mean that any incorrect use of the variable
-        will result in an "unbound variable" error, and
-        each thread will see its own value for the variable.
-        Variables with a default global value should usually be
-        locally bound at thread creation time.
-        You should use suitable infrastructure        
-        to automate the appropriate declaration of such variables.
+        <!-- You should treat special variables -->
+        <!-- as though they are per-thread variables. -->
+	スペシャル変数はスレッドローカルな変数であるかのように扱うべきです。
+        <!-- By default, you should leave a special variable -->
+        <!-- with no top-level binding at all, -->
+        <!-- and each thread of control -->
+        <!-- that needs the variable should bind it explicitly. -->
+	デフォルトでは、スペシャル変数はトップレベルでは束縛せず、必要とするスレッドで明示的に束縛すべきです。
+        <!-- This will mean that any incorrect use of the variable -->
+        <!-- will result in an "unbound variable" error, and -->
+        <!-- each thread will see its own value for the variable. -->
+	これによって不適切な変数の使用に対して"unbound variable"エラーが出ますし、各スレッドは各々の値を参照できます。
+        <!-- Variables with a default global value should usually be -->
+        <!-- locally bound at thread creation time. -->
+	グローバルな値を持つ変数は通常スレッドを作るときにローカル束縛されす。
+        <!-- You should use suitable infrastructure         -->
+        <!-- to automate the appropriate declaration of such variables. -->
+	そのような変数を自動的に適切に宣言してくれる適切な基盤が必要です。
       </p>
       
     </BODY>
