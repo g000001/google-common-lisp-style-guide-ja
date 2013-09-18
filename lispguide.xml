@@ -4028,107 +4028,133 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        Use <code>WHEN</code> and <code>UNLESS</code>
-        when there is only one alternative.
-        Use <code>IF</code> when there are two alternatives
-        and <code>COND</code> when there are several.
+        <!-- Use <code>WHEN</code> and <code>UNLESS</code> -->
+        <!-- when there is only one alternative. -->
+	他に分岐がないなら<code>WHEN</code>や<code>UNLESS</code>を使いましょう。
+        <!-- Use <code>IF</code> when there are two alternatives -->
+        <!-- and <code>COND</code> when there are several. -->
+	分岐が二つなら<code>IF</code>を、それ以上なら<code>COND</code>を使いましょう。
       </p>
       <p>
-        However, don't use <code>PROGN</code> for an <code>IF</code> clause
-        — use <code>COND</code>, <code>WHEN</code>, or <code>UNLESS</code>.
+        <!-- However, don't use <code>PROGN</code> for an <code>IF</code> clause -->
+        <!-- — use <code>COND</code>, <code>WHEN</code>, or <code>UNLESS</code>. -->
+	ですが、<code>PROGN</code>を<code>IF</code>の中に書くのはやめましょう。代りに<code>COND</code>や<code>WHEN</code>や<code>UNLESS</code>を使いましょう。
       </p>
       <p>
-        Note that in Common Lisp,
-        <code>WHEN</code> and <code>UNLESS</code> return <code>NIL</code>
-        when the condition is not met.
-        You may take advantage of it.
-        Nevertheless, you may use an <code>IF</code>
-        to explicitly return <code>NIL</code>
-        if you have a specific reason to insist on the return value.
-        You may similarly include a fall-through clause <code>(t nil)</code>
-        as the last in your <cond>COND</cond>,
-        or <code>(otherwise nil)</code> as the last in your <cond>CASE</cond>,
-        to insist on the fact that the value returned by the conditional matters
-        and that such a case is going to be used.
-        You should omit the fall-through clause
-        when the conditional is used for side-effects.
+        <!-- Note that in Common Lisp, -->
+        <!-- <code>WHEN</code> and <code>UNLESS</code> return <code>NIL</code> -->
+        <!-- when the condition is not met. -->
+	Common Lispにおいては<code>WHEN</code>や<code>UNLESS</code>は条件を満足できなかったとき<code>NIL</code>を返すことを覚えておきましょう。
+        <!-- You may take advantage of it. -->
+	その事実は利用できます。
+        <!-- Nevertheless, you may use an <code>IF</code> -->
+        <!-- to explicitly return <code>NIL</code> -->
+        <!-- if you have a specific reason to insist on the return value. -->
+	それでも、返り値を強調する特別な理由があるときは明示的に<code>NIL</code>を返すように<code>IF</code>を使っても構いません。
+        <!-- You may similarly include a fall-through clause <code>(t nil)</code> -->
+        <!-- as the last in your <cond>COND</cond>, -->
+        <!-- or <code>(otherwise nil)</code> as the last in your <cond>CASE</cond>, -->
+        <!-- to insist on the fact that the value returned by the conditional matters -->
+        <!-- and that such a case is going to be used. -->
+	同様に、条件式の返値が重要で、かつそのような場合が実際に起きるときは<cond>COND</cond>の一番最後に受け皿として<code>(t nil)</code>を入れたり、<cond>CASE</cond>に<code>(otherwise nil)</code>を入れたりしても構いません。
+        <!-- You should omit the fall-through clause -->
+        <!-- when the conditional is used for side-effects. -->
+	条件式が副作用のために使われたときは受け皿節は省略すべきです。
       </p>
       <p>
-        You should prefer <code>AND</code> and <code>OR</code>
-        when it leads to more concise code than using
-        <code>IF</code>, <code>COND</code>,
-        <code>WHEN</code> or <code>UNLESS</code>,
-        and there are no side-effects involved.
-        You may also use an <code>ERROR</code>
-        as a side-effect in the final clause of an <code>OR</code>.
+        <!-- You should prefer <code>AND</code> and <code>OR</code> -->
+        <!-- when it leads to more concise code than using -->
+        <!-- <code>IF</code>, <code>COND</code>, -->
+        <!-- <code>WHEN</code> or <code>UNLESS</code>, -->
+        <!-- and there are no side-effects involved. -->
+	<code>IF</code>や<code>COND</code>、<code>WHEN</code>や<code>UNLESS</code>を使うよりもコードが簡潔になり、かつ副作用がないときは<code>AND</code>や<code>OR</code>をを積極的に使いましょう。
+
+        <!-- You may also use an <code>ERROR</code> -->
+        <!-- as a side-effect in the final clause of an <code>OR</code>. -->
+	<code>OR</code>の一番最後に副作用として<code>ERROR</code>を入れても構いません。
       </p>
       <p>
-        You should only use <code>CASE</code> and <code>ECASE</code>
-        to compare numbers, characters or symbols
-        (including booleans and keywords).
-        Indeed, <code>CASE</code> uses <code>EQL</code> for comparisons,
-        so strings, pathnames and structures may not compare the way you expect,
-        and <code>1</code> will differ from <code>1.0</code>.
+        <!-- You should only use <code>CASE</code> and <code>ECASE</code> -->
+        <!-- to compare numbers, characters or symbols -->
+        <!-- (including booleans and keywords). -->
+	<code>CASE</code>や<code>ECASE</code>の使用はは数字、文字、シンボル(含真偽値、キーワード)を比較するときに限るべきです。
+        <!-- Indeed, <code>CASE</code> uses <code>EQL</code> for comparisons, -->
+        <!-- so strings, pathnames and structures may not compare the way you expect, -->
+        <!-- and <code>1</code> will differ from <code>1.0</code>. -->
+	<code>CASE</code>は比較に<code>EQL</code>を使っていて、文字列、パスネーム、構造体などは期待通りに比較されませんし、<code>1</code>は<code>1.0</code>とは異なります。
       </p>
       <p>
-        You should use <code>ECASE</code> and <code>ETYPECASE</code>
-        in preference to <code>CASE</code> and <code>TYPECASE</code>.
-        It is better to catch erroneous values early.
+        <!-- You should use <code>ECASE</code> and <code>ETYPECASE</code> -->
+        <!-- in preference to <code>CASE</code> and <code>TYPECASE</code>. -->
+	<code>CASE</code>や<code>TYPECASE</code>よりも<code>ECASE</code>を<code>ETYPECASE</code>好んで使うべきです。
+        <!-- It is better to catch erroneous values early. -->
+	エラーの元になる値は早めに捕まえておくに越したことはありません。
       </p>
       <p>
-        You should not use <code>CCASE</code> or <code>CTYPECASE</code> at all.
-        At least, you should not use them in server processes,
-        unless you have quite robust error handling infrastructure
-        and make sure not to leak sensitive data this way.
-        These are meant for interactive use,
-        and can cause interesting damage
-        if they cause data or control to leak to attackers.
+        <!-- You should not use <code>CCASE</code> or <code>CTYPECASE</code> at all. -->
+	<code>CCASE</code>や<code>CTYPECASE</code>は絶対使ってはなりません。
+        <!-- At least, you should not use them in server processes, -->
+        <!-- unless you have quite robust error handling infrastructure -->
+        <!-- and make sure not to leak sensitive data this way. -->
+	少なくとも、とても堅牢なエラー処理機構があって、これでは重要なデータが漏れない自信でもない限り、サーバーの中では使うべきではありません。
+        <!-- These are meant for interactive use, -->
+        <!-- and can cause interesting damage -->
+        <!-- if they cause data or control to leak to attackers. -->
+	これらはインタラクティブに使うことを想定されており、データや制御が攻撃者の手に渡るようなことがあれば、興味深いダーメジを引き起こす可能性があります。
       </p>
       <p>
-        You must not use gratuitous single quotes in <code>CASE</code> forms.
-        This is a common error:
+        <!-- You must not use gratuitous single quotes in <code>CASE</code> forms. -->
+	無意味に<code>CASE</code>式でクォートを使ってはいけません。
+        <!-- This is a common error: -->
+	これはよくある間違いです。
       </p>
       <BAD_CODE_SNIPPET>
-        (case x ; Bad: silently returns NIL on mismatch
-          ('bar :bar) ; Bad: catches QUOTE
-          ('baz :baz)) ; Bad: also would catch QUOTE
+        (case x ; 悪い例: マッチしなかったとき何も言わずNILを返す<!-- ; Bad: silently returns NIL on mismatch -->
+          ('bar :bar) ; 悪い例: QUOTEを補足する<!-- Bad: catches QUOTE -->
+          ('baz :baz)) ; 悪い例: これもQUOTEを補足する <!-- Bad: also would catch QUOTE -->
       </BAD_CODE_SNIPPET>
       <CODE_SNIPPET>
-        (ecase x ; Better: will error on mismatch
-          ((bar) :bar) ; Better: won't match QUOTE
-          ((baz) :baz)) ; Better: same reason
+        (ecase x ; 良い例: マッチしなかったときエラーを発する<!-- Better: will error on mismatch -->
+          ((bar) :bar) ; 良い例: クォートにはマッチしない<!-- Better: won't match QUOTE -->
+          ((baz) :baz)) ; 良い例: 同上<!-- Better: same reason -->
       </CODE_SNIPPET>
       <p>
-        <code>'BAR</code> there is <code>(QUOTE BAR)</code>,
-        meaning this leg of the case will be executed
-        if <code>X</code> is <code>QUOTE</code>...
-        and ditto for the second leg
-        (though <code>QUOTE</code> will be caught by the first clause).
-        This is unlikely to be what you really want.
+        <!-- <code>'BAR</code> there is <code>(QUOTE BAR)</code>, -->
+        <!-- meaning this leg of the case will be executed -->
+        <!-- if <code>X</code> is <code>QUOTE</code>... -->
+        <!-- and ditto for the second leg -->
+        <!-- (though <code>QUOTE</code> will be caught by the first clause). -->
+	ここにある<code>'BAR</code>は<code>(QUOTE BAR)</code>と展開され、<code>X</code>が<code>QUOTE</code>だったときにこの節が実行されますし、第2節でも同様のことが起こります(この場合は第1節で<code>QUOTE</code>は補足されてしまいますが)。
+        <!-- This is unlikely to be what you really want. -->
+	これは恐らく望んだことではないでしょう。
       </p>
       <p>
-        In <code>CASE</code> forms,
-        you must use <code>otherwise</code> instead of <code>t</code>
-        when you mean "execute this clause if the others fail".
-        You must use <code>((t) ...)</code>
-        when you mean "match the symbol T" rather than "match anything".
-        You must also use <code>((nil) ...)</code>
-        when you mean "match the symbol NIL" rather than "match nothing".
+        <!-- In <code>CASE</code> forms, -->
+        <!-- you must use <code>otherwise</code> instead of <code>t</code> -->
+        <!-- when you mean "execute this clause if the others fail". -->
+	<code>CASE</code>式では「他の条件にマッチしなかったとき実行する」という意味では<code>t</code>ではなく<code>otherwise</code>を使う必要があります。
+        <!-- You must use <code>((t) ...)</code> -->
+        <!-- when you mean "match the symbol T" rather than "match anything". -->
+	<code>((t) ...)</code>は「全てにマッチする」ではなく「シンボルTにマッチしたとき」の意味で使う必要があります。
+        <!-- You must also use <code>((nil) ...)</code> -->
+        <!-- when you mean "match the symbol NIL" rather than "match nothing". -->
+	同様に、<code>((nil) ...)</code>は「何にもマッチしなかったとき」ではなく「シンボルNILにマッチしたとき」です。
       </p>
       <p>
-        Therefore, if you want to map booleans <code>NIL</code> and <code>T</code>
-        to respective symbols <code>:BAR</code> and <code>:QUUX</code>,
-        you should avoid the former way and do it the latter way:
+        <!-- Therefore, if you want to map booleans <code>NIL</code> and <code>T</code> -->
+        <!-- to respective symbols <code>:BAR</code> and <code>:QUUX</code>, -->
+        <!-- you should avoid the former way and do it the latter way: -->
+	なので、真偽値<code>NIL</code>や<code>T</code>をそれぞれ<code>:BAR</code>や<code>:QUUX</code>にマップしたいときは前者ではなく後者の表現を使いましょう:
       </p>
       <BAD_CODE_SNIPPET>
-        (ecase x ; Bad: has no actual error case!
-          (nil :bar)) ; Bad: matches nothing
-          (t :quux)) ; Bad: matches anything
+        (ecase x ; 悪い例: 実際にはエラーを出すことはない<!-- Bad: has no actual error case! -->
+          (nil :bar)) ; 悪い例: 何にもマッチしない<!-- Bad: matches nothing -->
+          (t :quux)) ; 悪い例: 全てにマッチする<!-- Bad: matches anything -->
       </BAD_CODE_SNIPPET>
       <CODE_SNIPPET>
-        (ecase x ; Better: will actually catch non-booleans
-          ((nil) :bar)) ; Better: matches NIL
-          ((t) :quux)) ; Better: matches T
+        (ecase x ; 良い例: 真偽値以外を補足する<!-- Better: will actually catch non-booleans -->
+          ((nil) :bar)) ; 良い例: NILにマッチする<!-- Better: matches NIL -->
+          ((t) :quux)) ; 良い例: Tにマッチする<!-- Better: matches T -->
       </CODE_SNIPPET>
     </BODY>
   </STYLEPOINT>
