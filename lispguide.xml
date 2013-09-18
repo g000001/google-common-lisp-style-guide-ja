@@ -4046,17 +4046,17 @@ Takashi Kato
         <!-- when the condition is not met. -->
 	Common Lispにおいては<code>WHEN</code>や<code>UNLESS</code>は条件を満足できなかったとき<code>NIL</code>を返すことを覚えておきましょう。
         <!-- You may take advantage of it. -->
-	その事実は利用できます。
+	この仕様はうまく活用できます。
         <!-- Nevertheless, you may use an <code>IF</code> -->
         <!-- to explicitly return <code>NIL</code> -->
         <!-- if you have a specific reason to insist on the return value. -->
-	それでも、返り値を強調する特別な理由があるときは明示的に<code>NIL</code>を返すように<code>IF</code>を使っても構いません。
+	それでも、返り値を強調する特別な理由があるときは明示的に<code>NIL</code>を返すような<code>IF</code>を使えるでしょう。
         <!-- You may similarly include a fall-through clause <code>(t nil)</code> -->
         <!-- as the last in your <cond>COND</cond>, -->
         <!-- or <code>(otherwise nil)</code> as the last in your <cond>CASE</cond>, -->
         <!-- to insist on the fact that the value returned by the conditional matters -->
         <!-- and that such a case is going to be used. -->
-	同様に、条件式の返値が重要で、かつそのような場合が実際に起きるときは<cond>COND</cond>の一番最後に受け皿として<code>(t nil)</code>を入れたり、<cond>CASE</cond>に<code>(otherwise nil)</code>を入れたりしても構いません。
+	同様に、条件式の返り値が重要で、かつそのような場合が実際に起きるときは<cond>COND</cond>の一番最後に受け皿として<code>(t nil)</code>を入れたり、<cond>CASE</cond>に<code>(otherwise nil)</code>を入れたりできるでしょう。
         <!-- You should omit the fall-through clause -->
         <!-- when the conditional is used for side-effects. -->
 	条件式が副作用のために使われたときは受け皿節は省略すべきです。
@@ -4067,21 +4067,21 @@ Takashi Kato
         <!-- <code>IF</code>, <code>COND</code>, -->
         <!-- <code>WHEN</code> or <code>UNLESS</code>, -->
         <!-- and there are no side-effects involved. -->
-	<code>IF</code>や<code>COND</code>、<code>WHEN</code>や<code>UNLESS</code>を使うよりもコードが簡潔になり、かつ副作用がないときは<code>AND</code>や<code>OR</code>をを積極的に使いましょう。
+	<code>IF</code>や<code>COND</code>、<code>WHEN</code>や<code>UNLESS</code>を使うよりもコードが簡潔になり、かつ副作用がないときは<code>AND</code>や<code>OR</code>をを積極的に使うべきです。
 
         <!-- You may also use an <code>ERROR</code> -->
         <!-- as a side-effect in the final clause of an <code>OR</code>. -->
-	<code>OR</code>の一番最後に副作用として<code>ERROR</code>を入れても構いません。
+	<code>OR</code>の一番最後に副作用として<code>ERROR</code>を入れることができるでしょう。
       </p>
       <p>
         <!-- You should only use <code>CASE</code> and <code>ECASE</code> -->
         <!-- to compare numbers, characters or symbols -->
         <!-- (including booleans and keywords). -->
-	<code>CASE</code>や<code>ECASE</code>の使用はは数字、文字、シンボル(含真偽値、キーワード)を比較するときに限るべきです。
+	<code>CASE</code>や<code>ECASE</code>の使用は、数字、文字、シンボル(含真偽値、キーワード)を比較する場合に限るべきです。
         <!-- Indeed, <code>CASE</code> uses <code>EQL</code> for comparisons, -->
         <!-- so strings, pathnames and structures may not compare the way you expect, -->
         <!-- and <code>1</code> will differ from <code>1.0</code>. -->
-	<code>CASE</code>は比較に<code>EQL</code>を使っていて、文字列、パスネーム、構造体などは期待通りに比較されませんし、<code>1</code>は<code>1.0</code>とは異なります。
+	もちろん、<code>CASE</code>は比較に<code>EQL</code>を使っているため、文字列、パスネーム、構造体などは期待通りに比較されませんし、<code>1</code>は<code>1.0</code>とは異なったものとされます。
       </p>
       <p>
         <!-- You should use <code>ECASE</code> and <code>ETYPECASE</code> -->
@@ -4092,19 +4092,19 @@ Takashi Kato
       </p>
       <p>
         <!-- You should not use <code>CCASE</code> or <code>CTYPECASE</code> at all. -->
-	<code>CCASE</code>や<code>CTYPECASE</code>は絶対使ってはなりません。
+	<code>CCASE</code>や<code>CTYPECASE</code>は使うべきではありません。
         <!-- At least, you should not use them in server processes, -->
         <!-- unless you have quite robust error handling infrastructure -->
         <!-- and make sure not to leak sensitive data this way. -->
-	少なくとも、とても堅牢なエラー処理機構があって、これでは重要なデータが漏れない自信でもない限り、サーバーの中では使うべきではありません。
+	少なくとも、とても堅牢なエラー処理機構があって、これにより重要なデータが漏れない確信があるのでもない限り、サーバーの中では使うべきではありません。
         <!-- These are meant for interactive use, -->
         <!-- and can cause interesting damage -->
         <!-- if they cause data or control to leak to attackers. -->
-	これらはインタラクティブに使うことを想定されており、データや制御が攻撃者の手に渡るようなことがあれば、興味深いダーメジを引き起こす可能性があります。
+	これらはインタラクティブに使うことを想定されており、データや制御が攻撃者の手に渡るようなことがあれば、興味深いダメージを引き起こす可能性があります。
       </p>
       <p>
         <!-- You must not use gratuitous single quotes in <code>CASE</code> forms. -->
-	無意味に<code>CASE</code>式でクォートを使ってはいけません。
+	無意味に<code>CASE</code>式でクォートを使ってはなりません。
         <!-- This is a common error: -->
 	これはよくある間違いです。
       </p>
@@ -4124,7 +4124,7 @@ Takashi Kato
         <!-- if <code>X</code> is <code>QUOTE</code>... -->
         <!-- and ditto for the second leg -->
         <!-- (though <code>QUOTE</code> will be caught by the first clause). -->
-	ここにある<code>'BAR</code>は<code>(QUOTE BAR)</code>と展開され、<code>X</code>が<code>QUOTE</code>だったときにこの節が実行されますし、第2節でも同様のことが起こります(この場合は第1節で<code>QUOTE</code>は補足されてしまいますが)。
+	ここにある<code>'BAR</code>は<code>(QUOTE BAR)</code>と展開され、<code>X</code>が<code>QUOTE</code>だったときにこの節が実行されますし、第2節でも同様のことが起こります(この場合は第1節で<code>QUOTE</code>は捕捉されてしまいますが)。
         <!-- This is unlikely to be what you really want. -->
 	これは恐らく望んだことではないでしょう。
       </p>
@@ -4144,7 +4144,7 @@ Takashi Kato
         <!-- Therefore, if you want to map booleans <code>NIL</code> and <code>T</code> -->
         <!-- to respective symbols <code>:BAR</code> and <code>:QUUX</code>, -->
         <!-- you should avoid the former way and do it the latter way: -->
-	なので、真偽値<code>NIL</code>や<code>T</code>をそれぞれ<code>:BAR</code>や<code>:QUUX</code>にマップしたいときは前者ではなく後者の表現を使いましょう:
+	したがって、真偽値<code>NIL</code>や<code>T</code>をそれぞれ<code>:BAR</code>や<code>:QUUX</code>にマップしたいときは[下記の]後者の表現を使うべきで前者ではありません:
       </p>
       <BAD_CODE_SNIPPET>
         (ecase x ; 悪い例: 実際にはエラーを出すことはない<!-- Bad: has no actual error case! -->
