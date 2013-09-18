@@ -3587,7 +3587,7 @@ Takashi Kato
       <ul>
         <li>
           <!-- "False." -->
-	  偽値[としてのNIL]
+	  偽値として
           <!-- In this case, use <code>NIL</code>. -->
 	  この場合は<code>NIL</code>を使いましょう。
           <!-- You should test for false <code>NIL</code> -->
@@ -3597,7 +3597,7 @@ Takashi Kato
         </li>
         <li>
           <!-- "Empty-list." -->
-	  空リスト[としてのNIL]
+	  空リストとして
           <!-- In this case, use <code>'()</code>. -->
 	  この場合は<code>'()</code>を使いましょう。
           <!-- (Be careful about quoting the empty-list when calling macros.) -->
@@ -3610,7 +3610,7 @@ Takashi Kato
         </li>
         <li>
           <!-- A statement about some value being unspecified. -->
-	  ある値が未定義であることの表明[としてのNIL]
+	  ある値が未定義であることの表明として
           <!-- In this case, you may use <code>NIL</code> -->
           <!-- if there is no risk of ambiguity anywhere in your code; -->
           <!-- otherwise you should use an explicit, descriptive symbol. -->
@@ -3618,7 +3618,7 @@ Takashi Kato
         </li>
         <li>
           <!-- A statement about some value being known not to exist. -->
-	  値が存在しないと分っている状態[としてのNIL]
+	  値が存在しないと分っている状態として
           <!-- In this case, you should use an explicit, descriptive symbol -->
           <!-- instead of <code>NIL</code>. -->
 	  この場合は<code>NIL</code>ではなしに、はっきりそれと分かるシンボルを使うべきです。
