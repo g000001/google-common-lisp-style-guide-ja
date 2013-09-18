@@ -3953,69 +3953,87 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        You should avoid using <code>&amp;ALLOW-OTHER-KEYS</code>,
-        since it blurs the contract of a function.
-        Almost any real function (generic or not) allows a certain
-        fixed set of keywords, as far as its caller is concerned,
-        and those are part of its contract.
-        If you are implementing a method of a generic function,
-        and it does not need to know
-        the values of some of the keyword arguments,
-        you should explicitly <code>(DECLARE (IGNORE ...))</code>
-        all the arguments that you are not using.
-        You must not use <code>&amp;ALLOW-OTHER-KEYS</code>
-        unless you explicitly want to disable checking of allowed keys
-        for all methods when invoking the generic function on arguments
-        that match this particular method.
-        Note that the contract of a generic function belongs in
-        the <code>DEFGENERIC</code>, not in the <code>DEFMETHOD</code>
-        which is basically an "implementation detail" of the generic function
-        as far as the caller of the generic is concerned.
+        <!-- You should avoid using <code>&amp;ALLOW-OTHER-KEYS</code>, -->
+        <!-- since it blurs the contract of a function. -->
+	<code>&amp;ALLOW-OTHER-KEYS</code>は関数の契約をあいまいにさせるので、使用は避けるべきです。
+        <!-- Almost any real function (generic or not) allows a certain -->
+        <!-- fixed set of keywords, as far as its caller is concerned, -->
+        <!-- and those are part of its contract. -->
+	ほとんどの実際の(総称も含めた)関数はある呼び出す側に関しては定まったキーワードを許しますが、これは関数の契約の一部です。
+        <!-- If you are implementing a method of a generic function, -->
+        <!-- and it does not need to know -->
+        <!-- the values of some of the keyword arguments, -->
+        <!-- you should explicitly <code>(DECLARE (IGNORE ...))</code> -->
+        <!-- all the arguments that you are not using. -->
+	総称関数のメソッドを実装をしていて、いくつかのキーワード引数の値に関知しないときはすべての該当引数に明示的に<code>(DECLARE (IGNORE ...))</code>を使うべきです。
+        <!-- You must not use <code>&amp;ALLOW-OTHER-KEYS</code> -->
+        <!-- unless you explicitly want to disable checking of allowed keys -->
+        <!-- for all methods when invoking the generic function on arguments -->
+        <!-- that match this particular method. -->
+	<code>&amp;ALLOW-OTHER-KEYS</code>は総称関数がディスパッチするときに、あるパターンにマッチした全てのメソッドでキーワードのチェックの処理を明示的に無効にしたいとき以外は使ってはいけません。
+        <!-- Note that the contract of a generic function belongs in -->
+        <!-- the <code>DEFGENERIC</code>, not in the <code>DEFMETHOD</code> -->
+        <!-- which is basically an "implementation detail" of the generic function -->
+        <!-- as far as the caller of the generic is concerned. -->
+	総称関数の契約は呼び出すときに関しては基本的に総称関数の「詳細の実装」である<code>DEFMETHOD</code>ではなく<code>DEFGENERIC</code>に属することを念頭に置きましょう。
       </p>
       <p>
-        A case where <code>&amp;ALLOW-OTHER-KEYS</code> is appropriate
-        is when you write a wrapper function to other some other functions
-        that may vary (within the computation or during development),
-        and pass around a plist as a <code>&amp;REST</code> argument.
+        <!-- A case where <code>&amp;ALLOW-OTHER-KEYS</code> is appropriate -->
+        <!-- is when you write a wrapper function to other some other functions -->
+        <!-- that may vary (within the computation or during development), -->
+        <!-- and pass around a plist as a <code>&amp;REST</code> argument. -->
+	<code>&amp;ALLOW-OTHER-KEYS</code>が適切であるケースには他の関数を呼び出すラッパ関数を書いていて、呼び出される関数が(実行時や開発中に)変わる可能性があり、<code>&amp;REST</code>として属性リストを渡すときなどがあります。
       </p>
       <p>
-        You should avoid using <code>&amp;AUX</code> arguments,
-        except in very short helper functions
-        where they allow you to eschew a <code>LET</code>.
+        <!-- You should avoid using <code>&amp;AUX</code> arguments, -->
+        <!-- except in very short helper functions -->
+        <!-- where they allow you to eschew a <code>LET</code>. -->
+	<code>&amp;AUX</code>の使用は、とても短かいヘルパー関数で、それを使えば<code>LET</code>を省略できるような場合以外は避けるべきです。
       </p>
       <p>
-        You should avoid having both <code>&amp;OPTIONAL</code>
-        and <code>&amp;KEY</code> arguments,
-        unless it never makes sense to specify keyword arguments
-        when the optional arguments are not all specified.
-        You must not have non-<code>NIL</code> defaults
-        to your <code>&amp;OPTIONAL</code> arguments
-        when your function has both <code>&amp;OPTIONAL</code>
-        and <code>&amp;KEY</code> arguments.
+        <!-- You should avoid having both <code>&amp;OPTIONAL</code> -->
+        <!-- and <code>&amp;KEY</code> arguments, -->
+        <!-- unless it never makes sense to specify keyword arguments -->
+        <!-- when the optional arguments are not all specified. -->
+	<code>&amp;OPTIONAL</code>と<code>&amp;KEY</code>の併用はオプショナル引数を指定しなければキーワード引数に意味がなくなる場合以外は避けるべきです。
+        <!-- You must not have non-<code>NIL</code> defaults -->
+        <!-- to your <code>&amp;OPTIONAL</code> arguments -->
+        <!-- when your function has both <code>&amp;OPTIONAL</code> -->
+        <!-- and <code>&amp;KEY</code> arguments. -->
+	<code>&amp;OPTIONAL</code>と<code>&amp;KEY</code>を併用するときは<code>&amp;OPTIONAL</code>引数に<code>NIL</code>でないデフォルト値を持たせるべきではありません。
       </p>
       <p>
-        For maximum portability of a library, it is good form
-        that <code>DEFMETHOD</code> definitions should
-        <code>(DECLARE (IGNORABLE ...))</code>
-        all the required arguments that they are not using.
-        Indeed, some implementations will issue a warning
-        if you <code>(DECLARE (IGNORE ...))</code> those arguments,
-        whereas other implementations will issue a warning
-        if you fail to <code>(DECLARE (IGNORE ...))</code> them.
-        <code>(DECLARE (IGNORABLE ...))</code> works on all implementations.
+        <!-- For maximum portability of a library, it is good form -->
+        <!-- that <code>DEFMETHOD</code> definitions should -->
+        <!-- <code>(DECLARE (IGNORABLE ...))</code> -->
+        <!-- all the required arguments that they are not using. -->
+	ライブラリに最大限のポータビリティを持たせるなら、<code>DEFMETHOD</code>が全ての要求引数だが使わないものを<code>(DECLARE (IGNORABLE ...))</code>するのは良いことです。
+        <!-- Indeed, some implementations will issue a warning -->
+        <!-- if you <code>(DECLARE (IGNORE ...))</code> those arguments, -->
+        <!-- whereas other implementations will issue a warning -->
+        <!-- if you fail to <code>(DECLARE (IGNORE ...))</code> them. -->
+	実は処理系の中にはそのような引数に<code>(DECLARE (IGNORE ...))</code>すると警告を出すものもある一方で、<code>(DECLARE (IGNORE ...))</code>に失敗すると警告を出すものもあります。
+        <!-- <code>(DECLARE (IGNORABLE ...))</code> works on all implementations. -->
+	<code>(DECLARE (IGNORABLE ...))</code>は全ての処理系で動きます。
       </p>
       <p>
-        You should avoid excessive nesting of binding forms inside a function.
-        If your function ends up with massive nesting,
-        you should probably break it up into several functions or macros.
-        If it is really a single conceptual unit,
-        consider using a macro such as <code>FARE-UTILS:NEST</code>
-        to at least reduce the amount of indentation required.
-        It is bad form to use <code>NEST</code> in typical short functions
-        with 4 or fewer levels of nesting,
-        but also bad form not to use it in the exceptional long functions
-        with 10 or more levels of nesting.
-        Use your judgment and consult your reviewers.
+        <!-- You should avoid excessive nesting of binding forms inside a function. -->
+	関数内で過剰な束縛の入れ子は避けるべきです。
+        <!-- If your function ends up with massive nesting, -->
+        <!-- you should probably break it up into several functions or macros. -->
+	大量の入れ子が出来上がったなら、その関数はいくつかの関数やマクロに分割すべきでしょう。
+        <!-- If it is really a single conceptual unit, -->
+        <!-- consider using a macro such as <code>FARE-UTILS:NEST</code> -->
+        <!-- to at least reduce the amount of indentation required. -->
+	もしそれが本当に必要最低限の機能しか有していないなら、最低でもインデントの数を減らすためにも<code>FARE-UTILS:NEST</code>などのマクロを使いましょう。
+	<!-- single conceptual unit を必要最低限の機能と訳しました。言いたいことは同じですが少しニュアンスが違う？-->
+        <!-- It is bad form to use <code>NEST</code> in typical short functions -->
+        <!-- with 4 or fewer levels of nesting, -->
+        <!-- but also bad form not to use it in the exceptional long functions -->
+        <!-- with 10 or more levels of nesting. -->
+	<code>NEST</code>を4つ以下の典型的な短かい関数に適用するのは望ましくありませんが、例外的に10つ以上のネストを持つ関数に適用しないのも良くありません。
+        <!-- Use your judgment and consult your reviewers. -->
+	自分で判断してレビュワーに相談しましょう。
       </p>
       
     </BODY>
