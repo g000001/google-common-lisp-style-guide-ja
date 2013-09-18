@@ -3587,54 +3587,55 @@ Takashi Kato
       <ul>
         <li>
           <!-- "False." -->
-	  偽値。
+	  偽値[としてのNIL]
           <!-- In this case, use <code>NIL</code>. -->
 	  この場合は<code>NIL</code>を使いましょう。
           <!-- You should test for false <code>NIL</code> -->
           <!-- using the operator <code>NOT</code> or -->
           <!-- using the predicate function <code>NULL</code>. -->
-	  <code>NIL</code>でないことをテストするときは、オペレータ<code>NOT</code>か述語<code>NULL</code>を使いましょう。
+	  偽値である<code>NIL</code>を判定するときは、オペレータ<code>NOT</code>か述語<code>NULL</code>を使うべきです。
         </li>
         <li>
           <!-- "Empty-list." -->
-	  空のリスト。
+	  空リスト[としてのNIL]
           <!-- In this case, use <code>'()</code>. -->
 	  この場合は<code>'()</code>を使いましょう。
           <!-- (Be careful about quoting the empty-list when calling macros.) -->
-	  (マクロを呼ぶときは空のリストをクォートすることに注意を払いましょう。)
+	  (マクロを呼ぶときは、[引数に与える]空リストのクォートについては注意を払いましょう。)
           <!-- You should use <code>ENDP</code> to test for the empty list -->
           <!-- when the argument is known to be a proper list, -->
           <!-- or with <code>NULL</code> otherwise. -->
-	  引数が真性リストであるか<code>NULL</code>であるか分っているときに空のリストであるかテストするときは<code>ENDP</code>を使いましょう。
+	  引数が真性リストであることが分っている場合での空リストの判定は<code>ENDP</code>を使うべきです。
+          それ以外の[空リストの判定]には、<code>NULL</code>を使います。
         </li>
         <li>
           <!-- A statement about some value being unspecified. -->
-	  ある値がまだ定まってない状態。
+	  ある値が未定義であることの表明[としてのNIL]
           <!-- In this case, you may use <code>NIL</code> -->
           <!-- if there is no risk of ambiguity anywhere in your code; -->
           <!-- otherwise you should use an explicit, descriptive symbol. -->
-	  この場合、あいまいさが無ければ<code>NIL</code>を使っても構いませんが、そうでなければはっきりそれと分かるシンボルを使うべきです。
+	  この場合、曖昧さが無ければ<code>NIL</code>を使っても構いませんが、そうでなければはっきりそれと分かるシンボルを使うべきです。
         </li>
         <li>
           <!-- A statement about some value being known not to exist. -->
-	  値が存在しないと分っている状態。
+	  値が存在しないと分っている状態[としてのNIL]
           <!-- In this case, you should use an explicit, descriptive symbol -->
           <!-- instead of <code>NIL</code>. -->
-	  この場合ははっきりそれと分かるシンボルを使うべきです。
+	  この場合は<code>NIL</code>ではなしに、はっきりそれと分かるシンボルを使うべきです。
         </li>
       </ul>
       <p>
         <!-- You must not introduce ambiguity in your data representations -->
         <!-- that will cause headaches for whoever has to debug code. -->
-	データ表現にデバッグする人の頭が痛くなるようなあいまいさを入れてはいけません。
+	データ表現にデバッグする人の頭が痛くなるような曖昧さを入れてはなりません。
         <!-- If there is any risk of ambiguity, -->
         <!-- you should use an explicit, descriptive symbol or keyword -->
         <!-- for each case, -->
         <!-- instead of using <code>NIL</code> for either. -->
-	もしあいまいさの残る可能性があるならなんでもかんでも<code>NIL</code>を使わず、はっきりそれと分かるシンボルやキーワードをそれぞれの場合に用いるべきです。
+	もし曖昧さの残る可能性があるなら、なんでもかんでも<code>NIL</code>を使わず、はっきりそれと分かるシンボルやキーワードをそれぞれの場合に用いるべきです。
         <!-- If you do use <code>NIL</code>, -->
         <!-- you must make sure that the distinction is well documented. -->
-	<code>NIL</code>を使うなら、その区別をしっかりドキュメントとして残す必要があります。
+	それでも、<code>NIL</code>を使うなら、その区別をしっかりドキュメントとして残さなければなりません。
       </p>
       <p>
         <!-- In many contexts, -->
@@ -3648,7 +3649,7 @@ Takashi Kato
         <!-- When working with database classes, keep in mind that -->
         <!-- <code>NIL</code> need not always map to <code>'NULL'</code> -->
         <!-- (and vice-versa)! -->
-	データベースクラスを扱っているときは、<code>NIL</code>は<code>'NULL'</code>としてマップされる(逆も然り!)ことを覚えておきましょう。
+	データベースクラスを扱っているときは、常に<code>NIL</code>が[データベースの]<code>'NULL'</code>としてマップされる必用はない(逆も然り!)ことを覚えておきましょう。
         <!-- The needs of the database may differ from the needs of the Lisp. -->
 	データベースでのニーズとLispでのニーズは恐らく違うものでしょう。
       </p>
@@ -3783,7 +3784,7 @@ Takashi Kato
         リストの第一要素へのアクセスには<code>FIRST</code>を使いましょう。
         また、<code>SECOND</code>は第二要素へのアクセスに使いましょう(以降同様)。
         リストのテール部へのアクセスには<code>REST</code>を使いましょう。
-        リスト終端のテストには<code>ENDP</code>を使いましょう。
+        リスト終端の判定には<code>ENDP</code>を使いましょう。
       </p>
       <p>
         <!-- Use <code>CAR</code> and <code>CDR</code> -->
@@ -3792,7 +3793,7 @@ Takashi Kato
         <!-- Use <code>NULL</code> to test for <code>NIL</code> in this context. -->
         <code>CAR</code>と<code>CDR</code>は、
         コンスセルが真正リストとして使われない場合や、[コンスセルに限らず]オブジェクト一般のペアの表現とみなされるものに使いましょう。
-        また、この[用法の]文脈では、<code>NULL</code>を<code>NIL</code>かどうかのテストに使います。
+        また、この[用法の]文脈では、<code>NULL</code>を<code>NIL</code>かどうかの判定に使います。
       </p>
       <p>
         <!-- The latter case should be rare outside of alists, -->
