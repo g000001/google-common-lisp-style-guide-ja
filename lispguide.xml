@@ -3581,58 +3581,76 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        <code>NIL</code> can have several different interpretations:
+        <!-- <code>NIL</code> can have several different interpretations: -->
+	<code>NIL</code>はいくつかの意味を持ち得ます。
       </p>
       <ul>
         <li>
-          "False."
-          In this case, use <code>NIL</code>.
-          You should test for false <code>NIL</code>
-          using the operator <code>NOT</code> or
-          using the predicate function <code>NULL</code>.
+          <!-- "False." -->
+	  偽値。
+          <!-- In this case, use <code>NIL</code>. -->
+	  この場合は<code>NIL</code>を使いましょう。
+          <!-- You should test for false <code>NIL</code> -->
+          <!-- using the operator <code>NOT</code> or -->
+          <!-- using the predicate function <code>NULL</code>. -->
+	  <code>NIL</code>でないことをテストするときは、オペレータ<code>NOT</code>か述語<code>NULL</code>を使いましょう。
         </li>
         <li>
-          "Empty-list."
-          In this case, use <code>'()</code>.
-          (Be careful about quoting the empty-list when calling macros.)
-          You should use <code>ENDP</code> to test for the empty list
-          when the argument is known to be a proper list,
-          or with <code>NULL</code> otherwise.
+          <!-- "Empty-list." -->
+	  空のリスト。
+          <!-- In this case, use <code>'()</code>. -->
+	  この場合は<code>'()</code>を使いましょう。
+          <!-- (Be careful about quoting the empty-list when calling macros.) -->
+	  (マクロを呼ぶときは空のリストをクォートすることに注意を払いましょう。)
+          <!-- You should use <code>ENDP</code> to test for the empty list -->
+          <!-- when the argument is known to be a proper list, -->
+          <!-- or with <code>NULL</code> otherwise. -->
+	  引数が真性リストであるか<code>NULL</code>であるか分っているときに空のリストであるかテストするときは<code>ENDP</code>を使いましょう。
         </li>
         <li>
-          A statement about some value being unspecified.
-          In this case, you may use <code>NIL</code>
-          if there is no risk of ambiguity anywhere in your code;
-          otherwise you should use an explicit, descriptive symbol.
+          <!-- A statement about some value being unspecified. -->
+	  ある値がまだ定まってない状態。
+          <!-- In this case, you may use <code>NIL</code> -->
+          <!-- if there is no risk of ambiguity anywhere in your code; -->
+          <!-- otherwise you should use an explicit, descriptive symbol. -->
+	  この場合、あいまいさが無ければ<code>NIL</code>を使っても構いませんが、そうでなければはっきりそれと分かるシンボルを使うべきです。
         </li>
         <li>
-          A statement about some value being known not to exist.
-          In this case, you should use an explicit, descriptive symbol
-          instead of <code>NIL</code>.
+          <!-- A statement about some value being known not to exist. -->
+	  値が存在しないと分っている状態。
+          <!-- In this case, you should use an explicit, descriptive symbol -->
+          <!-- instead of <code>NIL</code>. -->
+	  この場合ははっきりそれと分かるシンボルを使うべきです。
         </li>
       </ul>
       <p>
-        You must not introduce ambiguity in your data representations
-        that will cause headaches for whoever has to debug code.
-        If there is any risk of ambiguity,
-        you should use an explicit, descriptive symbol or keyword
-        for each case,
-        instead of using <code>NIL</code> for either.
-        If you do use <code>NIL</code>,
-        you must make sure that the distinction is well documented.
+        <!-- You must not introduce ambiguity in your data representations -->
+        <!-- that will cause headaches for whoever has to debug code. -->
+	データ表現にデバッグする人の頭が痛くなるようなあいまいさを入れてはいけません。
+        <!-- If there is any risk of ambiguity, -->
+        <!-- you should use an explicit, descriptive symbol or keyword -->
+        <!-- for each case, -->
+        <!-- instead of using <code>NIL</code> for either. -->
+	もしあいまいさの残る可能性があるならなんでもかんでも<code>NIL</code>を使わず、はっきりそれと分かるシンボルやキーワードをそれぞれの場合に用いるべきです。
+        <!-- If you do use <code>NIL</code>, -->
+        <!-- you must make sure that the distinction is well documented. -->
+	<code>NIL</code>を使うなら、その区別をしっかりドキュメントとして残す必要があります。
       </p>
       <p>
-        In many contexts,
-        instead of representing "I don't know" as a particular value,
-        you should instead use multiple values,
-        one for the value that is known if any,
-        and one to denote whether the value was known or found.
+        <!-- In many contexts, -->
+        <!-- instead of representing "I don't know" as a particular value, -->
+        <!-- you should instead use multiple values, -->
+        <!-- one for the value that is known if any, -->
+        <!-- and one to denote whether the value was known or found. -->
+	多くの場合、ある値について「なにやら分からない」と表現するのではなく、多値を用いて1つめの値で、[求めたい値が]あればそれを、2つめの値で[求めたい値が]あったかどうかを表わすべきです。
       </p>
       <p>
-        When working with database classes, keep in mind that
-        <code>NIL</code> need not always map to <code>'NULL'</code>
-        (and vice-versa)!
-        The needs of the database may differ from the needs of the Lisp.
+        <!-- When working with database classes, keep in mind that -->
+        <!-- <code>NIL</code> need not always map to <code>'NULL'</code> -->
+        <!-- (and vice-versa)! -->
+	データベースクラスを扱っているときは、<code>NIL</code>は<code>'NULL'</code>としてマップされる(逆も然り!)ことを覚えておきましょう。
+        <!-- The needs of the database may differ from the needs of the Lisp. -->
+	データベースでのニーズとLispでのニーズは恐らく違うものでしょう。
       </p>
     </BODY>
   </STYLEPOINT>
