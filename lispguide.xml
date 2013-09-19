@@ -4648,7 +4648,7 @@ Takashi Kato
         宣言時、Lisp処理系は、任意でこの情報をプログラムの速度向上のために活用することができます。
         <!-- Typically, Lisp implementations can take advantage of this knowledge -->
         <!-- to stack-allocate: -->
-        典型的には、Lisp処理系は、この知識をスタック割付に役立てます:
+        典型的には、Lisp処理系は、この知識をスタック割付けに役立てます:
       </p>
       <ul>
         <li>
@@ -4712,7 +4712,7 @@ Takashi Kato
       <p>
         <!-- Point (1) is a special case of -->
         <!-- the principle of avoiding premature optimization. -->
-	1つめの項目は完成前の最適化は避けるの原則の特別な場合です。
+	1つめの項目は早過ぎる最適化を避けるの原則の特別な場合です。
         <!-- An optimization like this only matters if such objects -->
         <!-- are allocated at a very high rate, e.g. "inside an inner loop". -->
 	このような最適化は「[ネストした]内側のループの中」などの非常に高い頻度でアロケートされるような場合にのみ意味があります。
@@ -4724,12 +4724,12 @@ Takashi Kato
         <!-- what other functions it is passed to; -->
         <!-- therefore, you should somewhat wary of declaring a function -->
         <!-- <code>DYNAMIC-EXTENT</code>, but not a high-stress declaration. -->
-	関数がどこで呼ばれてどの別の関数に渡されるかを分析すれば動的スコープを抜けないことを突き止める方が比較的容易なので関数に<code>DYNAMIC-EXTENT</code>を宣言するときは用心する必要はありますが、それほどストレスの高いものではないことを覚えておきましょう。
+	関数がどこで呼ばれてどの別の関数に渡されるかを分析すれば、その関数が現在のコールフレームの動的スコープを抜けないことを突き止めることは比較的容易なので、関数に<code>DYNAMIC-EXTENT</code>を宣言するときは用心する必要はありますが、それほどストレスの高いものではないことを覚えておきましょう。
         <!-- On the other hand, it is much harder to ascertain that -->
         <!-- none of the objects ever bound or assigned to that variable -->
         <!-- will escape the dynamic extent of the current call frame, -->
         <!-- nor will in any future modification of a function. -->
-	逆に、ある変数に束縛されたどのオブジェクトも現在の関数呼び出しの動的エクステントを抜けない、そして将来の修正の影響も受けないことを確実にするのは非常に困難を極めます。
+	逆に、ある変数に束縛されたどのオブジェクトも現在のコールフレームの動的エクステントを抜けない、そして将来の修正の影響も受けないことを確実にするのは非常に困難を極めます。
         <!-- Therefore, you should be extremely wary -->
         <!-- of declaring a variable <code>DYNAMIC-EXTENT</code>. -->
 	それゆえ、変数に<code>DYNAMIC-EXTENT</code>を宣言するときは細心の注意を払いましょう。
@@ -4754,7 +4754,7 @@ Takashi Kato
         <!-- and it's not obvious how much time will be saved -->
         <!-- and it's not easy to measure, -->
         <!-- then it may be better to put in the declaration than to leave it out. -->
-	オブジェクトが動的[エクステントとなるような]スコープでしか使われないという絶対の自身があって、どの程度最適化の効果があるか分からず、容易に効果の測定もできないなら宣言する方が良いでしょう。
+	オブジェクトが動的[エクステントとなるような]スコープでしか使われないという絶対の自身があって、どの程度最適化の効果があるか分からず、容易に効果の測定もできないなら、そのまま放っておくよりは、宣言する方が良いでしょう。
         <!-- (Ideally it would be easier to make such measurements -->
         <!-- than it actually is.) -->
 	(もっと測定が容易であれば良いのですが。)
