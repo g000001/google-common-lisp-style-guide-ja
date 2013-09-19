@@ -40,7 +40,7 @@ g000001
 @guicho271828
 </address>
 <address>
-KeenS
+κeen
 </address>
 <address>
 佐野匡俊
@@ -3727,24 +3727,28 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        You should avoid using a list as anything besides a container of elements of like type.
+        <!-- You should avoid using a list as anything besides a container of elements of like type. -->
+	リストを似通った要素のコンテナとして以外に使うべきではありません。
         <!-- リストをなにか似たようなタイプもの入れ物として使うことからそれて使うべきではありません。??? -->
-        You must not use a list as method of passing multiple separate values of different types in and out of function calls.
+        <!-- You must not use a list as method of passing multiple separate values of different types in and out of function calls. -->
+	関数呼び出しの内外でリストを違う型の別々の複数の値を渡す手段として使ってはいけません。
         <!-- リストを関数の手法として使ってはなりません。 -->
         <!-- Sometimes it is convenient to use a list as a little ad hoc structure, -->
         時にはリストを少しアドホックな構造体と見做して使うのも便利でしょう。
         <!-- i.e. "the first element of the list is a FOO, and the second is a BAR", -->
         すなわち、"そのリストの最初の第一の要素はFOO、そして第二はBARとする"、のように。
         <!-- but this should be used minimally since it gets harder to remember the little convention. -->
-        しかし、このような使い方は最小限であるべきて、なぜならこのような細々とした取り決めを思い出すのは難しいからです。
-        You must only use a list that way when destructuring the list of arguments from a function,
-        or creating a list of arguments to which to <code>APPLY</code> a function.
+        しかし、このような使い方は最小限であるべきで、なぜならこのような細々とした取り決めを思い出すのは難しいからです。
+        <!-- You must only use a list that way when destructuring the list of arguments from a function, -->
+        <!-- or creating a list of arguments to which to <code>APPLY</code> a function. -->
+	そのような使い方は関数の返値を分配する場合、あるいは<code>APPLY</code>するためのリストを作る場合に限られるべきです。
       </p>
       <p>
-        The proper way to pass around an object
-        comprising several values of heterogeneous types
-        is to use a structure as defined by <code>DEFSTRUCT</code>
-        or <code>DEFCLASS</code>.
+        <!-- The proper way to pass around an object -->
+        <!-- comprising several values of heterogeneous types -->
+        <!-- is to use a structure as defined by <code>DEFSTRUCT</code> -->
+        <!-- or <code>DEFCLASS</code>. -->
+	型の異なる複数の値からなるオブジェクトを渡す正しい方法は<code>DEFSTRUCT</code>や<code>DEFCLASS</code>で定義された構造を使うことです。
       </p>
       <p>
         <!-- You should use multiple values only -->
@@ -3758,8 +3762,7 @@ Takashi Kato
         <!-- as one of a set of multiple values. -->
         <!-- Instead, you should signal the condition to denote an unusual outcome. -->
         <!-- なにこれ？訳す坪どこ？外人？歌？ -->
-        You should not return a condition object as one of a set of multiple values. 
-        Instead, you should signal the condition to denote an unusual outcome.
+	コンディションオブジェクトは多値の1つとして返すべきではありません。代りに、異常が出たことを通知するのにコンディションを発するべきです。
         <!-- 多値のセットをコンディションと見做して返すべきではありません。 -->
         <!-- 代わりに、普通でない結果となったこととしてコンディションを発するべきです。 -->
       </p>
