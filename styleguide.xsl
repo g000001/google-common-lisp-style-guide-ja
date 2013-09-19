@@ -176,11 +176,13 @@ xmlns:fn="http://www.w3.org/2005/xpath-functions">
     </xsl:variable>
     <DIV style="margin-left: 50%; font-size: 75%;">
       <P>
-        Each style point has a summary for which additional information is available
-        by toggling the accompanying arrow button that looks this way:
+        <!-- Each style point has a summary for which additional information is available -->
+        <!-- by toggling the accompanying arrow button that looks this way: -->
+	それぞれの項目には要約があり、次のような矢印で詳細の表示/非表示を切り替えることができます。
         <SPAN class="showhide_button" style="margin-left: 0; float: none">
           <xsl:value-of select="$show_button_text"/></SPAN>.
-        You may toggle all summaries with the big arrow button:
+        <!-- You may toggle all summaries with the big arrow button: -->
+	大きな矢印で全ての要約の表示/非表示を切り替えられます。
       </P>
       <DIV style=" font-size: larger; margin-left: +2em;">
         <SPAN class="showhide_button" style="font-size: 180%; float: none">
@@ -189,7 +191,8 @@ xmlns:fn="http://www.w3.org/2005/xpath-functions">
           <xsl:attribute name="id"><xsl:value-of select="$show_hide_all_button"/></xsl:attribute>
           <xsl:value-of select="$button_text"/>
         </SPAN>
-        Toggle all summaries
+        <!-- Toggle all summaries -->
+	全ての要約の表示/非表示を切り替える
       </DIV>
     </DIV>
     <xsl:call-template name="TOC">
