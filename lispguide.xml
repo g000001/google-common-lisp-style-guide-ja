@@ -3731,8 +3731,7 @@ Takashi Kato
 	リストを似通った要素のコンテナとして以外に使うべきではありません。
         <!-- リストをなにか似たようなタイプもの入れ物として使うことからそれて使うべきではありません。??? -->
         <!-- You must not use a list as method of passing multiple separate values of different types in and out of function calls. -->
-	関数呼び出しの内外でリストを違う型の別々の複数の値を渡す手段として使ってはいけません。
-        <!-- リストを関数の手法として使ってはなりません。 -->
+	関数呼び出しの内外でリストを違う型の別々の複数の値を渡す手段として使ってはなりません。
         <!-- Sometimes it is convenient to use a list as a little ad hoc structure, -->
         時にはリストを少しアドホックな構造体と見做して使うのも便利でしょう。
         <!-- i.e. "the first element of the list is a FOO, and the second is a BAR", -->
@@ -3741,7 +3740,7 @@ Takashi Kato
         しかし、このような使い方は最小限であるべきで、なぜならこのような細々とした取り決めを思い出すのは難しいからです。
         <!-- You must only use a list that way when destructuring the list of arguments from a function, -->
         <!-- or creating a list of arguments to which to <code>APPLY</code> a function. -->
-	そのような使い方は関数の返値を分配する場合、あるいは<code>APPLY</code>するためのリストを作る場合に限られるべきです。
+	そのような使い方は関数の返り値を分配する場合、あるいは<code>APPLY</code>するためのリストを作る場合に限られるべきです。
       </p>
       <p>
         <!-- The proper way to pass around an object -->
@@ -3761,10 +3760,8 @@ Takashi Kato
         <!-- You should not return a condition object -->
         <!-- as one of a set of multiple values. -->
         <!-- Instead, you should signal the condition to denote an unusual outcome. -->
-        <!-- なにこれ？訳す坪どこ？外人？歌？ -->
-	コンディションオブジェクトは多値の1つとして返すべきではありません。代りに、異常が出たことを通知するのにコンディションを発するべきです。
-        <!-- 多値のセットをコンディションと見做して返すべきではありません。 -->
-        <!-- 代わりに、普通でない結果となったこととしてコンディションを発するべきです。 -->
+	コンディションオブジェクトを多値の一式として返すべきではありません。代りに、異常が出たことを通知するのにコンディションを発するべきです。
+        <!-- TODO: 具体的な状況が分からない。 -->
       </p>
       <p>
         <!-- You should signal a condition to denote an unusual outcome, -->
