@@ -3905,58 +3905,65 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        The Lisp system we primarily use, SBCL, is very picky and
-        signals a condition whenever a constant is redefined to a value not
-        <code>EQL</code> to its previous setting.
-        You must not use <code>DEFCONSTANT</code>
-        when defining variables that are not
-        numbers, characters, or symbols (including booleans and keywords).
-        Instead, consistently use whichever alternative
-        is recommended for your project.
+        <!-- The Lisp system we primarily use, SBCL, is very picky and -->
+        <!-- signals a condition whenever a constant is redefined to a value not -->
+        <!-- <code>EQL</code> to its previous setting. -->
+	私たちが主に使うSBCLはとても口うるさく、定数が前の定義と<code>EQL</code>でないものに設定されるとコンディションを発します。
+        <!-- You must not use <code>DEFCONSTANT</code> -->
+        <!-- when defining variables that are not -->
+        <!-- numbers, characters, or symbols (including booleans and keywords). -->
+	数字や文字やシンボル(含真偽値、キーワード)でない値に<code>DEFCONSTANT</code>を使ってはいけません。
+        <!-- Instead, consistently use whichever alternative -->
+        <!-- is recommended for your project. -->
+	代りに、プロジェクトで首尾一貫して代替品のどれかを使うことが推奨されます。
       </p>
       <BAD_CODE_SNIPPET>
-        ;; Bad
+        ;; 悪い例<!-- Bad -->
         (defconstant +google-url+ "http://www.google.com/")
         (defconstant +valid-colors+ '(red green blue))
       </BAD_CODE_SNIPPET>
-      
-      
-      
-      
       <p>
-        Open-Source libraries may use
-        <code>ALEXANDRIA:DEFINE-CONSTANT</code>
-        for constants other than numbers, characters and symbols
-        (including booleans and keywords).
-        You may use the <code>:TEST</code> keyword argument
-        to specify an equality predicate.
+        <!-- Open-Source libraries may use -->
+        <!-- <code>ALEXANDRIA:DEFINE-CONSTANT</code> -->
+        <!-- for constants other than numbers, characters and symbols -->
+        <!-- (including booleans and keywords). -->
+	数字や文字やシンボル(含真偽値、キーワード)でない値を定数にしたいのなら、オープンソースライブラリは<code>ALEXANDRIA:DEFINE-CONSTANT</code>が使えます。
+        <!-- You may use the <code>:TEST</code> keyword argument -->
+        <!-- to specify an equality predicate. -->
+	<code>:TEST</code>キーワード引数で等価性をテストする述語を指定できます。
       </p>
       <CODE_SNIPPET>
-        ;; Better, for Open-Source code:
+        ;; 良い例 オープンソース向け:<!-- Better, for Open-Source code: -->
         (define-constant +google-url+ "http://www.google.com/" :test #'string=)
         (define-constant +valid-colors+ '(red green blue))
       </CODE_SNIPPET>
       <p>
-        Note that with optimizing implementations, such as SBCL or CMUCL,
-        defining constants this way precludes any later redefinition
-        short of <code>UNINTERN</code>ing the symbol
-        and recompiling all its clients.
-        This may make it "interesting" to debug things at the REPL
-        or to deploy live code upgrades.
-        If there is a chance that your "constants" are not going to be constant
-        over the lifetime of your server processes
-        after taking into consideration scheduled and unscheduled code patches,
-        you should consider using
-        <code>DEFPARAMETER</code> or <code>DEFVAR</code> instead,
-        or possibly a variant of <code>DEFINE-CONSTANT</code>
-        that builds upon some future library implementing global lexicals
-        rather than <code>DEFCONSTANT</code>.
-        You may keep the <code>+plus+</code> convention in these cases
-        to document the intent of the parameter as a constant.
+        <!-- Note that with optimizing implementations, such as SBCL or CMUCL, -->
+        <!-- defining constants this way precludes any later redefinition -->
+        <!-- short of <code>UNINTERN</code>ing the symbol -->
+        <!-- and recompiling all its clients. -->
+	SBCLやCMUCLなどの最適化を掛ける処理系ではこのように定数を定義するとシンボルを<code>UNINTERN</code>して定数を使っているコード全てを再度コンパイルする以外後に定数を再定義する方法が無いことを覚えておきましょう。
+        <!-- This may make it "interesting" to debug things at the REPL -->
+        <!-- or to deploy live code upgrades. -->
+	これによってREPLでのデバッグやホットデプロイが「愉快な」ことになってしまいます。
+        <!-- If there is a chance that your "constants" are not going to be constant -->
+        <!-- over the lifetime of your server processes -->
+        <!-- after taking into consideration scheduled and unscheduled code patches, -->
+        <!-- you should consider using -->
+        <!-- <code>DEFPARAMETER</code> or <code>DEFVAR</code> instead, -->
+        <!-- or possibly a variant of <code>DEFINE-CONSTANT</code> -->
+        <!-- that builds upon some future library implementing global lexicals -->
+        <!-- rather than <code>DEFCONSTANT</code>. -->
+	もし想定内/外のパッチを考慮するとサーバー上で動いている間に「定数」の値が変更され得るなら<code>DEFCONSTANT</code>ではなく<code>DEFPARAMETER</code>や<code>DEFVAR</code>、あるいはグローバルレキシカルを実装した将来のライブラリの集大成である<code>DEFINE-CONSTANT</code>の変種の使用を考えるべきです。
+	<!-- builds upon some future library implementing global lexicalsの訳が分りませんでした。global lexicals?(κeen) -->
+        <!-- You may keep the <code>+plus+</code> convention in these cases -->
+        <!-- to document the intent of the parameter as a constant. -->
+	この場合は定数として扱う意図であることを示すために<code>+plus+</code>のコーディング規約を用いても構いません。
       </p>
       <p>
-        Also note that <code>LOAD-TIME-VALUE</code> may help you
-        avoid the need for defined constants.
+        <!-- Also note that <code>LOAD-TIME-VALUE</code> may help you -->
+        <!-- avoid the need for defined constants. -->
+	<code>LOAD-TIME-VALUE</code>を使えば定数を使わなくて済むことがあることも覚えておきましょう。
       </p>
     </BODY>
   </STYLEPOINT>
