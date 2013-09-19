@@ -3974,7 +3974,7 @@ Takashi Kato
       <p>
         <!-- You should avoid using <code>&amp;ALLOW-OTHER-KEYS</code>, -->
         <!-- since it blurs the contract of a function. -->
-	<code>&amp;ALLOW-OTHER-KEYS</code>は関数の契約をあいまいにさせるので、使用は避けるべきです。
+	<code>&amp;ALLOW-OTHER-KEYS</code>は関数の契約を曖昧にさせるので、使用は避けるべきです。
         <!-- Almost any real function (generic or not) allows a certain -->
         <!-- fixed set of keywords, as far as its caller is concerned, -->
         <!-- and those are part of its contract. -->
@@ -3984,12 +3984,12 @@ Takashi Kato
         <!-- the values of some of the keyword arguments, -->
         <!-- you should explicitly <code>(DECLARE (IGNORE ...))</code> -->
         <!-- all the arguments that you are not using. -->
-	総称関数のメソッドを実装をしていて、いくつかのキーワード引数の値に関知しないときはすべての該当引数に明示的に<code>(DECLARE (IGNORE ...))</code>を使うべきです。
+	総称関数のメソッドを実装をしていて、いくつかのキーワード引数の値に関知しないときは、該当引数すべてに明示的に<code>(DECLARE (IGNORE ...))</code>を使うべきです。
         <!-- You must not use <code>&amp;ALLOW-OTHER-KEYS</code> -->
         <!-- unless you explicitly want to disable checking of allowed keys -->
         <!-- for all methods when invoking the generic function on arguments -->
         <!-- that match this particular method. -->
-	<code>&amp;ALLOW-OTHER-KEYS</code>は総称関数がディスパッチするときに、あるパターンにマッチした全てのメソッドでキーワードのチェックの処理を明示的に無効にしたいとき以外は使ってはいけません。
+	<code>&amp;ALLOW-OTHER-KEYS</code>は総称関数がディスパッチするときに、あるパターンにマッチした全てのメソッドでキーワードのチェックの処理を明示的に無効にしたいとき以外は使ってはなりません。
         <!-- Note that the contract of a generic function belongs in -->
         <!-- the <code>DEFGENERIC</code>, not in the <code>DEFMETHOD</code> -->
         <!-- which is basically an "implementation detail" of the generic function -->
@@ -4026,12 +4026,12 @@ Takashi Kato
         <!-- that <code>DEFMETHOD</code> definitions should -->
         <!-- <code>(DECLARE (IGNORABLE ...))</code> -->
         <!-- all the required arguments that they are not using. -->
-	ライブラリに最大限のポータビリティを持たせるなら、<code>DEFMETHOD</code>が全ての要求引数だが使わないものを<code>(DECLARE (IGNORABLE ...))</code>するのは良いことです。
+	ライブラリに最大限のポータビリティを持たせるなら、<code>DEFMETHOD</code>が全ての必須引数のうちで使わないものを<code>(DECLARE (IGNORABLE ...))</code>するのは良いことです。
         <!-- Indeed, some implementations will issue a warning -->
         <!-- if you <code>(DECLARE (IGNORE ...))</code> those arguments, -->
         <!-- whereas other implementations will issue a warning -->
         <!-- if you fail to <code>(DECLARE (IGNORE ...))</code> them. -->
-	実は処理系の中にはそのような引数に<code>(DECLARE (IGNORE ...))</code>すると警告を出すものもある一方で、<code>(DECLARE (IGNORE ...))</code>に失敗すると警告を出すものもあります。
+	実のところ処理系の中にはそのような[未使用]引数に<code>(DECLARE (IGNORE ...))</code>すると警告を出すものもある一方で、<code>(DECLARE (IGNORE ...))</code>に失敗すると警告を出すものもあります。
         <!-- <code>(DECLARE (IGNORABLE ...))</code> works on all implementations. -->
 	<code>(DECLARE (IGNORABLE ...))</code>は全ての処理系で動きます。
       </p>
@@ -4044,7 +4044,7 @@ Takashi Kato
         <!-- If it is really a single conceptual unit, -->
         <!-- consider using a macro such as <code>FARE-UTILS:NEST</code> -->
         <!-- to at least reduce the amount of indentation required. -->
-	もしそれが本当に必要最低限の機能しか有していないなら、最低でもインデントの数を減らすためにも<code>FARE-UTILS:NEST</code>などのマクロを使いましょう。
+	もしそれが本当に必要最低限の機能しか有していないなら、最低でもインデントの数を減らすためにも<code>FARE-UTILS:NEST</code>などのマクロの利用を検討できるでしょう。
 	<!-- single conceptual unit を必要最低限の機能と訳しました。言いたいことは同じですが少しニュアンスが違う？-->
         <!-- It is bad form to use <code>NEST</code> in typical short functions -->
         <!-- with 4 or fewer levels of nesting, -->
