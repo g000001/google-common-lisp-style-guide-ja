@@ -3761,7 +3761,7 @@ Takashi Kato
         <!-- as one of a set of multiple values. -->
         <!-- Instead, you should signal the condition to denote an unusual outcome. -->
 	コンディションオブジェクトを多値の一式として返すべきではありません。代りに、異常が出たことを通知するのにコンディションを発するべきです。
-        <!-- TODO: 具体的な状況が分からない。 -->
+        <!-- TODO: コンディションを多値で返すという、NGの場合の具体的な状況が分からないので調べる -->
       </p>
       <p>
         <!-- You should signal a condition to denote an unusual outcome, -->
