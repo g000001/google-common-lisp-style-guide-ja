@@ -5045,71 +5045,88 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        It is surprisingly hard to properly deal with pathnames in Common Lisp.
+        <!-- It is surprisingly hard to properly deal with pathnames in Common Lisp. -->
+	Common Lispでパスネームを適切に扱うのは驚くほど難しいです。
       </p>
       <p>
-        First, be aware of the discrepancies between
-        the syntax of Common Lisp pathnames,
-        which depends on which implementation and operating system
-        you are using,
-        and the native syntax of pathnames on your operating system.
-        The Lisp syntax may involves quoting of special characters
-        such as <code>#\.</code> and <code>#\*</code>, etc.,
-        in addition to the quoting of
-        <code>#\\</code> and <code>#\"</code> within strings.
-        By contrast, your operating system's other
-        system programming languages
-        (shell, C, scripting languages)
-        may only have one layer of quoting, into strings.
+        <!-- First, be aware of the discrepancies between -->
+        <!-- the syntax of Common Lisp pathnames, -->
+        <!-- which depends on which implementation and operating system -->
+        <!-- you are using, -->
+        <!-- and the native syntax of pathnames on your operating system. -->
+	まず、Common Lispのパスネームのシンタックスは処理系、OS、そしてOSのパスネームの記法による食い違いがあることに気をつけましょう。
+        <!-- The Lisp syntax may involves quoting of special characters -->
+        <!-- such as <code>#\.</code> and <code>#\*</code>, etc., -->
+        <!-- in addition to the quoting of -->
+        <!-- <code>#\\</code> and <code>#\"</code> within strings. -->
+	Lispのシンタックスでは文字列の<code>#\\</code>や<code>#\"</code>のクォートに加えて<code>#\.</code>や<code>#\*</code>などの特殊文字のクオートも含みます
+        <!-- By contrast, your operating system's other -->
+        <!-- system programming languages -->
+        <!-- (shell, C, scripting languages) -->
+        <!-- may only have one layer of quoting, into strings. -->
+	対照的に、あなたのOSのの別のシステムプログラミング言語(shell, C, スクリプト言語)は文字列にするというクォートしかないでしょう。
+	<!-- ちょっと自信ないです(κeen) -->
       </p>
       <p>
-        Second, when using <code>MERGE-PATHNAMES</code>,
-        be wary of the treatment of the <code>HOST</code> component,
-        which matters a lot on non-Unix platforms
-        (and even on some Unix implementations).
-        You probably should be using
-        <code>ASDF-UTILS:MERGE-PATHNAMES*</code>
-        instead of <code>MERGE-PATHNAMES</code>,
-        especially if your expectations for relative pathnames
-        are informed by the way they work in Unix or Windows;
-        otherwise you might hit weird bugs whereby on some implementations,
-        merging a relative pathnames with an absolute pathname
-        results in overriding the absolute pathname's host
-        and replace it with the host from the value of
-        <code>*DEFAULT-PATHNAME-DEFAULTS*</code>
-        at the time the relative pathname was created.
+        <!-- Second, when using <code>MERGE-PATHNAMES</code>, -->
+        <!-- be wary of the treatment of the <code>HOST</code> component, -->
+        <!-- which matters a lot on non-Unix platforms -->
+        <!-- (and even on some Unix implementations). -->
+	次に、<code>MERGE-PATHNAMES</code>を使うときには<code>HOST</code>の扱いに気を配りましょう。これは多くのUNIX以外(そして一部のUNIXでさえ)問題になります。
+        <!-- You probably should be using -->
+        <!-- <code>ASDF-UTILS:MERGE-PATHNAMES*</code> -->
+        <!-- instead of <code>MERGE-PATHNAMES</code>, -->
+        <!-- especially if your expectations for relative pathnames -->
+        <!-- are informed by the way they work in Unix or Windows; -->
+        <!-- otherwise you might hit weird bugs whereby on some implementations, -->
+        <!-- merging a relative pathnames with an absolute pathname -->
+        <!-- results in overriding the absolute pathname's host -->
+        <!-- and replace it with the host from the value of -->
+        <!-- <code>*DEFAULT-PATHNAME-DEFAULTS*</code> -->
+        <!-- at the time the relative pathname was created. -->
+	特に相対パスがUnixやWindowsでのやり方のように伝えられる<!--渡される？-->と期待しているなら<code>MERGE-PATHNAMES</code>ではなく<code>ASDF-UTILS:MERGE-PATHNAMES*</code>を使うべきなのかもしれません。そうでなければ一部の処理系で相対パスと絶対パスを結合したときに絶対パスのホスト名が相対パスが作られたときの<code>*DEFAULT-PATHNAME-DEFAULTS*</code>のホストの値で上書きされるという奇妙なバグにぶつかるでしょう。 
       </p>
       <p>
-        Third, be aware that <code>DIRECTORY</code>
-        is not portable across implementations
-        in how it handles wildcards, sub-directories, symlinks, etc.
-        There again, <code>ASDF-UTILS</code> provides several
-        common abstractions to deal with pathnames.
+        <!-- Third, be aware that <code>DIRECTORY</code> -->
+        <!-- is not portable across implementations -->
+        <!-- in how it handles wildcards, sub-directories, symlinks, etc. -->
+	3つ目に、<code>DIRECTORY</code>はワイルドカード、サブディレクトリ、シンボリックリンクなどの扱いに処理系毎の違いがあることに気を付けましょう。
+        <!-- There again, <code>ASDF-UTILS</code> provides several -->
+        <!-- common abstractions to deal with pathnames. -->
+	繰り返しますが、<code>ASDF-UTILS</code>はパスネームを扱うのにいくつかの抽象化を提供しています。
       </p>
       <p>
-        <code>LOGICAL-PATHNAME</code>s are not a portable abstraction,
-        and should not be used in portable code.
-        Many implementations have bugs in them, when they are supported at all.
-        SBCL implements them very well,
-        but strictly enforces the limitations on characters
-        allowed by the standard.
-        Other implementations allow arbitrary characters in such pathnames,
-        but in doing so are not being conformant,
-        and are still incompatible with each other in many ways.
-        You should use other pathname abstractions,
-        such as <code>ASDF:SYSTEM-RELATIVE-PATHNAME</code> or
-        the underlying <code>ASDF-UTILS:COERCE-PATHNAME</code>.
+        <!-- <code>LOGICAL-PATHNAME</code>s are not a portable abstraction, -->
+        <!-- and should not be used in portable code. -->
+	<code>LOGICAL-PATHNAME</code>は可搬性のある抽象化は提供していないので可搬性が必要なコードには使うべきではありません。
+        <!-- Many implementations have bugs in them, when they are supported at all. -->
+	サポートされているにも関わらず、多くの処理系でバグがあります。
+        <!-- SBCL implements them very well, -->
+        <!-- but strictly enforces the limitations on characters -->
+        <!-- allowed by the standard. -->
+	SBCLは良く実装されていますが、標準で許可されている文字制限を押しつけてきます。
+        <!-- Other implementations allow arbitrary characters in such pathnames, -->
+        <!-- but in doing so are not being conformant, -->
+        <!-- and are still incompatible with each other in many ways. -->
+	他の処理系は独自の判断でそのような文字を許可してはいますが、処理系毎にバラバラで、多くの点で互換性がありません。
+        <!-- You should use other pathname abstractions, -->
+        <!-- such as <code>ASDF:SYSTEM-RELATIVE-PATHNAME</code> or -->
+        <!-- the underlying <code>ASDF-UTILS:COERCE-PATHNAME</code>. -->
+	<code>ASDF:SYSTEM-RELATIVE-PATHNAME</code>やその下敷になっている<code>ASDF-UTILS:COERCE-PATHNAME</code>などの別の抽象化を使うべきです。
       </p>
       
       <p>
-        Finally, be aware that paths may change between
-        the time you build the Lisp image for your application,
-        and the time you run the application from its image.
-        You should be careful to reset your image
-        to forget irrelevant build-time paths and
-        reinitialize any search path from current environment variables.
-        <code>ASDF</code> for instance requires you to reset its paths
-        with <code>ASDF:CLEAR-CONFIGURATION</code>.
+        <!-- Finally, be aware that paths may change between -->
+        <!-- the time you build the Lisp image for your application, -->
+        <!-- and the time you run the application from its image. -->
+	最後に、パスネームはアプリケーション用にLispイメージを作ったときとそのイメージから実行したときで異なることに気を付けましょう。
+        <!-- You should be careful to reset your image -->
+        <!-- to forget irrelevant build-time paths and -->
+        <!-- reinitialize any search path from current environment variables. -->
+	ビルド時の不適切なパスネームを破棄し、環境変数から再度起点のパスを初期化するように注意するべきです。
+        <!-- <code>ASDF</code> for instance requires you to reset its paths -->
+        <!-- with <code>ASDF:CLEAR-CONFIGURATION</code>. -->
+	例えば<code>ASDF</code>は<code>ASDF:CLEAR-CONFIGURATION</code>でリセットすることを要求します。
       </p>
       
     </BODY>
