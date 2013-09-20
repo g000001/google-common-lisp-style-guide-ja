@@ -3665,57 +3665,69 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        Even though back in 1958, LISP was short for "LISt Processing",
-        its successor Common Lisp has been a modern programming language
-        with modern data structures since the 1980s.
-        You must use the proper data structures in your programs.
+        <!-- Even though back in 1958, LISP was short for "LISt Processing", -->
+        <!-- its successor Common Lisp has been a modern programming language -->
+        <!-- with modern data structures since the 1980s. -->
+	1958の昔にまで遡ればLISPは"LISt Processing"の略でありましたが、1980年代以降、その後継であるCommon Lispはモダンなデータ構造を持ったモダンなプログラミング言語であり続けています 。
+        <!-- You must use the proper data structures in your programs. -->
+	自分のプログラムに適切なデータ構造を使う必要があります。
       </p>
       <p>
-        You must not abuse the builtin (single-linked) <code>LIST</code>
-        data structure where it is not appropriate,
-        even though Common Lisp makes it especially easy to use it.
+        <!-- You must not abuse the builtin (single-linked) <code>LIST</code> -->
+        <!-- data structure where it is not appropriate, -->
+        <!-- even though Common Lisp makes it especially easy to use it. -->
+	Common Lispは確かにビルトインの(単方向連結)<code>LIST</code>の操作を容易にしますが、不適切な場面でそれを酷使してはなりません。
       </p>
       <p>
-        You must only use lists
-        when their performance characteristics
-        is appropriate for the algorithm at hand:
-        sequential iteration over the entire contents of the list.
+        <!-- You must only use lists -->
+        <!-- when their performance characteristics -->
+        <!-- is appropriate for the algorithm at hand: -->
+        <!-- sequential iteration over the entire contents of the list. -->
+	リストを使うときはそのパフォーマンスの特徴上適切なアルゴリズム ─ シーケンス全体を舐めるようなもの ─ で操作する場合に限る必要があります。
       </p>
       <p>
-        An exception where it is appropriate to use lists
-        is when it is known in advance
-        that the size of the list will remain very short
-        (say, less than 16 elements).
+        <!-- An exception where it is appropriate to use lists -->
+        <!-- is when it is known in advance -->
+        <!-- that the size of the list will remain very short -->
+        <!-- (say, less than 16 elements). -->
+	例外としては事前にリストの長さが小さい(具体的には16未満)と分っているときです。
       </p>
       <p>
-        List data structures are often (but not always)
-        appropriate for macros and functions used by macros at compile-time:
-        indeed, not only is source code passed as lists in Common Lisp,
-        but the macro-expansion and compilation processes
-        will typically walk over the entire source code, sequentially, once.
-        (Note that advanced macro systems don't directly use lists, but instead
-        use abstract syntax objects that track source code location and scope;
-        however there is no such advanced macro system
-        in Common Lisp at this time.)
+        <!-- List data structures are often (but not always) -->
+        <!-- appropriate for macros and functions used by macros at compile-time: -->
+        <!-- indeed, not only is source code passed as lists in Common Lisp, -->
+        <!-- but the macro-expansion and compilation processes -->
+        <!-- will typically walk over the entire source code, sequentially, once. -->
+	リストはたいていの場合(だがしかしいつもではない)マクロやコンパイル時に使われる関数には適切です。
+	というのも、Common Lispのソースコードがリストとして渡されるだけでなく、マクロ展開やコンパイル処理で典型的には全ソースコードを1回舐めるからです。
+	<!-- (Note that advanced macro systems don't directly use lists, but instead -->
+        <!-- use abstract syntax objects that track source code location and scope; -->
+        <!-- however there is no such advanced macro system -->
+        <!-- in Common Lisp at this time.) -->
+	(一歩踏み込んだマクロシステムでは直接はリストを使わずソースコードの位置やスコープを追跡する抽象構文オブジェクトを使いますが、現時点ではCommon Lispにはそのようなマクロシステムは存在しないことに気を付けましょう。)
       </p>
       <p>
-        Another exception where it is appropriate to use lists is
-        for introducing literal constants
-        that will be transformed into more appropriate data structures
-        at compile-time or load-time.
-        It is a good to have a function with a relatively short name
-        to build your program's data structures from such literals.
+        <!-- Another exception where it is appropriate to use lists is -->
+        <!-- for introducing literal constants -->
+        <!-- that will be transformed into more appropriate data structures -->
+        <!-- at compile-time or load-time. -->
+	もう一つ例外はコンパイル時やロード時に適切なデータ構造に変換されるデータのリテラル定数を導入するときです。
+        <!-- It is a good to have a function with a relatively short name -->
+        <!-- to build your program's data structures from such literals. -->
+	比較的短かい名前でそのようなリテラルから自分のプログラムのデータ構造を構成する関数を用意するのは良いことです。
       </p>
       <p>
-        In the many cases when lists are not the appropriate data structure,
-        various libraries such as
-        <a href="http://cliki.net/cl-containers">cl-containers</a> or
-        <a href="http://cliki.net/lisp-interface-library">lisp-interface-library</a>
-        provide plenty of different data structures
-        that should fulfill all the basic needs of your programs.
-        If the existing libraries are not satisfactory, see above about
-        <a href="#Using_Libraries">Using Libraries</a> and
-        <a href="#Open-Sourcing_Code">Open-Sourcing Code</a>.
+        <!-- In the many cases when lists are not the appropriate data structure, -->
+        <!-- various libraries such as -->
+        <!-- <a href="http://cliki.net/cl-containers">cl-containers</a> or -->
+        <!-- <a href="http://cliki.net/lisp-interface-library">lisp-interface-library</a> -->
+        <!-- provide plenty of different data structures -->
+        <!-- that should fulfill all the basic needs of your programs. -->
+	リストがデータ構造として適切でない場合は<a href="http://cliki.net/cl-containers">cl-containers</a>や<a href="http://cliki.net/lisp-interface-library">lisp-interface-library</a>などのライブラリがプログラムの基本的な需要を全て満足する多種多様なデータ構造を提供してくれます。
+        <!-- If the existing libraries are not satisfactory, see above about -->
+        <!-- <a href="#Using_Libraries">Using Libraries</a> and -->
+        <!-- <a href="#Open-Sourcing_Code">Open-Sourcing Code</a>. -->
+	もし既存のライブラリで満足できないなら、<a href="#Using_Libraries">Using Libraries</a>や<a href="#Open-Sourcing_Code">Open-Sourcing Code</a>を参考にして下さい。
       </p>
     </BODY>
   </STYLEPOINT>
