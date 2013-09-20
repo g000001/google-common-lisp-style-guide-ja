@@ -4212,100 +4212,129 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        Lisp provides four general equality predicates:
-        <code>EQ</code>, <code>EQL</code>, <code>EQUAL</code>,
-        and <code>EQUALP</code>,
-        which subtly vary in semantics.
-        Additionally, Lisp provides the type-specific predicates
-        <code>=</code>, <code>CHAR=</code>, <code>CHAR-EQUAL</code>,
-        <code>STRING=</code>, and <code>STRING-EQUAL</code>.
-        Know the distinction!
+        <!-- Lisp provides four general equality predicates: -->
+        <!-- <code>EQ</code>, <code>EQL</code>, <code>EQUAL</code>, -->
+        <!-- and <code>EQUALP</code>, -->
+        <!-- which subtly vary in semantics. -->
+	Lispには4つの汎用等価性比較用の述語があります。<code>EQ</code>、 <code>EQL</code>、 <code>EQUAL</code>、<code>EQUALP</code>で、これらは僅かに違いがあります。
+        <!-- Additionally, Lisp provides the type-specific predicates -->
+        <!-- <code>=</code>, <code>CHAR=</code>, <code>CHAR-EQUAL</code>, -->
+        <!-- <code>STRING=</code>, and <code>STRING-EQUAL</code>. -->
+	さらにLispには型に特化した述語もあります。<code>=</code>、<code>CHAR=</code>、<code>CHAR-EQUAL</code>、<code>STRING=</code>そして <code>STRING-EQUAL</code>です。
+        <!-- Know the distinction! -->
+	これらの違いは知っておきましょう。
+	<!-- 下で違いを説明してるので「違いを見ていきましょう」の方がしっくりきますけど、コーディング規約で解説はおかしいかなと思ってこうしました。(κeen) -->
       </p>
       <p>
-        You should use <code>EQL</code> to compare objects and symbols
-        for <em>identity</em>.
+        <!-- You should use <code>EQL</code> to compare objects and symbols -->
+        <!-- for <em>identity</em>. -->
+	<em>同一の</em>オブジェクトやシンボルを比較するときは<code>EQL</code>を使うべきです。
       </p>
       <p>
-        You must not use <code>EQ</code> to compare numbers or characters.
-        Two numbers or characters that are <code>EQL</code>
-        are not required by Common Lisp to be <code>EQ</code>.
+        <!-- You must not use <code>EQ</code> to compare numbers or characters. -->
+	<code>EQ</code>を数字や文字を比較するのに使ってはなりません。
+        <!-- Two numbers or characters that are <code>EQL</code> -->
+        <!-- are not required by Common Lisp to be <code>EQ</code>. -->
+	Common Lispでは<code>EQL</code>である数字や文字が<code>EQ</code>であることは要求されていません。
       </p>
       <p>
-        When choosing between <code>EQ</code> and <code>EQL</code>,
-        you should use <code>EQL</code> unless you are writing
-        performance-critical low-level code.
-        <code>EQL</code> reduces the opportunity
-        for a class of embarrassing errors
-        (i.e. if numbers or characters are ever compared).
-        There may a tiny performance cost relative to <code>EQ</code>,
-        although under SBCL, it often compiles away entirely.
-        <code>EQ</code> is equivalent to <code>EQL</code> and type declarations,
-        and use of it for optimization should be treated just like
-        any such <a href="#Unsafe_Operations">unsafe operations</a>.
+        <!-- When choosing between <code>EQ</code> and <code>EQL</code>, -->
+        <!-- you should use <code>EQL</code> unless you are writing -->
+        <!-- performance-critical low-level code. -->
+	<code>EQ</code>か<code>EQL</code>を選ぶときは、パフォーマンスが重要な低レベルの処理を書くのでもない限り<code>EQL</code>を使うべきです。
+        <!-- <code>EQL</code> reduces the opportunity -->
+        <!-- for a class of embarrassing errors -->
+        <!-- (i.e. if numbers or characters are ever compared). -->
+	<code>EQL</code>を使えばある種の理解不能なエラーを減らせます(数字や文字が比較されたときのことです)。
+        <!-- There may a tiny performance cost relative to <code>EQ</code>, -->
+        <!-- although under SBCL, it often compiles away entirely. -->
+	<code>EQ</code>に比べてわずかにパフォーマンスで劣りますが、SBCLではたいていの場合コンパイルで完全に差はなくなります。
+        <!-- <code>EQ</code> is equivalent to <code>EQL</code> and type declarations, -->
+        <!-- and use of it for optimization should be treated just like -->
+        <!-- any such <a href="#Unsafe_Operations">unsafe operations</a>. -->
+	<code>EQ</code>は<code>EQL</code>に型宣言をつけたものと等しく、この<code>EQ</code>を使う最適化は<a href="#Unsafe_Operations">安全でない操作</a>のように扱われるべきです。
       </p>
       <p>
-        You should use <code>CHAR=</code>
-        for case-dependent character comparisons,
-        and <code>CHAR-EQUAL</code> for case-ignoring character comparisons.
+        <!-- You should use <code>CHAR=</code> -->
+        <!-- for case-dependent character comparisons, -->
+        <!-- and <code>CHAR-EQUAL</code> for case-ignoring character comparisons. -->
+	大文字小文字も含めた文字の比較には<code>CHAR=</code>を、無視する文字の比較には<code>CHAR-EQUAL</code>を使うべきです。
       </p>
       <p>
-        You should use <code>STRING=</code>
-        for case-dependent string comparisons,
-        and <code>STRING-EQUAL</code> for case-ignoring string comparisons.
+        <!-- You should use <code>STRING=</code> -->
+        <!-- for case-dependent string comparisons, -->
+        <!-- and <code>STRING-EQUAL</code> for case-ignoring string comparisons. -->
+	大文字小文字も含めた文字列の比較には<code>STRING=</code>を、無視する文字列の比較には<code>STRING-EQUAL</code>を使うべきです。
       </p>
       <p>
-        A common mistake when using <code>SEARCH</code> on strings
-        is to provide <code>STRING=</code> or <code>STRING-EQUAL</code>
-        as the <code>:TEST</code> function.
-        The <code>:TEST</code> function
-        is given two sequence elements to compare.
-        If the sequences are strings,
-        the <code>:TEST</code> function is called on two characters,
-        so the correct tests are <code>CHAR=</code> or <code>CHAR-EQUAL</code>.
-        If you use <code>STRING=</code> or <code>STRING-EQUAL</code>,
-        the result is what you expect,
-        but in some Lisp implementations it's much slower.
-        CCL (at least as of 8/2008)
-        creates a one-character string upon each comparison, for example,
-        which is very expensive.
+        <!-- A common mistake when using <code>SEARCH</code> on strings -->
+        <!-- is to provide <code>STRING=</code> or <code>STRING-EQUAL</code> -->
+        <!-- as the <code>:TEST</code> function. -->
+	<code>SEARCH</code>を使うときによくある間違いとして<code>STRING=</code>か<code>STRING-EQUAL</code>を<code>:TEST</code>に渡してしまうことがあります。
+        <!-- The <code>:TEST</code> function -->
+        <!-- is given two sequence elements to compare. -->
+	<code>:TEST</code>関数にはシーケンスの2つの要素が渡されます。
+        <!-- If the sequences are strings, -->
+        <!-- the <code>:TEST</code> function is called on two characters, -->
+        <!-- so the correct tests are <code>CHAR=</code> or <code>CHAR-EQUAL</code>. -->
+	シーケンスが文字列なら<code>:TEST</code>には2つの文字が渡されるため、正しくは<code>CHAR=</code>か<code>CHAR-EQUAL</code>です。
+        <!-- If you use <code>STRING=</code> or <code>STRING-EQUAL</code>, -->
+        <!-- the result is what you expect, -->
+        <!-- but in some Lisp implementations it's much slower. -->
+	<code>STRING=</code>か<code>STRING-EQUAL</code>を使うと望んだ結果にはなりますが、処理系によっては非常に遅くなります。
+        <!-- CCL (at least as of 8/2008) -->
+        <!-- creates a one-character string upon each comparison, for example, -->
+        <!-- which is very expensive. -->
+	一例ですが(少くとも2008年8月時点の)CCLでは比較ごとに1文字からなる文字列を一旦生成するという高価な処理をしてから比較しています。
+	<!-- (2008年8月現在)の方が日本語っぽい？(κeen) -->
       </p>
       <p>
-        Also, you should use <code>:START</code> and <code>:END</code> arguments
-        to <code>STRING=</code> or <code>STRING-EQUAL</code>
-        instead of using <code>SUBSEQ</code>;
-        e.g. <code>(string-equal (subseq s1 2 6) s2)</code> should instead be
-        <code>(string-equal s1 s2 :start1 2 :end1 6)</code>
-        This is preferable because it does not cons.
+        <!-- Also, you should use <code>:START</code> and <code>:END</code> arguments -->
+        <!-- to <code>STRING=</code> or <code>STRING-EQUAL</code> -->
+        <!-- instead of using <code>SUBSEQ</code>; -->
+        <!-- e.g. <code>(string-equal (subseq s1 2 6) s2)</code> should instead be -->
+        <!-- <code>(string-equal s1 s2 :start1 2 :end1 6)</code> -->
+        <!-- This is preferable because it does not cons. -->
+	また、<code>SUBSEQ</code>を使うのではく、<code>STRING=</code>や<code>STRING-EQUAL</code>には<code>:START</code>や<code>:END</code>を指定すべきです。<code>(string-equal (subseq s1 2 6) s2)</code>ではなく<code>(string-equal s1 s2 :start1 2 :end1 6)</code>です。これによって不要なコンシングが起きません。
       </p>
       <p>
-        You should use <code>ZEROP</code>,
-        <code>PLUSP</code>, or <code>MINUSP</code>,
-        instead of comparing a value to <code>0</code> or <code>0.0</code>.
+        <!-- You should use <code>ZEROP</code>, -->
+        <!-- <code>PLUSP</code>, or <code>MINUSP</code>, -->
+        <!-- instead of comparing a value to <code>0</code> or <code>0.0</code>. -->
+	<code>0</code>や<code>0.0</code>と比較するのではなく<code>ZEROP</code>や<code>PLUSP</code>や<code>MINUSP</code>を使うべきです。
       </p>
       <p>
-        You must not use exact comparison on floating point numbers,
-        since the vague nature of floating point arithmetic
-        can produce little "errors" in numeric value.
-        You should compare absolute values to a threshhold.
+        <!-- You must not use exact comparison on floating point numbers, -->
+        <!-- since the vague nature of floating point arithmetic -->
+        <!-- can produce little "errors" in numeric value. -->
+	浮動小数点数の計算は本質的にわずかな「誤差」を生み得るので厳密な比較は使うべきではありません。
+        <!-- You should compare absolute values to a threshhold. -->
+	絶対値と許容値を比較すべきです。
+	<!-- 絶対値と許容値を比べたところで誤差回避にならないと思うんですが良いんですかね？(κeen)-->
       </p>
       <p>
-        You must use <code>=</code> to compare numbers,
-        unless you really mean for <code>0</code>,
-        <code>0.0</code> and <code>-0.0</code> to compare unequal,
-        in which case you should use <code>EQL</code>.
-        Then again, you must not usually use exact comparison
-        on floating point numbers.
+        <!-- You must use <code>=</code> to compare numbers, -->
+        <!-- unless you really mean for <code>0</code>, -->
+        <!-- <code>0.0</code> and <code>-0.0</code> to compare unequal, -->
+        <!-- in which case you should use <code>EQL</code>. -->
+	数字を比較するには<code>=</code>を使う必要があります。<code>0</code>と<code>0.0</code>と<code>-0.0</code>が等しくなくなって欲しいなら<code>EQL</code>を使うべきです。
+	<!--2重否定が分りづらかったので分けましたがそれでも分りづらいですね。-->
+        <!-- Then again, you must not usually use exact comparison -->
+        <!-- on floating point numbers. -->
+	繰り返しますが、浮動小数点数に厳密な比較を使ってはなりません。
       </p>
       <p>
-        Monetary amounts should be using decimal (rational) numbers
-        to avoid the complexities and rounding errors
-        of floating-point arithmetic.
-        Libraries such as
-        <a href="http://wukix.com/lisp-decimals">wu-decimal</a>
-        may help you;
-        once again, if this library is not satisfactory, see above about
-        <a href="#Using_Libraries">Using Libraries</a> and
-        <a href="#Open-Sourcing_Code">Open-Sourcing Code</a>.
+        <!-- Monetary amounts should be using decimal (rational) numbers -->
+        <!-- to avoid the complexities and rounding errors -->
+        <!-- of floating-point arithmetic. -->
+	お金を表わすには浮動小数点数計算の複雑さや丸め誤差を避けるため10進(分)数を使うべきです。
+        <!-- Libraries such as -->
+        <!-- <a href="http://wukix.com/lisp-decimals">wu-decimal</a> -->
+        <!-- may help you; -->
+        <!-- once again, if this library is not satisfactory, see above about -->
+        <!-- <a href="#Using_Libraries">Using Libraries</a> and -->
+        <!-- <a href="#Open-Sourcing_Code">Open-Sourcing Code</a>. -->
+	<a href="http://wukix.com/lisp-decimals">wu-decimal</a>などのライブラリの助けを借りることもできますが、繰り返すと、このライブラリに満足できなければ<a href="#Using_Libraries">Using Libraries</a>や<a href="#Open-Sourcing_Code">Open-Sourcing Code</a>も参考にして下さい。
       </p>
       
     </BODY>
