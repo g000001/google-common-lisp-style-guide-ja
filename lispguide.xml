@@ -4216,7 +4216,7 @@ Takashi Kato
         <!-- <code>EQ</code>, <code>EQL</code>, <code>EQUAL</code>, -->
         <!-- and <code>EQUALP</code>, -->
         <!-- which subtly vary in semantics. -->
-	Lispには4つの汎用等価性比較用の述語があります。<code>EQ</code>、 <code>EQL</code>、 <code>EQUAL</code>、<code>EQUALP</code>で、これらは僅かに違いがあります。
+	Lispには4つの汎用の等価性比較の述語があります。<code>EQ</code>、 <code>EQL</code>、 <code>EQUAL</code>、<code>EQUALP</code>で、これらは僅かに違いがあります。
         <!-- Additionally, Lisp provides the type-specific predicates -->
         <!-- <code>=</code>, <code>CHAR=</code>, <code>CHAR-EQUAL</code>, -->
         <!-- <code>STRING=</code>, and <code>STRING-EQUAL</code>. -->
@@ -4241,7 +4241,7 @@ Takashi Kato
         <!-- When choosing between <code>EQ</code> and <code>EQL</code>, -->
         <!-- you should use <code>EQL</code> unless you are writing -->
         <!-- performance-critical low-level code. -->
-	<code>EQ</code>か<code>EQL</code>を選ぶときは、パフォーマンスが重要な低レベルの処理を書くのでもない限り<code>EQL</code>を使うべきです。
+	<code>EQ</code>にするか<code>EQL</code>にするかの選択では、パフォーマンスが重要な低レベルの処理を書くのでもない限り<code>EQL</code>を使うべきです。
         <!-- <code>EQL</code> reduces the opportunity -->
         <!-- for a class of embarrassing errors -->
         <!-- (i.e. if numbers or characters are ever compared). -->
@@ -4258,13 +4258,13 @@ Takashi Kato
         <!-- You should use <code>CHAR=</code> -->
         <!-- for case-dependent character comparisons, -->
         <!-- and <code>CHAR-EQUAL</code> for case-ignoring character comparisons. -->
-	大文字小文字も含めた文字の比較には<code>CHAR=</code>を、無視する文字の比較には<code>CHAR-EQUAL</code>を使うべきです。
+	大文字小文字を区別した文字の比較には<code>CHAR=</code>を、無視する文字の比較には<code>CHAR-EQUAL</code>を使うべきです。
       </p>
       <p>
         <!-- You should use <code>STRING=</code> -->
         <!-- for case-dependent string comparisons, -->
         <!-- and <code>STRING-EQUAL</code> for case-ignoring string comparisons. -->
-	大文字小文字も含めた文字列の比較には<code>STRING=</code>を、無視する文字列の比較には<code>STRING-EQUAL</code>を使うべきです。
+	大文字小文字を区別した文字列の比較には<code>STRING=</code>を、無視する文字列の比較には<code>STRING-EQUAL</code>を使うべきです。
       </p>
       <p>
         <!-- A common mistake when using <code>SEARCH</code> on strings -->
@@ -4277,15 +4277,15 @@ Takashi Kato
         <!-- If the sequences are strings, -->
         <!-- the <code>:TEST</code> function is called on two characters, -->
         <!-- so the correct tests are <code>CHAR=</code> or <code>CHAR-EQUAL</code>. -->
-	シーケンスが文字列なら<code>:TEST</code>には2つの文字が渡されるため、正しくは<code>CHAR=</code>か<code>CHAR-EQUAL</code>です。
+	シーケンスが文字列なら<code>:TEST</code>には2つの文字が渡されるため、正しくは<code>CHAR=</code>か<code>CHAR-EQUAL</code>で判定します。
         <!-- If you use <code>STRING=</code> or <code>STRING-EQUAL</code>, -->
         <!-- the result is what you expect, -->
         <!-- but in some Lisp implementations it's much slower. -->
-	<code>STRING=</code>か<code>STRING-EQUAL</code>を使うと望んだ結果にはなりますが、処理系によっては非常に遅くなります。
+	<code>STRING=</code>か<code>STRING-EQUAL</code>を使っても望んだ結果にはなりますが、処理系によっては非常に遅くなります。
         <!-- CCL (at least as of 8/2008) -->
         <!-- creates a one-character string upon each comparison, for example, -->
         <!-- which is very expensive. -->
-	一例ですが(少くとも2008年8月時点の)CCLでは比較ごとに1文字からなる文字列を一旦生成するという高価な処理をしてから比較しています。
+	一例ですが(少なくとも2008年8月時点の)CCLでは比較ごとに1文字からなる文字列を一旦生成するという高価な処理をしてから比較しています。
 	<!-- (2008年8月現在)の方が日本語っぽい？(κeen) -->
       </p>
       <p>
@@ -4309,15 +4309,27 @@ Takashi Kato
         <!-- can produce little "errors" in numeric value. -->
 	浮動小数点数の計算は本質的にわずかな「誤差」を生み得るので厳密な比較は使うべきではありません。
         <!-- You should compare absolute values to a threshhold. -->
-	絶対値と許容値を比較すべきです。
+	[二値の差の]絶対値と閾値とを比較すべきです。
 	<!-- 絶対値と許容値を比べたところで誤差回避にならないと思うんですが良いんですかね？(κeen)-->
+        <!-- 
+             自分も詳しくないのですが、この辺の話ですかね? (g000001)
+             (let ((a 0d0) (b 0d0))
+               (<= (abs (- a b)) (* (abs a) double-float-epsilon)))
+
+             http://c-faq.com/fp/fpequal.html
+             Since the absolute accuracy of floating point values varies ...
+
+             #include <math.h>
+
+             if(fabs(a - b) <= epsilon * fabs(a))
+        -->
       </p>
       <p>
         <!-- You must use <code>=</code> to compare numbers, -->
         <!-- unless you really mean for <code>0</code>, -->
         <!-- <code>0.0</code> and <code>-0.0</code> to compare unequal, -->
         <!-- in which case you should use <code>EQL</code>. -->
-	数字を比較するには<code>=</code>を使う必要があります。<code>0</code>と<code>0.0</code>と<code>-0.0</code>が等しくなくなって欲しいなら<code>EQL</code>を使うべきです。
+	数字を比較するには<code>=</code>を使わなければなりません。ただし、<code>0</code>と<code>0.0</code>と<code>-0.0</code>が等しくなくなって欲しいなら<code>EQL</code>を使うべきです。
 	<!--2重否定が分りづらかったので分けましたがそれでも分りづらいですね。-->
         <!-- Then again, you must not usually use exact comparison -->
         <!-- on floating point numbers. -->
@@ -4334,7 +4346,7 @@ Takashi Kato
         <!-- once again, if this library is not satisfactory, see above about -->
         <!-- <a href="#Using_Libraries">Using Libraries</a> and -->
         <!-- <a href="#Open-Sourcing_Code">Open-Sourcing Code</a>. -->
-	<a href="http://wukix.com/lisp-decimals">wu-decimal</a>などのライブラリの助けを借りることもできますが、繰り返すと、このライブラリに満足できなければ<a href="#Using_Libraries">Using Libraries</a>や<a href="#Open-Sourcing_Code">Open-Sourcing Code</a>も参考にして下さい。
+	<a href="http://wukix.com/lisp-decimals">wu-decimal</a>などのライブラリの助けを借りることもできます。さらに、このライブラリに満足できなければ<a href="#Using_Libraries">Using Libraries</a>や<a href="#Open-Sourcing_Code">Open-Sourcing Code</a>も参考にして下さい。
       </p>
       
     </BODY>
