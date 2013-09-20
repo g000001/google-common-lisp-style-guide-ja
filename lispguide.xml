@@ -4405,81 +4405,111 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        When writing a server,
-        code must not send output to the standard streams such as
-        <code>*STANDARD-OUTPUT*</code> or <code>*ERROR-OUTPUT*</code>.
-        Instead, code must use the proper logging framework
-        to output messages for debugging.
-        We are running as a server, so there is no console!
+        <!-- When writing a server, -->
+        <!-- code must not send output to the standard streams such as -->
+        <!-- <code>*STANDARD-OUTPUT*</code> or <code>*ERROR-OUTPUT*</code>. -->
+	サーバーを書いているときに<code>*STANDARD-OUTPUT*</code>や<code>*ERROR-OUTPUT*</code>に出力してはなりません。
+        <!-- Instead, code must use the proper logging framework -->
+        <!-- to output messages for debugging. -->
+	代りに、メッセージやデバッグには適切なログフレームワークを使う必要があります。
+        <!-- We are running as a server, so there is no console! -->
+	サーバーを動かしているのですから、コンソールは無いのです。
       </p>
       <p>
-        Code must not use <code>PRINT-OBJECT</code>
-        to communicate with a user —
-        <code>PRINT-OBJECT</code> is for debugging purposes only.
-        Modifying any <code>PRINT-OBJECT</code> method
-        must not break any public interfaces.
+        <!-- Code must not use <code>PRINT-OBJECT</code> -->
+        <!-- to communicate with a user — -->
+        <!-- <code>PRINT-OBJECT</code> is for debugging purposes only. -->
+	ユーザーとのインタラクションに<code>PRINT-OBJECT</code>を使ってはなりません。— <code>PRINT-OBJECT</code>はデバッグ専用です。
+        <!-- Modifying any <code>PRINT-OBJECT</code> method -->
+        <!-- must not break any public interfaces. -->
+	<code>PRINT-OBJECT</code>を変更しても公開インターフェースは何も影響を受けないようにしておく必要があります。
       </p>
       <p>
-        You should not use a sequence of <code>WRITE-XXX</code>
-        where a single <code>FORMAT</code> string could be used.
-        Using format allows you
-        to parameterize the format control string in the future
-        if the need arises.
+        <!-- You should not use a sequence of <code>WRITE-XXX</code> -->
+        <!-- where a single <code>FORMAT</code> string could be used. -->
+	<code>FORMAT</code>1つで済むところにいくつも<code>WRITE-XXX</code>を並べてはなりません。
+        <!-- Using format allows you -->
+        <!-- to parameterize the format control string in the future -->
+        <!-- if the need arises. -->
+	formatを使えば必要があればフォーマット文字列をパラメーター化することができます。
       </p>
       <p>
-        You should use <code>WRITE-CHAR</code> to emit a character
-        rather than <code>WRITE-STRING</code>
-        to emit a single-character string.
+        <!-- You should use <code>WRITE-CHAR</code> to emit a character -->
+        <!-- rather than <code>WRITE-STRING</code> -->
+        <!-- to emit a single-character string. -->
+	一文字を出力するなら<code>WRITE-STRING</code>ではなく<code>WRITE-CHAR</code>を使うべきです。
       </p>
       <p>
-        You should not use <code>(format nil "~A" value)</code>;
-        you should use <code>PRINC-TO-STRING</code> instead.
+        <!-- You should not use <code>(format nil "~A" value)</code>; -->
+        <!-- you should use <code>PRINC-TO-STRING</code> instead. -->
+	<code>(format nil "~A" value)</code>は使うべきではなく、<code>PRINC-TO-STRING</code>を使いましょう。
       </p>
       <p>
-        You should use <code>~&lt;Newline&gt;</code>
-        or <code>~@&lt;Newline&gt;</code> in format strings
-        to keep them from wrapping in 100-column editor windows,
-        or to indent sections or clauses to make them more readable.
+        <!-- You should use <code>~&lt;Newline&gt;</code> -->
+        <!-- or <code>~@&lt;Newline&gt;</code> in format strings -->
+        <!-- to keep them from wrapping in 100-column editor windows, -->
+        <!-- or to indent sections or clauses to make them more readable. -->
+	100桁のエディタのウィンドウが途中で折り返すの防いだり、読み易いようにインデントしたりするのに<code>~&lt;Newline&gt;</code>か<code>~@&lt;Newline&gt;</code>を使うべきです。
       </p>
       <p>
-        You should not use <code>STRING-UPCASE</code>
-        or <code>STRING-DOWNCASE</code>
-        on format control parameters;
-        instead, it should use <code>"~:@(~A~)"</code> or <code>"~(~A~)"</code>.
+        <!-- You should not use <code>STRING-UPCASE</code> -->
+        <!-- or <code>STRING-DOWNCASE</code> -->
+        <!-- on format control parameters; -->
+        <!-- instead, it should use <code>"~:@(~A~)"</code> or <code>"~(~A~)"</code>. -->
+	formatのパラメーターに対して<code>STRING-UPCASE</code>や<code>STRING-DOWNCASE</code>を使うべきではありません。代りに<code>"~:@(~A~)"</code>や<code>"~(~A~)"</code>を使いましょう。
       </p>
       <p>
-        Be careful when using the <code>FORMAT</code> conditional directive.
-        The parameters are easy to forget.
+        <!-- Be careful when using the <code>FORMAT</code> conditional directive. -->
+	<code>FORMAT</code>の条件命令を使うときは注意しましょう。
+        <!-- The parameters are easy to forget. -->
+	パラメーターを忘れがちです。
       </p>
       <dl>
-        <dt>No parameters, e.g. <code>"~[Siamese~;Manx~;Persian~] Cat"</code></dt>
+        <!-- <dt>No parameters, e.g. <code>"~[Siamese~;Manx~;Persian~] Cat"</code></dt> -->
+        <dt>パラメーター無しの例 <code>"~[Siamese~;Manx~;Persian~] Cat"</code></dt>
         <dd>
-          Take one format argument, which should be an integer.
-          Use it to choose a clause. Clause numbers are zero-based.
-          If the number is out of range, just print nothing.
-          You can provide a default value
-          by putting a <code>":"</code> in front of the last <code>";"</code>.
-          E.g. in <code>"~[Siamese~;Manx~;Persian~:;Alley~] Cat"</code>,
-          an out-of-range arg prints <code>"Alley"</code>.
+          <!-- Take one format argument, which should be an integer. -->
+	  これは整数のフォーマットパラメーターを1つとります。
+          <!-- Use it to choose a clause. Clause numbers are zero-based. -->
+	  [[]で囲まれ、;で区切られた]節の1つを選ぶのに使います。節の番号は0始まりです。
+          <!-- If the number is out of range, just print nothing. -->
+	  数字が範囲を越えていたら何も出力しません。
+          <!-- You can provide a default value -->
+          <!-- by putting a <code>":"</code> in front of the last <code>";"</code>. -->
+	  最後の<code>";"</code>の前に<code>":"</code>を入れることでデフォルト値を設定することができます。
+          <!-- E.g. in <code>"~[Siamese~;Manx~;Persian~:;Alley~] Cat"</code>, -->
+          <!-- an out-of-range arg prints <code>"Alley"</code>. -->
+	  <code>"~[Siamese~;Manx~;Persian~:;Alley~] Cat"</code>のようにすると範囲外の数字が与えられたときに<code>"Alley"</code>を出力します。
         </dd>
-        <dt><code>:</code> parameter, e.g. <code>"~:[Siamese~;Manx~]"</code></dt>
+        <!-- <dt><code>:</code> parameter, e.g. <code>"~:[Siamese~;Manx~]"</code></dt> -->
+        <dt><code>:</code>パラメーターの例 <code>"~:[Siamese~;Manx~]"</code></dt>
         <dd>
-          Take one format argument.  If it's <code>NIL</code>,
-          use the first clause, otherwise use the second clause.
+          <!-- Take one format argument.  If it's <code>NIL</code>, -->
+          <!-- use the first clause, otherwise use the second clause. -->
+	  フォーマットパラメーターを1つとり、それが<code>NIL</code>なら最初の節を、そうでなければ2つ目の節を出力します。
         </dd>
-        <dt><code>@</code> parameter, e.g. <code>"~@[Siamese ~a~]"</code></dt>
+        <!-- <dt><code>@</code> parameter, e.g. <code>"~@[Siamese ~a~]"</code></dt> -->
+        <dt><code>@</code>パラメーターの例 <code>"~@[Siamese ~a~]"</code></dt>
         <dd>
-          If the next format argument is true,
-          use the choice, but do NOT take the argument.
-          If it's false, take one format argument and print nothing.
-          (Normally the clause uses the format argument.)
+          <!-- If the next format argument is true, -->
+          <!-- use the choice, but do NOT take the argument. -->
+	  もし次のフォーマット引数が真なら使いますが、消費 *しません* 。
+          <!-- If it's false, take one format argument and print nothing. -->
+          <!-- (Normally the clause uses the format argument.) -->
+	  もし偽なら引数を消費し、何も出力しません。
+	  (通常、この節はフォーマット引数を使います。)
+	  <!-- TODO: 訳し分けが上手くいかないです。自分が:命令を分かってないのもありますが。(κeen) -->
         </dd>
-        <dt><code>#</code> parameter, e.g. <code>"~#[ none~; ~s~; ~s and ~s~]"</code></dt>
+        <!-- <dt><code>#</code> parameter, e.g. <code>"~#[ none~; ~s~; ~s and ~s~]"</code></dt> -->
+        <dt><code>#</code>パラメーターの例 <code>"~#[ none~; ~s~; ~s and ~s~]"</code></dt>
         <dd>
-          Use the number of arguments to format
-          as the number to choose a clause.
-          The same as no parameters in all other ways.
-          Here's the full hairy example:
+          <!-- Use the number of arguments to format -->
+          <!-- as the number to choose a clause. -->
+	  フォーマット引数の個数をどの節を印字するのか選ぶのに使います。
+          <!-- The same as no parameters in all other ways. -->
+	  その他はパラメーターなしのときと同じです。
+          <!-- Here's the full hairy example: -->
+	  全てを使った例がこれです:
           <code>"Items:~#[ none~; ~S~; ~S and ~S~:;~@{~#[~; and~] ~S~^ ,~}~]."</code>
         </dd>
       </dl>
