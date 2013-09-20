@@ -4422,12 +4422,12 @@ Takashi Kato
 	ユーザーとのインタラクションに<code>PRINT-OBJECT</code>を使ってはなりません。— <code>PRINT-OBJECT</code>はデバッグ専用です。
         <!-- Modifying any <code>PRINT-OBJECT</code> method -->
         <!-- must not break any public interfaces. -->
-	<code>PRINT-OBJECT</code>を変更しても公開インターフェースは何も影響を受けないようにしておく必要があります。
+	<code>PRINT-OBJECT</code>を変更しても公開インターフェースは何も影響を受けないようにしておかなければなりません。
       </p>
       <p>
         <!-- You should not use a sequence of <code>WRITE-XXX</code> -->
         <!-- where a single <code>FORMAT</code> string could be used. -->
-	<code>FORMAT</code>1つで済むところにいくつも<code>WRITE-XXX</code>を並べてはなりません。
+	<code>FORMAT</code>1つで済むところにいくつも<code>WRITE-XXX</code>を並べるべきではありません。
         <!-- Using format allows you -->
         <!-- to parameterize the format control string in the future -->
         <!-- if the need arises. -->
@@ -4442,21 +4442,21 @@ Takashi Kato
       <p>
         <!-- You should not use <code>(format nil "~A" value)</code>; -->
         <!-- you should use <code>PRINC-TO-STRING</code> instead. -->
-	<code>(format nil "~A" value)</code>は使うべきではなく、<code>PRINC-TO-STRING</code>を使いましょう。
+	<code>(format nil "~A" value)</code>は使うべきではなく、<code>PRINC-TO-STRING</code>を使うべきです。
       </p>
       <p>
         <!-- You should use <code>~&lt;Newline&gt;</code> -->
         <!-- or <code>~@&lt;Newline&gt;</code> in format strings -->
         <!-- to keep them from wrapping in 100-column editor windows, -->
         <!-- or to indent sections or clauses to make them more readable. -->
-	100桁のエディタのウィンドウが途中で折り返すの防いだり、読み易いようにインデントしたりするのに<code>~&lt;Newline&gt;</code>か<code>~@&lt;Newline&gt;</code>を使うべきです。
+	100桁のエディタのウィンドウが途中で折り返すの防いだり、読み易いようにインデントしたりするのには<code>~&lt;Newline&gt;</code>か<code>~@&lt;Newline&gt;</code>を使うべきです。
       </p>
       <p>
         <!-- You should not use <code>STRING-UPCASE</code> -->
         <!-- or <code>STRING-DOWNCASE</code> -->
         <!-- on format control parameters; -->
         <!-- instead, it should use <code>"~:@(~A~)"</code> or <code>"~(~A~)"</code>. -->
-	formatのパラメーターに対して<code>STRING-UPCASE</code>や<code>STRING-DOWNCASE</code>を使うべきではありません。代りに<code>"~:@(~A~)"</code>や<code>"~(~A~)"</code>を使いましょう。
+	formatの制御引数に対して<code>STRING-UPCASE</code>や<code>STRING-DOWNCASE</code>を使うべきではありません。代わりに<code>"~:@(~A~)"</code>や<code>"~(~A~)"</code>を使いましょう。
       </p>
       <p>
         <!-- Be careful when using the <code>FORMAT</code> conditional directive. -->
@@ -4469,7 +4469,7 @@ Takashi Kato
         <dt>パラメーター無しの例 <code>"~[Siamese~;Manx~;Persian~] Cat"</code></dt>
         <dd>
           <!-- Take one format argument, which should be an integer. -->
-	  これは整数のフォーマットパラメーターを1つとります。
+	  これは整数のフォーマット引数を1つ消費します。
           <!-- Use it to choose a clause. Clause numbers are zero-based. -->
 	  [[]で囲まれ、;で区切られた]節の1つを選ぶのに使います。節の番号は0始まりです。
           <!-- If the number is out of range, just print nothing. -->
@@ -4486,30 +4486,29 @@ Takashi Kato
         <dd>
           <!-- Take one format argument.  If it's <code>NIL</code>, -->
           <!-- use the first clause, otherwise use the second clause. -->
-	  フォーマットパラメーターを1つとり、それが<code>NIL</code>なら最初の節を、そうでなければ2つ目の節を出力します。
+	  フォーマット引数を1つ消費し、それが<code>NIL</code>なら最初の節を、そうでなければ2つ目の節を出力します。
         </dd>
         <!-- <dt><code>@</code> parameter, e.g. <code>"~@[Siamese ~a~]"</code></dt> -->
         <dt><code>@</code>パラメーターの例 <code>"~@[Siamese ~a~]"</code></dt>
         <dd>
           <!-- If the next format argument is true, -->
           <!-- use the choice, but do NOT take the argument. -->
-	  もし次のフォーマット引数が真なら使いますが、消費 *しません* 。
+	  もし次のフォーマット引数が真なら使いますが、消費は<b>しません</b>。
           <!-- If it's false, take one format argument and print nothing. -->
           <!-- (Normally the clause uses the format argument.) -->
 	  もし偽なら引数を消費し、何も出力しません。
 	  (通常、この節はフォーマット引数を使います。)
-	  <!-- TODO: 訳し分けが上手くいかないです。自分が:命令を分かってないのもありますが。(κeen) -->
         </dd>
         <!-- <dt><code>#</code> parameter, e.g. <code>"~#[ none~; ~s~; ~s and ~s~]"</code></dt> -->
         <dt><code>#</code>パラメーターの例 <code>"~#[ none~; ~s~; ~s and ~s~]"</code></dt>
         <dd>
           <!-- Use the number of arguments to format -->
           <!-- as the number to choose a clause. -->
-	  フォーマット引数の個数をどの節を印字するのか選ぶのに使います。
+	  フォーマット引数の個数を元にどの節を印字するのかを選ぶのに使います。
           <!-- The same as no parameters in all other ways. -->
 	  その他はパラメーターなしのときと同じです。
           <!-- Here's the full hairy example: -->
-	  全てを使った例がこれです:
+	  全てを使ったややこしい例がこれです:
           <code>"Items:~#[ none~; ~S~; ~S and ~S~:;~@{~#[~; and~] ~S~^ ,~}~]."</code>
         </dd>
       </dl>
