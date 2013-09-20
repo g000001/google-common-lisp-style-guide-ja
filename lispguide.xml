@@ -5054,7 +5054,7 @@ Takashi Kato
         <!-- which depends on which implementation and operating system -->
         <!-- you are using, -->
         <!-- and the native syntax of pathnames on your operating system. -->
-	まず、Common Lispのパスネームのシンタックスは処理系、OS、そしてOSのパスネームの記法による食い違いがあることに気をつけましょう。
+	まず、Common Lispのパスネームのシンタックスは処理系、OS、そしてOS自体のパスネームの記法による食い違いがあることに気をつけましょう。
         <!-- The Lisp syntax may involves quoting of special characters -->
         <!-- such as <code>#\.</code> and <code>#\*</code>, etc., -->
         <!-- in addition to the quoting of -->
@@ -5064,7 +5064,7 @@ Takashi Kato
         <!-- system programming languages -->
         <!-- (shell, C, scripting languages) -->
         <!-- may only have one layer of quoting, into strings. -->
-	対照的に、あなたのOSのの別のシステムプログラミング言語(shell, C, スクリプト言語)は文字列にするというクォートしかないでしょう。
+	対照的に、あなたのOSの[Lisp以外の]別のシステムプログラミング言語(shell, C, スクリプト言語)は文字列にするというクォートしかないでしょう。
 	<!-- ちょっと自信ないです(κeen) -->
       </p>
       <p>
@@ -5100,7 +5100,7 @@ Takashi Kato
         <!-- and should not be used in portable code. -->
 	<code>LOGICAL-PATHNAME</code>は可搬性のある抽象化は提供していないので可搬性が必要なコードには使うべきではありません。
         <!-- Many implementations have bugs in them, when they are supported at all. -->
-	サポートされているにも関わらず、多くの処理系でバグがあります。
+	全ての処理系でサポートされているにも関わらず、多くの処理系でバグがあります。
         <!-- SBCL implements them very well, -->
         <!-- but strictly enforces the limitations on characters -->
         <!-- allowed by the standard. -->
