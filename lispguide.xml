@@ -155,8 +155,7 @@ Takashi Kato
 </CATEGORY>
 </OVERVIEW>
 <CATEGORY title="メタガイド"><!-- Meta-Guide -->
-  <STYLEPOINT title="Must,Should,May,Not">
-    <!-- (佐野:同上な理由で「要求レベルの表記方法」？) --><!-- Must, Should, May, or Not -->
+  <STYLEPOINT title="重要度による語尾表現の違い">
     <SUMMARY>
       <!--
       Each guideline's level of importance is indicated
@@ -180,7 +179,7 @@ Takashi Kato
               -->
               「しなければならない:"MUST"」、「要求される:"REQUIRED"」、「するものとする:"SHALL"」といった用語は
               そのガイドラインが絶対的な要求であることを意味します。
-              MUSTに違反する場合は許可を求めなければなりません。
+              「しなければならない」ことに違反する場合は許可を求めなければなりません。
             </p>
           </td>
         </tr>
@@ -195,7 +194,7 @@ Takashi Kato
               -->
               「してはならない:"MUST NOT"」や「しないものとする:"SHALL NOT"」といった句は
               そのガイドラインが絶対的な禁止であることを意味します。
-              MUST NOTに違反する場合は許可を求めなければなりません。
+              「してはならない」ことに違反する場合は許可を求めなければなりません。
             </p>
           </td>
         </tr>
@@ -214,12 +213,12 @@ Takashi Kato
               語「すべき:"SHOULD"」や形容詞「推奨される:"RECOMMENDED"」は
               ある状況ではガイドの要求を無視する適切な理由があるかもしれないことを意味しますが、
               他のやりかたを選択する前にガイドの含意は理解され注意し重視される必要があります。
-              SHOULDに違反する場合許容を求めなければなりません。
+              「すべき」ことに違反する場合許容を求めなければなりません。
             </p>
           </td>
         </tr>
         <tr>
-          <th valign="top">SHOULD NOT</th>
+          <th valign="top">すべきでない:SHOULD NOT</th>
           <td>
             <p>
               <!--
@@ -233,7 +232,7 @@ Takashi Kato
               句「すべきでない:"SHOULD NOT"」と句「推奨されない:"NOT RECOMMENDED"」は
               ある状況ではガイドの禁止を無視する適切な理由があるかもしれないことを意味しますが、
               他のやりかたを選択する前にガイドの言わんとすることは全て理解し尊重された上でなければなりません。
-              SHOULD NOTに違反する場合許容を求めなければなりません。
+              「すべきでない」ことに違反する場合許容を求めなければなりません。
             </p>
           </td>
         </tr>
@@ -245,7 +244,7 @@ Takashi Kato
               This word, or the adjective "OPTIONAL",
               means that an item is truly optional.
               -->
-              語「できるでしょう:"MAY"」や形容詞「任意に:"OPTIONAL"」はその項目は本当に任意であることを意味します。
+              語「できるでしょう:"MAY"」や形容詞「任意に:"OPTIONAL"」はその項目は完全に任意であることを意味します。
             </p>
           </td>
         </tr>
