@@ -338,10 +338,12 @@ Takashi Kato
 	<!--
         so you can more effectively cooperate with existing members.
 	-->
-        It is still useful to distinguish the parts that are technically motivated
-        from the parts that are mere conventions,
-        so you know when best to defy conventions for good effect,
-        and when not to fall into the pitfalls that the conventions are there to help avoid.
+        <!-- It is still useful to distinguish the parts that are technically motivated -->
+        <!-- from the parts that are mere conventions, -->
+        <!-- so you know when best to defy conventions for good effect, -->
+        <!-- and when not to fall into the pitfalls that the conventions are there to help avoid. -->
+	技術的な部分と単に便利のための部分を区別するのは依然有用ですので、いつパフォーマンスのために慣例を無視し、いつ慣例に従うことで落とし穴を回避できるかを知っておきましょう。
+	<!-- you knowがあまり意味を持たない(日本語で言う「だって」とか)なのかそのまま「あなたは知っている」なのか判断が難しかったので適当に誤魔化してます(κeen) -->
       </p>
     </BODY>
   </STYLEPOINT>
@@ -589,13 +591,14 @@ Takashi Kato
   </STYLEPOINT>
   <STYLEPOINT title="設計"><!-- Architecture -->
     <SUMMARY>
-      To build code that is robust and maintainable,
-      it matters a lot how the code is divided into components,
-      how these components communicate,
-      how changes propagate as they evolve,
-      and more importantly
-      how the programmers who develop these components communicate
-      as these components evolve.
+      <!-- To build code that is robust and maintainable, -->
+      <!-- it matters a lot how the code is divided into components, -->
+      <!-- how these components communicate, -->
+      <!-- how changes propagate as they evolve, -->
+      <!-- and more importantly -->
+      <!-- how the programmers who develop these components communicate -->
+      <!-- as these components evolve. -->
+      堅牢でメンテナンス性の高いコードを組むには、どのくらいコンポーネントに分割されるか、どのようにコンポーネントが連携するか、成長するにつれてどのくらい変更を加えるか、そしてそれ以上に重要なのはコンポーネントが進化するのと同時にコンポーネントの開発者たちがどうコミュニケーションをとるかが重要になります。
     </SUMMARY>
     <BODY>
       <p>
@@ -614,9 +617,10 @@ Takashi Kato
 	関連するほかの集団からも取り付けなければいけません。
       </p>
       <p>
-        If you don't know or don't care about these issues,
-        ask someone who does.
-      </p>
+        <!-- If you don't know or don't care about these issues, -->
+        <!-- ask someone who does. -->
+	もしそれを知らない、あるいは気にかけてないときは、誰がやってるのか誰かに尋ねましょう。
+     </p>
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="ライブラリの使用"><!-- Using Libraries -->
@@ -796,11 +800,12 @@ Takashi Kato
           <!--   You should incorporate code coverage into your testing process. -->
           <!--   Tests are not sufficient -->
           <!--   if they do not cover all new and updated code; -->
-	  あなたはあなたのテスト工程の範囲にコードを取り入れるようにすべきです。
+	  あなたはあなたのテスト工程にコードカバレッジを取り入れるようにすべきです。
 	  テストがすべての新しい、あるいは更新されたコードを対象にできていないのなら、
 	  そのテストは十分ではありません。
-          code that for whatever reason cannot be included in coverage results
-          should be clearly marked as such including the reason.
+          <!-- code that for whatever reason cannot be included in coverage results -->
+          <!-- should be clearly marked as such including the reason. -->
+	  どんな理由であれ、カバレッジに含まれていないコードにはそのような理由と伴に明確に目印を付しておくべきです。
         </li>
         <li>
           <!--   Many people develop on branches. -->
@@ -1047,14 +1052,14 @@ Takashi Kato
       <CODE_SNIPPET>
         ;;;; Author: brown (Robert Brown)
 
-        ;;;; Variable length encoding for integers and floating point numbers.
+        ;;;; 整数と浮動小数点数のための可変長エンコーディング。<!-- Variable length encoding for integers and floating point numbers. -->
 
         (in-package #:varint)
         (declaim #.*optimize-default*)
       </CODE_SNIPPET>
       <p>
-        You should not include authorship information at the top of a file,
-        that information is available from version control and
+        <!-- You should not include authorship information at the top of a file, -->
+        <!-- that information is available from version control and -->
         <code>OWNERS</code>. 
         ファイルの先頭には作者情報を含めるべきではありません。
         これは、バージョンコントロールシステムや、<code>OWNERS</code>ファイルから得るような情報の類です。
@@ -1568,14 +1573,15 @@ Takashi Kato
 	Eメールアドレス（コードが社内からでも見られる場合）を使い、イニシャルを使うべきではありません。
       </p>
       <CODE_SNIPPET>
-        ;;--- TODO(george@gmail.com): Refactor to provide a better API.
+        ;;--- TODO(george@gmail.com): API改善のためリファクタリング。<!-- Refactor to provide a better API. -->
       </CODE_SNIPPET>
       <p>
-        Be specific when indicating times or software releases
-        in a TODO comment:
+        <!-- Be specific when indicating times or software releases -->
+        <!-- in a TODO comment: -->
+	TODOコメントで時間やリリースを差すときは完全に表現しましょう。
       </p>
       <CODE_SNIPPET>
-        ;;--- TODO(brown): Remove this code after release 1.7 or before November, 2012.
+        ;;--- TODO(brown): このコードはリリース1.7以降、あるいは2012年11月以前なら削除して下さい。<!-- Remove this code after release 1.7 or before November, 2012. -->
       </CODE_SNIPPET>
       <p>
         <!-- For code that uses unobvious forms to accomplish a task, you must include a comment -->
@@ -5239,10 +5245,10 @@ Takashi Kato
 	２つ目の型が <code>SATISFIES</code> 型である時です。
       </p>
       <BAD_CODE_SNIPPET>
-        (deftype prime-number () (satisfies prime-number-p)) ; Bad
+        (deftype prime-number () (satisfies prime-number-p)) ; 悪い例
       </BAD_CODE_SNIPPET>
       <CODE_SNIPPET>
-        (deftype prime-number () (and integer (satisfies prime-number-p)) ; Better
+        (deftype prime-number () (and integer (satisfies prime-number-p)) ; 良い例
       </CODE_SNIPPET>
       <!--
           However, <code>AND</code> in the <code>DEFTYPE</code> language
@@ -5284,16 +5290,16 @@ Takashi Kato
 	</em>ことの理由です。
       </p>
       <BAD_CODE_SNIPPET>
-        (defun prime-number-p (n) ; Doubly bad!
+        (defun prime-number-p (n) ; 二重に悪い
           (let ((m (abs n)))
             (if (&lt;= m *prime-number-cutoff*)
                 (small-prime-number-p m)
                 (big-prime-number-p m))))
       </BAD_CODE_SNIPPET>
       <CODE_SNIPPET>
-        (eval-when (:compile-toplevel :load-toplevel :execute) ; Better
+        (eval-when (:compile-toplevel :load-toplevel :execute) ; 良い
           (defun prime-number-p (n)
-            (when (integerp n) ; Better
+            (when (integerp n) ; 良い
               (let ((m (abs n)))
                 (if (&lt;= m *prime-number-cutoff*)
                     (small-prime-number-p m)
