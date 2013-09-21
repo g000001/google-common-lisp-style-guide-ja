@@ -3660,8 +3660,8 @@ Takashi Kato
     <SUMMARY>
       <!-- You must select proper data representation. 
            You must not abuse the LIST data structure.  -->
-      *絶対に*データ表現は正しく選択すべきです。
-      *絶対に*<code>LIST</code>構造を乱用すべきではありません。
+      データ表現は正しく選択しなければなりません。
+      <code>LIST</code>構造を乱用してはなりません。
     </SUMMARY>
     <BODY>
       <p>
@@ -3670,27 +3670,27 @@ Takashi Kato
         <!-- with modern data structures since the 1980s. -->
 	1958の昔にまで遡ればLISPは"LISt Processing"の略でありましたが、1980年代以降、その後継であるCommon Lispはモダンなデータ構造を持ったモダンなプログラミング言語であり続けています 。
         <!-- You must use the proper data structures in your programs. -->
-	自分のプログラムに適切なデータ構造を使う必要があります。
+	プログラムには適切なデータ構造を使わなければなりません。
       </p>
       <p>
         <!-- You must not abuse the builtin (single-linked) <code>LIST</code> -->
         <!-- data structure where it is not appropriate, -->
         <!-- even though Common Lisp makes it especially easy to use it. -->
-	Common Lispは確かにビルトインの(単方向連結)<code>LIST</code>の操作を容易にしますが、不適切な場面でそれを酷使してはなりません。
+	Common Lispは確かにビルトインの(単方向連結)<code>LIST</code>の操作が簡単になっていますが、不適切な場面でそれを乱用してはなりません。
       </p>
       <p>
         <!-- You must only use lists -->
         <!-- when their performance characteristics -->
         <!-- is appropriate for the algorithm at hand: -->
         <!-- sequential iteration over the entire contents of the list. -->
-	リストを使うときはそのパフォーマンスの特徴上適切なアルゴリズム ─ シーケンス全体を舐めるようなもの ─ で操作する場合に限る必要があります。
+	リストを使うときはそのパフォーマンスの特徴上適切なアルゴリズム ─ シーケンシャルにリスト全体を舐めるようなもの ─ で操作する場合に限らなければなりません。
       </p>
       <p>
         <!-- An exception where it is appropriate to use lists -->
         <!-- is when it is known in advance -->
         <!-- that the size of the list will remain very short -->
         <!-- (say, less than 16 elements). -->
-	例外としては事前にリストの長さが小さい(具体的には16未満)と分っているときです。
+        例外として事前にリストのサイズが小さい(具体的には要素数が16未満)と分かっている場合があげられます。
       </p>
       <p>
         <!-- List data structures are often (but not always) -->
@@ -3698,20 +3698,20 @@ Takashi Kato
         <!-- indeed, not only is source code passed as lists in Common Lisp, -->
         <!-- but the macro-expansion and compilation processes -->
         <!-- will typically walk over the entire source code, sequentially, once. -->
-	リストはたいていの場合(だがしかしいつもではない)マクロやコンパイル時に使われる関数には適切です。
+	リストは大抵の場合(だがしかしいつもではない)マクロやコンパイル時に使われる関数には適切です。
 	というのも、Common Lispのソースコードがリストとして渡されるだけでなく、マクロ展開やコンパイル処理で典型的には全ソースコードを1回舐めるからです。
 	<!-- (Note that advanced macro systems don't directly use lists, but instead -->
         <!-- use abstract syntax objects that track source code location and scope; -->
         <!-- however there is no such advanced macro system -->
         <!-- in Common Lisp at this time.) -->
-	(一歩踏み込んだマクロシステムでは直接はリストを使わずソースコードの位置やスコープを追跡する抽象構文オブジェクトを使いますが、現時点ではCommon Lispにはそのようなマクロシステムは存在しないことに気を付けましょう。)
+	(進んだマクロシステムでは直接はリストを使わずソースコードの位置やスコープを追跡する抽象構文オブジェクトを使いますが、現時点ではCommon Lispにはそのようなマクロシステムは存在しないことに気を付けましょう。)
       </p>
       <p>
         <!-- Another exception where it is appropriate to use lists is -->
         <!-- for introducing literal constants -->
         <!-- that will be transformed into more appropriate data structures -->
         <!-- at compile-time or load-time. -->
-	もう一つ例外はコンパイル時やロード時に適切なデータ構造に変換されるデータのリテラル定数を導入するときです。
+	もう一つの例外としてコンパイル時やロード時に適切なデータ構造に変換される[リストの]リテラルを導入する場合があげられます。
         <!-- It is a good to have a function with a relatively short name -->
         <!-- to build your program's data structures from such literals. -->
 	比較的短かい名前でそのようなリテラルから自分のプログラムのデータ構造を構成する関数を用意するのは良いことです。
@@ -3735,7 +3735,7 @@ Takashi Kato
   <STYLEPOINT title="リストか構造体か多値か">
     <SUMMARY>
       <!-- You should use the appropriate representation for product types. -->
-      作るものに応じて適材適所で用いる<!-- SOULD -->べきです。 
+      作るものに応じて適材適所で用いる<!-- SOULD -->べきです。
     </SUMMARY>
     <BODY>
       <p>
