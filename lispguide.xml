@@ -1515,7 +1515,7 @@ Takashi Kato
   </STYLEPOINT>
   <STYLEPOINT title="文法と句読点"><!-- Grammar and punctuation -->
     <SUMMARY>
-      You should punctuate documentation correctly.
+      ドキュメントでの句読は正しく使用すべきです。
     </SUMMARY>
     <BODY>
       <p>
