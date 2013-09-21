@@ -3660,62 +3660,74 @@ Takashi Kato
     <SUMMARY>
       <!-- You must select proper data representation. 
            You must not abuse the LIST data structure.  -->
-      *絶対に*データ表現は正しく選択すべきです。
-      *絶対に*<code>LIST</code>構造を乱用すべきではありません。
+      データ表現は正しく選択しなければなりません。
+      <code>LIST</code>構造を乱用してはなりません。
     </SUMMARY>
     <BODY>
       <p>
-        Even though back in 1958, LISP was short for "LISt Processing",
-        its successor Common Lisp has been a modern programming language
-        with modern data structures since the 1980s.
-        You must use the proper data structures in your programs.
+        <!-- Even though back in 1958, LISP was short for "LISt Processing", -->
+        <!-- its successor Common Lisp has been a modern programming language -->
+        <!-- with modern data structures since the 1980s. -->
+	1958の昔にまで遡ればLISPは"LISt Processing"の略でありましたが、1980年代以降、その後継であるCommon Lispはモダンなデータ構造を持ったモダンなプログラミング言語であり続けています 。
+        <!-- You must use the proper data structures in your programs. -->
+	プログラムには適切なデータ構造を使わなければなりません。
       </p>
       <p>
-        You must not abuse the builtin (single-linked) <code>LIST</code>
-        data structure where it is not appropriate,
-        even though Common Lisp makes it especially easy to use it.
+        <!-- You must not abuse the builtin (single-linked) <code>LIST</code> -->
+        <!-- data structure where it is not appropriate, -->
+        <!-- even though Common Lisp makes it especially easy to use it. -->
+	Common Lispは確かにビルトインの(単方向連結)<code>LIST</code>の操作が簡単になっていますが、不適切な場面でそれを乱用してはなりません。
       </p>
       <p>
-        You must only use lists
-        when their performance characteristics
-        is appropriate for the algorithm at hand:
-        sequential iteration over the entire contents of the list.
+        <!-- You must only use lists -->
+        <!-- when their performance characteristics -->
+        <!-- is appropriate for the algorithm at hand: -->
+        <!-- sequential iteration over the entire contents of the list. -->
+	リストを使うときはそのパフォーマンスの特徴上適切なアルゴリズム ─ シーケンシャルにリスト全体を舐めるようなもの ─ で操作する場合に限らなければなりません。
       </p>
       <p>
-        An exception where it is appropriate to use lists
-        is when it is known in advance
-        that the size of the list will remain very short
-        (say, less than 16 elements).
+        <!-- An exception where it is appropriate to use lists -->
+        <!-- is when it is known in advance -->
+        <!-- that the size of the list will remain very short -->
+        <!-- (say, less than 16 elements). -->
+        例外として事前にリストのサイズが小さい(具体的には要素数が16未満)と分かっている場合があげられます。
       </p>
       <p>
-        List data structures are often (but not always)
-        appropriate for macros and functions used by macros at compile-time:
-        indeed, not only is source code passed as lists in Common Lisp,
-        but the macro-expansion and compilation processes
-        will typically walk over the entire source code, sequentially, once.
-        (Note that advanced macro systems don't directly use lists, but instead
-        use abstract syntax objects that track source code location and scope;
-        however there is no such advanced macro system
-        in Common Lisp at this time.)
+        <!-- List data structures are often (but not always) -->
+        <!-- appropriate for macros and functions used by macros at compile-time: -->
+        <!-- indeed, not only is source code passed as lists in Common Lisp, -->
+        <!-- but the macro-expansion and compilation processes -->
+        <!-- will typically walk over the entire source code, sequentially, once. -->
+	リストは大抵の場合(だがしかしいつもではない)マクロやコンパイル時に使われる関数には適切です。
+	というのも、Common Lispのソースコードがリストとして渡されるだけでなく、マクロ展開やコンパイル処理で典型的には全ソースコードを1回舐めるからです。
+	<!-- (Note that advanced macro systems don't directly use lists, but instead -->
+        <!-- use abstract syntax objects that track source code location and scope; -->
+        <!-- however there is no such advanced macro system -->
+        <!-- in Common Lisp at this time.) -->
+	(進んだマクロシステムでは直接はリストを使わずソースコードの位置やスコープを追跡する抽象構文オブジェクトを使いますが、現時点ではCommon Lispにはそのようなマクロシステムは存在しないことに気を付けましょう。)
       </p>
       <p>
-        Another exception where it is appropriate to use lists is
-        for introducing literal constants
-        that will be transformed into more appropriate data structures
-        at compile-time or load-time.
-        It is a good to have a function with a relatively short name
-        to build your program's data structures from such literals.
+        <!-- Another exception where it is appropriate to use lists is -->
+        <!-- for introducing literal constants -->
+        <!-- that will be transformed into more appropriate data structures -->
+        <!-- at compile-time or load-time. -->
+	もう一つの例外としてコンパイル時やロード時に適切なデータ構造に変換される[リストの]リテラルを導入する場合があげられます。
+        <!-- It is a good to have a function with a relatively short name -->
+        <!-- to build your program's data structures from such literals. -->
+	比較的短かい名前でそのようなリテラルから自分のプログラムのデータ構造を構成する関数を用意するのは良いことです。
       </p>
       <p>
-        In the many cases when lists are not the appropriate data structure,
-        various libraries such as
-        <a href="http://cliki.net/cl-containers">cl-containers</a> or
-        <a href="http://cliki.net/lisp-interface-library">lisp-interface-library</a>
-        provide plenty of different data structures
-        that should fulfill all the basic needs of your programs.
-        If the existing libraries are not satisfactory, see above about
-        <a href="#Using_Libraries">Using Libraries</a> and
-        <a href="#Open-Sourcing_Code">Open-Sourcing Code</a>.
+        <!-- In the many cases when lists are not the appropriate data structure, -->
+        <!-- various libraries such as -->
+        <!-- <a href="http://cliki.net/cl-containers">cl-containers</a> or -->
+        <!-- <a href="http://cliki.net/lisp-interface-library">lisp-interface-library</a> -->
+        <!-- provide plenty of different data structures -->
+        <!-- that should fulfill all the basic needs of your programs. -->
+	リストがデータ構造として適切でない場合は<a href="http://cliki.net/cl-containers">cl-containers</a>や<a href="http://cliki.net/lisp-interface-library">lisp-interface-library</a>などのライブラリがプログラムの基本的な需要を全て満足する多種多様なデータ構造を提供してくれます。
+        <!-- If the existing libraries are not satisfactory, see above about -->
+        <!-- <a href="#Using_Libraries">Using Libraries</a> and -->
+        <!-- <a href="#Open-Sourcing_Code">Open-Sourcing Code</a>. -->
+	もし既存のライブラリで満足できないなら、<a href="#Using_Libraries">Using Libraries</a>や<a href="#Open-Sourcing_Code">Open-Sourcing Code</a>を参考にして下さい。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -3723,7 +3735,7 @@ Takashi Kato
   <STYLEPOINT title="リストか構造体か多値か">
     <SUMMARY>
       <!-- You should use the appropriate representation for product types. -->
-      作るものに応じて適材適所で用いる<!-- SOULD -->べきです。 
+      作るものに応じて適材適所で用いる<!-- SOULD -->べきです。
     </SUMMARY>
     <BODY>
       <p>
