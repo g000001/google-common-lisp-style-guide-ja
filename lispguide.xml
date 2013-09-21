@@ -170,7 +170,7 @@ Takashi Kato
     <BODY>
       <table>
         <tr>
-          <th valign="top">MUST</th>
+          <th valign="top">しなければならない:MUST</th>
           <td>
             <p>
               <!--
@@ -178,14 +178,14 @@ Takashi Kato
               means that the guideline is an absolute requirement.
               You must ask permission to violate a MUST.
               -->
-              (佐野:実際の訳語をどうするか)"MUST"、"REQUIRED"、"SHALL"といった用語は
+              「しなければならない:"MUST"」、「要求される:"REQUIRED"」、「するものとする:"SHALL"」といった用語は
               そのガイドラインが絶対的な要求であることを意味します。
-              MUSTに違反する場合許可を求める必要(佐野:用語統一[must])があります。
+              MUSTに違反する場合は許可を求めなければなりません。
             </p>
           </td>
         </tr>
         <tr>
-          <th valign="top">MUST NOT</th>
+          <th valign="top">してはならない:MUST NOT</th>
           <td>
             <p>
               <!--
@@ -193,14 +193,14 @@ Takashi Kato
               means that the guideline is an absolute prohibition.
               You must ask permission to violate a MUST NOT.
               -->
-              "MUST NOT"や"SHALL NOT"といった句は
+              「してはならない:"MUST NOT"」や「しないものとする:"SHALL NOT"」といった句は
               そのガイドラインが絶対的な禁止であることを意味します。
-              MUST NOTに違反する場合許可を求める必要(佐野:用語統一[must])があります。
+              MUST NOTに違反する場合は許可を求めなければなりません。
             </p>
           </td>
         </tr>
         <tr>
-          <th valign="top">SHOULD</th>
+          <th valign="top">すべき:SHOULD</th>
           <td>
             <p>
               <!--
@@ -211,10 +211,10 @@ Takashi Kato
               before choosing a different course.
               You must ask forgiveness for violating a SHOULD.
               -->
-              語"SHOULD"や形容詞"RECOMMENDED"は
+              語「すべき:"SHOULD"」や形容詞「推奨される:"RECOMMENDED"」は
               ある状況ではガイドの要求を無視する適切な理由があるかもしれないことを意味しますが、
-              他のやりかたを選択する前にガイドの含意は理解され注意し重視される必要(佐野:用語統一[must])があります。
-              SHOULDに違反する場合許容を求める必要(佐野:用語統一[must])があります。
+              他のやりかたを選択する前にガイドの含意は理解され注意し重視される必要があります。
+              SHOULDに違反する場合許容を求めなければなりません。
             </p>
           </td>
         </tr>
@@ -230,10 +230,10 @@ Takashi Kato
               before choosing a different course.
               You must ask forgiveness for violating a SHOULD NOT.
               -->
-              句"SHOULD NOT"と句"NOT RECOMMENDED"は
+              句「すべきでない:"SHOULD NOT"」と句「推奨されない:"NOT RECOMMENDED"」は
               ある状況ではガイドの禁止を無視する適切な理由があるかもしれないことを意味しますが、
-              他のやりかたを選択する前にガイドの含意は理解され注意し重視される必要(佐野:用語統一[must])があります。
-              SHOULD NOTに違反する場合許容を求める必要(佐野:用語統一[must])があります。
+              他のやりかたを選択する前にガイドの言わんとすることは全て理解し尊重された上でなければなりません。
+              SHOULD NOTに違反する場合許容を求めなければなりません。
             </p>
           </td>
         </tr>
@@ -245,7 +245,7 @@ Takashi Kato
               This word, or the adjective "OPTIONAL",
               means that an item is truly optional.
               -->
-              語"MAY"や形容詞"OPTIONAL"はその項目は本当に任意であることを意味する。
+              語「できるでしょう:"MAY"」や形容詞「任意に:"OPTIONAL"」はその項目は本当に任意であることを意味します。
             </p>
           </td>
         </tr>
@@ -259,7 +259,7 @@ Takashi Kato
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="許可と許容"><!-- Permission and Forgiveness -->
+  <STYLEPOINT title="許可と承認"><!-- Permission and Forgiveness -->
     <SUMMARY>
       <!--
       There are cases where transgression of some of these rules
@@ -268,12 +268,12 @@ Takashi Kato
       from the proper people.
       -->
       ガイドで示すルールに対する違反が有効であったり必要であるケースがあります。
-      いくつかのケースでは許可を探すことや適切な人からの許容を求める必要(佐野:[must]訳語統一)があります
+      いくつかのケースでは許可を得たり、適切な人達からの承認を求めなければなりません。
     </SUMMARY>
     <BODY>
       <p>
         <!--Permission comes from the owners of your project.-->
-        許可はあなたのプロジェクトの所有者に由来する。
+        許可はあなたのプロジェクトの所有者に由来します。
       </p>
       <p>
         <!--
@@ -282,9 +282,9 @@ Takashi Kato
         The original comment should be signed by you, and
         the reviewer should add a signed approval to the comment at review time.
         -->
-        許容はガイドライン違反をした場所の近くのコメントの中でリクエストされ、レビューアによって承諾されます。
-        オリジナルのコメントはあなた(佐野:起票行為者の意味で行くと日本語での「あなた」はどうだろう)の名前で署名されるべき(佐野:[should]訳語統一)で、レビューアは
-        レビュー時に署名した承認を追記すべき(佐野:[should]訳語統一)です。
+        承認はガイドライン違反をした場所の近くのコメントの中でリクエストされ、レビューアによって承諾されます。
+        オリジナルのコメントはあなたの名前で署名されるべきで、レビューアは
+        レビュー時に署名した承認を追記すべきです。
       </p>
       
     </BODY>
@@ -292,7 +292,7 @@ Takashi Kato
   <STYLEPOINT title="慣例"><!-- Conventions -->
     <SUMMARY>
       <!-- You MUST follow conventions. They are not optional. -->
-      あなたは、慣例を確認しなければなりません。これは自由選択ではありません。
+      あなたは、慣例を確認しなければなりません。これは任意の選択事項ではありません。
     </SUMMARY>
     <BODY>
       <p>
@@ -5102,7 +5102,7 @@ Takashi Kato
         <!-- within a same file, package, system, project, etc. -->
 	全Common Lisp実装への最大限の対応を意図するときには、
 	前者の記法を使わなくてはなりません。
-        そうでないなら、どちらのスタイルでもかまいません。
+        そうでないなら、どちらのスタイルでも任意です。
         <code>#'</code>は、コード中で関数であることを示すヒントとなることがありえます。
 	しかし、<code>lambda</code>自体もふつう十分なヒントになりますし、十分に丁寧です。
 	お好きな方をどうぞ。しかし何に置いても、スタイルを統一することが重要です。
