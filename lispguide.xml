@@ -141,7 +141,8 @@ Takashi Kato
     <a HREF="http://www.gigamonkeys.com/book/">Practical Common Lisp</a>.
     For a language reference, please consult the
     <a HREF="http://www.lispworks.com/documentation/HyperSpec/Front/index.htm">Common Lisp HyperSpec</a>.
-    For more detailed style guidance, take a look at Peter Norvig and Kent Pitman's
+    For more detailed style guidance, take (with a pinch of salt)
+    a look at Peter Norvig and Kent Pitman's
     <a HREF="http://norvig.com/luv-slides.ps">style guide</a>.
     -->
     このガイドはCommon Lispのチュートリアルではありません。
@@ -150,7 +151,7 @@ Takashi Kato
     言語リファレンスとしては
     <a HREF="http://www.lispworks.com/documentation/HyperSpec/Front/index.htm">Common Lisp HyperSpec</a>
     を参照して下さい。より詳細なスタイルガイドについてはPeter Norvig とKent Pitmanの
-    <a HREF="http://norvig.com/luv-slides.ps">style guide</a>を見て下さい。
+    <a HREF="http://norvig.com/luv-slides.ps">style guide</a>を(鵜呑みにするのではなしに)参照して下さい。
   </p>
 </CATEGORY>
 </OVERVIEW>
@@ -347,19 +348,27 @@ Takashi Kato
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="古いコード"><!-- Old Code -->
-    <p>
-      <!-- A lot of our code was written before these guidelines existed. -->
-      我々のコードのうちの多くは、これらガイドラインができる以前に書かれました。
-      <!-- You should fix violations as you encounter them -->
-      <!-- in the course of your normal coding. -->
-      あなたは普段のコーディングの間に遭遇したガイドラインに対する違反を修正していくべきです。
-      <!-- You must not fix violations en masse -->
-      <!-- without warning other developers and coordinating with them, -->
-      <!-- so as not to make the merging of large branches -->
-      <!-- more difficult than it already is. -->
-      あなたは、巨大なブランチの統合でいまよりも状況をややこしくすることを避けるために、
-      違反のすべて一時に、他の開発者に対する警告と話し合いなしに修正してはなりません。
-    </p>
+    <SUMMARY>
+      <!-- Fix old code as you go. -->
+      古いコードは都度修正すること。
+    </SUMMARY>
+    <BODY>
+      <p>
+        <!-- A lot of our code was written before these guidelines existed. -->
+        我々のコードのうちの多くは、これらガイドラインができる以前に書かれました。
+        <!-- You should fix violations as you encounter them -->
+        <!-- in the course of your normal coding. -->
+        あなたは普段のコーディングの間に遭遇したガイドラインに対する違反を修正していくべきです。
+      </p>
+      <p>
+        <!-- You must not fix violations en masse -->
+        <!-- without warning other developers and coordinating with them, -->
+        <!-- so as not to make the merging of large branches -->
+        <!-- more difficult than it already is. -->
+        あなたは、巨大なブランチの統合でいまよりも状況をややこしくすることを避けるために、
+        違反のすべて一時に、他の開発者に対する警告と話し合いなしに修正してはなりません。
+      </p>
+    </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="将来の課題"><!-- Future Topics -->
     <SUMMARY>
@@ -767,15 +776,17 @@ Takashi Kato
 	  あなたのコードは、あらゆるコンパイルエラーや警告メッセージを発生させずにコンパイルされなければなりません。
           <!--   If the compiler issues warnings that should be ignored, -->
           <!--   muffle those warnings using the -->
-          <!--   <code>xcvb-driver:with-controlled-compiler-conditions</code> and -->
-          <!--   <code>xcvb-driver:*uninteresting-conditions*</code> -->
-          <!--   framework (also available as <code>asdf-condition-control</code>), -->
+
+          <!-- <code>UIOP:WITH-MUFFLED-COMPILER-CONDITIONS</code> and -->
+          <!-- <code>UIOP:*UNINTERESTING-COMPILER-CONDITIONS*</code> -->
+          <!-- framework (part of <code>UIOP</code>, part of <code>ASDF 3</code>), -->
+
           <!--   either around the entire project, or around individual files -->
           <!--   (using asdf's <code>:around-compile</code> hooks). -->
 	  もし、コンパイラの問題で警告を無視させるときはそれぞれの警告を
-          <code>xcvb-driver:with-controlled-compiler-conditions</code>と
-          <code>xcvb-driver:*uninteresting-conditions*</code>フレームワーク 
-	  (ときには<code>asdf-condition-control</code>という名前で使用可能です)を使って
+          <code>UIOP:WITH-MUFFLED-COMPILER-CONDITIONS</code>と
+          <code>UIOP:*UNINTERESTING-COMPILER-CONDITIONS*</code>フレームワーク 
+          (<code>UIOP</code>や<code>ASDF 3</code>の一部)を使って
 	  プロジェクト全体にわたってあるいは独立したファイルを包みます
           (asdfの<code>:around-compile</code>フックを使います)。
         </li>
@@ -824,8 +835,8 @@ Takashi Kato
   </STYLEPOINT>
 </CATEGORY>
 <CATEGORY title="Formatting">
-  <!-- <STYLEPOINT title="Spelling"> -->
-    <STYLEPOINT title="綴り">
+  <!-- <STYLEPOINT title="Spelling and Abbreviations"> -->
+    <STYLEPOINT title="綴りと略語">
     <SUMMARY>
       <p>
         <!-- You must use correct spelling in your comments, -->
@@ -1043,8 +1054,9 @@ Takashi Kato
         <!-- every file should follow with any file-specific -->
         <!-- <code>(declaim (optimize ...))</code> declaration -->
         <!-- that is not covered by an asdf <code>:around-compile</code> hook. -->
+        <!-- that is not covered by an <code>ASDF</code> <code>:around-compile</code> hook. -->
 	すべてのファイルは、<code>in-package</code>フォームのあとに、
-	asdf <code>:around-compile</code>が関与しない、
+	<code>ASDF</code> <code>:around-compile</code>が関与しない、
 	ファイル固有の
         <code>(declaim (optimize ...))</code>などの形式で行われる宣言を記すべきです。
       </p>
@@ -1644,10 +1656,10 @@ Takashi Kato
     <SUMMARY>
       <!-- You should use lower case. -->
       <!-- You should not abbreviate. -->
-      <!-- You should follow the rules for <a href="#Spelling">Spelling and Abbreviations</a> -->
+      <!-- You should follow the rules for <a href="#Spelling_and_Abbreviations">Spelling and Abbreviations</a> -->
       <!-- You should follow punctuation conventions. -->
       小文字を用いるべきです。
-      略語は<a href="#Spelling">綴りと略語</a>のルールに従うべきです。
+      略語は<a href="#Spelling_and_Abbreviations">綴りと略語</a>のルールに従うべきです。
       句読点法の慣習には従うべきです。
     </SUMMARY>
     <BODY>
@@ -1697,9 +1709,9 @@ Takashi Kato
 	使うべきではありません。
       </p>
       <p>
-        <!-- See the section on <a href="#Spelling">Spelling and Abbreviations</a> -->
-        <!-- for guidelines on using abbreviations.  -->
-        略語利用のガイドラインについては、<a href="#Spelling">綴りと略語</a>の章を参照してください。
+        <!-- See the section on <a href="#Spelling_and_Abbreviations">Spelling and Abbreviations</a> -->
+        <!-- for guidelines on using abbreviations. -->
+        略語利用のガイドラインについては、<a href="#Spelling_and_Abbreviations">綴りと略語</a>の章を参照してください。
       </p>
       <BAD_CODE_SNIPPET>
         <!-- ;; Bad -->
@@ -3454,8 +3466,8 @@ Takashi Kato
       </p>
       <ul>
         <li>
-          <!-- Implementing an interactive development loop. -->
-          インタラクティブな開発のためのループの実装。
+          <!-- The implementation of an interactive development tool. -->
+          インタラクティブな開発ツールの実装。
         </li>
         <li>
           <!-- The build infrastructure. -->
@@ -3827,12 +3839,13 @@ Takashi Kato
         <!-- instead of <code>FIRST</code> and <code>REST</code> also makes sense. -->
         <!-- However, keep in mind that it might be more appropriate in such cases -->
         <!-- to use higher-level constructs such as -->
-        <!-- <code>DESTRUCTURING-BIND</code> or <code>FARE-MATCHER:MATCH</code>. -->
+        <!-- <code>DESTRUCTURING-BIND</code> or <code>OPTIMA:MATCH</code>. -->
+        <!-- <code>DESTRUCTURING-BIND</code> or <code>OPTIMA:MATCH</code>. -->
         手動でリストを腑分けするような場合、リストのアクセス関数を組み合わせる代わりに、
         例外的に<code>CDADR</code>やそれに類するものを使っても良いでしょう。
         この文脈では<code>FIRST</code>や<code>REST</code>でなく、代りに<code>CAR</code>や<code>CDR</code>を利用するのも理にかなったことでしょう。
         しかし、これらの場合、より高い[視点で]構造を扱うものとして、
-        <code>DESTRUCTURING-BIND</code>や<code>FARE-MATCHER:MATCH</code>
+        <code>DESTRUCTURING-BIND</code>や<code>OPTIMA:MATCH</code>
         を使った方が適切な場合もあるということを常に念頭に置いておきましょう。
       </p>
     </BODY>
@@ -4612,7 +4625,7 @@ Takashi Kato
         <!-- More generally, unsafe operations -->
         <!-- will yield the correct result faster -->
         <!-- than would the equivalent safe operation -->
-        <!-- if the arguments to satisfy some invariant such as -->
+        <!-- if the arguments satisfy some invariant such a -->
         <!-- being of the correct type and small enough; -->
 	        より一般的にいうと、安全でない命令は、
 		正しい型で十分に小さい[ある範囲に収まる]といった規定を満たす引数とともに呼び出されたとき、
@@ -4633,8 +4646,8 @@ Takashi Kato
 		人を破産に追い込んだり、死に至らしめます。
 
         <!-- Yet proper speed can sometimes make the difference between -->
-        <!-- software that's unusably slow and software that does its job; -->
-        <!-- between software that is a net loss -->
+        <!-- software that's unusably slow and software that does its job, -->
+        <!-- or between software that is a net loss -->
         <!-- and software that can yield a profit. -->
                 とはいうものの、適切な速度は、使えない程遅いソフトウェアと仕事をこなせるソフトウェア
                 (ソフトウェアがもたらす損失とソフトウェアがもたらす利潤)
@@ -4706,13 +4719,13 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        <!-- <code>DYNAMIC-EXTENT</code> declaration are -->
+        <!-- <code>DYNAMIC-EXTENT</code> declarations are -->
         <!-- a particular case of -->
         <!-- <a href="#Unsafe_Operations">unsafe operations</a>. -->
 	<code>DYNAMIC-EXTENT</code>宣言は<a href="#Unsafe_Operations">安全でない操作</a>のケースの1つです。
       </p>
       <p>
-        <!-- The purpose of the <code>DYNAMIC-EXTENT</code> declaration -->
+        <!-- The purpose of a <code>DYNAMIC-EXTENT</code> declaration -->
         <!-- is to improve performance by reducing garbage collection -->
         <!-- in cases where it appears to be obvious that an object's lifetime -->
         <!-- is within the "dynamic extent" of a function. -->
@@ -4753,7 +4766,8 @@ Takashi Kato
         </li>
         <li>
           <!-- Lists and vector allocated within a function. -->
-          アロケートが関数内で収まっているリストとベクタ
+          <!-- Lists, vectors and structures allocated within a function. -->
+          アロケートが関数内で収まっているリスト、ベクタ、構造体
         </li>
         <li>
           <!-- Closures. -->
@@ -4764,9 +4778,9 @@ Takashi Kato
         <!-- If the assertion is wrong, i.e. if the programmer's claim is not true, -->
         <!-- the results can be <em>catastrophic</em>: -->
         <!-- Lisp can terminate any time after the function returns, -->
-        <!-- or it hang forever, or — worst of all — -->
-        <!-- produce incorrect results without any runtime error! -->
-	もし指定が間違っていれば、つまりプログラマの主張が真でなければ、<em>大災害</em>となるでしょう:
+        <!-- or it can hang forever, or — worst of all — -->
+        <!-- it can produce incorrect results without any runtime error! -->
+	もし指定が間違っていれば、つまりプログラマの主張が真でなければ、<em>大災害</em>にもなるでしょう:
 	Lispは[dynamic-extent指定をした]関数の値が返るときいつでも終了、あるいはフリーズ、最悪の場合エラーすら起さずに間違った値を返し得ます。
       </p>
       <p>
@@ -4819,22 +4833,24 @@ Takashi Kato
         <!-- by analyzing where the function is called and -->
         <!-- what other functions it is passed to; -->
         <!-- therefore, you should somewhat wary of declaring a function -->
-        <!-- <code>DYNAMIC-EXTENT</code>, but not a high-stress declaration. -->
-	関数がどこで呼ばれてどの別の関数に渡されるかを分析すれば、その関数が現在のコールフレームの動的スコープを抜けないことを突き止めることは比較的容易なので、関数に<code>DYNAMIC-EXTENT</code>を宣言するときは用心する必要はありますが、それほどストレスの高いものではないことを覚えておきましょう。
+        <!-- <code>DYNAMIC-EXTENT</code>, but this is not a high-stress declaration. -->
+	関数がどこで呼ばれてどの別の関数に渡されるかを分析すれば、その関数が現在のコールフレームの動的スコープを抜けないことを突き止めることは比較的容易なので、関数に<code>DYNAMIC-EXTENT</code>を宣言するときは用心する必要はありますが、これはそれほどストレスの高いものではないことを覚えておきましょう。
         <!-- On the other hand, it is much harder to ascertain that -->
         <!-- none of the objects ever bound or assigned to that variable -->
+        <!-- and none of their sub-objects -->
         <!-- will escape the dynamic extent of the current call frame, -->
         <!-- nor will in any future modification of a function. -->
-	逆に、ある変数に束縛されたどのオブジェクトも現在のコールフレームの動的エクステントを抜けない、そして将来の修正の影響も受けないことを確実にするのは非常に困難を極めます。
+        <!-- and that they still won't in any future modification of a function. -->
+	逆に、ある変数に束縛されたオブジェクトとそのサブオブジェクトのどれもが現在のコールフレームの動的エクステントを抜けない、そして将来の修正のときにも影響も受けないことを確実にするのは非常に困難を極めます。
         <!-- Therefore, you should be extremely wary -->
         <!-- of declaring a variable <code>DYNAMIC-EXTENT</code>. -->
 	それゆえ、変数に<code>DYNAMIC-EXTENT</code>を宣言するときは細心の注意を払いましょう。
       </p>
       <p>
-        <!-- It's sometimes hard to know what the rate will be. -->
-	どの程度[関数やオブジェクトが]使われるかの判断が難しいこともあります。
+        <!-- It's usually hard to predict the effect of such optimization on performance.  -->
+        通常、このようなパフォーマンスの最適化の影響を予測するのは難しいものです。
         <!-- When writing a function or macro -->
-        <!-- that's part of a library of reusable code, -->
+        <!-- that is part of a library of reusable code, -->
         <!-- there's no a priori way to know how often the code will run. -->
 	再利用可能なライブラリの一部として関数やマクロを定義するときはどのくらい使われるかを知る有効な手段はありません。
         <!-- Ideally, tools would be available to discover -->
@@ -4846,11 +4862,12 @@ Takashi Kato
         <!-- It's a tradeoff. -->
 	トレードオフです。
         <!-- If you're very, very sure that the assertion is true -->
-        <!-- (that the object is only used within the dynamic scope), -->
+        <!-- (that any object bound to the variable and any of its sub-objects -->
+        <!-- are only used within the dynamic extent of the specified scope), -->
         <!-- and it's not obvious how much time will be saved -->
         <!-- and it's not easy to measure, -->
         <!-- then it may be better to put in the declaration than to leave it out. -->
-	オブジェクトが動的[エクステントとなるような]スコープでしか使われないという絶対の自身があって、どの程度最適化の効果があるか分からず、容易に効果の測定もできないなら、そのまま放っておくよりは、宣言する方が良いでしょう。
+	変数に束縛されたオブジェクトとそのサブオブジェクトのどれもが動的[エクステントとなるような]スコープでしか使われないという絶対の自身があって、どの程度最適化の効果があるか分からず、容易に効果の測定もできないなら、そのまま放っておくよりは、宣言する方が良いでしょう。
         <!-- (Ideally it would be easier to make such measurements -->
         <!-- than it actually is.) -->
 	(もっと測定が容易であれば良いのですが。)
@@ -4872,17 +4889,20 @@ Takashi Kato
         <!-- otherwise guarantees the same semantics. -->
         <!-- Of course, you must use <code>APPLY</code> -->
         <!-- if it does what you want and <code>REDUCE</code> doesn't. -->
+        <!-- For instance -->
         第一引数の関数の意味論が同じと保証されるなら、<!-- ? -->
         リストを作って<code>APPLY</code>する代りに<code>REDUCE</code>を使うべきです。 
         勿論、<code>REDUCE</code>では駄目で、求めるものが<code>APPLY</code>であるなら使わなければなりません。
+        例えば:
       </p>
-      <p>
-        <!-- For instance, <code>(apply #'+ (mapcar #'acc frobs)</code> -->
-        <!-- should instead be <code>(reduce #'+ frobs :key #'acc)</code> -->
-        例を挙げるなら、<code>(apply #'+ (mapcar #'acc frobs)</code>
-        の代りに、<code>(reduce #'+ frobs :key #'acc)</code>
-        となるでしょう。
-      </p>
+      <BAD_CODE_SNIPPET>
+        ;; Bad
+        (apply #'+ (mapcar #'acc frobs))
+      </BAD_CODE_SNIPPET>
+      <CODE_SNIPPET>
+        ;; Better
+        (reduce #'+ frobs :key #'acc :initial-value 0)
+      </CODE_SNIPPET>
       <p>
         <!-- This is preferable because it does not do extra consing, -->
         <!-- and does not risk going beyond <code>CALL-ARGUMENTS-LIMIT</code> -->
@@ -4901,16 +4921,28 @@ Takashi Kato
         <!-- when an appropriate implementation is only <i>O(n)</i>. -->
         <!-- Moreover, <code>(REDUCE 'APPEND ...)</code> -->
         <!-- is also <i>O(n^2)</i> unless you specify <code>:FROM-END T</code>. -->
+
         <!-- In such cases, you must use proper abstractions -->
         <!-- that cover those cases instead of calling <code>REDUCE</code>, -->
         <!-- first defining them in a suitable library if need be. -->
+
+        <!-- In such cases, you MUST NOT use <code>REDUCE</code>, -->
+        <!-- and you MUST NOT use <code>(APPLY 'STRCAT ...)</code> -->
+        <!-- or <code>(APPLY 'APPEND ...)</code> either. -->
+        <!-- Instead you MUST use proper abstractions -->
+        <!-- from a suitable library (that you may have to contribute to) -->
+        <!-- that properly handles those cases -->
+        <!-- without burdening users with implementation details. -->
+        <!-- See for instance <code>UIOP:REDUCE/STRCAT</code>. -->
         とはいうものの、不要に計算量を増大させるような<code>REDUCE</code>の用法には注意しなければなりません。
         例えば、<code>(REDUCE #'STRCAT ...)</code>を用いれば<i>O(n^2)</i>となりますが、
         [<code>REDUCE</code>ではなく]適切な実装を用いた場合には<i>O(n)</i>にしかなりません。
         加えて、<code>(REDUCE #'APPEND ...)</code>
         もまた、<code>:FROM-END T</code>を指定しない限り<i>O(n^2)</i>となります。
-        このような場合、<code>REDUCE</code>を呼ぶのではなしに、必要とあらば、ふさわしいライブラリを定義し、
-        適切な抽象を用いらなければなりません。
+        このような場合、<code>REDUCE</code>を使ってはなりませんし、<code>(APPLY 'STRCAT ...)</code>や、<code>(APPLY 'APPEND ...)</code>も使ってはなりません。
+        代わりに、実装の詳細についてをユーザーが負担することなしに、このようなケースを上手く回せるような、
+        利用するにふさわしいライブラリ(もしかするとあなたが協力する必要もあるかもしれない)から適切な抽象化を提供するものを利用しなくてはなりません。
+        例としては、<code>UIOP:REDUCE/STRCAT</code>を参照のこと。
       </p>
       
     </BODY>
@@ -4920,9 +4952,9 @@ Takashi Kato
     <SUMMARY>
       <!-- You should not use <code>NCONC</code>; -->
       <!-- you should use <code>APPEND</code> instead, -->
-      <!-- or better data structures. -->
+      <!-- or better, better data structures. -->
       <code>NCONC</code>は利用すべきではありません 
-      ——代りに <code>APPEND</code> を利用すべきです。もしくはよりよい他のデータ構造を利用しましょう
+      ——代りに <code>APPEND</code> を利用すべきです。さらには、よりよい他のデータ構造を利用しましょう
     </SUMMARY>
     <BODY>
       <p>
@@ -5127,13 +5159,20 @@ Takashi Kato
   <!-- <STYLEPOINT title="Pathnames"> -->
   <STYLEPOINT title="パスネーム">
     <SUMMARY>
-      <!-- Common Lisp pathnames are tricky. Be aware of pitfalls. -->
-      Common Lisp のパスネームはトリッキーです。落とし穴にはまらないよう注意しましょう。
+      <!-- Common Lisp pathnames are tricky. Be aware of pitfalls. Use <code>UIOP</code>.-->
+      Common Lisp のパスネームはトリッキーです。落とし穴にはまらないよう注意しましょう。<code>UIOP</code>を使いましょう。
     </SUMMARY>
     <BODY>
       <p>
         <!-- It is surprisingly hard to properly deal with pathnames in Common Lisp. -->
 	Common Lispでパスネームを適切に扱うのは驚くほど難しいです。
+        <!-- <code>ASDF 3</code> comes with a portability library <code>UIOP</code> -->
+        <!-- that makes it <em>much</em> easier to deal with pathnames -->
+        <!-- portably — and correctly — in Common Lisp. -->
+        <!-- You should use it when appropriate. -->
+        <code>ASDF 3</code>に同梱の可搬性のあるライブラリである<code>UIOP</code>は、
+        パスネームの扱いに可搬性 —と正確さ— をCommon Lispに持たせることを<em>より</em>簡単にします。
+        適切な場合にはこれを使うべきです。
       </p>
       <p>
         <!-- First, be aware of the discrepancies between -->
@@ -5161,7 +5200,7 @@ Takashi Kato
         <!-- (and even on some Unix implementations). -->
 	次に、<code>MERGE-PATHNAMES</code>を使うときには<code>HOST</code>の扱いに気を配りましょう。これは多くのUNIX以外(そして一部のUNIXでさえ)問題になります。
         <!-- You probably should be using -->
-        <!-- <code>ASDF-UTILS:MERGE-PATHNAMES*</code> -->
+        <!-- <code>UIOP:MERGE-PATHNAMES*</code> -->
         <!-- instead of <code>MERGE-PATHNAMES</code>, -->
         <!-- especially if your expectations for relative pathnames -->
         <!-- are informed by the way they work in Unix or Windows; -->
@@ -5171,16 +5210,16 @@ Takashi Kato
         <!-- and replace it with the host from the value of -->
         <!-- <code>*DEFAULT-PATHNAME-DEFAULTS*</code> -->
         <!-- at the time the relative pathname was created. -->
-	特に相対パスがUnixやWindowsでのやり方のように伝えられる<!--渡される？-->と期待しているなら<code>MERGE-PATHNAMES</code>ではなく<code>ASDF-UTILS:MERGE-PATHNAMES*</code>を使うべきなのかもしれません。そうでなければ一部の処理系で相対パスと絶対パスを結合したときに絶対パスのホスト名が相対パスが作られたときの<code>*DEFAULT-PATHNAME-DEFAULTS*</code>のホストの値で上書きされるという奇妙なバグにぶつかるでしょう。 
+	特に相対パスがUnixやWindowsでのやり方のように伝えられる<!--渡される？-->と期待しているなら<code>MERGE-PATHNAMES</code>ではなく<code>UIOP:MERGE-PATHNAMES*</code>を使うべきなのかもしれません。そうでなければ一部の処理系で相対パスと絶対パスを結合したときに絶対パスのホスト名が相対パスが作られたときの<code>*DEFAULT-PATHNAME-DEFAULTS*</code>のホストの値で上書きされるという奇妙なバグにぶつかるでしょう。 
       </p>
       <p>
         <!-- Third, be aware that <code>DIRECTORY</code> -->
         <!-- is not portable across implementations -->
         <!-- in how it handles wildcards, sub-directories, symlinks, etc. -->
 	3つ目に、<code>DIRECTORY</code>はワイルドカード、サブディレクトリ、シンボリックリンクなどの扱いに処理系毎の違いがあることに気を付けましょう。
-        <!-- There again, <code>ASDF-UTILS</code> provides several -->
+        <!-- There again, <code>UIOP</code> provides several -->
         <!-- common abstractions to deal with pathnames. -->
-	繰り返しますが、<code>ASDF-UTILS</code>はパスネームを扱うのにいくつかの抽象化を提供しています。
+	繰り返しますが、<code>UIOP</code>はパスネームを扱うのにいくつかの抽象化を提供しています。
       </p>
       <p>
         <!-- <code>LOGICAL-PATHNAME</code>s are not a portable abstraction, -->
@@ -5190,16 +5229,16 @@ Takashi Kato
 	全ての処理系でサポートされているにも関わらず、多くの処理系でバグがあります。
         <!-- SBCL implements them very well, -->
         <!-- but strictly enforces the limitations on characters -->
-        <!-- allowed by the standard. -->
-	SBCLは良く実装されていますが、標準で許可されている文字制限を押しつけてきます。
+        <!-- allowed by the standard, which restricts their applicability. -->
+	SBCLは良く実装されていますが、それが準拠している標準に許可されている文字制限を押しつけてきます。 <!-- ??? -->
         <!-- Other implementations allow arbitrary characters in such pathnames, -->
         <!-- but in doing so are not being conformant, -->
         <!-- and are still incompatible with each other in many ways. -->
 	他の処理系は独自の判断でそのような文字を許可してはいますが、処理系毎にバラバラで、多くの点で互換性がありません。
         <!-- You should use other pathname abstractions, -->
         <!-- such as <code>ASDF:SYSTEM-RELATIVE-PATHNAME</code> or -->
-        <!-- the underlying <code>ASDF-UTILS:COERCE-PATHNAME</code>. -->
-	<code>ASDF:SYSTEM-RELATIVE-PATHNAME</code>やその下敷になっている<code>ASDF-UTILS:COERCE-PATHNAME</code>などの別の抽象化を使うべきです。
+        <!-- the underlying <code>UIOP:SUBPATHNAME</code>. -->
+	<code>ASDF:SYSTEM-RELATIVE-PATHNAME</code>やその下敷になっている<code>UIOP:SUBPATHNAME</code>などの別の抽象化を使うべきです。
       </p>
       
       <p>
@@ -5213,7 +5252,11 @@ Takashi Kato
 	ビルド時の不適切なパスネームを破棄し、環境変数から再度起点のパスを初期化するように注意するべきです。
         <!-- <code>ASDF</code> for instance requires you to reset its paths -->
         <!-- with <code>ASDF:CLEAR-CONFIGURATION</code>. -->
+        <!-- <code>UIOP</code> provides hooks -->
+        <!-- to call functions before an image is dumped, -->
+        <!-- from which to reset or <code>makunbound</code> relevant variables. -->
 	例えば<code>ASDF</code>は<code>ASDF:CLEAR-CONFIGURATION</code>でリセットすることを要求します。
+        <code>UIOP</code>は、イメージをダンプする前に関連する変数をリセットしたり、<code>makunbound</code>するために関数を呼ぶためのフックを提供しています。
       </p>
       
     </BODY>
@@ -5267,7 +5310,8 @@ Takashi Kato
           <p>
           That is why any function specified in a <code>SATISFIES</code> clause
           MUST accept objects of any type as argument to the function,
-          and MUST be defined within an <code>EVAL-WHEN</code>. 
+          and MUST be defined within an <code>EVAL-WHEN</code>
+          (as well as any variable it uses or function it calls):
       -->
       <p>
         ただし、 <code>DEFTYPE</code> 中の <code>AND</code> は、通常の
@@ -5284,9 +5328,10 @@ Takashi Kato
       </p>
       <p>
 	これこそが、 <code>SATISFIES</code> で指定する関数は、どんな型
-	の引数でも適用できるようで<em>なくてはならない</em>ことの、そ
+	の引数でも[エラーを出さずに]適用できるようで<em>なくてはならない</em>ことの、そ
 	して<code>EVAL-WHEN</code> の中で定義され<em>なくてはいけない
 	</em>ことの理由です。
+        (それが利用しているすべての変数や呼び出す関数についても同様)
       </p>
       <BAD_CODE_SNIPPET>
         (defun prime-number-p (n) ; 二重に悪い
@@ -5383,7 +5428,7 @@ Takashi Kato
 </small>
 
 <p align="right">
-Revision 1.20
+Revision 1.23
 </p>
 
 
