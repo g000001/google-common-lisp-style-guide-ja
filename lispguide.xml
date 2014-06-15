@@ -3,13 +3,13 @@
 <GUIDE title="Google Common Lisp スタイルガイド 日本語訳">
 
 <div align="center">
-これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.20)</a>の日本語訳です。<br/>
+これは<a href="http://google-styleguide.googlecode.com/svn/trunk/lispguide.xml">Google Common Lisp Style Guide (1.28)</a>の日本語訳です。<br/>
 オリジナルと同様、<a href="http://creativecommons.org/licenses/by/3.0/">CC-By 3.0 License</a>で配布します。<br/>
-最終更新: 2013-11-01
+最終更新: 2014-06-15
 </div>
 
 <p align="right">
-Revision 1.23
+Revision 1.28
 </p>
 
 
@@ -976,26 +976,52 @@ Takashi Kato
 	コードの字下げはGNU Emacsにあらかじめ設定されている値に従います。
       </p>
       <p>
+        <!-- Maintain a consistent indentation style throughout a project. -->
+        プロジェクトを通して字下げのスタイルが一貫するように管理しましょう。
+      </p>
+      <p>
         <!-- Indent carefully to make the code easier to understand. -->
 	コードの理解を簡単にするため、字下げは慎重に行います。
       </p>
     </SUMMARY>
     <BODY>
       <p>
-        <!-- By default, GNU Emacs does an excellent job indenting Common Lisp code. -->
-	GNU EmacsはCommon Lispのコードの字下げについて、初期設定のままで素晴らしい仕事をします。
-        <!-- It can be taught how to indent new defining forms -->
-        <!-- and special rules for domain specific languages. -->
-	新しい定義形式やドメイン固有言語のための特別なルールを教えることもできます。
-        <!-- Each project may have some file to customize indentation; use it. -->
-	それぞれのプロジェクトがカスタマイズされた字下げのルールを記したファイルを持っている場合もありますが、
-	その際はそれを使います。
+        Common Lisp indentation in Emacs is provided by the cl-indent library.
+        The latest version of cl-indent is packaged with
+        <a HREF="http://www.common-lisp.net/project/slime/">SLIME</a>
+        (under contrib/slime-cl-indent.el). After installing SLIME, set up Emacs
+        to load SLIME automatically using
+        <a HREF="http://www.common-lisp.net/project/slime/doc/html/Loading-Contribs.html">these instructions</a>, adding slime-indentation to the list of
+        contrib libraries to be loaded in the call to slime-setup.
+
+
+        EmacsでのCommon Lispの字下げは、cl-indentライブラリが提供されています。
+        最新のcl-indentバージョンは、<a HREF="http://www.common-lisp.net/project/slime/">SLIME</a>に同梱されています(contrib/slime-cl-indent.el)。
+        SLIMEを導入した後、EmacsがSLIMEを自動でロードするよう、<a HREF="http://www.common-lisp.net/project/slime/doc/html/Loading-Contribs.html">この手順</a>で設定します。
+        slime-indentationをslime-contribsのリストに追加すれば、slime-setupを呼ぶことでロードされます。
       </p>
-      
-      
+      <p>
+        <!-- Ideally, use the default indentation settings provided by -->
+        <!-- slime-indentation. If necessary, customize indentation parameters to -->
+        <!-- maintain a consistent indentation style throughout an existing project. -->
+        <!-- Parameters can be customized using the :variables setting in -->
+        <!-- define-common-lisp-style. Indentation of specific forms can be -->
+        <!-- customized using the :indentation setting of define-common-lisp-style. -->
+        <!-- This is particularly useful when creating forms that behave like macros -->
+        <!-- or special operators that are indented differently than standard -->
+        <!-- function calls (e.g. defun, labels, or let). Add a -->
+        <!-- <a HREF="http://www.gnu.org/software/emacs/manual/html_node/emacs/Hooks.html">hook</a> to 'lisp-mode-hook that calls common-lisp-set-style to set -->
+        <!-- the appropriate style automatically. -->
+        slime-indentationで提供されるデフォルトの字下げの設定を使うのが理想ですが、
+        既存のプロジェクトの字下げスタイルに合せる必要があるなど、字下げのカスタマイズが必要な場合は、
+        define-common-lisp-styleの:variables設定で行うことが可能です。
+        特定のフォームでの字下げについては、define-common-lisp-styleの:indented設定をカスタマイズすることで可能です。
+        これは、典型的なところでは、標準的な関数呼び出しとは違う、マクロやスペシャルオペレーターの字下げで有用です(defun、labelsやletなど)。
+        そして、common-lisp-set-styleが呼び出す'lisp-mode-hookに<a HREF="http://www.gnu.org/software/emacs/manual/html_node/emacs/Hooks.html">フック</a>することで、自動で適切なスタイルにします。
+      </p>
       <p>
         <!-- Use indentation to make complex function applications easier to read. -->
-	字下げは、複雑な機能を持ったアプリケーションを簡単に読めるようにするために使われます。
+        字下げは、複雑な機能を持ったアプリケーションを簡単に読めるようにするために使われます。
         <!-- When an application does not fit on one line -->
         <!-- or the function takes many arguments, -->
         <!-- consider inserting newlines between the arguments -->
@@ -1061,19 +1087,23 @@ Takashi Kato
         <code>(declaim (optimize ...))</code>などの形式で行われる宣言を記すべきです。
       </p>
       <CODE_SNIPPET>
-        ;;;; Author: brown (Robert Brown)
-
         ;;;; 整数と浮動小数点数のための可変長エンコーディング。<!-- Variable length encoding for integers and floating point numbers. -->
 
         (in-package #:varint)
         (declaim #.*optimize-default*)
       </CODE_SNIPPET>
       <p>
-        <!-- You should not include authorship information at the top of a file, -->
-        <!-- that information is available from version control and -->
+        <!-- You should not include authorship information at the top of a file: -->
+        <!-- better information is available from version control, -->
+        <!-- and such a mention will only cause confusion and grief. -->
+        <!-- Indeed, whoever was the main author at the time such a mention was included -->
+        <!-- might not be who eventually made the most significant contributions to the file, -->
+        <!-- and even less who is responsible for the file at the moment. -->
         <code>OWNERS</code>. 
-        ファイルの先頭には作者情報を含めるべきではありません。
-        これは、バージョンコントロールシステムや、<code>OWNERS</code>ファイルから得るような情報の類です。
+        ファイルの先頭には作者情報を含めるべきではありません:
+        より良い情報は、バージョン管理システムから得られますし、その類の情報は、混乱や面倒を引き起すだけです。
+        実際のところ、ファイルにこの手のものが記載される時のメインの開発者が、そのファイルにもっとも貢献が多い人とも限りませんし、
+        ファイルの責任者として相応わしいかどうかについては尚更です。
       </p>
       <p>
         <!-- You should not include copyright information in individual source code files. -->
@@ -1563,17 +1593,21 @@ Takashi Kato
       </p>
       <p>
         <!-- The comments begin with <code>TODO</code> in all capital letters, -->
+
+
+
         <!-- followed by your email address or other identifier in parentheses, -->
         <!-- followed by a colon, a space, and -->
         <!-- an explanation of what additional work is desirable or required. -->
-	コメントはすべて大文字の<code>TODO</code>で始めて、
-	あなたのEメールアドレスかその他識別に使えるIDを括弧の中に収め、
-	コロンと空白に続けて、望ましいあるいは要求している作業についての説明を書きます。
         <!-- The user name included in the comment is that -->
         <!-- of a person who understands the deficiency. -->
-	ユーザ名をコメント内に含めるのは、誰が求めているかを明らかにするためです。
         <!-- A TODO comment is not a commitment to fix the problem. -->
-	TODOコメントは問題が修正されるという公約ではありません。
+
+	コメントはすべて大文字の<code>TODO</code>で始めて、
+	あなたの名前、Eメールアドレス、もしくは、その他個人の識別に使えるID(<code>TODO</code>に記載された問題の処理担当者の文脈でベストなもの)から始めます。
+        主な目的は<code>TODO</code>を一貫したものとして、必要に応じてどうやったら事の詳細を知ることができるか、を見付けられるようにすることです。
+        TODOコメントは問題が修正されるという公約ではありません。
+        まとめてしまえば、<code>TODO</code>を書く場合には、ほぼ必ず自分の名前を記載することになります。
       </p>
       <p>
         <!-- When signing comments, -->
@@ -1588,11 +1622,17 @@ Takashi Kato
       </CODE_SNIPPET>
       <p>
         <!-- Be specific when indicating times or software releases -->
-        <!-- in a TODO comment: -->
-	TODOコメントで時間やリリースを差すときは完全に表現しましょう。
+        <!-- in a TODO comment and use
+        <a HREF="http://www.w3.org/TR/NOTE-datetime">YYYY-MM-DD</a>
+        format for dates to make automated processing of such dates easier,
+        e.g., 2038-01-20 for the end of the 32-bit signed <code>time_t</code>. -->
+	TODOコメントで時間やリリースを指すときは具体的に表現しましょう。
+        また、日付の形式としては、<a HREF="http://www.w3.org/TR/NOTE-datetime">YYYY-MM-DD</a>を用いて、こういった日付処理の自動化が楽にできるようにしておきましょう。
+        例えば、 2038-01-20 を符号付き32ビット整数 <code>time_t</code>の終わりとして使うなど。
       </p>
       <CODE_SNIPPET>
-        ;;--- TODO(brown): このコードはリリース1.7以降、あるいは2012年11月以前なら削除して下さい。<!-- Remove this code after release 1.7 or before November, 2012. -->
+        ;;--- TODO(brown): このコードはリリース1.7以降、あるいは2012-11-30より前なら削除して下さい。
+        <!-- ;;\-\-\- TODO(brown): Remove this code after release 1.7 or before 2012-11-30. -->
       </CODE_SNIPPET>
       <p>
         <!-- For code that uses unobvious forms to accomplish a task, you must include a comment -->
@@ -5200,7 +5240,7 @@ Takashi Kato
         <!-- (and even on some Unix implementations). -->
 	次に、<code>MERGE-PATHNAMES</code>を使うときには<code>HOST</code>の扱いに気を配りましょう。これは多くのUNIX以外(そして一部のUNIXでさえ)問題になります。
         <!-- You probably should be using -->
-        <!-- <code>UIOP:MERGE-PATHNAMES*</code> -->
+        <!-- <code>UIOP:MERGE-PATHNAMES*</code> or <code>UIOP:SUBPATHNAME</code> -->
         <!-- instead of <code>MERGE-PATHNAMES</code>, -->
         <!-- especially if your expectations for relative pathnames -->
         <!-- are informed by the way they work in Unix or Windows; -->
@@ -5210,7 +5250,7 @@ Takashi Kato
         <!-- and replace it with the host from the value of -->
         <!-- <code>*DEFAULT-PATHNAME-DEFAULTS*</code> -->
         <!-- at the time the relative pathname was created. -->
-	特に相対パスがUnixやWindowsでのやり方のように伝えられる<!--渡される？-->と期待しているなら<code>MERGE-PATHNAMES</code>ではなく<code>UIOP:MERGE-PATHNAMES*</code>を使うべきなのかもしれません。そうでなければ一部の処理系で相対パスと絶対パスを結合したときに絶対パスのホスト名が相対パスが作られたときの<code>*DEFAULT-PATHNAME-DEFAULTS*</code>のホストの値で上書きされるという奇妙なバグにぶつかるでしょう。 
+	特に相対パスがUnixやWindowsでのやり方のように伝えられる<!--渡される？-->と期待しているなら<code>MERGE-PATHNAMES</code>ではなく<code>UIOP:MERGE-PATHNAMES*</code>もしくは<code>UIOP:SUBPATHNAME</code>を使うべきなのかもしれません。そうでなければ一部の処理系で相対パスと絶対パスを結合したときに絶対パスのホスト名が相対パスが作られたときの<code>*DEFAULT-PATHNAME-DEFAULTS*</code>のホストの値で上書きされるという奇妙なバグにぶつかるでしょう。 
       </p>
       <p>
         <!-- Third, be aware that <code>DIRECTORY</code> -->
@@ -5218,8 +5258,13 @@ Takashi Kato
         <!-- in how it handles wildcards, sub-directories, symlinks, etc. -->
 	3つ目に、<code>DIRECTORY</code>はワイルドカード、サブディレクトリ、シンボリックリンクなどの扱いに処理系毎の違いがあることに気を付けましょう。
         <!-- There again, <code>UIOP</code> provides several -->
-        <!-- common abstractions to deal with pathnames. -->
+        <!-- common abstractions to deal with pathnames,
+             but only does so good a job.
+             For a complete portable solution, use IOLib —
+             though its Windows support lags behind.
+        -->
 	繰り返しますが、<code>UIOP</code>はパスネームを扱うのにいくつかの抽象化を提供しています。
+        しかし、良い仕事をしているのは、これだけではありません。ポータブルさに完全を期すならIOLibを使いましょう — Windows対応が遅かったりはしますが。
       </p>
       <p>
         <!-- <code>LOGICAL-PATHNAME</code>s are not a portable abstraction, -->
@@ -5255,7 +5300,7 @@ Takashi Kato
         <!-- <code>UIOP</code> provides hooks -->
         <!-- to call functions before an image is dumped, -->
         <!-- from which to reset or <code>makunbound</code> relevant variables. -->
-	例えば<code>ASDF</code>は<code>ASDF:CLEAR-CONFIGURATION</code>でリセットすることを要求します。
+	例えば<code>ASDF</code>は<code>UIOP:CLEAR-CONFIGURATION</code>でリセットすることを要求します。
         <code>UIOP</code>は、イメージをダンプする前に関連する変数をリセットしたり、<code>makunbound</code>するために関数を呼ぶためのフックを提供しています。
       </p>
       
@@ -5428,7 +5473,7 @@ Takashi Kato
 </small>
 
 <p align="right">
-Revision 1.23
+Revision 1.28
 </p>
 
 
