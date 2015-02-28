@@ -1872,7 +1872,7 @@ Takashi Kato
       <p>
         <!-- The names of global constants should start and end -->
         <!-- with plus characters. -->
-	大域定数の名前には、ばじめとおわりに+(ブラス記号)をつけるべきです。
+	大域定数の名前には、はじめとおわりに+(プラス記号)をつけるべきです。
       </p>
       <p>
         <!-- Global variable names should start and end with asterisks -->
