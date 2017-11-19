@@ -55,8 +55,7 @@ Takashi Kato
 (訳文アドバイスを頂いた皆さん: @nfunato, @omasanori, etc)
 </address>
 <p align="center">
-<cite>「パターンとは『適切な語彙がなかった』ことの言い換えだ」</cite> — Rich Hickey
-<!-- https://twitter.com/omasanori/status/274389170603044864  -->
+<cite>「パターンとは『言語の表現力を超えてしまった』ということだ」</cite> — Rich Hickey
 <!-- Patterns mean "I have run out of language."  -->
 </p>
 
@@ -110,29 +109,27 @@ Takashi Kato
     the speed-oriented QPX low fare search engine notably
     has a very different style and feel from the QRes reservation system.
     -->
-    Googleで開発される内製アプリケーション及びフリーソフトに対して変更を行う際は、
-    このガイドラインに沿ったものにする必要があります。
+    Googleで開発される内製アプリケーション及びフリーソフトに変更を行う際は、
+    このガイドラインに沿うべきです。
     しかし、それぞれのプロジェクトには独自のルールや習慣があり、
-    それらはこれらの一般的なガイドラインを補足もしくは上書きします;
-    とりわけ速度重視の低コスト検索エンジンQPXは
-    QRes予約システムとはとても異なるルック＆フィールで作られています。
+    それらはこれらの一般向けガイドラインを補足もしくは上書きすることに気をつけてください;
+    速度重視の低コスト検索エンジンQPXはとりわけ
+    QRes予約システムとはとても異なるスタイルとセンスで作られています。
   </p>
   <p>
     <!--
     If you're writing Common Lisp code outside Google,
     we invite you to consider these guidelines.
     -->
-    もしあなたがGoogle以外でCommon Lispのコードを書くのであれば、
+    もしGoogle以外でCommon Lispのコードを書くのであれば、
     これらガイドラインの項目について検討されることをお勧めします。
     <!-- You may find some of them useful -->
     <!-- where they don't conflict with other priorities you have. -->
     <!-- We welcome remarks and constructive feedback -->
     <!-- on how to improve our guide, and -->
     <!-- on what alternate styles work for you and why. -->
-    他のあなたが規範としている既定の[ガイドライン]と競合しない限りにおいて、
-    これらの中に有用とされるものがあるかもしれません。
-    我々のガイドを改善することについてのご意見、そして別のスタイルの提案と、
-    その別のスタイルが、どうしてあなたの元では上手く機能するのか、の建設的なフィードバックを歓迎しています。
+    あなたの他の優先事項と競合しない範囲でこれらの中に有用なものがあるかもしれません。
+    我々のガイドへの改善案と、あなたの下で上手くいっているスタイルとその理由について、建設的なフィードバックを歓迎します。
   </p>
   <p>
     <!--
@@ -178,7 +175,7 @@ Takashi Kato
               means that the guideline is an absolute requirement.
               You must ask permission to violate a MUST.
               -->
-              「しなければならない:"MUST"」、「要求される:"REQUIRED"」、「するものとする:"SHALL"」といった用語は
+              「しなければならない:"MUST"」「要求される:"REQUIRED"」「するものとする:"SHALL"」といった用語は、
               そのガイドラインが絶対的な要求であることを意味します。
               「しなければならない」ことに違反する場合は許可を求めなければなりません。
             </p>
@@ -193,7 +190,7 @@ Takashi Kato
               means that the guideline is an absolute prohibition.
               You must ask permission to violate a MUST NOT.
               -->
-              「してはならない:"MUST NOT"」や「しないものとする:"SHALL NOT"」といった句は
+              「してはならない:"MUST NOT"」や「しないものとする:"SHALL NOT"」といった句は、
               そのガイドラインが絶対的な禁止であることを意味します。
               「してはならない」ことに違反する場合は許可を求めなければなりません。
             </p>
@@ -211,10 +208,10 @@ Takashi Kato
               before choosing a different course.
               You must ask forgiveness for violating a SHOULD.
               -->
-              語「すべき:"SHOULD"」や形容詞「推奨される:"RECOMMENDED"」は
+              語「すべき:"SHOULD"」や形容詞「推奨される:"RECOMMENDED"」は、
               ある状況ではガイドの要求を無視する適切な理由があるかもしれないことを意味しますが、
-              他のやりかたを選択する前にガイドの含意は理解され注意し重視される必要があります。
-              「すべき」ことに違反する場合許容を求めなければなりません。
+              他のやり方を選択する前にガイドの含意全てを理解し入念に比較しなければなりません。
+              「すべき」ことに違反する場合承認を求めなければなりません。
             </p>
           </td>
         </tr>
@@ -230,10 +227,10 @@ Takashi Kato
               before choosing a different course.
               You must ask forgiveness for violating a SHOULD NOT.
               -->
-              句「すべきでない:"SHOULD NOT"」と句「推奨されない:"NOT RECOMMENDED"」は
+              句「すべきでない:"SHOULD NOT"」と句「推奨されない:"NOT RECOMMENDED"」は、
               ある状況ではガイドの禁止を無視する適切な理由があるかもしれないことを意味しますが、
-              他のやりかたを選択する前にガイドの言わんとすることは全て理解し尊重された上でなければなりません。
-              「すべきでない」ことに違反する場合許容を求めなければなりません。
+              他のやり方を選択する前にガイドの含意全てを理解し入念に比較すべきです。
+              「すべきでない」ことに違反する場合承認を求めなければなりません。
             </p>
           </td>
         </tr>
@@ -245,7 +242,7 @@ Takashi Kato
               This word, or the adjective "OPTIONAL",
               means that an item is truly optional.
               -->
-              語「できるでしょう:"MAY"」や形容詞「任意に:"OPTIONAL"」はその項目は完全に任意であることを意味します。
+              語「できるでしょう／しても良い:"MAY"」や形容詞「任意に:"OPTIONAL"」はその項目は完全に任意であることを意味します。
             </p>
           </td>
         </tr>
@@ -267,13 +264,13 @@ Takashi Kato
       In some cases, you must seek permission or obtain forgiveness
       from the proper people.
       -->
-      ガイドで示すルールに対する違反が有効であったり必要であるケースがあります。
-      いくつかのケースでは許可を得たり、適切な人達からの承認を求めなければなりません。
+      ガイドで示すルールに対する違反が有効であったり必要でさえあるケースがあります。
+      いくつかのケースでは、適切な人達からの許可や承認を求めなければなりません。
     </SUMMARY>
     <BODY>
       <p>
         <!--Permission comes from the owners of your project.-->
-        許可はあなたのプロジェクトの所有者に由来します。
+        許可はあなたのプロジェクトの所有者から得ます。
       </p>
       <p>
         <!--
@@ -282,8 +279,8 @@ Takashi Kato
         The original comment should be signed by you, and
         the reviewer should add a signed approval to the comment at review time.
         -->
-        承認はガイドライン違反をした場所の近くのコメントの中でリクエストされ、レビューアによって承諾されます。
-        オリジナルのコメントはあなたの名前で署名されるべきで、レビューアは
+        承認はガイドライン違反をした箇所の近くのコメントの中でリクエストされ、レビューアによって承諾されます。
+        オリジナルのコメントはあなたの名前で署名すべきで、レビューアは
         レビュー時に署名した承認を追記すべきです。
       </p>
       
@@ -292,25 +289,25 @@ Takashi Kato
   <STYLEPOINT title="慣例"><!-- Conventions -->
     <SUMMARY>
       <!-- You MUST follow conventions. They are not optional. -->
-      あなたは、慣例を確認しなければなりません。これは任意の選択事項ではありません。
+      慣例には必ず従わなくてはなりません。これは任意の選択事項ではありません。
     </SUMMARY>
     <BODY>
       <p>
         <!-- Some of these guidelines are motivated by universal principles of good programming. -->
-        これらのガイドラインのいくつかは、よいプログラミングの普遍的な方針として設けられています。
+        これらのガイドラインのいくつかは、よいプログラミングの普遍的な原則に基づいています。
         <!-- Some guidelines are motivated by technical peculiarities of Common Lisp. -->
-	いくつかのガイドラインは、Common Lispの技術的に特別な面に基づいています。
+	いくつかのガイドラインは、Common Lispの技術的な特性に基づいています。
         <!-- Some guidelines were once motivated by a technical reason, -->
         <!-- but the guideline remained after the reason subsided. -->
-	いくつかのガイドラインは単に技術的な理由に基づいていますが、ガイドラインはその理由がなくなったときに、見直されます。
+	いくつかのガイドラインは、かつては技術的な理由に基づいていましたが、その理由がなくなった後もそのまま残ったものです。
         <!-- Some guidelines, such those about as comments and indentation, -->
         <!-- are based purely on convention, rather than on clear technical merit. -->
-	いくつかのガイドラインはコメントや字下げに関するもので、明確な技術的利点よりも純粋な議論に基づいています。
+	いくつかのガイドラインは、コメントや字下げに関するもので、明確な技術的利点というよりは単に慣例に基づいています。
         <!-- Whatever the case may be, you must still follow these guidelines, -->
         <!-- as well as other conventional guidelines -->
         <!-- that have not been formalized in this document. -->
-	いかなる場合でもあなたはこれらのガイドラインだけでなく、他の
-	この文書の中に形式化されていないガイドラインにも従わなければなりません。
+	いかなる場合でも、ここに書かれたガイドライン及び
+	この文書の中に形式化されていない他の慣例的ガイドラインに従わなければなりません。
       </p>
       <p>
 	<!--
@@ -323,27 +320,23 @@ Takashi Kato
         violations of the convention are a distracting noise
         that needs to be ignored.
 	-->
-	慣例には従わなければなりません。慣例は可読性を向上させます。<!-- 直訳だと日本語がおかしくなるので意訳。-->
-	慣例が既定にしたがっていれば、慣例違反は注目に値する何かが起きていて、注意を払う必要があるシグナルになります。
-	意図的に違反された慣例は、無視されなければならない邪魔なノイズになります。<!-- 訳微妙 -->
+	慣例には必ず従わなければなりません。慣例は可読性を向上させます。<!-- 直訳だと日本語がおかしくなるので意訳。-->
+	慣例にデフォルトで従っていれば、慣例違反を見つけた際に、そこで注目に値する何かが起きていて、注意が必要なシグナルだと分かります。
+	慣例を体系的に違反してしまったら、慣例違反は無視しなければならない邪魔なノイズになります。<!-- 訳微妙 -->
       </p>
       <p>
 	<!--
         Conventional guidelines <em>are</em> indoctrination.
         Their purpose is to make you follow the mores of the community,
-        -->
-	慣例に沿ったガイドラインはある種の宗教に<em>なります</em>。<!-- 教化と訳すよりは・・・ -->
-	これらの目的はあなたをコミュニティの教義に則らせ、より効果的に既存のメンバーと協力することを可能にすることです。
-	<!-- ちょっと日本語がおかしい。-->
-	<!--
         so you can more effectively cooperate with existing members.
-	-->
+        -->
+        慣例的ガイドラインとは<em>正に</em>宗教です。
+	その目的はあなたにコミュニティの教義を信奉させ、より効果的に既存のメンバーと協力できるようにすることです。
         <!-- It is still useful to distinguish the parts that are technically motivated -->
         <!-- from the parts that are mere conventions, -->
         <!-- so you know when best to defy conventions for good effect, -->
         <!-- and when not to fall into the pitfalls that the conventions are there to help avoid. -->
-	技術的な部分と単に便利のための部分を区別するのは依然有用ですので、いつパフォーマンスのために慣例を無視し、いつ慣例に従うことで落とし穴を回避できるかを知っておきましょう。
-	<!-- you knowがあまり意味を持たない(日本語で言う「だって」とか)なのかそのまま「あなたは知っている」なのか判断が難しかったので適当に誤魔化してます(κeen) -->
+        とはいえ、技術的に動機づけられている部分と、只の慣例に過ぎない部分を区別することは有益です。良い結果を得るために慣例に逆らうべき時と、慣例に倣い落とし穴に落ちないようにすべき時を区別できるようになります。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -355,18 +348,18 @@ Takashi Kato
     <BODY>
       <p>
         <!-- A lot of our code was written before these guidelines existed. -->
-        我々のコードのうちの多くは、これらガイドラインができる以前に書かれました。
+        我々のコードの多くは、このガイドラインができる以前に書かれました。
         <!-- You should fix violations as you encounter them -->
         <!-- in the course of your normal coding. -->
-        あなたは普段のコーディングの間に遭遇したガイドラインに対する違反を修正していくべきです。
+        普段のコーディングの間に遭遇したガイドライン違反は見つけ次第修正すべきです。
       </p>
       <p>
         <!-- You must not fix violations en masse -->
         <!-- without warning other developers and coordinating with them, -->
         <!-- so as not to make the merging of large branches -->
         <!-- more difficult than it already is. -->
-        あなたは、巨大なブランチの統合でいまよりも状況をややこしくすることを避けるために、
-        違反のすべて一時に、他の開発者に対する警告と話し合いなしに修正してはなりません。
+        巨大なブランチの統合が今以上に難しくならないよう、
+        他の開発者に注意を促したり話し合うことなしに違反をひとまとめに修正してはなりません。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -375,7 +368,7 @@ Takashi Kato
       <!-- There are many topics for additional standardization -->
       <!-- not covered by current version of this document, -->
       <!-- but deferred to future versions. -->
-      ここには多くの追加の標準化すべき事柄があり、現在のバージョンのこの文書にはありませんが、将来のバージョンに延期されています。
+      多くの追加の標準化すべき事柄があり、現在のバージョンのこの文書にはありませんが、将来のバージョンに延期されています。
     </SUMMARY>
     <BODY>
       <ul>
@@ -463,14 +456,14 @@ Takashi Kato
   </STYLEPOINT>
   </CATEGORY>
 <CATEGORY title="基本的なガイドライン"><!-- General Guidelines -->
-  <STYLEPOINT title="方針"><!-- Principles -->
+  <STYLEPOINT title="原則"><!-- Principles -->
     <SUMMARY>
       <!-- There are some basic principles for team software development -->
       <!-- that every developer must keep in mind. -->
-      ここにはチームでソフトウェア開発をするにあたってすべての開発者が心にとめておくべきいくつかの基本的な方針を記してあります。
+      ここにはチームでのソフトウェア開発にあたり、全ての開発者が心に留めておかなければならない基本的な原則を記してあります。
       <!-- Whenever the detailed guidelines are inadequate, confusing or contradictory, -->
       <!-- refer back to these principles for guidance: -->
-      ガイドラインの詳細が、不適切な、混乱を引き起こす、または矛盾している場合は方針について再度参照してください。
+      個別のガイドラインが、不適切な、混乱を引き起こす、または矛盾している場合は、この原則に戻って参考にしてください。
       <ul>
         <li>
 	  <!--
@@ -495,15 +488,15 @@ Takashi Kato
         </li>
         <li>
           <!-- Be precise. -->
-	  精密に。
+	  正確に。
         </li>
         <li>
           <!-- Be concise. -->
-	  簡潔に。
+	  簡潔に(concise)。
         </li>
         <li>
           <!-- KISS — Keep It Simple, Stupid. -->
-	  KISSの原則を守りましょう。単純にしておきましょう、愚かに(Keep It Simple Stupid)。
+	  KISSの原則を守りましょう。単純にしておけ、この間抜け(Keep It Simple Stupid)。
         </li>
         <li>
           <!-- Use the smallest hammer for the job. -->
@@ -512,14 +505,14 @@ Takashi Kato
         </li>
         <li>
           <!-- Use common sense. -->
-	  一般的な価値基準を用います。
+	  常識を使います。
         </li>
         <li>
           <!-- Keep related code together. -->
           <!-- Minimize the amount of jumping around -->
           <!-- someone has to do to understand an area of code. -->
-	  関連するコードは近くに。
-	  コードのあいだのジャンプは誰もが把握できる範囲で最小限に抑えます。
+	  関連するコードは近くに置く。
+          最小限のコード間ジャンプでコードを理解できるように。
         </li>
       </ul>
     </SUMMARY>
@@ -531,7 +524,7 @@ Takashi Kato
       <p>
         <!-- When making decisions about how to write a given piece of -->
         <!-- code, aim for the following -ilities in this priority order: -->
-	コードをどう書くかということを決定する際に、どんな「~やすさ」に重きをおくかはこの優先順位に従います。
+	コードをどう書くかということを決定する際に、どんな「~やすさ」に重きを置くかはこの優先順位に従います。
       </p>
       <ul>
         <li>
@@ -548,7 +541,7 @@ Takashi Kato
         </li>
         <li>
           <!-- Extensibility/Modifiability -->
-	  デバッグのしやすさ、テストのしやすさ
+	  拡張のしやすさ、修正のしやすさ
         </li>
         <li>
           <!-- Efficiency (of the Lisp code at runtime) -->
@@ -565,8 +558,8 @@ Takashi Kato
         <!-- Usability by the customer means that the system has to do what the -->
         <!-- customer requires; it has to handle the customer's transaction -->
         <!-- volumes, uptime requirements; etc. -->
-	顧客にとっての使いやすさとは、顧客がどうしてほしいかをシステムが持っていることを意味します。
-	これは顧客のトランザクションの大きさや稼働時間要求などによって左右されます。
+	顧客にとって使いやすいとは、システムが顧客の必要とすることをしなければならないということです。
+	顧客の取引量や稼働時間要求などに応えなければなりません。
       </p>
       <p>
         <!-- For the Lisp efficiency point, -->
@@ -574,26 +567,25 @@ Takashi Kato
         <!-- pick the one that performs better. -->
         <!-- (This is often the same as the one that conses less, -->
         <!-- i.e. allocates less storage from the heap.) -->
-	Lispを効率的なものにするために、二つの同程度を複雑な選択肢から、
-	性能の良いものを選びます。
+	Lispコードの性能については、
+	二つの選択肢があったとして、両方が同程度複雑であったなら、性能の良いものを選びます。
 	(これはしばしば、コンシングの少ない方、という意味と等価です。
-	つまり、ヒープから割り当てる領域が少なくて済む方、ということです）
+	つまり、ヒープから割り当てる領域が少なくて済む方、ということです。）
       </p>
       <p>
         <!-- Given two options where one is more complex than the other, -->
         <!-- pick the simpler option and revisit the decision only if -->
         <!-- profiling shows it to be a performance bottleneck. -->
-	与えられた二つの選択肢のうち、より複雑な方は、
-	簡単な選択肢を選んで、性能のボトルネックとなる点をプロファイリングによって
-	決定できたとき、もう一度やりなおすことです。
+	二つの選択肢があったとして、片方が複雑な場合は、
+	まず簡単な方の選択肢を選び、そしてプロファイルによってそれが性能のボトルネックだと分かった時初めて決定の再検討をしてください。
       </p>
       <p>
         <!-- However, avoid premature optimization. -->
         <!-- Don't add complexity to speed up something that runs rarely, -->
         <!-- since in the long run, it matters less whether such code is fast. -->
 	しかし、時期尚早な最適化は避けます。
-	滅多に走らない部分の高速化のために複雑ななにかを追加すべきではありません。
-	長い目で見るとそれはコードの高速化のためにさほど役に立ちません。
+	コードを複雑にしてまで滅多に走らない部分を高速化しないでください。
+	長い目で見るとそんなコードが速いかどうかは大して意味がありません。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -606,7 +598,7 @@ Takashi Kato
       <!-- and more importantly -->
       <!-- how the programmers who develop these components communicate -->
       <!-- as these components evolve. -->
-      堅牢でメンテナンス性の高いコードを組むには、どのくらいコンポーネントに分割されるか、どのようにコンポーネントが連携するか、成長するにつれてどのくらい変更を加えるか、そしてそれ以上に重要なのはコンポーネントが進化するのと同時にコンポーネントの開発者たちがどうコミュニケーションをとるかが重要になります。
+      堅牢でメンテナンス性の高いコードを組む際に非常に重要なのが、コードをどのようにコンポーネントに分割するか、どのようにそのコンポーネントが連携するか、コンポーネントの進化するに連れ変更がどう伝播するのか、そしてそれ以上に重要なのは、コンポーネントの進化に合わせその開発者たちがどうコミュニケーションをとるかです。
     </SUMMARY>
     <BODY>
       <p>
@@ -617,17 +609,16 @@ Takashi Kato
         <!-- and get a design approval from the other parties involved -->
         <!-- before starting to write code — or be ready to scratch what you have -->
         <!-- when they object. -->
-	もしあなたの仕事がほかのグループに影響を及ぼし、もしかするとグループの垣根を越えて再利用可能かもしれず、
-	あたらしい部品を追加され、（QAあるいはOpsを含めて）ほかのグループにおいて衝撃を与えるとき、
-	あるいは純粋に局地的なものでないとき、
-	あなたはそれらを最低でも数行の文章に書き起こし、
-	設計に対する指示をコードを書き始める前にをるいは、彼らのオブジェクトを自ら一から作る前に、
-	関連するほかの集団からも取り付けなければいけません。
+	もしあなたの作業が、他にグループに影響を及ぼす、グループの垣根を越えて再利用可能かもしれない、
+	新しいコンポーネントを追加する、（QAやOpsを含めて）他のグループに影響がある、
+	あるいは単に局地的なものでないとき、
+	コードを書き始める前に、それを最低でも2〜3つの段落の文章で詳しく書き上げ、
+	他の関係者からデザインの承認を得なければなりません。それをしないなら、反対されたときに書いていたコードを捨てる覚悟をしておいてください。
       </p>
       <p>
         <!-- If you don't know or don't care about these issues, -->
         <!-- ask someone who does. -->
-	もしそれを知らない、あるいは気にかけてないときは、誰がやってるのか誰かに尋ねましょう。
+	もしこの点に関して、知らない気にならないと思っているなら、知っている人、気にしている人に尋ねましょう。
      </p>
     </BODY>
   </STYLEPOINT>
@@ -637,10 +628,10 @@ Takashi Kato
       <!-- Or one that doesn't exist yet. -->
       <!-- In such cases, you are encouraged to use or develop such a library, -->
       <!-- but you must take appropriate precautions. -->
-      しばしば、鶏を捌くのに最適な包丁<!-- 上記の牛刀に合わせました -->は既存のライプラリの中にあります。
-      あるいは、どこにもありません。
-      それぞれの場合において、あなたはそれぞれライブラリを使うか開発することを
-      奨められますが、あなたは適切な備えを講じなければなりません。
+      しばしば、鶏を捌くのに最適な包丁<!-- 上記の牛刀に合わせました -->は既存のライプラリを使うことです。
+      まだそのライブラリは存在していないかも知れません。
+      そういう場合は、そのようなライブラリの使用か開発が奨励されますが、
+      適切な備えを講じなければなりません。
     </SUMMARY>
     <BODY>
       <ul>
@@ -648,8 +639,8 @@ Takashi Kato
           <!-- You MUST NOT start a new library -->
           <!-- unless you established that none is already available -->
           <!-- that can be fixed or completed into becoming what you need. -->
-	  自分が必要とするものが修正や補完で手に入るにもかかわらず、
-	  既存のライブラリにそれがない場合を除いて、あなたは新しいライブラリの開発を開始してはなりません。
+          既存品を修正したり未完成品の完成させても、必要とするものにならないと
+          証明できなければ、新しいライブラリの開発を決して始めてはなりません。
           <!-- That's a rule against the NIH syndrome ("Not Invented Here"), -->
           <!-- which is particularly strong amongst Lisp hackers. -->
 	  このルールはLispハッカーには重症患者の多い、
@@ -658,28 +649,28 @@ Takashi Kato
         <li>
           <!-- Whichever library, old or new, you pick, you MUST get permission -->
           <!-- to incorporate third-party code into the code base. -->
-	  古いものであれ、新しいものであれ、どちらにせよライブラリをあなたが選んだら、
-	  あなたはコードベースへ第三者の作ったコードを組み込むために、
+	  選んだライブラリが古いものであれ新しいものであれ、
+	  第三者の作ったコードをコードベースへ組み込むには、
 	  許可を得なくてはなりません。
           <!-- You must discuss the use of such library -->
           <!-- in the appropriate mailing-list, -->
           <!-- and have your code reviewed by people knowledgeable in the domain -->
           <!-- and/or the Lisp library ecosystem (if any). -->
-	  あなたはそれぞれのライブラリを使用することについて、
-	  適切なメーリングリストで議論しなければならず、
-	  またあなたのコードをドメインと(もしあれば)Lispライブラリのエコシステムに
+	  そういうライブラリを使用について、適切なメーリングリストで議論し、
+	  またあなたのコードをそのドメインと(もしあれば)Lispライブラリのエコシステムに
 	  詳しい人に査読してもらわなければなりません。
           <!-- Please be ready to argue why this particular solution makes sense -->
           <!-- as compared to other available libraries. -->
+          他のライブラリと比較し、なぜこのライブラリでなくてはならないのか、その正当性を主張する準備をしてください。
         </li>
         <li>
           <!-- Some libraries are distributed under licenses not compatible -->
           <!-- with the software you're writing, and -->
           <!-- must not be considered available for use. -->
-	  いくつかのライブラリはあなたが書いているソフトウェアと互換性のないライセンスで
-	  配布されていて、使用できるものと考えてはなりません。
+	  ライブラリの中にはあなたが書いているソフトウェアと互換性のないライセンスで
+	  配布されていて、利用できると見做してはならないものがあります。
           <!-- Be aware of these issues, or consult with people who are. -->
-	  これらの問題を認識し、あるいは認識している人に相談してください。
+	  これらの問題を認識するか、認識している人に相談してください。
         </li>
       </ul>
 
@@ -693,11 +684,11 @@ Takashi Kato
         <!-- you are encouraged to publish the result -->
         <!-- separate from your main project and then -->
         <!-- have your project import it like any other open-source library. -->
-	あなたが総合的な用途のライブラリを書いていたり、
-	既存のオープンソースコードを修正しているときは、
-	あなたはその成果をあなたの本来のプロジェクトから切り離して、
-	配布し、他のオープンソースライブラリと同様にあなたのプロジェクトに組み入れる
-	ことを推奨されます。
+	汎用ライブラリを書いたり
+	既存のオープンソースライブラリを修正するときは、
+        その成果はあなたの本来のプロジェクトから切り離して公開し、
+        それから改めて他のオープンソースライブラリと同様にあなたのプロジェクトに組み入れる
+	ことが推奨されます。
       </p>
       
     </SUMMARY>
@@ -707,9 +698,9 @@ Takashi Kato
         <!-- general-purpose versus business-specific code, -->
         <!-- and open-source the general-purpose parts, -->
         <!-- while keeping the business-specific parts a trade secret. -->
-	総合的な用途のための部品をオープンソース化し、
-	業務に固有の部品を企業秘密に保ち続けるために、
-	総合的な用途に使われるコードか、業務に固有のコードかを識別するあなたの判断が利用されます。
+        汎用コードと業務に固有なコードの違いは自ら見分け、
+        汎用な部分をオープンソース化し、
+        業務に固有の部品を企業秘密のままにしてください。
       </p>
       
       <p>
@@ -717,18 +708,21 @@ Takashi Kato
         <!-- including being able to leverage third parties for development, -->
         <!-- letting the development of features be user-directed, -->
         <!-- and keeping you honest with respect to code quality. -->
-	オープンソース化されたコードは開発に第三者の梃子を入れ、
-	ユーザが直接機能を開発することを許し、あなたがコードの品質に対して経緯を持ち続けるようにすることをはじめとして、
-	多くの長所を持ちます。
+        コードのオープンソース化には、
+        開発に第三者の力を活用できる、
+        機能開発がユーザー主導になる、
+        コードの品質に関して誤魔化しが効かなくなるなど、
+        多くの利点があります。
         <!-- Whatever code you write, you will have to maintain anyway, -->
         <!-- and make sure its quality is high enough to sustain use in production. -->
-	あなたはどんなコードを書く時でも、とにかくそれを維持し、
-	製品の中で使い続けるために、必要十分なだけの高い品質を作り出さなければなりません。
+        どんなコードを書いたとしても、どのみち保守しなければなりませんし、
+        <!-- itが抜けているものとします -->
+        確実に業務の使用に耐えるような高品質を維持するようにしてください。
         <!-- There should therefore be no additional burden to Open-Sourcing, -->
         <!-- even of code that (at least initially) -->
         <!-- is not directly usable by third parties. -->
-	第三者にとって直接的に使いやすさにつながらない(最小限の)コードでも同じことですから、
-	オープンソース化によって新たに負荷があなたにかかることはないでしょう。
+        故に（少なくとも当初は）第三者にとって直接使い道のないコードであっても、
+        オープンソース化でついでに掛かる負担はないはずです。
       </p>
       
     </BODY>
@@ -748,32 +742,31 @@ Takashi Kato
       <ul>
         <li>
           <!--   All code changes must be reviewed. -->
-	  すべてのコードの変更は査読されなければなりません。
+	  全てのコードの変更は査読されなければなりません。
           <!--   You should expect that your code will be reviewed by other hackers, -->
           <!--   and that you will be assigned other hackers' code to review. -->
-	  あなたは自分のコードが他のハッカーに査読されることを期待すべきですし、
-	  またあなたは他のハッカーのコードの査読に参加すべきです。
+	  自分のコードが他のハッカーに査読されること、
+	  また他のハッカーのコードの査読への参加を期待するべきです。
           <!--   Part of the review criteria will be that code obeys -->
           <!--   the coding standards in this document. -->
-	  査読の際の基準は、この文書にあるコーディング基準をそのコードが守っているか、ということです。
+	  査読の際の基準の一つとして、この文書にあるコーディング基準をコードが守っているかを調べてください。
         </li>
         <li>
           <!--   You must write and check-in tests for new code that you write and old bugs you fix. -->
-	  あなたは、古いバグを修正するためのあなたの書いた新しいコードのために、
+	  新しいコードを書いたときと古いバグを修正したときは、
 	  テストを書いてチェックインしなければなりません。
           <!--   There must be a unit test for every API function, -->
           <!--   and any previously failing case. -->
-	  それらは、すべてのAPI関数についてのものであり、
-	  また既知の失敗する条件のためのユニットテストでなければなりません。
+          全てのAPI関数と以前存在したバグに対するユニットテストがなければなりません。
           <!--   Your work is not truly done until this activity is complete. -->
-	  あなたの仕事はこの活動が終了するまで真に終了したとはいえません。
+	  あなたの仕事が完了するのはこの活動が終了した時です。
           <!--   Estimating tasks must include the time it takes to produce such tests. -->
-	  工数の見積もりは、その工程についてのテストが要する時間を含んでいなければなりません。
+	  工数の見積もりはこのようなテストを書く時間を含んでいなければなりません。
         </li>
         <li>
           <!--   Your code must compile -->
           <!--   without any compilation error or warning messages whatsoever. -->
-	  あなたのコードは、あらゆるコンパイルエラーや警告メッセージを発生させずにコンパイルされなければなりません。
+	  あなたのコードは、如何なるコンパイルエラーや警告メッセージを発生させずにコンパイル出来ないとなりません。
           <!--   If the compiler issues warnings that should be ignored, -->
           <!--   muffle those warnings using the -->
 
@@ -783,11 +776,12 @@ Takashi Kato
 
           <!--   either around the entire project, or around individual files -->
           <!--   (using asdf's <code>:around-compile</code> hooks). -->
-	  もし、コンパイラの問題で警告を無視させるときはそれぞれの警告を
+          もし、コンパイラが無視すべき警告を発したら
+          (<code>ASDF 3</code>に含まれる<code>UIOP</code>の)
           <code>UIOP:WITH-MUFFLED-COMPILER-CONDITIONS</code>と
           <code>UIOP:*UNINTERESTING-COMPILER-CONDITIONS*</code>フレームワーク 
-          (<code>UIOP</code>や<code>ASDF 3</code>の一部)を使って
-	  プロジェクト全体にわたってあるいは独立したファイルを包みます
+          をプロジェクト全体か独立したファイルに対して使い、
+          その警告を消し去ってください
           (asdfの<code>:around-compile</code>フックを使います)。
         </li>
         <li>
@@ -795,27 +789,25 @@ Takashi Kato
           <!--   in a way that allows for complete reproducibility of -->
           <!--   build, test and execution of -->
           <!--   the code that is, has been or may be deployed. -->
-	  すべてのコードは、完全にビルドを再構築できて、そのコードをテストし、実行し、
-	  配布されたあるいは配布されるかもしれない状態で、
+	  デプロイしている、したことがある、出来る状態にある全てのコードの、ビルド、テスト、実行が完全に再現可能になるように、
 	  適切なソースコード管理システムにチェックインすべきです。
         </li>
         <li>
           <!--   You must run the "precheckin" tests, and each component must pass -->
           <!--   its unit tests successfully before you commit any code. -->
-	  あなたはいかなるコードをチェックインするときでも、その前に、
-	  「チェックイン前」テストを走らせ、それぞれの部品がそのユニットテストを通過することを
-	  確認しなければなりません。
+	  どんなコードもチェックインするときは、その前に
+	  「チェックイン前」テストを走らせ、それぞれのコンポーネントはそのユニットテストを通過しなければなりません。
         </li>
         <li>
           <!--   You should incorporate code coverage into your testing process. -->
           <!--   Tests are not sufficient -->
           <!--   if they do not cover all new and updated code; -->
-	  あなたはあなたのテスト工程にコードカバレッジを取り入れるようにすべきです。
-	  テストがすべての新しい、あるいは更新されたコードを対象にできていないのなら、
+	  テスト工程にコードカバレッジを組み込むべきです。
+	  テストが新しいコードと更新されたコードの全てを対象にできていないのなら、
 	  そのテストは十分ではありません。
           <!-- code that for whatever reason cannot be included in coverage results -->
           <!-- should be clearly marked as such including the reason. -->
-	  どんな理由であれ、カバレッジに含まれていないコードにはそのような理由と伴に明確に目印を付しておくべきです。
+	  どんな理由であれ、カバレッジに含む事の出来ないコードには、理由を含めそうであると明確に目印を付しておくべきです。
         </li>
         <li>
           <!--   Many people develop on branches. -->
@@ -824,11 +816,9 @@ Takashi Kato
           <!--   (e.g. mass reindentations) -->
           <!--   so that we can coordinate in advance, -->
           <!--   and give branch residents time to get back on the mainline -->
-	  あなたは巨大な変更（例えば全体にわたる字下げのやり直し）に対して、
-	  それによって起きる影響を事前に調整して、
-	  ブランチ上での開発者にメインラインとの差分を小さくするための、
-	  十分な時間を与えるために、
-	  その変更についての権限を得なければなりません。
+          巨大な変更（例えば全体にわたる字下げのやり直し）に着手する際は
+          他の開発者が前もって連携できるように、許可を得て、
+	  ブランチがメインラインと統合する時間を与えなければなりません。
         </li>
       </ul>
     </BODY>
@@ -855,7 +845,7 @@ Takashi Kato
         <!-- must be consistent with these abbreviations.  You may abbreviate -->
         <!-- lexical variables of limited scope in order to avoid overly-long -->
         <!-- symbol names.  -->
-        略語は、良く使われるものか、分野に特化したものだけを利用するようにしなければなりません。
+        略語は、良く使われドメインに特化したものだけを利用するようにしなければなりません。
         また、それらの略語には一貫性を持たせなくてはなりません。
         スコープが限定されたレキシカル変数の名前では、長すぎる名前を避けるために名前を略しても良いでしょう。
       </p>
@@ -939,7 +929,7 @@ Takashi Kato
         <!-- Make appropriate exceptions for industry standard nomenclature/jargon, -->
         <!-- including plain misspellings. -->
         <!-- For instance: -->
-        工業的な述語/ジャーゴン(単なる綴り間違いも含む)は適切に例外として扱います。
+        業界標準な術語/ジャーゴン(単なる綴り間違いも含む)は適切に例外として扱います。
         例えば:
       </p>
       <ul>
@@ -954,18 +944,19 @@ Takashi Kato
   <STYLEPOINT title="行の長さ"><!-- Line length -->
     <SUMMARY>
       <!-- You should format source code so that no line is longer than 100 characters. -->
-      あなたはソースコードの中に100文字を超える行がないように整形すべきです。
+      ソースコード中に100文字を超える行がないように整形すべきです。
     </SUMMARY>
     <BODY>
       <p>
         <!-- Some line length restriction is better than none at all. -->
-	いくつかの行の長さについての制限はないよりはましです。
+	行の長さの制限は何の制限がないよりましです。
         <!-- While old text terminals used to make 80 columns the standard, -->
         <!-- these days, allowing 100 columns seems better, -->
         <!-- since good style encourages the use of -->
         <!-- descriptive variables and function names. -->
-	100文字の制限は、その意味を示した変数や関数の名前を使う、
-	良い姿勢へと誘導します。
+        古いテキスト端末ではかつて80文字を基準としていましたが、
+        今日では変数や関数に説明的な名前を付けることが良いスタイルとして推奨されているので、
+        100文字まで許すのが良さそうです。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -973,7 +964,7 @@ Takashi Kato
     <SUMMARY>
       <p>
         <!-- Indent your code the way a properly configured GNU Emacs does. -->
-	コードの字下げはGNU Emacsにあらかじめ設定されている値に従います。
+	コードの字下げは適切に設定されたGNU Emacsのやり方に従います。
       </p>
       <p>
         <!-- Maintain a consistent indentation style throughout a project. -->
@@ -981,7 +972,7 @@ Takashi Kato
       </p>
       <p>
         <!-- Indent carefully to make the code easier to understand. -->
-	コードの理解を簡単にするため、字下げは慎重に行います。
+	字下げを丁寧に行い、コードの理解を簡単にしましょう。
       </p>
     </SUMMARY>
     <BODY>
@@ -1021,18 +1012,19 @@ Takashi Kato
       </p>
       <p>
         <!-- Use indentation to make complex function applications easier to read. -->
-        字下げは、複雑な機能を持ったアプリケーションを簡単に読めるようにするために使われます。
+        字下げを使って、複雑な関数適用を簡単に読めるようにしてください。
         <!-- When an application does not fit on one line -->
         <!-- or the function takes many arguments, -->
         <!-- consider inserting newlines between the arguments -->
         <!-- so that each one is on a separate line. -->
-	アプリケーションが一行に収まらないときや、関数が数多くの引数をとるとき、
-	引数と引数の間に開業をいれ、それぞれを分割された行に収めることを考えます。
+	関数適用が一行に収まらない時や関数が多くの引数を取る時、
+	引数間に改行を入れ、それぞれを別の行に配置することを検討してください。
         <!-- However, do not insert newlines in a way that makes it hard to tell -->
         <!-- how many arguments the function takes -->
         <!-- or where an argument form starts and ends. -->
-	しかし、改行を関数がいくつの引数をとるのかわかりづらくするような位置に入れたり、
-	引数リストの最初や最後にいれてはなりません。
+	しかし、関数がいくつの引数を取るのか分かりづらくなったり、
+	引数のフォームがどこから始まってどこで終わるの分かりづらくなるようなところに
+	改行を入れないでください。
       </p>
       <BAD_CODE_SNIPPET>
         <!-- ;; Bad -->
@@ -1055,35 +1047,34 @@ Takashi Kato
     <SUMMARY>
       <p>
         <!-- You should include a description at the top of each source file.  -->
-        各々のソースファイルの先頭には、説明書きを含めるべきです。
+        各々のソースファイルの先頭には説明書きを含めるべきです。
       </p>
       <p>
         <!-- You should include neither authorship nor copyright information in a source file.  -->
-	ソースファイルには、作者情報や著作権情報は含めるべきではありません。
+	ソースファイルには作者情報や著作権情報は含めるべきではありません。
       </p>
     </SUMMARY>
     <BODY>
       <p>
         <!-- Every source file should begin with a brief description -->
         <!-- of the contents of that file.  -->
-	すべてのソースファイルにおいて、ファイルの要約された説明書きが先頭にあるべきです。
+	全てのソースファイルはファイル内容の要約された説明書きで始まるべきです。
       </p>
       <p>
         <!-- After that description, every file should start the code itself with an -->
         <!-- <code>(in-package :<em>package-name</em>)</code> form. -->
-	説明書きの後には、どのファイルのコード記述も
+	説明書きの後には、
         <code>(in-package :<em>package-name</em>)</code>フォームで
-	開始すべきです。
+        コードの記述が始まるべきです。
       </p>
       <p>
         <!-- After that <code>in-package</code> form, -->
         <!-- every file should follow with any file-specific -->
         <!-- <code>(declaim (optimize ...))</code> declaration -->
         <!-- that is not covered by an <code>ASDF</code> <code>:around-compile</code> hook. -->
-	すべてのファイルは、<code>in-package</code>フォームのあとに、
-	<code>ASDF</code> <code>:around-compile</code>が関与しない、
-	ファイル固有の
-        <code>(declaim (optimize ...))</code>などの形式で行われる宣言を記すべきです。
+	<code>in-package</code>フォームの後は、
+	<code>ASDF</code>の<code>:around-compile</code>フックでカバーできない
+	ファイル固有の<code>(declaim (optimize ...))</code>宣言があるならそれが続くべきです。
       </p>
       <CODE_SNIPPET>
         ;;;; 整数と浮動小数点数のための可変長エンコーディング。<!-- Variable length encoding for integers and floating point numbers. -->
@@ -1098,23 +1089,24 @@ Takashi Kato
         <!-- Indeed, whoever was the main author at the time such a mention was included -->
         <!-- might not be who eventually made the most significant contributions to the file, -->
         <!-- and even less who is responsible for the file at the moment. -->
-        ファイルの先頭には作者情報を含めるべきではありません:
-        より良い情報は、バージョン管理システムから得られますし、その類の情報は、混乱や面倒を引き起すだけです。
-        実際のところ、ファイルにこの手のものが記載される時のメインの開発者が、そのファイルにもっとも貢献が多い人とも限りませんし、
-        ファイルの責任者として相応わしいかどうかについては尚更です。
+        ファイルの先頭に作者情報を含めるべきではありません:
+        もっと良い情報はバージョン管理システムから得られますし、その類の情報は混乱や面倒を引き起すだけです。
+        実際のところ、この手のものが記載された時のメインの作者が誰であれ、
+        その人がそのファイルに最も貢献をした人とは限りませんし、
+        今現在のファイルの責任者として相応わしいかどうかについては尚更です。
       </p>
       <p>
         <!-- You should not include copyright information in individual source code files. -->
         <!-- An exception is made for files meant to be disseminated as standalone. -->
-	あなたはそれぞれのソースコードファイルに対して著作権表示を含めるべきではありません。
-	この例外はファイルを単体で配布することを予定して作っているときです。
+	個別のソースコードファイルに著作権表示を含めるべきではありません。
+	この例外はファイルの単体での配布を意図している場合です。
       </p>
       <p>
         <!-- Each project or library has a single file specifying its license. -->
         <!-- Absence of a <tt>LICENSE</tt> or <tt>COPYING</tt> file -->
         <!-- means the project is proprietary code. -->
-	それぞれのプロジェクトとライブラリにはその固有のライセンスを記した単体のファイルを含めます。
-	<tt>LICENSE</tt>あるいは<tt>COPYING</tt>というファイルがない場合はそのプロジェクトが独占的なものであることを示します。
+	プロジェクトやライブラリにはライセンスを明記した単体ファイルを含めます。
+	<tt>LICENSE</tt>や<tt>COPYING</tt>というファイルがない場合、そのプロジェクトが独占的なものであることを示します。
       </p>
       
     </BODY>
@@ -1123,17 +1115,17 @@ Takashi Kato
   <STYLEPOINT title="空行">
     <SUMMARY>
       <!-- Vertical white space: one blank line between top-level forms. -->
-      空行: トップレベルの式は空行一つで隔てられます。
+      空行: トップレベルのフォームは空行一つで隔てます。
     </SUMMARY>
     <BODY>
       <p>
         <!-- You should include one blank line between top-level forms, -->
         <!-- such as function definitions. -->
-	あなたは、関数定義のようなトップレベルフォームを、空行一つで隔てるべきです。
+	関数定義などのトップレベルフォームは空行一つで隔てるべきです。
         <!-- Exceptionally, blank lines can be omitted -->
         <!-- between simple, closely related defining forms of the same kind, -->
         <!-- such as a group of related type declarations or constant definitions. -->
-	型宣言や定数宣言のような単純で、近しい関係にある同等の定義が隣り合う場合は、例外的に一行の空行を入れなくてもかまいません。
+        例外的に、関係した型宣言や定数宣言のような単純で近しい関係にあるような同種の定義が隣り合う場合は、空行を入れなくても構いません。
       </p>
       <CODE_SNIPPET>
         (defconstant +mix32+ #x12b9b0a1 "pi, an arbitrary number")
@@ -1151,32 +1143,34 @@ Takashi Kato
       </CODE_SNIPPET>
       <p>
         <!-- Blank lines can be used to separate parts of a complicated function. -->
-	空行は複雑な関数をいくつかに分解するためにも有用です。
+	空行は複雑な関数内の独立した構造をはっきりさせるのに使えます。
         <!-- Generally, however, you should break a large function into smaller ones -->
         <!-- instead of trying to make it more readable by adding vertical space. -->
         <!-- If you can't, you should document with a <code>;;</code> comment -->
         <!-- what each of the separated parts of the function does. -->
-	しかしながら、あなたは、総じて巨大な関数は小さな関数に割ってやり、より読みやすいように、
-	縦方向の空白を追加して読みやすくすべきです。
-	あなたにそれができない場合は、あなたは<code>;;</code>で始まるコメントを
-	関数のそれぞれの分割点に書き残すべきです。
+        とはいえ一般的に巨大な関数は、空行を追加して読みやすくしようとするより、
+        小さな関数に分解するべきです。
+	それができないなら、<code>;;</code>のコメントで
+        関数の独立した構造を説明すべきです。
       </p>
       <p>
         <!--
         You should strive to keep top-level forms,
         including comments but excluding the documentation string, of
         appropriate length; preferrably short.  Forms extending beyond a
-	すべてのトップレベルフォームはコメントを含め、docstringを除いて61行以下に収めるべきです。
         single page should be rare and their use should be justfied.
         -->
+        トップレベルのフォーム（コメントは含むが文書化用文字列は別）は
+        適切な長さになるように努めるべきです。短い方が好ましいです。
+        一画面に収まらないフォームは稀なはずで、その場合正当化する根拠を示すべきです。
         <!-- This applies to each of the forms in an <code>eval-when</code>, -->
         <!-- rather than to the <code>eval-when</code> itself. -->
         <!-- Additionally, <code>defpackage</code> forms may be longer, -->
         <!-- since they may include long lists of symbols. -->
-	これは一つの<code>eval-when</code>それ自体ではなくて
-	<code>eval-when</code>のなかに含まれたそれぞれのフォームに
-	適用されます。また、<code>defpackage</code>フォームは
-	長いシンボルのリストを含めるため、これよりも長くなります。
+        このルールは<code>eval-when</code>の中のそれぞれのフォームに対して適用され、
+        <code>eval-when</code>自体には適用されません。
+        また、<code>defpackage</code>フォームは
+	シンボルの長いリストを含む事がある為、長くなってもいいです。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -1184,20 +1178,19 @@ Takashi Kato
   <STYLEPOINT title="水平方向の空白">
     <SUMMARY>
       <!-- Horizontal white space: none around parentheses. No tabs. -->
-      水平方向の空白: 括弧を空白で包んだりはしません。タブ文字の利用もしません。
+      水平方向の空白: 括弧の前後に空白は置きません。タブ文字は禁止します。
     </SUMMARY>
     <BODY>
       <p>
         <!-- You must not include extra horizontal whitespace -->
         <!-- before or after parentheses or around symbols. -->
-	あなたは、余計な水平方向の空白を括弧やシンボルの間には含めてはなりません。
+	余計な水平方向の空白を括弧やシンボルの間には含めてはなりません。
       </p>
       <p>
         <!-- You must not place right parentheses by themselves on a line. -->
         <!-- A set of consecutive trailing parentheses must appear on the same line. -->
-	あなたは右括弧のためだけの行を設けてはなりません。
-	連続する括弧は同じ行に収めなければなりません。
-
+	右括弧だけの行を設けてはなりません。
+	連続する右括弧は同じ行に収めなければなりません。
       </p>
       <BAD_CODE_SNIPPET>
         <!-- ;; Very Bad -->
@@ -1221,17 +1214,17 @@ Takashi Kato
       </CODE_SNIPPET>
       <p>
         <!-- You should use only one space between forms. -->
-	あなたはフォームを一つの空白で隔てるべきです。
+	フォーム間はたった一つの空白で隔てるべきです。
       </p>
       <p>
         <!-- You should not use spaces to vertically align forms -->
         <!-- in the middle of consecutive lines. -->
-	あなたは行の間に縦方向にフォームを揃えるために空白を挿入すべきではありません。
+	空白を使って連続する行の中でフォームを縦揃えするべきではありません。
         <!-- An exception is made when the code possesses -->
         <!-- an important yet otherwise not visible symmetry -->
         <!-- that you want to emphasize. -->
-	これについての例外はコードの支配をするために見えない対称性を強調することを、
-	あなたが重要視するときです。
+        例外はコードに重要なのに見た目には現れない対称性があり、
+        それを強調したいときです。
       </p>
       <BAD_CODE_SNIPPET>
         <!-- ;; Bad -->
@@ -1251,7 +1244,7 @@ Takashi Kato
       </CODE_SNIPPET>
       <p>
         <!-- You must align nested forms if they occur across more than one line. -->
-	あなたは入れ子になったフォームが複数行にわたるとき、これを縦揃えしなければなりません。
+	入れ子になったフォームが複数行に渡る時、これを縦揃えしなければなりません。
       </p>
       <BAD_CODE_SNIPPET>
         <!-- ;; Bad -->
@@ -1270,14 +1263,14 @@ Takashi Kato
       <p>
         <!-- The convention is that the body of a binding form -->
         <!-- is indented two spaces after the form. -->
-	慣例では変数束縛のフォームのあと、二つの空白で字下げします。
+	慣例では変数束縛のボディ部は束縛フォームに続き二つの空白で字下げします。
         <!-- Any binding data before the body is usually indented four spaces. -->
 	値の束縛を行うフォームは通常四つの空白で字下げします。
         <!-- Arguments to a function call are aligned with the first argument; -->
         <!-- if the first argument is on its own line, -->
         <!-- it is aligned with the function name. -->
-	関数呼び出しの引数は最初の引数の位置で縦揃えします。
-	もし、最初の引数が、関数名の行に存在しない場合は、関数名で縦揃えします。
+	関数呼び出しの引数は最初の引数の位置で揃えます。
+	もし最初の引数が関数名の行に存在しない場合は、関数名で縦揃えします。
       </p>
       <CODE_SNIPPET>
         (multiple-value-bind (a b c d)
@@ -1291,71 +1284,67 @@ Takashi Kato
         <!-- is made for an <code>eval-when</code> form around several definitions; -->
         <!-- in this case, include a comment <code>; eval-when</code> -->
         <!-- after the closing parenthesis. -->
-	括弧を単体で行においてはならないルールの例外は
-	いくつかの定義をくるんだ<code>eval-when</code>フォームを置いたことによって
-	括弧が単体で行に置かれる場合です。
-	この場合、閉じ括弧の行に <code>; eval-when</code>を記しておきます。
+	括弧を単体で行に置かないルールの例外は
+	<code>eval-when</code>フォームで複数の定義を包んだ場合です。
+	この場合、閉じ括弧の後に <code>; eval-when</code>を記しておきます。
       </p>
       <p>
         <!-- You must set your editor to -->
         <!-- avoid inserting tab characters in the files you edit. -->
-	あなたはあなたが編集するファイルにタブ文字が挿入されることを防ぐために、
+	編集しているファイルにタブ文字が挿入されないように
 	エディタを設定しなければなりません。
         <!-- Tabs cause confusion when editors disagree -->
         <!-- on how many spaces they represent. -->
         <!-- In Emacs, do <code>(setq-default indent-tabs-mode nil)</code>. -->
-	タブはエディタによって表現するために使用される空白の個数が違うため、
+	タブは、エディタによって表現するために使用する空白の個数が違うと、
 	混乱を引き起こします。
-        Emacsにおいては<code>(setq-default indent-tabs-mode nil)</code>を実行すれば、
-	この問題を回避できます。
+        Emacsでは<code>(setq-default indent-tabs-mode nil)</code>を実行してください。
       </p>
     </BODY>
   </STYLEPOINT>
 </CATEGORY>
 
 <CATEGORY title="文書化"><!-- Documentation -->
-  <STYLEPOINT title=""><!-- Document everything -->
+  <STYLEPOINT title="全てを文書化してください"><!-- Document everything -->
     <SUMMARY>
       <!-- You should use document strings on all visible functions -->
       <!-- to explain how to use your code. -->
-      あなたはあなたのコードの使い方について説明するために、すべての見える関数に対して文書化用文字列を使うべきです。
+      文書化用文字列を使って全ての利用可能な関数に利用方法の説明を付けるべきです。
     </SUMMARY>
     <BODY>
       <p>
         <!-- Unless some bit of code is painfully self-explanatory, -->
         <!-- document it with a documentation string (also known as docstring). -->
-	それ自体が十分すぎる自己の解説になっているような、いくつかのコード片は除いて、
-	それについて（docstringとして知られている）文書化用文字列で文書化します。
+	十分すぎるほど一目瞭然であるコードでなければ、
+	文書化用文字列（別名docstring）で文書化します。
       </p>
       <p>
         <!-- Documentation strings are destined to be read -->
         <!-- by the programmers who use your code. -->
-	文書化用文字列はあなたのコードを使うプログラマ達が読むためのものです。
+	文書化用文字列はあなたのコードを使うプログラマが読むためのものです。
         <!-- They can be extracted from functions, types, classes, variables and macros, -->
         <!-- and displayed by programming tools, such as IDEs, -->
         <!-- or by REPL queries such as <code>(describe 'foo)</code>; -->
-	文書化用文字列は関数や型、クラス、変数及びマクロから切り出すことができ、IDEのような開発ツールで表示させたり、
-	REPLにおいて<code>(describe 'foo)</code>といった
-	クエリを発行して利用することができます。
+        文書化用文字列は関数や型、クラス、変数及びマクロから抽出され、IDEのような開発ツールや
+        REPLから<code>(describe 'foo)</code>などで表示出来ます。
         <!-- web-based documentation or other reference works -->
         <!-- can be created based on them. -->
 	Webベースの文書やその他の手引きも文書化用文字列から作り出すことができます。
         <!-- Documentation strings are thus the perfect locus to document your API. -->
-	文書化用文字列はそれ故、あなたのAPIの完全な指標となります。
+	それ故、文書化用文字列はAPI文書を書く最適な場所です。
         <!-- They should describe how to use the code -->
         <!-- (including what pitfalls to avoid), -->
         <!-- as opposed to how the code works (and where more work is needed), -->
         <!-- which is what you'll put in comments. -->
-	文書化用文字列は、（落とし穴の回避方法を含んだ）コードの使い方について解説すべきであり、
-	コードがどう働くかということ（それから必要なその他のこと）を書く、コメントとは対照的です。
+	文書化用文字列は（落とし穴の回避方法を含んだ）コードの使い方について解説すべきであり、
+        コードがどう働くか（や、どこを改善すべきか）はコメントに書いてください。
       </p>
       <p>
         <!-- Supply a documentation string when defining -->
         <!-- top-level functions, types, classes, variables and macros. -->
-	（docstringのような）文書化用文字列は、トップレベル関数や、型、クラスおよびマクロの定義時に供給されます。
-
+	トップレベルの関数、型、クラスおよびマクロを定義する時は文書化用文字列を提供してください。
         <!-- Generally, add a documentation string wherever the language allows. -->
-	総合的に、どんな言語でも文書化用文字列は追加できます。
+	通常は、言語が許すところ全てに文書化用文字列を加えてください。
       </p>
       <p>
         <!-- For functions, the docstring should describe the function's contract: -->
@@ -1363,21 +1352,20 @@ Takashi Kato
         <!-- what the arguments mean, -->
         <!-- what values are returned, -->
         <!-- what conditions the function can signal. -->
-	関数のためのdocstringはその関数が、
+	関数には、docstringでその関数の契約を記述すべきです。
 	この関数は何をするのか、
 	引数は何を意味するのか、
 	どんな値が返ってくるのか、
-	関数はどんなコンディションを発信するのか、
-	について説明すべきです。
+	どんなコンディションを発信するのか。
         <!-- It should be expressed at the appropriate level of abstraction, -->
         <!-- explaining the intended meaning rather than, say, just the syntax. -->
         <!-- In documentation strings, capitalize the names of Lisp symbols, -->
         <!-- such as function arguments. -->
-	これは適切な抽象化レベルにおいて表現されるべきで、
-	単なる文法を述べるのではなく、何をするためのものかということを説明すべきです。
-	文書文字列のなかにおいては、関数の引数のような、Lispシンボルは大文字にします。
+	これは適切な抽象化レベルで表現すべきで、
+	例えば単なる構文の説明ではなく、何をするためのものかということを説明すべきです。
+	文書化用文字列では、関数の引数などのLispシンボルは大文字にします。
         <!-- For example, "The value of LENGTH should be an integer." -->
-        例えば、 "LENGTHの値は整数値であるべきです。"といった具合です。
+        例えば、"LENGTHの値は整数値であるべきです。"といった具合です。
       </p>
       <CODE_SNIPPET>
         (defun small-prime-number-p (n)
@@ -1403,17 +1391,17 @@ Takashi Kato
         <!-- A long docstring may usefully -->
         <!-- begin with a short, single-sentence summary, -->
         <!-- followed by the larger body of the docstring. -->
-	長いDocstringは、短い、そのあとに続くdocstringの概要を示す単文で始めることで便利になります。
+	長いdocstringは短い一文のまとめで始めて、その後にdocstringの長い本文が続くと使いやすいのでそうしても良いです。
       </p>
       <p>
         <!-- When the name of a type is used, -->
         <!-- the symbol may be quoted by surrounding it with -->
         <!-- a back quote at the beginning and a single quote at the end. -->
-	型の名前を使うときはバッククォートを名前の最初におき、最後に単一引用符をおいて囲んでやります。
+	型の名前を使うときはバッククォートを名前の最初におき、最後に単一引用符をおいて囲んでも構いません。
         <!-- Emacs will highlight the type, and the highlighting serves -->
         <!-- as a cue to the reader that <kbd>M-.</kbd> -->
         <!-- will lead to the symbol's definition. -->
-	Emacsは型をハイライトし、ハイライトされた部分でキーバインド<kbd>M-.</kbd>を実行することで、
+	Emacsはその型をハイライトし、そのハイライトされた部分でキーバインド<kbd>M-.</kbd>を実行することで、
 	シンボルの定義部へと導いてくれます。
       </p>
       <CODE_SNIPPET>
@@ -1426,27 +1414,27 @@ Takashi Kato
         <!-- Every method of a generic function should be independently documented -->
         <!-- when the specialization affects what the method does, -->
         <!-- beyond what is described in its generic function's docstring. -->
-	総称関数におけるすべてのメソッドにおいては、それぞれの特殊化された場合において
-	メソッドが何をするかということを、その総称関数のdocstringに書かれていないより詳しい点について、
-	個別に文書化されるべきです。
+        総称関数の全てのメソッドでは、
+        その特殊化で総称関数のdocstringの説明以上のことをするようになったとき
+	個別に文書化すべきです。
       </p>
       <p>
         <!-- When you fix a bug, -->
         <!-- consider whether what the fixed code does is obviously correct or not; -->
-	バグを修正するときは、その修正がはっきりと正しいかそうではないか考えます。
+	バグを修正するときは修正後のコードのやっていることが客観的に正しいかを考えます。
         <!-- if not, you must add a comment explaining -->
         <!-- the reason for the code in terms of fixing the bug. -->
-	もしそうではないなら、あなたはバグを修正するためにそのコードを用いた理由を説明するコメントを
+	もしそうではないなら、バグ修正の観点からそのコードの根拠を説明するコメントを
 	追加しなければなりません。
         <!-- Adding the bug number, if any, is also recommended. -->
-	もしバグ番号があるならそれも追加します。
+	もしバグ番号があるならその追加も推奨されます。
       </p>
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="コメントのセミコロン"><!-- Comment semicolons -->
     <SUMMARY>
       <!-- You must use the appropriate number of semicolons to introduce comments. -->
-      あなたは、適切な数のセミコロンでコメントを開始しなくてはなりません。
+      適切な数のセミコロンでコメントを開始しなくてはなりません。
     </SUMMARY>
     <BODY>
        <p>
@@ -1457,28 +1445,29 @@ Takashi Kato
         <!-- or unconcerned with what happens after you leave -->
         <!-- (and have your code self-destruct in such an eventuality), -->
         <!-- you may find it useful to comment your code. -->
-	他の人が触らないと分っているコードでも、仮にあなたが不死身で[開発を]やめない、
-	あるいは自分が離れたあとどうなるか気にしない(そして結局コードは読めなくなる)場合でも、
+	自分しか触らないと分っているコードでも、仮にあなたが不死身で[開発を]やめない、
+        あるいは自分が離れたあとどうなるか気にしない
+        (そしてそういう万が一にはコードが自壊するようにしている)場合でも、
 	コメントは有用であると気づくでしょう。
         <!-- Indeed, by the time you revisit your code, -->
         <!-- weeks, months or years later, -->
         <!-- you will find yourself a different person from the one who wrote it, -->
         <!-- and you will be grateful to that previous self -->
         <!-- for making the code readable. -->
-	実際、何週間、何ヶ月、あるいは何年か経って自分のコードを再度読んだときにはコードを書いたときとは他人になっていて、
+        実際、自分のコードを再度読むまでに何週間何ヶ月あるいは何年も待たずともコードを書いたのが別人だと感じ、
 	あのときの自分が読み易いコードを書いてくれたことに感謝することになるでしょう。
       </p>
       <p>
         <!-- You must comment anything complicated -->
         <!-- so that the next developer can understand what's going on. -->
         <!-- (Again, the "hit by a truck" principle.) -->
-	次の開発者が何をしているのか分かるように複雑なものには全てコメントを残す必要があります。
+	次の開発者に何をしているのか伝わるように、複雑なものには全てコメントを残さなければなりません。
 	(「トラックにはねられたらの原理」を思い出しましょう。)
       </p>
       <p>
         <!-- Also use comments as a way to guide those who read the code, -->
         <!-- so they know what to find where. -->
-	何がどこにあるのかの案内としてもコメントを使いましょう。
+	コードを読む人に何がどこにあるのか分かるように、案内としてもコメントを使いましょう。
       </p>
       <ul>
         <li>
@@ -1492,25 +1481,25 @@ Takashi Kato
           <!-- You should use three semicolons -->
           <!-- to begin comments that apply to just -->
           <!-- one top-level form or small group of top-level forms. -->
-	  あなたは、一つのトップレベルフォームや、トップレベルフォームの小さな集合に適用されるコメントを、
+	  一つのトップレベルフォームやトップレベルフォームの小さな集合に適用されるコメントは、
 	  三つのセミコロンで始めるべきです。
         </li>
         <li>
           <!-- Inside a top-level form, you should use two semicolons -->
           <!-- to begin a comment if it appears between lines. -->
-	  トップレベルフォームの中において、行と行の間でコメントを開始するときは、
+	  トップレベルフォームの内部で行間にコメントを入れたい時は
 	  二つのセミコロンで開始すべきです。
         </li>
         <li>
           <!-- You should use one semicolon if it is a parenthetical remark -->
           <!-- and occurs at the end of a line. -->
-	  あなたは行末において補足的な情報を含めたい時に一つのセミコロンを使うべきです。
+	  行末で補足説明をしたい時は一つのセミコロンを使うべきです。
           <!-- You should use spaces to separate the comment -->
           <!-- from the code it refers to so the comment stands out. -->
-	  あなたはコメントを空白を使って関連するコードから目立つように分離すべきです。
+	  空白を使って関連するコードからコメントを分離しコメントを目立たせるべきです。
           <!-- You should try to vertically align -->
           <!-- consecutive related end-of-line comments. -->
-	  あなたは連続する行末コメントを縦揃えすることを試みるべきです。
+	  連続する行末コメントの縦揃えを試みるべきです。
         </li>
       </ul>
       <CODE_SNIPPET>
@@ -1551,7 +1540,7 @@ Takashi Kato
       </CODE_SNIPPET>
       <p>
         <!-- You should include a space between the semicolon and the text of the comment. -->
-	コメントのセミコロンと文章の間には一つ空白が入るべきです。
+	セミコロンとコメントの本文の間には一つ空白が入るべきです。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -1560,17 +1549,17 @@ Takashi Kato
       <!--
       You should punctuate documentation correctly.
       -->
-      ドキュメントでの句読は正しく使用すべきです。
+      ドキュメントでは句読点は正しく使用すべきです。
     </SUMMARY>
     <BODY>
       <p>
         <!-- When a comment is a full sentence, -->
         <!-- you should capitalize the initial letter of the first word -->
         <!-- and end the comment with a period. -->
-	コメントの全文において、あなたは最初の単語の最初の文字を大文字にして、
+	コメントが完全な文なら最初の単語の最初の文字を大文字にして、
 	コメントの最後をピリオドで終えるべきです。
         <!-- In general, you should use correct punctuation. -->
-	総合的に、あなたは句読点について校正を行うべきです。
+	総合的に、正しく句読点を使うべきです。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -1579,21 +1568,21 @@ Takashi Kato
       <!-- You must follow the convention of using TODO comments -->
       <!-- for code requiring special attention. -->
       <!-- For code using unobvious forms, you must include a comment.  -->
-      コードが特に要注意である場合、TODOコメントを使う流儀に従わなければなりせん。
-      コードが自明でない書き方の場合、コメントを含めなくてはなりません。
+      特別な注意が必要なコードの場合、TODOコメントを使う慣例に従わなければなりせん。
+      自明でないコードの場合、コメントを含めなくてはなりません。
     </SUMMARY>
     <BODY>
       <p>
         <!-- Use TODO comments when the code is known to be incomplete -->
         <!-- and you want to indicate what work remains to be done. -->
-	TODOコメントは既知の未完了のコードがあって、あなたがそれを忘れないように
-	示しておきたいときに使います。
+	TODOコメントはコードが未完成だと分かっていて、どんな作業が残っているかを
+	示したいときに使います。
         <!-- For comments requiring special attention, such as -->
         <!-- incomplete code, todo items, questions, breakage, and danger, -->
         <!-- include a TODO comment indicating the type of problem, -->
         <!-- its nature, and any notes on how it may be addressed.  -->
-        コメントのうち、特別な注意が必要なもの(不完全なコード・TODOアイテム・疑問・破損・危険箇所等)
-        は、TODOコメントに、その問題のタイプと性質や、どのように問題に取り組めるかを、含めましょう。
+        コメントのうち、特別な注意が必要なもの(未完成なコード・やることリスト・疑問・破損・危険箇所等)
+        には、問題のタイプ、その性質、どのように問題に取り組めるかを示したTODOコメントを含めます。
       </p>
       <p>
         <!--
@@ -1612,18 +1601,19 @@ Takashi Kato
         name
         that is given.
         -->
-	コメントはすべて大文字の<code>TODO</code>で始めて、
-	あなたの名前、Eメールアドレス、もしくは、その他個人の識別に使えるID(<code>TODO</code>に記載された問題の処理担当者の文脈でベストなもの)から始めます。
-        主な目的は<code>TODO</code>を一貫したものとして、必要に応じてどうやったら事の詳細を知ることができるか、を見付けられるようにすることです。
-        TODOコメントは問題が修正されるという公約ではありません。
-        まとめてしまえば、<code>TODO</code>を書く場合には、ほぼ必ず自分の名前を記載することになります。
+	TODOコメントは全て大文字の<code>TODO</code>で始め、
+        <code>TODO</code>で参照している問題に最も相応しい人の、
+        名前、Eメールアドレス、もしくは他のIDを続けます。
+        主な目的は、<code>TODO</code>の書式を統一し、必要に応じて詳細を検索できるようにしておくことです。
+        TODOコメントは名前が書かれている人が問題を修正するという公約ではありません。
+        従って<code>TODO</code>を書く場合には、ほぼ必ず自分の名前を記載することになります。
       </p>
       <p>
         <!-- When signing comments, -->
         <!-- you should use your username (for code within the company) -->
         <!-- or full email address (for code visible outside the company), -->
         <!-- not just initials. -->
-        コメントに署名する際は、あなたはユーザ名（コードが会社内のものである場合）あるいは、
+        コメントに署名する際は、自分のユーザ名（コードが会社内のものである場合）あるいは、
 	Eメールアドレス（コードが社内からでも見られる場合）を使い、イニシャルを使うべきではありません。
       </p>
       <CODE_SNIPPET>
@@ -1640,14 +1630,14 @@ Takashi Kato
         例えば、 2038-01-20 を符号付き32ビット整数 <code>time_t</code>の終わりとして使うなど。
       </p>
       <CODE_SNIPPET>
-        ;;--- TODO(brown): このコードはリリース1.7以降、あるいは2012-11-30より前なら削除して下さい。
+        ;;--- TODO(brown): このコードはリリース1.7以降、あるいは2012-11-30の前に削除して下さい。
         <!-- ;;\-\-\- TODO(brown): Remove this code after release 1.7 or before 2012-11-30. -->
       </CODE_SNIPPET>
       <p>
         <!-- For code that uses unobvious forms to accomplish a task, you must include a comment -->
         <!-- stating the purpose of the form and the task it accomplishes. -->
-        タスクを遂行するために自明でない書き方を採用したコードには、
-        その書き方を利用した狙いと、それが遂行することについてをコメントに含めなければなりません。
+        自明でない書き方を採用してタスクを遂行するコードには、
+        その書き方の狙いと、それが遂行することについてをコメントに含めなければなりません。
       </p> 
     </BODY>
   </STYLEPOINT>
@@ -1655,26 +1645,25 @@ Takashi Kato
     <SUMMARY>
       <!-- You should document DSLs and -->
       <!-- any terse program in a DSL. -->
-      あなたはDSLとDSLによって書かれた簡潔なプログラムについて文書化すべきです。
+      DSLとDSLで書かれた簡潔(terse)なプログラムについて文書化すべきです。
     </SUMMARY>
     <BODY>
       <p>
         <!-- You should design your Domain Specific Language -->
         <!-- to be easy to read and understand by people familiar with the domain. -->
-	あなたはあなたのドメイン固有言語を同じような仕事をする人々にとって簡単に読めて理解できるよう
+	ドメイン固有言語は、そのドメインに馴染んでいる人々にとって簡単に読めて理解できるよう
 	設計すべきです。
       </p>
       <p>
         <!-- You must properly document all your Domain Specific Language. -->
-	あなたはあなたのドメイン固有言語について徹底的に文書化しなければなりません。
+	全てのドメイン固有言語は適切に文書化しなければなりません。
       </p>
       <p>
         <!-- Sometimes, your DSL is designed for terseness. -->
-	ときにあなたのDSLは無愛想に設計されています。
+        DSLは簡潔さ(terseness)を目的に設計されていることがあります。
         <!-- In that case, it is important to document what each program does, -->
         <!-- if it's not painfully obvious from the context. -->
-	そのような場合は、文脈から自明のことは除いて、
-	それぞれのプログラムの為すことについて重要な点を文書化してください。
+        そのような場合、文脈から十分自明でないならプログラムがすることの文書化が重要です。
       </p>
       <p>
         <!-- Notably, when you use regular expressions -->
@@ -1683,15 +1672,14 @@ Takashi Kato
         <!-- (usually a two-semicolon comment on the previous line) -->
         <!-- explaining, at least basically, what the regular expression does, -->
         <!-- or what the purpose of using it is. -->
-	特に、あなたは正規表現（例えば<code>CL-PPCRE</code>パッケージ）を使うとき、
-	あなたは、いつも、
-	最低限基本的な部分について正規表現がなにを為すのかあるいはそれをどのような用途に供するのか、
-	（前の行に二つのセミコロンを入れたコメントを使って）コメントを入れなければなりません。
+	特に、正規表現（例えば<code>CL-PPCRE</code>パッケージ）を使うときは、
+	最低限基本的な部分について、正規表現がなにを為すのかや、それを使う目的は何かを、
+        （前の行に二つのセミコロンを使って）コメントを<b>必ず</b>入れなければなりません。
         <!-- The comment need not spell out every bit of the syntax, but -->
         <!-- it should be possible for someone to follow the logic of the code -->
         <!-- without actually parsing the regular expression. -->
-	このコメントは文法の一つ一つを子細に説明する必要はありませんが、
-	実際に正規表現をパーズすることなく、誰かがコードの論理を追うには十分であるべきです。
+	このコメントで文法の一つ一つを子細に説明する必要はありませんが、
+	正規表現を実際にパーズせずにコードの論理を追うには十分であるべきです。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -1707,15 +1695,15 @@ Takashi Kato
       <!-- You should follow the rules for <a href="#Spelling_and_Abbreviations">Spelling and Abbreviations</a> -->
       <!-- You should follow punctuation conventions. -->
       小文字を用いるべきです。
-      略語は<a href="#Spelling_and_Abbreviations">綴りと略語</a>のルールに従うべきです。
-      句読点法の慣習には従うべきです。
+      <a href="#Spelling_and_Abbreviations">綴りと略語</a>のルールに従うべきです。
+      句読点と記号の慣例に従うべきです。
     </SUMMARY>
     <BODY>
       <p>
         <!-- Use lower case for all symbols. -->
         <!-- Consistently using lower case makes searching for symbol names easier -->
         <!-- and is more readable. -->
-	すべてのシンボルにおいて小文字を使います。
+	全てシンボルには小文字を使います。
 	一貫して小文字を使うことで、シンボル名を探しやすくし、より読みやすくします。
       </p>
       <p>
@@ -1727,34 +1715,34 @@ Takashi Kato
         <!-- Because of this case-converting, -->
         <!-- attempts to distinguish symbols by case are defeated, -->
         <!-- and only result in confusion. -->
-	これは大文字小文字変換によるもので、
-	シンボルを大文字や小文字によって識別することを困難にし、結果的に混乱を引き起こします。
+	この大文字小文字変換におかげで、
+        シンボルを大文字や小文字によって識別しようとしても不可能で、
+        混乱しか引き起こしません。
         <!-- While it is possible to escape characters in symbols -->
         <!-- to force lower case, -->
         <!-- you should not use this capability -->
         <!-- unless this is somehow necessary -->
         <!-- to interoperate with third-party software. -->
-	シンボル内の文字をエスケープして強制的に小文字にすることができますが、
-	あなたはどうにかして第三者によるソフトウェアを補完するために必要な場合を除いて、
-	これをすべきではありません。
+	シンボル内の文字をエスケープして強制的に小文字にすることは出来ますが、
+        サードパーティ製ソフトウェアと組み合わせるのにどうにも必要な場合を除いて、
+	この機能を使うべきではありません。
       </p>
       <p>
         <!-- Place hyphens between all the words in a symbol. -->
-	シンボル内の単語と単語の間にはハイフンを置きます。
+	シンボル名内の単語と単語の間にはハイフンを置きます。
         <!-- If you can't easily say an identifier out loud, -->
         <!-- it is probably badly named. -->
-	もしあなたが識別子を大声で読み上げることができないのなら、おそらくひどい名前がつけられています。
+	もし識別子を簡単に声に出して読み上げられないのなら、恐らく酷い名前が付いています。
       </p>
       <p>
         <!-- You must not use <code>"/"</code> or <code>"."</code> -->
         <!-- instead of <code>"-"</code> -->
         <!-- unless you have a well-documented overarching reason to, -->
         <!-- and permission from other hackers who review your proposal. -->
-        あなたは
-	よく文書化されたすべてにおける理由がある場合や、
-	あなたの提案を査読した他のハッカーが権限を与えた場合を除いて
-	<code>"-"</code>ではなく、<code>"/"</code>や<code>"."</code>を
-	使うべきではありません。
+	よく文書化された包括的な理由があり
+	その提案を査読した他のハッカーが権限を与えた場合を除いて、
+	<code>"-"</code>の代わりに、<code>"/"</code>や<code>"."</code>を
+	使ってはなりません。
       </p>
       <p>
         <!-- See the section on <a href="#Spelling_and_Abbreviations">Spelling and Abbreviations</a> -->
@@ -1777,24 +1765,24 @@ Takashi Kato
         <!-- There are conventions in Common Lisp -->
         <!-- for the use of punctuation in symbols. -->
         <!-- You should not use punctuation in symbols outside these conventions. -->
-        これはCommon Lispだけの慣例で、シンボル内で句読点を使います。
-	あなたはこの慣例の外で、シンボル内に句読点を使うべきではありません。
+        Common Lispにはシンボル内で句読点や記号を使う慣例があります。
+	この慣例の外で、シンボル内に句読点や記号を使うべきではありません。
       </p>
       <p>
         <!-- Unless the scope of a variable is very small, -->
         <!-- do not use overly short names like -->
         <!-- <code>i</code> and <code>zq</code>. -->
-	変数のスコープが極端に小さい場合を除いて、
-	異様に短い
+	変数のスコープがとても小さい場合を除いて、
+	極端に短い
 	<code>i</code>とか<code>zq</code>といった名前を使うべきではありません。
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="意図を示して内容を示さない"><!-- Denote intent, not content -->
+  <STYLEPOINT title="中身ではなく意図を示す"><!-- Denote intent, not content -->
     <SUMMARY>
       <!-- Name your variables according to their intent, -->
       <!-- not their content. -->
-      あなたの変数名は意図から名付けられ、内容から名付けられません。
+      変数名は中身ではなく意図に従って名付けます。
     </SUMMARY>
     <BODY>
       <p>
@@ -1802,9 +1790,8 @@ Takashi Kato
         <!-- to the high-level concept that it represents, -->
         <!-- not according to the low-level implementation details -->
         <!-- of how the concept is represented. -->
-	あなたは高レベルの概念を低レベルの実装がどう表現するかという
-	詳細からではなくて、
-	その概念そのものの表現から変数を名付けるべきです。
+	変数の命名は変数が表現する高レベルの概念を元にすべきで、
+	その概念をどう表現するかという低レベルの実装の詳細を元にすべきではありません。
       </p>
       <p>
         <!-- Thus, you should avoid embedding -->
@@ -1813,21 +1800,21 @@ Takashi Kato
         <!-- <code>hash-table</code> inside variable names, -->
         <!-- unless you're writing a generic algorithm that applies to -->
         <!-- arbitrary lists, arrays, hash-tables, etc. -->
-	それゆえ、リストや配列やハッシュテーブルに限定的な汎用アルゴリズムを書いているのでもない限り、
-	変数名にデータ構造名を含んだり、
+	それゆえ、任意のリストや配列やハッシュテーブルなどに適用する
+	汎用アルゴリズムを書いているのでもない限り、
 	<code>list</code>、<code>array</code>、<code>hash-table</code>
-	などの型名を寄せ集めた名前をつけることは避けるべきです。
+	などのデータ構造や集合体型の名前を変数名に含めることは避けるべきです。
         <!-- In that case it's perfectly OK to name a variable -->
         <!-- <code>list</code> or <code>array</code>. -->
-	逆にそのような場合は<code>list</code>や<code>array</code>などの変数名は望ましいものです。
+	汎用アルゴリズムを書いている場合には、<code>list</code>や<code>array</code>などの変数名は完全にOKです。
       </p>
       <p>
         <!-- Indeed, you should be introducing new abstract data types -->
         <!-- with <code>DEFCLASS</code> or <code>DEFTYPE</code>, -->
         <!-- whenever a new kind of intent appears for objects in your protocols. -->
-	実際、プロトコル[設計]においてオブジェクトに新たな意図が見出される場合
-        であれば<code>DEFCLASS</code>や<code>DEFTYPE</code>
-        を使って新たな抽象データ型を導入しているべきです。 
+	実際にはプロトコル[設計]で使われるオブジェクトに新たな種類の意図が見出される時はいつでも
+        <code>DEFCLASS</code>や<code>DEFTYPE</code>
+        で新たな抽象データ型を導入しなくてはいけません。
         <!-- TODO:  -->
         <!--protocolを無視しました。どう訳せばいいんだろ…(κeen)-->
         <!-- 何らかのオブジェクトに新しい振舞いを見出せるなら、
@@ -1838,7 +1825,7 @@ Takashi Kato
         -->
         <!-- Functions that manipulate such objects generically may then -->
         <!-- use variables the name of which reflect that abstract type. -->
-	そのようなデータ型を汎用的に扱う関数にはその抽象型を反映した変数名を与えても構いません。
+	そのようなデータ型を汎用的に扱う関数にはその抽象型を反映した変数名を与えてもいいです。
       </p>
       <p>
         <!-- For example, if a variable's value is always a row -->
@@ -1846,17 +1833,17 @@ Takashi Kato
         <!-- it's good to call it <code>row</code> or <code>first-row</code> -->
         <!-- or something like that. -->
 	例えば、もしその変数の値が常に列(row)(あるいは列または<code>NIL</code>)のときは、
-	<code>row</code>や<code>first-row</code>などの名前を与えるのが適当でしょう。
+	<code>row</code>や<code>first-row</code>などの名前を与えるのが適当です。
         <!-- It is alright is <code>row</code> has been --><!-- 二つめのisはifのミス？ -->
         <!-- <code>DEFTYPE</code>'d to <code>STRING</code> &#8212; -->
         <!-- precisely because you have abstracted the detail away, -->
         <!-- and the remaining salient point is that it is a row. -->
-	<code>row</code>が<code>STRING</code>として<code>DEFTYPE</code>されていても全く問題はありません。
-	明確にこれは詳細を抽象化し、残された特徴がそれが列であるということだけになっているからです。
+	<code>row</code>が<code>STRING</code>として<code>DEFTYPE</code>されていたとしても問題はありません。
+	詳細を抽象化した結果、残された特徴がそれが列であるということが明確になったからです。
         <!-- You should not name the variable <code>STRING</code> in this context, -->
         <!-- except possibly in low-level functions that specifically manipulate -->
         <!-- the innards of rows to provide the suitable abstraction. -->
-	この場合、低次の処理が列の内部を処理し、適切に抽象化するのでもない限り、
+	この文脈では、列の内部構造を操作し適切な抽象化を提供する低次の処理でもない限りは、
 	変数名を<code>STRING</code>にすべきではありません。
       </p>
       <p>
@@ -1866,25 +1853,26 @@ Takashi Kato
         <!-- and its value is being passed to a second function, -->
         <!-- then call it <code>row</code> rather than, say, <code>value</code> -->
         <!-- (this was a real case). -->
-	ある関数で<code>row</code>と名付け、その値が別の関数に渡されたのなら例えば<code>value</code>などと呼ばずに
-	<code>row</code>と呼びましょう(これは実際にあったことなのです)。
+        ある関数で<code>row</code>と名付け、その値が別の関数に渡されたのなら、
+        例えば<code>value</code>などと呼ばずに
+	<code>row</code>と呼びましょう(実際にあったことです)。
       </p>
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="大域変数と定数"><!-- Global variables and constants -->
     <SUMMARY>
       <!-- Name globals according to convention. -->
-      大域変数および定数の命名は慣習に従います。
+      大域変数の命名は慣例に従います。
     </SUMMARY>
     <BODY>
       <p>
         <!-- The names of global constants should start and end -->
         <!-- with plus characters. -->
-	大域定数の名前には、はじめとおわりに+(プラス記号)をつけるべきです。
+	大域定数の名前には始めと終わりに+(プラス記号)を付けるべきです。
       </p>
       <p>
         <!-- Global variable names should start and end with asterisks -->
-	大域変数の名前には、はじめとおわりに*(アスタリスク)をつけるべきです。
+	大域変数の名前には始めと終わり*(アスタリスク)を付けるべきです。
         <!-- (also known in this context as earmuffs). -->
 	(このやり方は耳当てとして知られています。)
       </p>
@@ -1893,34 +1881,33 @@ Takashi Kato
         <!-- to be usually modified or bound under normal circumstances -->
         <!-- (but may be during experimentation or exceptional situations) -->
         <!-- should start (but do not end) with a dollar sign. -->
-	いくつかのプロジェクトにおいては、
-	通常修正されるべきではないパラメータや、普段は束縛されるべきではないパラメータ
-	(ただし、試験や例外的な状況の間かもしれません)
-	のはじめ(おわりにはつけない)に$(ドル記号)をつけるべきです。
+	通常は変更されたり束縛されることを意図しないパラメータ
+	(ただし実験中や例外的な状況ではしても良い)
+	の始めに$(ドル記号)を付けるべき(終わりには付けない)としているプロジェクトもあります。
         <!-- If such a convention exists within your project, -->
         <!-- you should follow it consistently. -->
-	こういった慣習があなたのプロジェクトにおいてあるのなら、
-	あなたはそれに従うべきです。
+	こういった慣例があなたのプロジェクトにあるのなら、
+	それに一貫して従うべきです。
         <!-- Otherwise, you should avoid naming variables like this. -->
-	一方、あなたは変数をこのように名付けることは避けるべきです。
+	そうでないなら、このように変数を名付けることは避けるべきです。
       </p>
       <p>
         <!-- Common Lisp does not have global lexical variables, -->
         <!-- so a naming convention is used to ensure that globals, -->
         <!-- which are dynamically bound, -->
         <!-- never have names that overlap with local variables. -->
-	Common Lispは大域レキシカル変数を持ちません、
-	命名についての慣習は大域変数の動的束縛と
-	ローカル変数による名前の上書きからの保護を行います。
+	Common Lispには大域レキシカル変数がないので、
+	慣例的な命名を使って動的束縛される大域変数が
+	ローカル変数と名前がかち合わないように保護します。
         <!-- It is possible to fake global lexical variables -->
         <!-- with a differently named global variable -->
         <!-- and a <code>DEFINE-SYMBOL-MACRO</code>. -->
-	これは違う名前の大域変数と<code>DEFINE-SYMBOL-MACRO</code>による
-	偽りの大域レキシカル変数によって可能になります。
+        大域レキシカル変数を別の名前が付いた大域変数と<code>DEFINE-SYMBOL-MACRO</code>で
+        でっち上げることは可能です。
         <!-- You should not use this trick, -->
         <!-- unless you first publish a library that abstracts it away. -->
-	あなたが最初にそれを抽象化するライブラリを発行する場合を除いて、
-	あなたはこのようなトリックを使うべきではありません。
+        最初にこの技法を抽象化するライブラリを公開してからでなければ、
+	この技法を使うべきではありません。
       </p>
       <CODE_SNIPPET>
         (defconstant +hash-results+ #xbd49d10d10cbee50)
@@ -1930,10 +1917,10 @@ Takashi Kato
     </BODY>
   </STYLEPOINT>
   <!-- <STYLEPOINT title="Predicate names"> -->
-  <STYLEPOINT title="述語の命名">
+  <STYLEPOINT title="述語の名前">
     <SUMMARY>
       <!-- Names of predicate functions and variables end with a <code>"P"</code>.  -->
-      <code>"P"</code>で終わる述語関数、もしくは変数の名前について
+      <code>述語関数と述語変数は"P"</code>で終えます。
     </SUMMARY>
     <BODY>
       <p>
@@ -1943,20 +1930,21 @@ Takashi Kato
         <!-- Generally, you should use -->
         <!-- <code>"P"</code> when the rest of the function name is one word -->
         <!-- and <code>"-P"</code> when it is more than one word. -->
-        ブール値を返す関数や変数はそれらが述語であることを示すために<code>"P"</code>か<code>"-P"</code>で終わる名前とすべきです。
-        一般的に名前が単語の場合は、<code>"P"</code>を使い、複数語の場合は、<code>"-P"</code>を使うべきです。
+        ブール値を返す関数や変数は<code>"P"</code>か<code>"-P"</code>で終わる名前にして、
+        それらが述語であることを示すべきです。
+        一般的に、名前が一語の場合は<code>"P"</code>を使い、複数語の場合は<code>"-P"</code>を使うべきです。
       </p>
       <p>
         <!-- A rationale for this convention is given in -->
         <!-- <a href="http://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node69.html">the CLtL2 chapter on predicates</a>. -->
-        この慣習の根拠となるものには、
+        この慣例の根拠となるものには、
         <a href="http://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node69.html">CLtL2 predicatesの章</a>
         があります。
       </p>
       <p>
         <!-- For uniformity, you should follow the convention above, -->
         <!-- and not one of the alternatives below. -->
-        一貫性の為に、上記の慣習にしたがうべきで、下記に挙げる別の慣習には従わないようにすべきです。
+        統一性の為に、上記の慣例に従い、下で挙げる別の慣例には従うべきではありません。
       </p>
       <p>
         <!-- An alternative rule used in some existing packages -->
@@ -1971,7 +1959,7 @@ Takashi Kato
         とある既存のパッケージで使われている別のルールで、常に<code>"-P"</code>を付けるというもの。
         また、とある既存のパッケージで使われている別のルールで、常に<code>"?"</code>を付けるというもの。
         このような[別ルールの命名の]パッケージで開発を行う場合は、パッケージ内の他の箇所との一貫性を維持しなくてはなりません。
-        新しいパッケージを作成して始める場合は、かなり良く文書化された理由でもない限り、このような別のルールを用いるべきではありません。
+        新しいパッケージを作成する場合は、かなり良く文書化された理由でもない限り、このような別のルールを用いるべきではありません。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -1984,19 +1972,19 @@ Takashi Kato
     <BODY>
       <p>
         <!-- When naming a symbol (external or internal) in a package, -->
-        パッケージ内でシンボル(外部もしくは内部)シンボルを命名する時は、
+        パッケージ内でシンボル(外部でも内部でも)を命名する時は、
         <!-- you should not include the package name -->
         <!-- as a prefix within the name of the symbol. -->
         ライブラリやパッケージの名前を接頭辞としてシンボル名に含めないようにするべきです。
         <!-- Naming a symbol this way makes it awkward to use -->
         <!-- from a client package accessing the symbol -->
         <!-- by qualifying it with a package prefix, -->
-        このような(訳注:接頭辞付きの)シンボルの命名は、パッケージを使う側がシンボルを扱う際に、
-        パッケージ名が重複して修飾される形になり不恰好なものになります。
-        (一つはパッケージ名、一つはシンボルに含まれた接頭辞)
         <!-- where the package name then appears twice -->
         <!-- (once as a package prefix, -->
         <!-- another time as a prefix within the symbol name). -->
+        このような[接頭辞付きの]シンボルの命名は、パッケージを使う側がシンボルを扱う際に、
+        パッケージ名が重複して修飾される形になり不恰好なものになります。
+        (一つはパッケージ名、一つはシンボルに含まれた接頭辞)
       </p>
       <BAD_CODE_SNIPPET>
         ;; 悪い
@@ -2018,12 +2006,12 @@ Takashi Kato
         <!-- An exception to the above rule would be to include a prefix -->
         <!-- for the names of variables that would otherwise be expected to clash -->
         <!-- with variables in packages that use the current one. -->
-        上記ルールの例外として、変数名に接頭辞を含めなければ、使われる先で名前が競合してしまうことが予期される場合があります。
+        上記ルールの例外として、変数名に接頭辞を含めなければ使われる先で名前が競合してしまうことが予期される場合が考えられます。
         <!-- For instance, <code>ASDF</code> exports a variable <code>*ASDF-VERBOSE*</code> -->
         <!-- that controls the verbosity of <code>ASDF</code> only, -->
         <!-- rather than of the entire Lisp program. -->
-        例えば、<code>ASDF</code>は、<code>ASDF</code>の(訳注: メッセージの)冗長さを制御する変数として<code>*ASDF-VERBOSE*</code>(訳注:という名前で)エクスポートしていますが、
-        これは、<code>ASDF</code>にだけ作用し、Lispプログラム全体に作用するものではありません<!-- 分かり難いので分割した -g000001 -->(訳注:ので競合しないように命名します)。
+        例えば、<code>ASDF</code>は、<code>ASDF</code>の[メッセージの]冗長さを制御する変数として<code>*ASDF-VERBOSE*</code>(訳注:という名前で)エクスポートしていますが、
+        これは、<code>ASDF</code>にだけ作用し、Lispプログラム全体に作用するものではありません<!-- 分かり難いので分割した -g000001 -->[ので競合しないように命名します]。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -2038,33 +2026,33 @@ Takashi Kato
         <!-- Lisp packages are used to demarcate namespaces. -->
 	Lispのパッケージは名前空間を分離するのに使います。
         <!-- Usually, each system has its own namespace. -->
-        通常、それぞれのシステムは自身の名前空間を使います。
+        通常、それぞれのシステムは独自の名前空間を持ちます。
 	<!-- A package has a set of external symbols, -->
         <!-- which are intended to be used from outside the package, -->
         <!-- in order to allow other modules to use this module's facilities. -->
-        パッケージは、外部シンボル一式を持ちますが、
-        これには、パッケージ内のシンボルが、パッケージ外から使われるようにするという意図があり、
-        これによって、別のモジュールがこのモジュールの機能を使うことができます。
+        パッケージは外部シンボル一式を持ち、
+        これはこのシンボルがパッケージ外から使われることを意図したもので、
+        これによって別のモジュールがこのモジュールの機能を使うことができます。
       </p>
       <p>
         <!-- The internal symbols of a package -->
         <!-- should never be referred to from other packages. -->
-	パッケージの内部シンボルは他のパッケージから参照されるべきではありません。
+	パッケージの内部シンボルは他のパッケージから決して参照されるべきではありません。
         <!-- That is, you should never have to use -->
         <!-- the double-colon <code>::</code> construct. -->
         <!-- (e.g. <code>QUAKE::HIDDEN-FUNCTION</code>). -->
-	これは二重セミコロン<code>::</code>構造(e.g. <code>QUAKE::HIDDEN-FUNCTION</code>)を使ってはいけないということです。
+	つまり、二重セミコロン<code>::</code>構造(e.g. <code>QUAKE::HIDDEN-FUNCTION</code>)を使わねばならない状況は決してあるべきではありません。
         <!-- If you need to use double-colons to write real production code, -->
         <!-- something is wrong and needs to be fixed. -->
-	もし二重セミコロンを実際のプロダクトで使う必要があったときは、それはどこかが間違っていて、修正を必要としています。
+	もし二重セミコロンを実際のプロダクトで使う必要があるなら、それはどこかが間違っていて、修正を必要としています。
       </p>
       <p>
         <!-- As an exception, -->
         <!-- unit tests may use the internals of the package being tested. -->
-	例外として、単体テストはテストのためにパッケージの内部[シンボル]を使っても構いません。
+	例外として、単体テストはテスト対象のパッケージの内部[シンボル]を使ってもいいです。
         <!-- So when you refactor, watch out for -->
         <!-- internals used by the package's unit tests. -->
-	いきおいリファクタリングするときは単体テストで参照されている内部[シンボル]に気を付けましょう。 <!-- いきおいも変ですね (g000001) -->
+	ですからリファクタリングするときは、単体テストで使っている内部[シンボル]に気を付けましょう。
       </p>
       <p>
         <!-- The <code>::</code> construct is also useful for very temporary hacks, -->
@@ -2079,24 +2067,24 @@ Takashi Kato
         <!-- You may find that some internal symbols represent concepts -->
         <!-- you usually want to abstract away and hide under the hood, -->
         <!-- yet at times are necessary to expose for various extensions. -->
-	内部シンボルには、通常は抽象化しフードの下に隠しておきたいものの、その一方で、様々な拡張のために外部に晒す必要のあるものがあることに気づくでしょう。
+	内部シンボルには、通常は抽象化しパッケージ内に隠しておきたいものの、その一方で様々な拡張のために外部に晒す必要のあるものがあることに気づくのではないでしょうか。
         <!-- For the former reason, you do not want to export them, -->
         <!-- yet for the latter reason, you have to export them. -->
-	前者の理由のためにはエクスポートしたくはないが、後者の理由のためにはエクスポートする必要がある。
+	前者の理由で絶対にエクスポートしたくはないのに、後者の理由でエクスポートしなければならない。
         <!-- The solution is to have two different packages, -->
         <!-- one for your normal users to use, and -->
         <!-- another for the implementation and its extenders to use. -->
-	そのような場合には通常の利用者が利用するものと、実装とその拡張者にパッケージを2つ用意するとよいでしょう。
+	そのような場合にはパッケージを2つに分け、1つを通常の利用者用に、もう1つを実装と拡張用にすることです。
       </p>
       <p>
         <!-- Each package is one of two types: -->
-	それぞれのパッケージには2種類のタイプがあります:
+	パッケージには以下の2種類のタイプがあります:
       </p>
       <ul>
         <li>
           <!-- Intended to be included -->
           <!-- in the <code>:use</code> specification of other packages. -->
-	  他のパッケージに<code>:use</code>されることを意図したもの。
+	  他のパッケージが<code>:use</code>することを意図したもの。
           <!-- If package <code>A</code> "uses" package <code>B</code>, -->
           <!-- then the external symbols of package <code>B</code> -->
           <!-- can be referenced from within package <code>A</code> -->
@@ -2105,7 +2093,7 @@ Takashi Kato
 	  <code>B</code>の外部シンボルは<code>A</code>からパッケージプリフィクスなしに参照できます。
           <!-- We mainly use this for low-level modules -->
           <!-- that provide widely-used facilities. -->
-	  これは主に広く使われる機能を提供する低レベルモジュールに使われます。
+	  これは幅広い機能を提供する低レベルモジュールで主に使われます。
         </li>
         <li>
           <!-- Not intended to be "used". -->
@@ -2113,7 +2101,7 @@ Takashi Kato
           <!-- To reference a facility provided by package <code>B</code>, -->
           <!-- code in package <code>A</code> must use an explicit package prefix, -->
           <!-- e.g. <code>B:DO-THIS</code>. -->
-	  パッケージ<code>B</code>で提供される機能をパッケージ<code>A</code>で使うには明示的にパッケージプリフィクスを使う必要があります。
+	  パッケージ<code>B</code>が提供する機能を参照するには、パッケージ<code>A</code>で明示的なパッケージプリフィクスを使わねばなりません。
 	  例: <code>B:DO-THIS</code>.
         </li>
       </ul>
@@ -2123,44 +2111,44 @@ Takashi Kato
 	もし新たにパッケージを作るなら、特別な理由と許可がない限り、それは常に[上に挙げた2つのうち]2つめのタイプであるべきです。
         <!-- Usually a package is designed to be one or the other, -->
         <!-- by virtue of the names of the functions. -->
-	通常パッケージは関数の名前によって、上の2つのうち、どちらかになるように設計されます。
+	通常パッケージは関数の名前によって、上の2つの内どちらかになるように設計されます。
         <!-- For example, if you have an abstraction called <code>FIFO</code>, -->
         <!-- and it were in a package of the first type -->
         <!-- you'd have functions named things like -->
         <!-- <code>FIFO-ADD-TO</code> and <code>FIFO-CLEAR-ALL</code>. -->
-	例えば、<code>FIFO</code>という抽象化した1つめのタイプのパッケージがあったら、<code>FIFO-ADD-TO</code>や<code>FIFO-CLEAR-ALL</code>
-	と名付けるでしょう。
+	例えば、<code>FIFO</code>という抽象化した1つ目のタイプのパッケージがあったら、関数は<code>FIFO-ADD-TO</code>や<code>FIFO-CLEAR-ALL</code>
+	と名付けることになるでしょう。
         <!-- If you used a package of the second type, -->
         <!-- you'd have names like <code>ADD-TO</code> and <code>CLEAR-ALL</code>, -->
         <!-- because the callers would be saying -->
         <!-- <code>FIFO:ADD-TO</code> and <code>FIFO:CLEAR-ALL</code>. -->
         <!-- (<code>FIFO:FIFO-CLEAR-ALL</code> is redundant and ugly.) -->
 	もし2つめのタイプのパッケージなら<code>ADD-TO</code>や<code>CLEAR-ALL</code>といった関数名になるでしょう。なぜなら関数を呼び出すときは
-	<code>FIFO:ADD-TO</code>や<code>FIFO:CLEAR-ALL</code>となるからです(<code>FIFO:FIFO-CLEAR-ALL</code>は冗長ですし醜いです)。
+	<code>FIFO:ADD-TO</code>や<code>FIFO:CLEAR-ALL</code>となってしまうからです(<code>FIFO:FIFO-CLEAR-ALL</code>は冗長ですし醜いです)。
       </p>
       <p>
         <!-- Another good thing about packages is that -->
         <!-- your symbol names won't "collide" with the names of other packages, -->
         <!-- except the ones your packages "uses". -->
-	パッケージのもう一つ良い点は、自分のシンボルが他の"use"していないパッケージと「衝突」しないことです。
+	パッケージのもう一つ良い点は、自分のシンボルは他の"use"していないパッケージと「衝突」しないことです。
         <!-- So you have to stay away from symbols -->
         <!-- that are part of the Lisp implementation (since you always "use" that) -->
         <!-- and that are part of any other packages you "use", -->
         <!-- but otherwise you are free to make up your own names, -->
         <!-- even short ones, and not worry about some else -->
         <!-- having used the same name. -->
-	だから(常に"use"されている)Lisp処理系のシンボルや他の"use"したパッケージのシンボルは使うべきではありませんが、
-	その他は短縮名でも衝突を気にすることなく自由に名付けることができます。
+	ですから(常に"use"することになる)Lisp処理系のシンボルや、他に"use"するパッケージのシンボルは避けなければなりませんが
+	それ以外なら短い名前でも自由に名付けることが出来ますし、他のどこかで同じ名前が使われているかもと心配する必要はありません。
         <!-- You're isolated from each other. -->
 	他とは完全に独立しているのです。
       </p>
       <p>
         <!-- Your package must not shadow (and thus effectively redefine) -->
         <!-- symbols that are part of the Common Lisp language. -->
-	パッケージでCommon Lispの仕様の一部となっているシンボルをシャドウ(そして事実上再定義も)してはいけません。
+	自作パッケージでCommon Lispの仕様の一部であるシンボルをシャドウ(これは事実上再定義です)してはなりません。
         <!-- There are certain exceptions, -->
         <!-- but they should be very well-justified and extremely rare: -->
-	例外もありますが、これらはかなり正当化されているべきで、ほとんど起こらないはずです:
+	以下の様な例外もありますが、それは相当正当化されるべきで滅多に起こらないはずです:
       </p>
       <ul>
         <li>
@@ -2197,31 +2185,31 @@ Takashi Kato
       </p>
       <p>
         <!-- Avoid modifying local variables, try rebinding instead. -->
-        変数は変更(代入)するのではなく、再束縛を試みましょう。
+        変数は変更(代入)するのではなく再束縛を試みましょう。
       </p>
       <p>
         <!-- Avoid creating objects and the SETFing their slots. -->
         <!-- It's better to set the slots during initialization. -->
         オブジェクトを生成してスロットに値をSETFするのではなく、
-        初期化時にスロットに値を設定する方がより好ましいでしょう。
+        初期化時にスロットに値を設定する方が好ましいでしょう。
       </p>
       <p>
         <!-- Make classes as immutable as possible, that is, avoid giving slots -->
         <!-- setter functions if at all possible. -->
-        極力クラスは変更不可なものとして設計しましょう。換言すれば、それが可能な場合には、スロットにはセッター関数を付加しないということです。
+        クラスは極力変更不可なものとして設計しましょう。換言すれば、可能ならスロットにはセッター関数を付加しません。
       </p>
       <p>
         <!-- Using a mostly functional style makes it much easier -->
         <!-- to write concurrent code that is thread-safe. -->
         <!-- It also makes it easier to test the code. -->
-        極力関数的スタイルに則せば、スレッドセーフな並行動作のコードを書くこともより易くなり、コードをテストするのもまたより易しくなります。
+        極力関数的スタイルに則せば、スレッドセーフな並行動作のコードを書くこともより易しくなり、コードをテストするのもまたより易しくなります。
       </p>
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="再帰"><!-- Recursion -->
     <SUMMARY>
       <!-- You should favor iteration over recursion. -->
-      あなたは再帰よりも反復を好むべきです。
+      再帰よりも反復を好むべきです。
     </SUMMARY>
     <BODY>
       <p>
@@ -2230,15 +2218,15 @@ Takashi Kato
         <!-- &#8212; which is known as proper tail calls (PTC), -->
         <!-- tail call elimination (TCE), -->
         <!-- or tail call optimization (TCO). -->
-	Common Lispシステムは、真正な末尾呼び出し(PTC)や末尾呼び出しの削除(TCE)、および末尾呼び出し最適化(TCO)などとして知られる、
+	Common Lispシステムは、真正な末尾呼び出し(PTC)や末尾呼び出しの削除(TCE)、および末尾呼び出し最適化(TCO)として知られる、
 	スタック空間の溢れることがない末尾位置での関数呼び出しの実装が要求されていません。
         <!-- This means that indefinite recursion through tail calls -->
         <!-- may quickly blow out the stack, -->
         <!-- which hampers functional programming. -->
-	これが意味するところは、末尾再帰での無限再帰であったとしてもスタックが即座に溢れてしまうかもしれず、これが関数的なプログラミングの妨げになる、ということです。
+	これが意味するところは、末尾呼び出しの無限再帰であったとしてもスタックが即座に溢れてしまうかもしれず、これが関数的なプログラミングの妨げになる、ということです。
         <!-- Still, most serious implementations (including SBCL and CCL) -->
         <!-- do implement proper tail calls, but with restrictions: -->
-	とはいうものの、制約付きでもっとも実用的な実装(SBCLやCCL)は最適末尾呼び出しを実装しています:
+	とはいうものの、実用的な実装(SBCLやCCL)のほとんどは最適末尾呼び出しを実装していますが、以下の制限もあります:
       </p>
       <ul>
         <li>
@@ -2246,13 +2234,12 @@ Takashi Kato
           <!-- must favor <code>SPEED</code> enough and -->
           <!-- not favor <code>DEBUG</code> too much, -->
           <!-- for some compiler-dependent meanings of "enough" and "too much". -->
-	  <code>(DECLARE (OPTIMIZE ...))</code>設定は、
-	  いくつかのコンパイラにおける「十分」と「過度」の意味のために、
-	  <code>SPEED</code>を十分に優先して、必要以上に<code>DEBUG</code>を優先しないように
-	  しなければなりません
+	  <code>(DECLARE (OPTIMIZE ...))</code>設定には、
+          十分な<code>SPEED</code>を選ばなければなりませんし、過度な<code>DEBUG</code>は避けなければなりません。
+	  「十分」と「過度」の意味はコンパイラー依存です。
           <!-- (For instance, in SBCL, you should avoid <code>(SPEED 0)</code> -->
           <!-- and <code>(DEBUG 3)</code> to achieve proper tail calls.) -->
-	  （例えばSBCLにおいて、あなたは末尾呼び出しの優先を結果として得るためには、
+	  （例えばSBCLで最適末尾呼び出しを実現するには、
 	  <code>(SPEED 0)</code>と<code>(DEBUG 3)</code>を回避すべきです）。
         </li>
         <li>
@@ -2261,7 +2248,7 @@ Takashi Kato
           <!-- such dynamic bindings, called parameters in Scheme parlance). -->
 	  関数呼び出しを包むような動的な束縛は避けるべきです。(訳注: 再帰的な関数呼び出しに伴ない、動的束縛が入れ子になると動的束縛も関数呼び出しとは別にスタックを消費するため、これが原因でスタックが溢れる)
           <!-- 動的束縛が再帰呼び出しで入れ子になり、結果としてスタックを溢れさせるのを避けるという意味だと思われますが原文が曖昧で良く分かりません -g000001 -->
-	  （いくつかのSchemeコンパイラはこのような、Schemeの用法でパラメタと呼ばれる動的束縛を適切に修正することができますが）
+	  （Schemeコンパイラには、Scheme用語でパラメタと呼ばれるこのような動的束縛を適切に扱えるものがあります）
         </li>
       </ul>
       <p>
@@ -2269,19 +2256,19 @@ Takashi Kato
         <!-- and to avoid stack overflow when debugging, -->
         <!-- you should prefer iteration or the built in mapping functions -->
         <!-- to relying on proper tail calls. -->
-	すべてのコンパイラと最適化設定、そしてデバッグ時のスタックオーバフローを回避するために、
-	組み込みの末尾再帰の最適化に依存するよりも、繰り返し構文、もしくはマッピング関数の利用をあなたは優先すべきです。
+	全てのコンパイラと最適化設定に対する互換性向上と、デバッグ時のスタックオーバフロー回避のため、
+	末尾再帰の最適化に頼るより、繰り返しや組み込みのマッピング関数を優先すべきです。
       </p>
       <p>
         <!-- If you do rely on proper tail calls, -->
         <!-- you must prominently document the fact, -->
         <!-- and take appropriate measures to ensure an appropriate compiler is used -->
         <!-- with appropriate optimization settings. -->
-	もしあなたが最適末尾呼び出しに依存することをするのなら、
-	あなたは、その動作の実際について明確に文書化し、適切な最適化設定と共に適切なコンパイラを使用することを保証するために
+	もし最適末尾呼び出しに頼ろうというなら、
+	その事を目立つように文書化し、適切なコンパイラが適切な最適化設定で使われることを保証する
 	適切な措置を講じなければなりません。
         <!-- For fully portable code, you may have to use trampolines instead. -->
-	完全な移植性をもつコード(訳注: 挙動がコンパイラのセッティングに依らないコード)のためには、あなたは代わりにトランポリンを使わなければならないかもしれません。
+	完全な移植性のあるコード(訳注: 挙動がコンパイラのセッティングに依らないコード)では、代わりにトランポリンを使わなければならないかもしれません。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -2296,27 +2283,26 @@ Takashi Kato
         <!-- as implicit arguments to functions should be used sparingly, -->
         <!-- and only in cases where it won't surprise the person reading the code, -->
         <!-- and where it offers significant benefits. -->
-	Lispの「スペシャル」(動的束縛)変数を関数の暗黙の引数として使うことはできるだけ避け、コードを読む人が驚かず、明確な利点がある場合に留めるべきです。
+	Lispの「スペシャル」(動的束縛)変数を関数の暗黙の引数として使うことは控えめにし、コードを読む人が驚かず、明確な利点がある場合のみに留めるべきです。
       </p>
       <p>
         <!-- Indeed, each special variable constitutes state. -->
-	実際、それぞれのスペシャル変数は状態を持ちます。
+	実のところ、スペシャル変数というものは状態の構成要素です。
         <!-- Developers have to mentally track the state of all relevant variables -->
         <!-- when trying to understand what the code does and how it does it; -->
         <!-- tests have to be written and run with all relevant combinations; -->
         <!-- to isolate some activity, care has to be taken to locally bind -->
         <!-- all relevant variables, including those of indirectly used modules. -->
-	開発者はコードの振舞いを理解しようとするとき全ての関係する変数の状態を脳内で追う必要がありますし、テストも関連する[変数の]全ての組み合わせを書いて実行する必要がありますし、ある挙動を分離させようとするときもローカル束縛を作るにあたって間接的に使われているモジュールのものも含む全ての関連する[変数を]頭に入れる必要があります。
-	<!-- to isolate some activityがコードの振舞なのかコードに対する開発者の振舞なのか判断つきませんでした。上の訳は前者としてます。(κeen) -->
+        開発者はコードの振舞いを理解しようとするとき関係する全ての変数の状態を脳内で追う必要がありますし、テストも関係する[変数の]全ての組み合わせを書いて実行する必要がありますし、ある挙動を取り出すときは、間接的に使われているモジュールのものも含め関係する全ての変数を注意深く局所的に束縛する必要があります。
         <!-- They can hide precious information from being printed in a backtrace. -->
 	重要な情報がバックトレースで印字されなくなり得ます。
         <!-- Not only is there overhead associated to each new variable, -->
         <!-- but interactions between variables -->
         <!-- can make the code exponentially more complex -->
         <!-- as the number of such variables increases. -->
-	そのような変数が増えるにつれ、新たな変数に関連するオーバーヘッドがあるだけでなく、変数同士の相互作用により指数関数的にコードの複雑さが増していきます。
+	そのような変数が増えるにつれ、新たな変数に関連する費用がかかるだけでなく、変数同士の相互作用によりコードが指数関数的に複雑になっていきます。
         <!-- The benefits have to match the costs. -->
-	利点がコストに見合うようにしなければいけません。
+	利点がコストに見合うようにしなければなりません。
       </p>
       <p>
         <!-- Note though that a Lisp special variable is not a global variable -->
@@ -2325,23 +2311,23 @@ Takashi Kato
         <!-- As special variables can be dynamically bound to a local value, -->
         <!-- they are much more powerful than -->
         <!-- global value cells where all users necessarily interfere with each other. -->
-	スペシャル変数は動的にローカル束縛できるので全てのユーザー同士の干渉のあるグローバル変数より強力です。
+	スペシャル変数は動的にローカル束縛できるので必然的に全ての利用者同士で干渉してしまうグローバルな値セルより強力です。
       </p>
       <p>
         <!-- Good candidates for such special variables -->
         <!-- are items for which "the current" can be naturally used as prefix, -->
         <!-- such as "the current database connection" or -->
         <!-- "the current business data source". -->
-	このようなスペシャル変数の候補として、「現在のデーターベースコネクション」や「現在の業務データソース」のように自然に「現在の」(current)という接尾辞をつけられるものがあります。。
+	このようなスペシャル変数の候補として、「現在のデーターベースコネクション」や「現在の業務データソース」のように自然に「現在の」(current)という接尾辞をつけられるものがあります。
         <!-- They are singletons as far as the rest of the code is concerned, -->
         <!-- and often passing them as an explicit argument -->
         <!-- does not add anything to the readability or maintainability -->
         <!-- of the source code in question. -->
-	それ以降のコードに限れば、それらはシングルトンですし、たいていの場合明示的に引数として渡しても問題のコードの可読性やメンテナンス性は向上しません。
+	それ以降のコードから見ればそれらはシングルトンですし、大抵の場合明示的に引数として渡しても問題のコードの可読性やメンテナンス性は向上しません。
       </p>
       <p>
         <!-- They can make it easier to write code that can be refactored. -->
-	そのようなスペシャル変数によってコードは書きやすくなりますし、リファクタリングも可能になります。
+	そのようなスペシャル変数によってリファクタリングしやすいコードが書きやすくなります。
 	<!-- If you have a request processing chain, -->
         <!-- with a number of layers that all operate upon a "current" request, -->
         <!-- passing the request object explicitly to every function -->
@@ -2350,7 +2336,7 @@ Takashi Kato
         <!-- Factoring out code into new functions often requires -->
         <!-- that these functions also have this argument, -->
         <!-- which clutters the code with boilerplate. -->
-	コードを書き換えて新しく関数を定義するときもこの引数が必要になり、ボイラープレートで散らかることになります。
+	コードをリファクタリングして新しい関数群を作ったときも、しばしばこの種の引数が必要となり、その結果コードがボイラープレートで散らかることになります。
       </p>
       <p>
         <!-- You should treat special variables -->
@@ -2360,17 +2346,17 @@ Takashi Kato
         <!-- with no top-level binding at all, -->
         <!-- and each thread of control -->
         <!-- that needs the variable should bind it explicitly. -->
-	デフォルトでは、スペシャル変数はトップレベルでは束縛せず、必要とするスレッドで明示的に束縛すべきです。
+	とりあえずスペシャル変数はトップレベルでは束縛せず、必要とするスレッドで明示的に束縛すべきです。
         <!-- This will mean that any incorrect use of the variable -->
         <!-- will result in an "unbound variable" error, and -->
         <!-- each thread will see its own value for the variable. -->
-	これによって不適切な変数の使用に対して"unbound variable"エラーが出ますし、各スレッドは各々の値を参照できます。
+	これによって変数の不適切な使用は"unbound variable"エラーになり、一方で各スレッドは各々の値を参照できます。
         <!-- Variables with a default global value should usually be -->
         <!-- locally bound at thread creation time. -->
-	グローバルな値を持つ変数は通常、スレッドを作るときにローカル束縛されます。
+	デフォルト値を持つグローバル変数は通常、スレッドを作るときにローカル束縛するべきです。
         <!-- You should use suitable infrastructure         -->
         <!-- to automate the appropriate declaration of such variables. -->
-	そのような変数を自動的に適切に宣言してくれる適切な基盤を利用すべきです。
+	そのような変数を自動的に適切に宣言してくれる相応しい基盤を利用すべきです。
       </p>
       
     </BODY>
@@ -2387,8 +2373,8 @@ Takashi Kato
         <!-- whichever a given package is using, -->
         <!-- keep using the same consistently when hacking said package. -->
         <!-- Pick a style that makes sense when starting a new package. -->
-        代入と副作用の処方については、(既存のパッケージが採用しているルールを含めて)いくつかのスタイルがありますが、
-        何れにせよ既存のパッケージをハックする場合にはパッケージのスタイルとの一貫性を維持しましょう。
+        代入と副作用の書法にはいくつかスタイルがあります。
+        あるパッケージがどのスタイルを使っていようと、そのパッケージをハックするときは一貫性を維持しましょう。
         新しくパッケージを作成する場合に道理にかなったスタイルを採択しましょう。
       </p>
       <p>
@@ -2396,7 +2382,7 @@ Takashi Kato
         <!-- the first style groups as many assignments as possible into a single -->
         <!-- <code>SETF</code> or <code>PSETF</code> form -->
         <!-- thus minimizing the number of forms with side-effects; -->
-        一つのフォームで、複数の代入を行なうことについては、二つの流儀があります:
+        同じフォームで、複数の代入を行うことについては、二つの流儀があります:
         第一の流儀は、複数の代入を可能な限り一つの<code>SETF</code>または、<code>PSETF</code>のフォーム内で行うこととするというものであり、
         従って、副作用を持つフォームの数を最小化するというものです。
         <!-- the second style splits assignments into as many individual -->
@@ -2404,16 +2390,16 @@ Takashi Kato
         <!-- to maximize the chances of locating forms that modify a kind of place -->
         <!-- by grepping for <code>(setf (foo ...</code>. -->
         第二の流儀は、代入を可能な限り個別の<code>SETF</code> (もしくは、<code>SETQ</code>、下記参照)フォームに分割し、
-        grepした時に、<code>(setf (foo ...</code>のような結果となることで、
-        代入が行なわれているようなフォームの箇所を特定する機会を最大化するものです。
+        <code>(setf (foo ...</code>をgrepすることで
+        プレイスの変更が行われているフォームを見つける可能性を最大化するものです。
         <!-- A grep pattern must actually contain as many place-modifying forms -->
         <!-- as you may use in your programs, which may make this rationale either -->
         <!-- convincing or moot depending on the rest of the style of your code. -->
-        [このスタイルが]納得できるものか、議論の余地があるものかは、プログラムの残りの箇所がどのようなスタイルかに依るでしょうが、grepの検索結果のパターンは、プログラムで代入が行われている場所の数と実質同じにならなくてはなりません。
+        grepの検索パターンは実際には自分のプログラム中で使う全種類のプレイス変更フォームを含まなくてはならないため、これが納得できるものか議論の余地があるものかは、あなたのコードスタイルに依存します。
         <!-- You should follow the convention used in the package you are hacking.  -->
         <!-- We recommend the first convention for new packages.  -->
-        ハックしているパッケージが採用している慣習に従うべきです。
-        新規のパッケージの場合は、我々は、最初の慣習をお勧めします。
+        ハックしているパッケージが採用している慣例に従うべきです。
+        新規パッケージの場合、我々は最初の慣例を推奨します。
       </p>
       <p>
         <!-- Regarding <code>SETF</code> and <code>SETQ</code>, -->
@@ -2429,93 +2415,91 @@ Takashi Kato
         <!-- We recommend the first convention for new packages. -->
         
         <code>SETF</code> と <code>SETQ</code> の使い分けに関しては、二つの流儀があります:
-        第一の流儀は、<code>SETF</code>の利用を支持し、<code>SETQ</code>は、古式ゆかしいLISPのあれこれと捉え、これを一切排除します。
-        第二の流儀は、<code>SETF</code>を、<code>SETQ</code>に複雑さを付け加えたものであると解釈し、<code>SETQ</code>が使えるところには<code>SETF</code>は使わないことを支持します。
-        (つまり、書式上、変数として代入可能な場合には、変数とシンボルマクロを問わずに)。
-        既存のパッケージをハックしている場合には、その流儀に沿うべきです。
-        我々としては、新たなパッケージには、第一の流儀を推奨します。
+        第一の流儀は、<code>SETQ</code>を古めかしいLISPの実装詳細と捉え、これを一切避け、<code>SETF</code>を利用するもの。
+        第二の流儀は、<code>SETF</code>を<code>SETQ</code>に複雑さを付け加えたものであると捉え、これを避け、可能な限り<code>SETQ</code>を利用するもの
+        (つまり、代入する場所が変数やシンボルマクロのとき)。
+        既存のパッケージをハックしている場合には、その慣例に従うべきです。
+        新規パッケージの場合、我々は最初の慣例を推奨します。
       </p>
       <p>
         <!-- In the spirit of a mostly pure functional style, -->
         <!-- which makes testing and maintenance easier, -->
         <!-- we invite you to consider how to do things with the fewest assignments required. -->
-        テストと保守が容易になるという、極力純粋関数型スタイルの精神に則り、どうすれば代入の必要性が最小限になるかを考慮することをお勧めします。
+        テストと保守が容易になるという極力純粋関数型スタイルの精神に則り、どうすれば代入の必要が最小限になるかを考慮することをお勧めします。
       </p>
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="アサーションとコンディション"><!-- Assertions and Conditions -->
     <SUMMARY>
       <!-- You must make proper usage of assertions and conditions. -->
-      あなたはアサーションとコンディションを適切に使わなければなりません。
+      アサーションとコンディションを適切に使わなければなりません。
     </SUMMARY>
     <BODY>
       <ul>
         <li>
           <!-- <code>ASSERT</code> should be used ONLY to detect internal bugs. -->
-	  <code>ASSERT</code>は内部的のバグの検出のため「だけ」に使われなければなりません。
+	  <code>ASSERT</code>は内部的のバグの検出のため「だけ」に使うべきです。
           <!-- Code should <code>ASSERT</code> invariants whose failure indicates -->
           <!-- that the software is itself broken. -->
-	  コードはソフトウェア自身が破壊される可能性のある、不変性の破壊を指摘するために、
-	  <code>ASSERT</code>を使うべきです。<!-- こんなに意訳しちゃっていいのかな：とよずみ -->
+	  コードではソフトウェア自体が壊れていることを示唆する不変条件の失敗を<code>ASSERT</code>すべきです。
           <!-- Incorrect input should be handled properly at runtime, -->
           <!-- and must not cause an assertion violation. -->
-	  実行時のまちがった入力は適切に始末されるべきであり，
+	  不正な入力は実行時に適切に処理されるべきで、
 	  アサーション違反を発生させてはなりません。
           <!-- The audience for an <code>ASSERT</code> failure is a developer. -->
 	  <code>ASSERT</code>の失敗は開発者に向けられるものです。
           <!-- Do not use the data-form and argument-form in <code>ASSERT</code> -->
           <!-- to specify a condition to signal. -->
-	  <code>ASSERT</code>のなかで状態を知らせるためにデータ形式や引数の形式を
-	  使ってはなりません。
+	  <code>ASSERT</code>のdata-formとargument-formを使って通知するシグナルを特定しないでください。
           <!-- It's fine to use them to print out a message for debugging purposes -->
           <!-- (and since it's only for debugging, there's no issue of -->
           <!-- internationalization). -->
-	  これはデバッグの目的のために、メッセージを出力するために使います
-	  （またこれはデバッグの用途に供する場合のみのためのものであり、
-	  国際化に対応していません）。
+	  その2つのフォームを使ってデバッグメッセージを出力するのは構いません
+	  （そしてこれはデバッグのためだけに使われるものなので、
+	  国際化の問題はありません。）
         </li>
         <li>
           <!-- <code>CHECK-TYPE</code>, -->
           <!-- <code>ETYPECASE</code> are also forms of assertion. -->
           <code>CHECK-TYPE</code>と
-          <code>ETYPECASE</code>はアサーションと同様のフォームです。
+          <code>ETYPECASE</code>もアサーションです。
           <!-- When one of these fails, that's a detected bug. -->
-	  これらのうちどちらかが失敗する場合は、パグが検出されたということです。
+	  これらが失敗する場合は、バグが検出されたということです。
           <!-- You should prefer to use <code>CHECK-TYPE</code> -->
           <!-- over (DECLARE (TYPE ...)) -->
           <!-- for the inputs of functions. -->
-	  あなたは、関数の入力に対しては<code>(DECLARE (TYPE ...))</code>より
+	  関数の入力には<code>(DECLARE (TYPE ...))</code>より
 	  <code>CHECK-TYPE</code>を使うようにするべきです。
         </li>
         <li>
           <!-- Your code should use assertions and type checks liberally. -->
-	  あなたのコードはアサーションと型チェックを十分に使用するべきです。
+	  あなたのコードではアサーションと型チェックを大量に使用するべきです。
           <!-- The sooner a bug is discovered, the better! -->
-	  早期のバグ発見は良いことです!
+	  バグ発見は早ければ早いほど良いことです!
           <!-- Only code in the critical path for performance -->
           <!-- and internal helpers should eschew -->
           <!-- explicit assertions and type checks. -->
 	  明示的なアサーションや型チェックを省くのは、
-	  パフォーマンスのクリティカル・パス上にあるコード、もしくは内部のヘルパにおいてのみであるべきです。
+	  パフォーマンスのクリティカル・パス上にあるコードと内部のヘルパでのみであるべきです。
         </li>
         <li>
           <!-- Invalid input, such as files that are read -->
           <!-- but do not conform to the expected format, -->
           <!-- should not be treated as assertion violations. -->
-	  ファイルのようなものの入力で、読むことはできるが、予想している形式にそぐわぬ妥当でない入力を、アサーション違反で取り扱うべきではありません。
+	  無効な入力、例えば読むことは出来ても期待したフォーマットに合わないファイルなどは、アサーション違反で取り扱うべきではありません。
           <!-- Always check to make sure that input is valid, -->
           <!-- and take appropriate action if it is not, -->
           <!-- such as signalling a real error. -->
 	  常に入力が妥当であるかを確認し、
-	  そうでない場合は、真のエラーを通知するといった適切な対応をとってください。
+	  そうでない場合は真のエラーを通知するといった適切な対応をとってください。
         </li>
         <li>
           <!-- <code>ERROR</code> should be used -->
           <!-- to detect problems with user data, requests, permissions, etc., -->
           <!-- or to report "unusual outcomes" to the caller. -->
 	  <code>ERROR</code>は
-	  ユーザデータ、要求、権限等についての問題検出等々や、
-	  呼び出し元へと異常な結果が出たことを知らせるために使うべきです。
+	  ユーザデータ、要求、権限等についての問題を検出するためや、
+	  呼び出し元へ異常な結果が出たことを知らせるために使うべきです。
         </li>
         <li>
           <!-- <code>ERROR</code> should always be called -->
@@ -2523,31 +2507,28 @@ Takashi Kato
 	  <code>ERROR</code>は常に明示的なコンディションタイプの指定と共に
 	  呼ばれるべきです。
           <!-- it should never simply be called with a string. -->
-	  これを文字列(訳注: エラーメッセージ)のみの簡単な形式で呼び出すべきではありません。
+	  決して単に文字列[訳注: エラーメッセージ]で呼び出すべきではありません。
           <!-- This enables internationalization. -->
-	  この明示的なコンディションの指定は国際化を可能にします。(訳注: 具体的にはどう実現するのだろう。コンディションと言語をmixinしたりするのだろうか -g000001)
+	  そうすることで国際化が可能になります。(訳注: 具体的にはどう実現するのだろう。コンディションと言語をmixinしたりするのだろうか -g000001)
         </li>
         <li>
           <!-- Functions that report unusual outcomes -->
           <!-- by signaling a condition should say so explicitly in their contracts -->
           <!-- (their textual descriptions, in documentation and docstrings etc.). -->
-	  関数がコンディションの通知によって異常な結果を知らせることについて、
-	  （テキスト形式の説明、マニュアルあるいは文書化用文字列を用いて）
-	  そのコンディションの後始末を請け負う者<!-- contractsってこういう意味ですよね？：とよずみ -->
-	  に明確に知らせるべきです。
+	  関数がコンディションの通知で異常な結果を知らせるなら、
+          明確にそのように契約に書くべきです
+	  （マニュアルや文書化用文字列を用いてテキスト形式で）。
           <!-- When a function signals a condition -->
           <!-- that is not specified by its contract, that's a bug. -->
-	  関数がコンディションを通知したとき、そのコンディションの後始末について規約として
-	  規定されていないのなら、それはバグです。
+	  関数が契約で規定していないコンディションを通知するなら、それはバグです。
           <!-- The contract should specify the condition class(es) clearly. -->
-	  コンディションの規約はコンディションクラスについて明確に規定すべきです。<!-- コンディションの規約ってなんだよというところですが、規約と書いても分からないので… -g000001) -->
+	  契約はコンディションのクラスについて明確に規定すべきです。
           <!-- The function may then signal any condition -->
           <!-- that is a type-of any of those conditions. -->
-	  関数は、それらコンディションのうちのいずれかの型の、
-	  何らかのコンディションを通知してかまいません。
+	  関数はそのコンディションのtype-of関係にあるコンディションであれば、どんなものでも通知していいです。
           <!-- That is, signaling instances of subclasses -->
-          <!-- of the documented condition classes is fine. --> <!-- 原文の意味が良く分からないです… -g000001 -->
-	  つまり、明快に文書化されたコンディションクラスのサブクラスのインスタンスからの通知は好ましいということです。
+          <!-- of the documented condition classes is fine. -->
+	  つまり、契約に書かれているコンディションクラスのサブクラスのインスタンスを通知しても構いません。
         </li>
         <li>
           <!-- Complex bug-checks may need to use <code>ERROR</code> -->
@@ -2557,61 +2538,58 @@ Takashi Kato
         </li>
         <li>
           <!-- When writing a server, you must not call <code>WARN</code>. -->
-          サーバを書いているときに、あなたは<code>WARN</code>を呼んではなりません。
+          サーバを書いているときに<code>WARN</code>を呼んではなりません。
           <!-- Instead, you should use the appropriate logging framework. -->
-	  そうではなく、あなたは、適切なロギングフレームワークを使うべきです。
+	  そうではなく適切なロギングフレームワークを使うべきです。
         </li>
         <li>
           <!-- Code must not call <code>SIGNAL</code>. -->
-	  コードは、<code>SIGNAL</code>を呼んではなりません。
+	  <code>SIGNAL</code>を呼んではなりません。
           <!-- Instead, use <code>ERROR</code> or <code>ASSERT</code>. -->
-	  そうではなく、<code>ERROR</code>あるいは<code>ASSERT</code>を使うべきです。
+	  そうではなく<code>ERROR</code>か<code>ASSERT</code>を使ってください。
         </li>
         <li>
           <!-- Code should not use <code>THROW</code> and <code>CATCH</code>; -->
-	  コードは、<code>THROW</code>と<code>CATCH</code>を使ってはなりません。
+	  <code>THROW</code>と<code>CATCH</code>を使うべきではありません。
           <!-- instead use the <code>restart</code> facility. -->
-	  そうではなく、<code>restart</code>(訳注:再起動)機能を使うべきです。
+	  そうではなく<code>restart</code>(訳注:再起動)機能を使ってください。
         </li>
         <li>
           <!-- Code should not generically handle all conditions, -->
           <!-- e.g. type <code>T</code>, or use <code>IGNORE-ERRORS</code>. -->
-	  コードは、すべてのコンディションをまとめて始末すべきではありません。
-	  例: (訳注: コンディションタイプとして)<code>T</code>クラスの指定や、<code>IGNORE-ERRORS</code>の使用
+	  全てのコンディションを、例えば<code>T</code>クラスの指定で、まとめて始末すべきではありませんし、<code>IGNORE-ERRORS</code>を使うべきでもありません。
           <!-- Instead, let unknown conditions propagate to -->
           <!-- the standard ultimate handler for processing. -->
-	  そうではなく、未知のコンディションについては、
-	  標準で定めた最上位のハンドラに処理させるために伝搬させます。<!-- the standard が何を指してるのか分からないですね。ANSI標準なのか社内の規約なのか -g000001 -->
+	  そうではなく、未知のコンディションは
+	  標準の最上位のハンドラに伝搬させて処理します。<!-- the standard が何を指してるのか分からないですね。ANSI標準なのか社内の規約なのか -g000001 -->
         </li>
         <li>
           <!-- There are a few places where handling all conditions is appropriate, -->
           <!-- but they are rare. -->
-	  数少ない箇所においては、すべてのコンディションをまとめて(訳注:捕捉して)<!-- って書かないと意味が
-	  通らないだろうという判断で、以後全部書いています。：とよずみ -->始末することが、
-	  適していることがありますが、こういった場合は稀です。
+	  全てのコンディションをまとめて処理するのが適している場所も少数ありますが、それは稀です。
           <!-- The problem is that handling all conditions can mask program bugs. -->
-	  問題は、すべてのコンディションをまとめて始末することが、プログラムのバグの隠蔽を可能にすることです。
+	  問題は、全てのコンディションをまとめて処理すると、プログラムのバグの隠蔽してしまうことがあることです。
           <!-- If you <em>do</em> need to handle "all conditions", -->
           <!-- you MUST handle only <code>ERROR</code>, <em>not</em> <code>T</code> -->
           <!-- and not <code>SERIOUS-CONDITION</code>. -->
-	  もしあなたがすべてのコンディションをまとめて始末するの<em>のなら</em>
-	  あなたは、<code>ERROR</code>のみをその対象にしなければならず、<code>T</code>
+          もし<em>本当に</em>「全てのコンディション」をまとめて処理する必要があるなら
+	  <code>ERROR</code>のみを対象にし、<code>T</code>
           や<code>SERIOUS-CONDITION</code>を<em>その対象に含めてはなりません</em>。
           <!-- (This is notably because CCL's process shutdown -->
           <!-- depends on being able to signal <code>process-reset</code> -->
           <!-- and have it handled by CCL's handler, -->
           <!-- so we must not interpose our own handler.) -->
-	  （CCLではブロセスの終了を、<code>process-reset</code>の
-	  通知とそれをCCLのハンドラで始末することに依存しているため、
-	  とりわけ問題となります。）
+	  （この理由は特に、CCLではプロセスの終了を、<code>process-reset</code>を
+	  通知しそれをCCLのハンドラで始末することに依存しているためです。
+	  ですからそれに干渉してはなりません。）
         </li>
         <li>
           <!-- <code>(error (make-condition 'foo-error ...))</code> -->
           <!-- is equivalent to <code>(error 'foo-error ...)</code> — -->
           <!-- code must use the shorter form. -->
           <code>(error (make-condition 'foo-error ...))</code>
-          は、<code>(error 'foo-error ...)</code> &#8212;
-	  と同等ですが、コードはより短い形式を使わなければなりません。
+          は、<code>(error 'foo-error ...)</code>
+	  と等価です。短い方の形式を使わなければなりません。
         </li>
         <li>
           <!-- Code should not signal conditions from inside the cleanup form of -->
@@ -2619,22 +2597,22 @@ Takashi Kato
           <!-- (unless they are always handled inside the cleanup form), -->
           <!-- or otherwise do non-local exits from cleanup handers -->
           <!-- outside of the handler e.g. <code>INVOKE-RESTART</code>. -->
-          コードは、<code>UNWIND-PROTECT</code>のクリーンアップ節内でコンディションを通知するべきではありません。
-          （常にクリーンアップ節内でコンディションを扱っているのでもない限り）
-          あるいはまた別に、クリーンアップの処理部からその外に向けての非局所脱出もすべきでありません。例:<code>INVOKE-RESTART</code>.
+          <code>UNWIND-PROTECT</code>のクリーンアップフォームからコンディションを通知するべきではありません
+          （常にクリーンアップフォーム内でコンディションを扱っているのでもない限り）。
+          また、コンディションの捕捉部の外にあるクリーンアップの処理部からの非局所脱出をすべきでもありません。例:<code>INVOKE-RESTART</code>.
         </li>
         <li>
           <!-- Do not clean up by resignaling. -->
-	  再通知によって処理の後始末をしてはなりません。
+	  再通知によって処理の後始末をしないでください。
           <!-- If you do that, and the condition is not handled, -->
           <!-- the stack trace will halt at the point of the resignal, -->
           <!-- hiding the rest. -->
-	  もしそうした場合、コンディションが始末されないと、
-	  スタックトレースは、再通知された地点で停止し、
-	  残りを隠してしまいます。
+	  その場合コンディションがどこかで捕捉されないと、
+	  スタックトレースは再通知された地点で停止し残りを隠してしまいます。
           <!--
           And the rest is the part we really care about!
           -->
+          残りが本当に気になるところなのに！
           <BAD_CODE_SNIPPET>
             ;; 悪い例
             (handler-case
@@ -2655,12 +2633,12 @@ Takashi Kato
       </ul>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="型の判定"><!-- Type Checking -->
+  <STYLEPOINT title="型チェック"><!-- Type Checking -->
     <SUMMARY>
       <!-- If you know the type of something, you should make it explicit -->
       <!-- in order to enable compile-time and run-time sanity-checking. -->
-      もし、なんらかの要素について、その型が何であるかあなたが知っているのなら、
-      コンパイル時そして実行時の正常性を確かめるために、あなたはそれを明示すべきです。
+      もし何らかの要素の型を知っているのなら、
+      コンパイル時と実行時の正常性チェックを有効化するためにそれを明示すべきです。
     </SUMMARY>
     <BODY>
       
@@ -2671,64 +2649,59 @@ Takashi Kato
         <!-- to clue in the person reading the code -->
         <!-- that this variable is being used implicitly as an argument, -->
         <!-- and also to help detect bugs. -->
-	もしあなたの関数がスペシャル変数を暗黙の引数として使うときは、 
-	他人がコードを読むときに、その変数が暗黙の引数として扱われていること理解し、バグを検出するための手がかりとなるよう、
-	そのスペシャル変数を<code>CHECK-TYPE</code>の中におきます。
+	もしあなたの関数がスペシャル変数を暗黙の引数として使っているなら、 
+	そのスペシャル変数用の<code>CHECK-TYPE</code>を入れるのが良い理由が2つあります：
+        コードを読んでいる人にこの変数が暗黙の引数として使われているという情報を与えられること、そしてバグを検出の役に立つことです。
       </p>
       
       <p>
         <!-- Using <code>(declare (type ...))</code> -->
         <!-- is the least-desirable mechanism to use -->
         <!-- because, as Scott McKay puts it: -->
-	<code>(declare (type ...))</code>の使用は、
-	最低限にすることが望ましいです。その理由については、
-	Scott McKayによって説明されています。
+	<code>(declare (type ...))</code>が
+	他に手がない時の最終手段である理由については、
+	Scott McKayが説明しています。
       </p>
       <blockquote>
         <p>
           <!-- The fact is, <code>(declare (type ...))</code> does different things -->
           <!-- depending on the compiler settings of speed, safety, etc. -->
-	  実際のところ、<code>(declare (type ...))</code>は
-	  コンパイラ設定のspeedや、safetyの設定に依存している。
-
+	  実は、<code>(declare (type ...))</code>の挙動は
+	  speedや、safetyなどのコンパイラ設定に依存しています。
           <!-- In some compilers, when speed is greater than safety, -->
           <!-- <code>(declare (type ...))</code> will tell the compiler -->
           <!-- "please assume that these variables have these types" -->
           <!-- <em>without</em> generating any type-checks. -->
-	  いくつかのコンパイラはsafetyよりspeedを優先した場合、
-	  <code>(declare (type ...))</code>
-	  を、コンパイラに対する
+	  コンパイラの中には、speedの値をsafetyより大きくした場合、
+          <code>(declare (type ...))</code>は型チェック<em>せずに</em>
 	  「これらの変数はこれらの型だと信用してください」
-	  というメッセージとし、いくつかの型判定を<em>しない</em>ために使います。
+	  と処理系に伝えるものがあります。
 
           <!-- That is, if some variable has the value <code>1432</code> in it, -->
           <!-- and you declare it to be of type <code>string</code>, -->
           <!-- the compiler might just go ahead and use it as though it's a string. -->
-	  例えば、ある変数が値<code>1432</code>を持ち、
-	  あなたがその型を<code>string</code>として宣言すると、
-	  コンパイラはそれを文字列と見做して使用します。
+	  つまり、ある変数の値が<code>1432</code>で
+	  その型を<code>string</code>と宣言しても
+	  コンパイラは気にもせず、それを文字列と見做して使用するかもしれません。
         </p>
         <p>
           <!-- Moral: don't use <code>(declare (type ...))</code> -->
           <!-- to declare the contract of any API functions, -->
           <!-- it's not the right thing. -->
-	  良識：<code>(declare (type ...))</code>を、
-	  なんらかのAPI関数の契約として使ってはいけません。
+	  教訓：<code>(declare (type ...))</code>を使ってAPI関数の契約を宣言しない。
 	  それはうまいやり方ではありません。
           <!-- Sure, use it for "helper" functions, but not API functions. -->
-	  もちろん、ヘルパー関数のためには使えますが、API関数のために使ってはいけません。
+	  もちろん、ヘルパー関数のためには使えますが、API関数にはダメです。
         </p>
       </blockquote>
       <p>
         <!-- You should, of course, use appropriate declarations -->
         <!-- in internal low-level functions -->
         <!-- where these declarations are used for optimization. -->
-	もちろん、これらの宣言は、内部の低レベル関数の中で最適化のために使用すべきです。
+	これらの宣言は内部の低レベル関数の中で最適化のためなら当然使用すべきです。
         <!-- When you do, however, see our recommendations for -->
         <!-- <a href="#Unsafe_Operations">Unsafe Operations</a>. -->
-	そのようにするときは、我々の
-	<a href="#Unsafe_Operations">安全でない操作</a>
-	の節も読んでください。
+	そのようにするときは我々の<a href="#Unsafe_Operations">安全でない操作</a>の節も読んでください。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -2747,9 +2720,9 @@ Takashi Kato
         <!-- (as opposed to its behavior for some specific class). -->
         <!-- It's generally good to do explicit <code>DEFGENERIC</code> forms, -->
         <!-- but for module entry points it is mandatory. -->
-        総称関数が、他のモジュール(コードの他の部分)から呼び出されることになっている場合、
-        その関数の(ある特定のクラスの振る舞いに対するという意味で)包括的な規約を説明するドキュメンテーションストリングの付けられた<code>DEFGENERIC</code>フォームを明示的に書くべきです。
-        一般に、<code>DEFGENERIC</code>フォームを明示的に書くのは良いことですが、 モジュールのエントリポイントに対しては必須です。
+        総称関数が他のモジュール(コードの他の部分)から呼ばれることになっている場合、
+        その関数の(特殊化クラスの振る舞いではなく)包括的な契約を説明する<code>:DOCUMENTATION</code>文字列付きの<code>DEFGENERIC</code>フォームを明示的に書くべきです。
+        明示的な<code>DEFGENERIC</code>フォームを書くのは一般的に良いことですが、モジュールのエントリポイントに対しては義務です。
       </p>
       <p>
         <!-- When the argument list of a generic function includes -->
@@ -2759,9 +2732,9 @@ Takashi Kato
         <!-- and explain what they mean. -->
         <!-- (Common Lisp does not require this, but it is good form, -->
         <!-- and it may avoid spurious warnings on SBCL.) -->
-        総称関数の引数リストが<code>&amp;KEY</code>を含む場合、その<code>DEFGENERIC</code>には、受付可能な全てのキーワード引数を常に明示的に記載すべきです。
+        総称関数の引数リストが<code>&amp;KEY</code>を含む場合、<code>DEFGENERIC</code>には、受付可能な全てのキーワード引数を常に明示的に記載すべきです。
         また、それぞれについて[docstringで]説明があるべきです。
-        (Common Lispは、このことを要求していませんが、これは理に叶ったことですし、SBCLでは不要な警告を避けることができます。)
+        (Common Lispはこのことを要求していませんが、これは理に叶ったことですし、SBCLでは不要な警告を避けることができます。)
       </p>
       <p>
         <!-- You should avoid <code>SLOT-VALUE</code> and <code>WITH-SLOTS</code>, -->
@@ -2773,18 +2746,19 @@ Takashi Kato
         <!-- methods that provide user-visible abstractions. -->
         <!-- Otherwise, you should use accessors, -->
         <!-- <code>WITH-ACCESSORS</code> -->
-        スロットに影響を及ぼす一切のメソッドコンビネーションを回避するという、はっきりとした意図があるのでなければ、
+        スロットに影響のあるメソッドコンビネーションの一切を回避したいという、はっきりとした意図がなければ、
         <code>SLOT-VALUE</code>や<code>WITH-SLOTS</code>の利用は避けるべきです。
-        数少ない例外には、<code>INITIALIZE-INSTANCE</code>メソッドと<code>PRINT-OBJECT</code>メソッド、
-        そして、通常はユーザーに見える抽象化を提供するメソッドの低レベルの実装に隠蔽されているスロットへのアクセスが含まれます。
-        これらの例外のどれにも当てはまらない場合は、アクセッサと<code>WITH-ACCESSORS</code>を使うべきです。
+        数少ない例外には<code>INITIALIZE-INSTANCE</code>メソッドと<code>PRINT-OBJECT</code>メソッド、
+        抽象化が提供され、ユーザーからは通常隠蔽されている低レベルのスロットへのアクセスがあります。
+        これらの例外のどれにも当てはまらない場合はアクセッサと<code>WITH-ACCESSORS</code>を使うべきです。
       </p>
+      
       <p>
         <!-- Accessor names generally follow a convention of -->
         <!-- <code>&lt;protocol-name&gt;-&lt;slot-name&gt;</code>, -->
         <!-- where a "protocol" in this case loosely indicates -->
         <!-- a set of functions with well-defined behavior. -->
-        一般にアクセサの命名は<code>&lt;protocol-name&gt;-&lt;slot-name&gt;</code>という慣習に従います。
+        一般にアクセサの命名は<code>&lt;protocol-name&gt;-&lt;slot-name&gt;</code>という慣例に従います。
         ここで"プロトコル"とは、明確に定義された振る舞いを持つ一連の関数[機能?]を大まかに示しています。
       </p>
       <p>
@@ -2792,8 +2766,8 @@ Takashi Kato
         <!-- much less first-class "protocol" objects. -->
 	<!-- 直訳: きちんとした"プロトコル"の概念を前提とする・含意する(imply)こと(implication) +
 	     そういったことは必ずしも意図してはいない (no such thing is necessarily intended) = べつに意図していない -->
-	"プロトコル"については、ここではべつにそのきちんとした定義について考えているわけではありません。
-	ましてや、ファーストクラスの"プロトコル"オブジェクトがあるわけでもありません。
+	"プロトコル"については、ここでは別にそのきちんとした定義について考えている訳ではありません。
+	ましてや、ファーストクラスの"プロトコル"オブジェクトがある訳でもありません。
 
         <!-- However, there may indeed be an abstract CLOS class -->
         <!-- or an -->
@@ -2803,10 +2777,10 @@ Takashi Kato
         <!-- all or part of a protocol by defining -->
         <!-- some methods for (generic) functions in the protocol, -->
         <!-- including readers and writers. -->
-        しかしながら、実際にそのプロトコルを具体的に表現する抽象的なCLOSクラスや
+        しかしながら、実際にそのプロトコルを具体的に表現する抽象CLOSクラスや
         <a href="http://common-lisp.net/~frideau/lil-ilc2012/lil-ilc2012.html">Interface-Passing Style</a>
         のインターフェイスはありえます。
-        そういうときに、さらなる(下位の)クラスや(下位の)インターフェイスが、リーダやライター等の、
+        そういうときに、更なる(下位の)クラスや(下位の)インターフェイスが、リーダやライター等の、
         プロトコルに含まれる(総称)関数のためのメソッドを定義することで、プロトコルの一部または全部を実装することができます。
       </p>
       <p>
@@ -2817,10 +2791,10 @@ Takashi Kato
         <!-- <code>car-pnr</code> could each reasonably implement -->
         <!-- methods for <code>pnr-segments</code> and <code>pnr-passengers</code> -->
         <!-- as accessors. -->
-        例を挙げると、<code>pnr</code>と呼ばれる抽象的なプロトコルがあったとして、
-        それは、<code>pnr-segments</code>と、<code>pnr-passengers</code>いうアクセサを持つとします。
-        そのとき、<code>air-pnr</code>、<code>hotel-pnr</code>、<code>car-pnr</code>というクラスが、
-        <code>pnr-segments</code>や、<code>pnr-passengers</code>のメソッドがアクセサとして実装できることは理に叶っているというものです。
+        例を挙げると、<code>pnr</code>と呼ばれる概念的なプロトコルがあったとして、
+        それが<code>pnr-segments</code>と、<code>pnr-passengers</code>いうアクセサを持つとします。
+        そのとき<code>air-pnr</code>、<code>hotel-pnr</code>、<code>car-pnr</code>というクラスが、
+        <code>pnr-segments</code>や<code>pnr-passengers</code>のメソッドがアクセサとして実装できることは理に叶っているというものです。
       </p>
       <p>
         <!-- By default, an abstract base class name is used -->
@@ -2830,10 +2804,10 @@ Takashi Kato
         <!-- this form is neither required nor even preferred. -->
         <!-- In general, it contributes to "symbol bloat", -->
         <!-- and in many cases has led to a proliferation of "trampoline" methods. -->
-        デフォルトでは、抽象基底クラスの名前は、抽象的なプロトコルの名前として使われるので、
+        デフォルトでは、抽象基底クラスの名前が概念的なプロトコルの名前として使われるので、
         アクセサの名前は<code>&lt;class-name&gt;-&lt;slot-name&gt;</code>と名付けられます。
-        このような名前は広く行き渡ってはいますが、この形式は、必須のものでも、望ましいものでもありません。
-        総じてこれは、"シンボルが膨れ上がる(symbol bloat)"を助長するものであり、また、多くの場合、"トランポリン"メソッドの蔓延に繋がります。
+        このような名前は広く行き渡ってはいますが、この形式は必須のものでも、まして望ましいものでもありません。
+        総じてこれは、"シンボルが膨れ上がる(symbol bloat)"を助長するものであり、また、多くの場合"トランポリン"メソッドの蔓延に繋がります。
       </p>
       <p>
         <!-- Accessors named <code>&lt;slot-name&gt;-of</code> should not be used. -->
@@ -2847,10 +2821,10 @@ Takashi Kato
         <!-- explains the abstract contract for the function, -->
         <!-- as opposed to explaining what an individual method does for -->
         <!-- some specific class(es). -->
-        総称関数の定義に一つより多くの<code>DEFMETHOD</code>が使われる(ことになると思われる)場合、
+        総称関数に複数の<code>DEFMETHOD</code>がある(か、そうなると思われる)場合、
         <code>DEFGENERIC</code>フォームを明示的に使用すべきです。
-        理由は、ある特定的なクラスの個々のメソッドが説明するものに対する意味で、総称関数のドキュメンテーションは、
-        その関数の抽象的な規約を説明するものだからです。
+        理由は、総称関数のドキュメンテーションでは、あるクラスで個々のメソッドが何をするのか説明するものではなく、
+        その関数の抽象的な契約を説明するからです。
       </p>
       <p>
         <!-- You must not use generic functions where there is no notional protocol. -->
@@ -2859,12 +2833,12 @@ Takashi Kato
         <!-- the specializing classes should all be descendants of a single class. -->
         <!-- Generic functions must not be used for "overloading", -->
         <!-- i.e. simply to use the same name for two entirely unrelated types. -->
-        抽象的なプロトコルが無い場合に総称関数を使ってはいけません。
-        より具体的に述べるならば、もし、N番目の引数を特定化している複数の総称関数のメソッド
+        概念的なプロトコルが無いところでは総称関数を使ってはなりません。
+        より具体的に言うと、もしN番目の引数を特殊化している複数の総称関数のメソッド
         [訳注: 原文はgeneric functionの後ろにMETHODがあるべきと考えます]
-        があるとすれば、特定化を行なっているのクラスは、すべてある一つのクラスの子孫であるべきです。
-        総称関数は、"オーバーロード"のために使ってはいけません。
-        (言い換えれば、全く関連の無い型の総称関数に対して単純に同じ名前を使ってはいけません。)
+        があるなら、特殊化を行っているのクラスは全てある一つのクラスの子孫であるべきです。
+        総称関数は"オーバーロード"のために使ってはなりません。
+        (オーバーロードとは、全く関連の無い型に同じ名前を使うこと。)
         <!-- g1: ***TODO 意図が掴めない… -->
 	<!-- guicho2.71828 : 議論の余地あり、とりあえず書いておきます。
 	[ 訳注解説 : あなたがゲームのプログラマだと考えてみてください。あなたはユーティリティ関数としてDLISTクラス(doubly linked list)
@@ -2885,8 +2859,8 @@ Takashi Kato
         <!-- but whether they obey the same "protocol". -->
         <!-- That is, the two classes should handle the same set of generic functions, -->
         <!-- as if there were an explicit <code>DEFGENERIC</code> for each method. -->
-        より正確には、それらが実際、共通のスーパークラスの子孫なのかどうかではなく、同じ"プロトコル"に従うかどうか、ということです。
-        つまり、個々のメソッドに明確な<code>DEFGENERIC</code>があるかのように、二つのクラスは同じ総称関数のセットを扱っているべきなのです。
+        より正確には、実際に共通のスーパークラスの子孫なのかどうかではなく、同じ"プロトコル"に従うかどうか、ということです。
+        つまり、個々のメソッドに明示的な<code>DEFGENERIC</code>があるかのように、二つのクラスは同じ総称関数のセットを扱うべきです。
       </p>
       <p>
         <!-- Here's another way to put it. -->
@@ -2900,14 +2874,9 @@ Takashi Kato
         <!-- If not, you probably are overloading and -->
         <!-- should not be using a single generic function. -->
         別の方法で説明しましょう。
-        AとBの二つのクラスと、総称関数Fがあり、Fにはメソッドが二つあり、これらは、渡されたAとBの型の引数でディスパッチするものとします。
-        プログラム中にある一つのFの関数呼び出しについて、実行時にその引数がAのクラスとなる場合とBのクラスとなる場合があると思われるかどうか。
-        もし、思われないのであれば、おそらくオーバーロードしており、一つの総称関数を使用すべきではありません。
-        別の方法で説明すると、AとBの二つのクラスと、総称関数Fがあるとした場合、
-	Fにはメソッドが二つあり、これらは、渡されたAとBの型の引数でディスパッチします。
-        プログラム中のどこかのFの関数呼び出し中で、引数が実行時にAのクラスとなるものと、
-	別の時にはBのクラスとなるようなものでの挙動が妥当なものかどうか。
-        そうでなければ、恐らくオーバーロードしており、単一の総称関数を使用するべきではありません。
+        AとBの二つのクラスと、総称関数Fがあるとします。Fには二つのメソッドがあり、これらは、AとBの型の引数でディスパッチします。
+        プログラムのどこかに関数呼び出しがありそこでFを呼び出すとき、その引数が実行時にAのクラスになったりBのクラスになったりすることは妥当でしょうか？
+        そうでないなら、恐らくオーバーロードしており、一つの総称関数を使用すべきではないでしょう。
 	<!-- guicho2.71828 上記の例では、DLISTの来る場所にいきなりPERSONがくる可能性はありません。
 	     そういう時に同じ名前を使うのはどうよという話 -->
       </p>
@@ -2920,7 +2889,7 @@ Takashi Kato
         <!-- which might be a symbol or something. -->
         このルールには一つの例外が認められます:
         対応する引数が同じものを"意味"する場合、オーバーロードしても良し、とします。
-        典型的には、一つのオーバーロードではXオブジェクトを認め、他のオーバーロードではXオブジェクトの名前(シンボルかなにかになるでしょう)を認めるというものです。
+        典型的には、一つのオーバーロードではXオブジェクトを認め、他のオーバーロードではXオブジェクトの名前(Xはシンボルか何かになるでしょう)を認めるというものです。
 	<!-- guicho2.71828 make-instance は典型的なやつだと思います。引数はクラス自身でもいいしクラス名のシンボルでもいい。 -->
       </p>
       <p>
@@ -2935,17 +2904,17 @@ Takashi Kato
         <!-- MOP intercession is a great tool for interactive development, -->
         <!-- and you may enjoy it while developping and debugging; -->
         <!-- but you should not use it in normal applications. -->
-        MOPのintercessory(仲裁的)オペレーション[訳注:intercessionは技術用語で、
+        MOPのintercessory(仲裁的)オペレーションを実行時に使用してはなりません。[訳注:intercessionは技術用語で、
         プログラムの構成要素を調べる(introspection)ことに対して、その構成要素を変更することを指します
         (出典: <a href="http://bc.tech.coop/blog/050919.html">http://bc.tech.coop/blog/050919.html</a>)。
         このようなオペレータの例としては、<code>defclass</code>の内部で使われる<code>COMPUTE-CLASS-PRECEDENCE-LIST</code>
-        や<code>DEFMETHOD</code>の内部で使われる<code>ADD-METHOD</code>等があります。]を実行時に使用してはなりません。
-        MOPの"intercessory"オペレーターをコンパイル時に使用してもなりません。
-        実行時では、最悪の場合、危険を犯すことになり、良くてもパフォーマンス上の問題があります。
-        コンパイル時では、通常、しかるべきマクロで事を正しく1パスで行う方が、2パス目が必要となるintercessionによる対処より簡潔です。
-        しかし、前方参照の解決のための対処が必要なこともあるでしょう。そのときにはintercessionの利用も許されま
-        MOPのintercessionは、対話的開発では素晴らしい道具ですし、開発中とデバッグ中は、楽しんで使うことができるでしょうが、
-        通常のアプリケーション内でこれを利用するべきではありません。
+        や<code>DEFMETHOD</code>の内部で使われる<code>ADD-METHOD</code>等があります。]
+        MOPの"intercessory"オペレーターをコンパイル時に使用すべきではありません。
+        実行時では、最悪の場合危険であり、良くてパフォーマンスの問題になります。
+        コンパイル時では、通常、マクロで事を1パスで正しく行う方が、2パス目が必要となるintercessionによる対処より簡潔です。
+        しかし、前方参照の解決のための対処が必要なこともあるでしょう。そのときにはintercessionの利用も許されます。
+        MOPのintercessionは、対話的開発では素晴らしい道具ですし、開発中とデバッグ中はその素晴らしさを享受しても良いのですが、
+        通常のアプリケーション内で利用するべきではありません。
 	<!-- MOPのintercession/introspectionについては http://bc.tech.coop/blog/050919.html 
 	     簡単に言うとintrospectionは classのメタ情報の読み出し
 	     intercessionは class への書き込み・変更
@@ -2960,10 +2929,10 @@ Takashi Kato
         <!-- It's OK to add <code>:BEFORE</code>, <code>:AFTER</code>, -->
         <!-- and <code>:AROUND</code> methods, -->
         <!-- but don't override the primary method. -->
-        クラス定義で<code>:READER</code>、<code>:WRITER</code>や<code>:ACCESSOR</code>メソッドがつくられる場合、
-	これらのメソッドを再定義してはいけません。
+        クラス定義で<code>:READER</code>、<code>:WRITER</code>や<code>:ACCESSOR</code>メソッドを作るなら、
+	これらのメソッドを再定義しないでください。
         <code>:BEFORE</code>、<code>:AFTER</code>や、<code>:AROUND</code>メソッドを追加することはOKですが、
-        プライマリメソッドをオーバーライドしてはいけません。
+        プライマリメソッドをオーバーライドしないでください。
       </p>
       <p>
         <!-- In methods with keyword arguments, -->
@@ -2979,13 +2948,13 @@ Takashi Kato
         <!-- since if you did use <code>&amp;ALLOW-OTHER-KEYS</code>, -->
         <!-- it would disable error checking for misspelled or wrong keywords -->
         <!-- in <code>MAKE-INSTANCE</code> calls! -->
-        キーワード引数を持つメソッドでは、常に<code>&amp;KEY</code>を使わなければなりません。
-        たとえ、メソッドがどのキーワード引数の値にも関知しない場合であっても、<code>&amp;ALLOW-OTHER-KEYS</code>は使うべきではありません。
+        キーワード引数を持つメソッドでは、常に<code>&amp;KEY</code>を使わなければなりませんし、
+        たとえ、メソッドがどのキーワード引数の値にも関心がないとしても、<code>&amp;ALLOW-OTHER-KEYS</code>は使うべきではありません。
         あるキーワードが総称関数のいずれかのメソッドで受け付けられる限り、総称関数でそのキーワードを使うことができます。
         同じ総称関数の他の全てのメソッドが明示的に触れなくてもです。[訳注: CLHS 3.5.1.4のことですね<!-- @nfunato -->]
         このことは、特に<code>INITIALIZE-INSTANCE</code>メソッドで重要です。
-        ひとたび<code>&amp;ALLOW-OTHER-KEYS</code>を使ったならば、ミススペルであろうと、間違ったキーワードであろうと、
-        <code>MAKE-INSTANCE</code>の呼び出しでのエラーチェックを無効にしてしまうからです!
+        ひとたび<code>&amp;ALLOW-OTHER-KEYS</code>を使ったならば、
+        <code>MAKE-INSTANCE</code>の呼び出しでのミススペルや間違ったキーワードのエラーチェックが無効になってしまうからです。
       </p>
       
       <p>
@@ -4150,7 +4119,7 @@ Takashi Kato
   <STYLEPOINT title="条件式">
     <SUMMARY>
       <!-- Use the appropriate conditional form. -->
-      条件式は適切に利用しましょう。
+      適切な条件式を利用しましょう。
     </SUMMARY>
     <BODY>
       <p>
@@ -4164,28 +4133,28 @@ Takashi Kato
       <p>
         <!-- However, don't use <code>PROGN</code> for an <code>IF</code> clause -->
         <!-- — use <code>COND</code>, <code>WHEN</code>, or <code>UNLESS</code>. -->
-	ですが、<code>PROGN</code>を<code>IF</code>の中に書くのはやめましょう。代りに<code>COND</code>や<code>WHEN</code>や<code>UNLESS</code>を使いましょう。
+	ですが<code>PROGN</code>を<code>IF</code>の中に書くのはやめましょう。代りに<code>COND</code>や<code>WHEN</code>や<code>UNLESS</code>を使いましょう。
       </p>
       <p>
         <!-- Note that in Common Lisp, -->
         <!-- <code>WHEN</code> and <code>UNLESS</code> return <code>NIL</code> -->
         <!-- when the condition is not met. -->
-	Common Lispにおいては<code>WHEN</code>や<code>UNLESS</code>は条件を満足できなかったとき<code>NIL</code>を返すことを覚えておきましょう。
+	Common Lispでは<code>WHEN</code>や<code>UNLESS</code>は条件を満足しなかったとき、<code>NIL</code>を返すことを覚えておきましょう。
         <!-- You may take advantage of it. -->
-	この仕様はうまく活用できます。
+	この仕様はうまく活用しても良いです。
         <!-- Nevertheless, you may use an <code>IF</code> -->
         <!-- to explicitly return <code>NIL</code> -->
         <!-- if you have a specific reason to insist on the return value. -->
-	それでも、返り値を強調する特別な理由があるときは明示的に<code>NIL</code>を返すような<code>IF</code>を使えるでしょう。
+        そうであっても、<code>NIL</code>を返すことにこだわる特別な理由があるときは、<code>IF</code>を使って明示的に<code>NIL</code>を返しても良いです。
         <!-- You may similarly include a fall-through clause <code>(t nil)</code> -->
         <!-- as the last in your <cond>COND</cond>, -->
         <!-- or <code>(otherwise nil)</code> as the last in your <cond>CASE</cond>, -->
         <!-- to insist on the fact that the value returned by the conditional matters -->
         <!-- and that such a case is going to be used. -->
-	同様に、条件式の返り値が重要で、かつそのような場合が実際に起きるときは<cond>COND</cond>の一番最後に受け皿として<code>(t nil)</code>を入れたり、<cond>CASE</cond>に<code>(otherwise nil)</code>を入れたりできるでしょう。
+        同様に、<cond>COND</cond>の一番最後に受け皿として<code>(t nil)</code>を入れたり、<cond>CASE</cond>に<code>(otherwise nil)</code>を入れて、条件式から返る値が重要である点と<code>NIL</code>が返るケースもある点を強調しても良いです。
         <!-- You should omit the fall-through clause -->
         <!-- when the conditional is used for side-effects. -->
-	条件式が副作用のために使われたときは受け皿節は省略すべきです。
+	条件式が副作用のために使われるときは受け皿節は省略すべきです。
       </p>
       <p>
         <!-- You should prefer <code>AND</code> and <code>OR</code> -->
@@ -4193,11 +4162,11 @@ Takashi Kato
         <!-- <code>IF</code>, <code>COND</code>, -->
         <!-- <code>WHEN</code> or <code>UNLESS</code>, -->
         <!-- and there are no side-effects involved. -->
-	<code>IF</code>や<code>COND</code>、<code>WHEN</code>や<code>UNLESS</code>を使うよりもコードが簡潔になり、かつ副作用がないときは<code>AND</code>や<code>OR</code>をを積極的に使うべきです。
+        <code>IF</code>、<code>COND</code>、<code>WHEN</code>、<code>UNLESS</code>を使うよりもコードが簡潔になり、副作用がないときは<code>AND</code>や<code>OR</code>を優先すべきです。
 
         <!-- You may also use an <code>ERROR</code> -->
         <!-- as a side-effect in the final clause of an <code>OR</code>. -->
-	<code>OR</code>の一番最後に副作用として<code>ERROR</code>を入れることができるでしょう。
+	<code>OR</code>の最後の節に副作用として<code>ERROR</code>を入れてもいいです。
       </p>
       <p>
         <!-- You should only use <code>CASE</code> and <code>ECASE</code> -->
@@ -4207,22 +4176,22 @@ Takashi Kato
         <!-- Indeed, <code>CASE</code> uses <code>EQL</code> for comparisons, -->
         <!-- so strings, pathnames and structures may not compare the way you expect, -->
         <!-- and <code>1</code> will differ from <code>1.0</code>. -->
-	もちろん、<code>CASE</code>は比較に<code>EQL</code>を使っているため、文字列、パスネーム、構造体などは期待通りに比較されませんし、<code>1</code>は<code>1.0</code>とは異なったものとされます。
+	もちろん、<code>CASE</code>は比較に<code>EQL</code>を使うため、文字列、パスネーム、構造体などは期待通りに比較されませんし、<code>1</code>は<code>1.0</code>とは異なったものとされます。
       </p>
       <p>
         <!-- You should use <code>ECASE</code> and <code>ETYPECASE</code> -->
         <!-- in preference to <code>CASE</code> and <code>TYPECASE</code>. -->
-	<code>CASE</code>や<code>TYPECASE</code>よりも<code>ECASE</code>を<code>ETYPECASE</code>好んで使うべきです。
+	<code>CASE</code>や<code>TYPECASE</code>よりも<code>ECASE</code>や<code>ETYPECASE</code>を好んで使うべきです。
         <!-- It is better to catch erroneous values early. -->
-	エラーの元になる値は早めに捕まえておくに越したことはありません。
+	間違った値は早めに捕まえておくに越したことはありません。
       </p>
       <p>
         <!-- You should not use <code>CCASE</code> or <code>CTYPECASE</code> at all. -->
-	<code>CCASE</code>や<code>CTYPECASE</code>は使うべきではありません。
+	<code>CCASE</code>や<code>CTYPECASE</code>は絶対に使うべきではありません。
         <!-- At least, you should not use them in server processes, -->
         <!-- unless you have quite robust error handling infrastructure -->
         <!-- and make sure not to leak sensitive data this way. -->
-	少なくとも、とても堅牢なエラー処理機構があって、これにより重要なデータが漏れない確信があるのでもない限り、サーバーの中では使うべきではありません。
+	少なくとも、とても堅牢なエラー処理機構があって、これにより重要なデータが漏れない確信のない限り、サーバー中では使うべきではありません。
         <!-- These are meant for interactive use, -->
         <!-- and can cause interesting damage -->
         <!-- if they cause data or control to leak to attackers. -->
@@ -4232,7 +4201,7 @@ Takashi Kato
         <!-- You must not use gratuitous single quotes in <code>CASE</code> forms. -->
 	無意味に<code>CASE</code>式でクォートを使ってはなりません。
         <!-- This is a common error: -->
-	これはよくある間違いです。
+	以下がよくある間違いです。
       </p>
       <BAD_CODE_SNIPPET>
         (case x ; 悪い例: マッチしなかったとき何も言わずNILを返す<!-- ; Bad: silently returns NIL on mismatch -->
@@ -4241,7 +4210,7 @@ Takashi Kato
       </BAD_CODE_SNIPPET>
       <CODE_SNIPPET>
         (ecase x ; 良い例: マッチしなかったときエラーを発する<!-- Better: will error on mismatch -->
-          ((bar) :bar) ; 良い例: クォートにはマッチしない<!-- Better: won't match QUOTE -->
+          ((bar) :bar) ; 良い例: QUOTEにはマッチしない<!-- Better: won't match QUOTE -->
           ((baz) :baz)) ; 良い例: 同上<!-- Better: same reason -->
       </CODE_SNIPPET>
       <p>
@@ -4250,7 +4219,7 @@ Takashi Kato
         <!-- if <code>X</code> is <code>QUOTE</code>... -->
         <!-- and ditto for the second leg -->
         <!-- (though <code>QUOTE</code> will be caught by the first clause). -->
-	ここにある<code>'BAR</code>は<code>(QUOTE BAR)</code>と展開され、<code>X</code>が<code>QUOTE</code>だったときにこの節が実行されますし、第2節でも同様のことが起こります(この場合は第1節で<code>QUOTE</code>は捕捉されてしまいますが)。
+	ここの<code>'BAR</code>は<code>(QUOTE BAR)</code>ですので、<code>X</code>が<code>QUOTE</code>だったときにこの節が実行されますし、第2節でも同様です(この場合は第1節で<code>QUOTE</code>は捕捉されてしまいますが)。
         <!-- This is unlikely to be what you really want. -->
 	これは恐らく望んだことではないでしょう。
       </p>
@@ -4258,19 +4227,19 @@ Takashi Kato
         <!-- In <code>CASE</code> forms, -->
         <!-- you must use <code>otherwise</code> instead of <code>t</code> -->
         <!-- when you mean "execute this clause if the others fail". -->
-	<code>CASE</code>式では「他の条件にマッチしなかったとき実行する」という意味では<code>t</code>ではなく<code>otherwise</code>を使う必要があります。
+	<code>CASE</code>式では「他の条件にマッチしなかったとき実行する」という意味では<code>t</code>ではなく<code>otherwise</code>を使わなければなりません。
         <!-- You must use <code>((t) ...)</code> -->
         <!-- when you mean "match the symbol T" rather than "match anything". -->
-	<code>((t) ...)</code>は「全てにマッチする」ではなく「シンボルTにマッチしたとき」の意味で使う必要があります。
+	「全てにマッチする」ではなく「シンボルTにマッチしたとき」の意味では<code>((t) ...)</code>を使わなければなりません。
         <!-- You must also use <code>((nil) ...)</code> -->
         <!-- when you mean "match the symbol NIL" rather than "match nothing". -->
-	同様に、<code>((nil) ...)</code>は「何にもマッチしなかったとき」ではなく「シンボルNILにマッチしたとき」です。
+	また「何にもマッチしなかったとき」ではなく「シンボルNILにマッチしたとき」は<code>((nil) ...)</code>を使わなければなりません。
       </p>
       <p>
         <!-- Therefore, if you want to map booleans <code>NIL</code> and <code>T</code> -->
         <!-- to respective symbols <code>:BAR</code> and <code>:QUUX</code>, -->
         <!-- you should avoid the former way and do it the latter way: -->
-	したがって、真偽値<code>NIL</code>や<code>T</code>をそれぞれ<code>:BAR</code>や<code>:QUUX</code>にマップしたいときは[下記の]後者の表現を使うべきで前者ではありません:
+        従って真偽値<code>NIL</code>と<code>T</code>を、それぞれ<code>:BAR</code>と<code>:QUUX</code>にマップしたいときは[下記の]後者の表現を使うべきで、前者ではありません:
       </p>
       <BAD_CODE_SNIPPET>
         (ecase x ; 悪い例: 実際にはエラーを出すことはない<!-- Bad: has no actual error case! -->
@@ -4288,7 +4257,7 @@ Takashi Kato
   <STYLEPOINT title="同一性、等価性、比較">
     <SUMMARY>
       <!-- You should the appropriate predicates when comparing objects. -->
-      オブジェクトを比較する場合は適切な述語を使用すべきです。
+      オブジェクトを比較する時は適切な述語を使用すべきです。
     </SUMMARY>
     <BODY>
       <p>
@@ -4296,7 +4265,7 @@ Takashi Kato
         <!-- <code>EQ</code>, <code>EQL</code>, <code>EQUAL</code>, -->
         <!-- and <code>EQUALP</code>, -->
         <!-- which subtly vary in semantics. -->
-	Lispには4つの汎用の等価性比較の述語があります。<code>EQ</code>、 <code>EQL</code>、 <code>EQUAL</code>、<code>EQUALP</code>で、これらは僅かに違いがあります。
+	Lispには4つの汎用の等価性比較の述語があります。<code>EQ</code>、 <code>EQL</code>、 <code>EQUAL</code>、<code>EQUALP</code>で、これらは微妙な違いがあります。
         <!-- Additionally, Lisp provides the type-specific predicates -->
         <!-- <code>=</code>, <code>CHAR=</code>, <code>CHAR-EQUAL</code>, -->
         <!-- <code>STRING=</code>, and <code>STRING-EQUAL</code>. -->
@@ -4308,11 +4277,11 @@ Takashi Kato
       <p>
         <!-- You should use <code>EQL</code> to compare objects and symbols -->
         <!-- for <em>identity</em>. -->
-	<em>同一の</em>オブジェクトやシンボルを比較するときは<code>EQL</code>を使うべきです。
+	<em>同一</em>のオブジェクトやシンボルを比較するときは<code>EQL</code>を使うべきです。
       </p>
       <p>
         <!-- You must not use <code>EQ</code> to compare numbers or characters. -->
-	<code>EQ</code>を数字や文字を比較するのに使ってはなりません。
+	<code>EQ</code>を使って数字や文字を比較してはなりません。
         <!-- Two numbers or characters that are <code>EQL</code> -->
         <!-- are not required by Common Lisp to be <code>EQ</code>. -->
 	Common Lispでは<code>EQL</code>である数字や文字が<code>EQ</code>であることは要求されていません。
@@ -4321,18 +4290,18 @@ Takashi Kato
         <!-- When choosing between <code>EQ</code> and <code>EQL</code>, -->
         <!-- you should use <code>EQL</code> unless you are writing -->
         <!-- performance-critical low-level code. -->
-	<code>EQ</code>にするか<code>EQL</code>にするかの選択では、パフォーマンスが重要な低レベルの処理を書くのでもない限り<code>EQL</code>を使うべきです。
+	<code>EQ</code>にするか<code>EQL</code>にするかの選択では、パフォーマンスが重要な低レベルの処理を書いているのでもない限り、<code>EQL</code>を使うべきです。
         <!-- <code>EQL</code> reduces the opportunity -->
         <!-- for a class of embarrassing errors -->
         <!-- (i.e. if numbers or characters are ever compared). -->
 	<code>EQL</code>を使えばある種の理解不能なエラーを減らせます(数字や文字が比較されたときのことです)。
         <!-- There may a tiny performance cost relative to <code>EQ</code>, -->
         <!-- although under SBCL, it often compiles away entirely. -->
-	<code>EQ</code>に比べてわずかにパフォーマンスで劣りますが、SBCLではたいていの場合コンパイルで完全に差はなくなります。
+	<code>EQ</code>に比べてわずかにパフォーマンスで劣るかもしれませんが、SBCLでは大抵の場合コンパイルで完全に差はなくなります。
         <!-- <code>EQ</code> is equivalent to <code>EQL</code> and type declarations, -->
         <!-- and use of it for optimization should be treated just like -->
         <!-- any such <a href="#Unsafe_Operations">unsafe operations</a>. -->
-	<code>EQ</code>は<code>EQL</code>に型宣言をつけたものと等しく、この<code>EQ</code>を使う最適化は<a href="#Unsafe_Operations">安全でない操作</a>のように扱われるべきです。
+	<code>EQ</code>は<code>EQL</code>に型宣言をつけたものと等しく、この<code>EQ</code>を使う最適化は<a href="#Unsafe_Operations">安全でない操作</a>のように扱うべきです。
       </p>
       <p>
         <!-- You should use <code>CHAR=</code> -->
@@ -4350,14 +4319,14 @@ Takashi Kato
         <!-- A common mistake when using <code>SEARCH</code> on strings -->
         <!-- is to provide <code>STRING=</code> or <code>STRING-EQUAL</code> -->
         <!-- as the <code>:TEST</code> function. -->
-	<code>SEARCH</code>を使うときによくある間違いとして<code>STRING=</code>か<code>STRING-EQUAL</code>を<code>:TEST</code>に渡してしまうことがあります。
+	文字列に<code>SEARCH</code>を使うときによくある間違いは、<code>STRING=</code>や<code>STRING-EQUAL</code>を<code>:TEST</code>関数に渡してしまうことです。
         <!-- The <code>:TEST</code> function -->
         <!-- is given two sequence elements to compare. -->
-	<code>:TEST</code>関数にはシーケンスの2つの要素が渡されます。
+	<code>:TEST</code>関数には2つのシーケンスの要素が渡され比較されます。
         <!-- If the sequences are strings, -->
         <!-- the <code>:TEST</code> function is called on two characters, -->
         <!-- so the correct tests are <code>CHAR=</code> or <code>CHAR-EQUAL</code>. -->
-	シーケンスが文字列なら<code>:TEST</code>には2つの文字が渡されるため、正しくは<code>CHAR=</code>か<code>CHAR-EQUAL</code>で判定します。
+	シーケンスが文字列なら<code>:TEST</code>関数には2つの文字が渡されるので、正しい比較関数は<code>CHAR=</code>か<code>CHAR-EQUAL</code>です。
         <!-- If you use <code>STRING=</code> or <code>STRING-EQUAL</code>, -->
         <!-- the result is what you expect, -->
         <!-- but in some Lisp implementations it's much slower. -->
@@ -4365,7 +4334,7 @@ Takashi Kato
         <!-- CCL (at least as of 8/2008) -->
         <!-- creates a one-character string upon each comparison, for example, -->
         <!-- which is very expensive. -->
-	一例ですが(少なくとも2008年8月時点の)CCLでは比較ごとに1文字からなる文字列を一旦生成するという高価な処理をしてから比較しています。
+	一例ですが(少なくとも2008年8月時点の)CCLでは比較ごとに1文字の文字列を生成しますが、この処理が非常に高価です。
 	<!-- (2008年8月現在)の方が日本語っぽい？(κeen) -->
       </p>
       <p>
@@ -4375,7 +4344,7 @@ Takashi Kato
         <!-- e.g. <code>(string-equal (subseq s1 2 6) s2)</code> should instead be -->
         <!-- <code>(string-equal s1 s2 :start1 2 :end1 6)</code> -->
         <!-- This is preferable because it does not cons. -->
-	また、<code>SUBSEQ</code>を使うのではく、<code>STRING=</code>や<code>STRING-EQUAL</code>には<code>:START</code>や<code>:END</code>を指定すべきです。<code>(string-equal (subseq s1 2 6) s2)</code>ではなく<code>(string-equal s1 s2 :start1 2 :end1 6)</code>です。これによって不要なコンシングが起きません。
+	また、<code>STRING=</code>や<code>STRING-EQUAL</code>には、<code>SUBSEQ</code>を使うのではく、<code>:START</code>や<code>:END</code>を指定すべきです。<code>(string-equal (subseq s1 2 6) s2)</code>ではなく<code>(string-equal s1 s2 :start1 2 :end1 6)</code>です。これによって不要なコンシングが起きません。
       </p>
       <p>
         <!-- You should use <code>ZEROP</code>, -->
@@ -4387,7 +4356,7 @@ Takashi Kato
         <!-- You must not use exact comparison on floating point numbers, -->
         <!-- since the vague nature of floating point arithmetic -->
         <!-- can produce little "errors" in numeric value. -->
-	浮動小数点数の計算は本質的にわずかな「誤差」を生み得るので厳密な比較は使うべきではありません。
+	浮動小数点数の計算は本質的にわずかな「誤差」を生み得るので、浮動小数点数に厳密な比較を使ってはなりません。
         <!-- You should compare absolute values to a threshhold. -->
 	[二値の差の]絶対値と閾値とを比較すべきです。
 	<!-- 絶対値と許容値を比べたところで誤差回避にならないと思うんですが良いんですかね？(κeen)-->
@@ -4409,8 +4378,7 @@ Takashi Kato
         <!-- unless you really mean for <code>0</code>, -->
         <!-- <code>0.0</code> and <code>-0.0</code> to compare unequal, -->
         <!-- in which case you should use <code>EQL</code>. -->
-	数字を比較するには<code>=</code>を使わなければなりません。ただし、<code>0</code>と<code>0.0</code>と<code>-0.0</code>が等しくなくなって欲しいなら<code>EQL</code>を使うべきです。
-	<!--2重否定が分りづらかったので分けましたがそれでも分りづらいですね。-->
+	数字を比較するには<code>=</code>を使わなければなりません。ただし、<code>0</code>と<code>0.0</code>と<code>-0.0</code>が不等だと本当に意図しているなら<code>EQL</code>を使うべきです。
         <!-- Then again, you must not usually use exact comparison -->
         <!-- on floating point numbers. -->
 	繰り返しますが、浮動小数点数に厳密な比較を使ってはなりません。
@@ -4419,14 +4387,14 @@ Takashi Kato
         <!-- Monetary amounts should be using decimal (rational) numbers -->
         <!-- to avoid the complexities and rounding errors -->
         <!-- of floating-point arithmetic. -->
-	お金を表わすには浮動小数点数計算の複雑さや丸め誤差を避けるため10進(分)数を使うべきです。
+	お金を表わすには10進(有理)数を使って、浮動小数点数計算の複雑さや丸め誤差を避けるべきです。
         <!-- Libraries such as -->
         <!-- <a href="http://wukix.com/lisp-decimals">wu-decimal</a> -->
         <!-- may help you; -->
         <!-- once again, if this library is not satisfactory, see above about -->
         <!-- <a href="#Using_Libraries">Using Libraries</a> and -->
         <!-- <a href="#Open-Sourcing_Code">Open-Sourcing Code</a>. -->
-	<a href="http://wukix.com/lisp-decimals">wu-decimal</a>などのライブラリの助けを借りることもできます。さらに、このライブラリに満足できなければ<a href="#Using_Libraries">Using Libraries</a>や<a href="#Open-Sourcing_Code">Open-Sourcing Code</a>も参考にして下さい。
+	<a href="http://wukix.com/lisp-decimals">wu-decimal</a>などのライブラリの助けになるかもしれません。さらに、このライブラリに満足できなければ、上記の<a href="#Using_Libraries">Using Libraries</a>や<a href="#Open-Sourcing_Code">Open-Sourcing Code</a>も参考にして下さい。
       </p>
       
     </BODY>
@@ -4435,7 +4403,7 @@ Takashi Kato
   <STYLEPOINT title="繰り返し">
     <SUMMARY>
       <!-- Use the appropriate form for iteration. -->
-      繰り返しの式は適切に利用しましょう。
+      適切な繰り返しの式を利用しましょう。
     </SUMMARY>
     <BODY>
       <p>
@@ -4445,7 +4413,7 @@ Takashi Kato
         <!-- in simple cases when you're not going to use any -->
         <!-- of the <code>LOOP</code> facilities such as -->
         <!-- bindings, collection or block return. -->
-        <code>LOOP</code>の機能である、変数の束縛・値の集約・ブロックからの脱出、等を使ったりしない、より単純な場合には、<code>DOLIST</code>や<code>DOTIMES</code>のような、より単純な構文を使うべきです。
+        <code>LOOP</code>の機能である変数の束縛・値の集約・ブロックからの脱出等を使ったりしない単純な場合には、<code>DOLIST</code>や<code>DOTIMES</code>のような、より単純な構文を使うべきです。
       </p>
       <p>
         <!-- Use the <code>WITH</code> clause of <code>LOOP</code> -->
@@ -4453,15 +4421,15 @@ Takashi Kato
         <!-- You may use <code>LET</code> if it makes it clearer -->
         <!-- to return one of bound variables after the <code>LOOP</code>, -->
         <!-- rather than use a clumsy <code>FINALLY (RETURN ...)</code> form. -->
-        <code>LOOP</code>の<code>WITH</code>節は、<code>LET</code>でネストレベルが深くなるのを避ける場合に使いましょう。
-        束縛された変数が<code>LOOP</code>フォームの後で返されることが明確な場合は、体裁の悪い<code>FINALLY (RETURN ...)</code>を使うよりも、<code>LET</code>を使うというのも手でしょう。(訳注:<code>LOOP</code>を<code>LET</code>で囲む)
+        <code>LOOP</code>の<code>WITH</code>節は、<code>LET</code>でネストレベルが深くなるのを避けられる場合に使いましょう。
+        <code>LOOP</code>後に束縛した変数が返ることが明確になるなら、不格好な<code>FINALLY (RETURN ...)</code>を使うよりも、<code>LET</code>を使ってもいいでしょう。(訳注:<code>LOOP</code>を<code>LET</code>で囲む)
       </p>
       <p>
         <!-- In the body of a <code>DOTIMES</code>, -->
         <!-- do not set the iteration variable. -->
         <!-- (CCL will issue a compiler warning if you do.) -->
-        <code>DOTIMES</code>のボディ部の内側では、繰り返し変数に値を代入してはいけません。(訳注: 要求レベルは？)
-        (CCLではコンパイラはこれに警告を出します)。
+        <code>DOTIMES</code>のボディ部では繰り返し変数に値を代入しないでください。(訳注: 要求レベルは？)
+        (CCLのコンパイラはこれに警告を出します)。
         </p>
       <p>
         <!-- Most systems use unadorned symbols in the current package -->
@@ -4471,9 +4439,9 @@ Takashi Kato
         <!-- as <code>LOOP</code> keywords. -->
         <!-- You must be consistent with the convention used in your system. -->
         <!-- g000001: system は 他のところでいうパッケージ/コードを指す? -->
-        大抵のコードでは、<code>LOOP</code>のキーワードには、カレントパッケージの「飾りのない」シンボルを使いますが、
-        あるコードでは、<code>LOOP</code>のキーワードとして、実際に<code>KEYWORD</code>パッケージの<code>:keywords</code>を使うこともあります。
-        既存のコードの慣習に従い、一貫性を持たせなくてはなりません。
+        大抵のシステムは<code>LOOP</code>のキーワードにカレントパッケージの「飾りのない」シンボルを使いますが、
+        他のシステムでは<code>LOOP</code>のキーワードとして<code>KEYWORD</code>パッケージの<code>:keywords</code>を使います。
+        システムの慣例に従い一貫性を持たせなくてはなりません。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -4481,19 +4449,19 @@ Takashi Kato
   <STYLEPOINT title="入出力">
     <SUMMARY>
       <!-- Use the appropriate I/O functions. -->
-      入出力関数は適切に利用しましょう。
+      適切な入出力関数を利用しましょう。
     </SUMMARY>
     <BODY>
       <p>
         <!-- When writing a server, -->
         <!-- code must not send output to the standard streams such as -->
         <!-- <code>*STANDARD-OUTPUT*</code> or <code>*ERROR-OUTPUT*</code>. -->
-	サーバーを書いているときに<code>*STANDARD-OUTPUT*</code>や<code>*ERROR-OUTPUT*</code>に出力してはなりません。
+	サーバーを書いているときに<code>*STANDARD-OUTPUT*</code>や<code>*ERROR-OUTPUT*</code>などの標準ストリームに出力してはなりません。
         <!-- Instead, code must use the proper logging framework -->
         <!-- to output messages for debugging. -->
-	代りに、メッセージやデバッグには適切なログフレームワークを使う必要があります。
+	代わりに、メッセージやデバッグには適切なログフレームワークを使わなければなりません。
         <!-- We are running as a server, so there is no console! -->
-	サーバーを動かしているのですから、コンソールは無いのです。
+	サーバーを動かしているのですからコンソールは無いのです。
       </p>
       <p>
         <!-- Code must not use <code>PRINT-OBJECT</code> -->
@@ -4502,7 +4470,7 @@ Takashi Kato
 	ユーザーとのインタラクションに<code>PRINT-OBJECT</code>を使ってはなりません。— <code>PRINT-OBJECT</code>はデバッグ専用です。
         <!-- Modifying any <code>PRINT-OBJECT</code> method -->
         <!-- must not break any public interfaces. -->
-	<code>PRINT-OBJECT</code>を変更しても公開インターフェースは何も影響を受けないようにしておかなければなりません。
+	<code>PRINT-OBJECT</code>の変更で公開インターフェースが壊れることがあってはなりません。
       </p>
       <p>
         <!-- You should not use a sequence of <code>WRITE-XXX</code> -->
@@ -4511,13 +4479,13 @@ Takashi Kato
         <!-- Using format allows you -->
         <!-- to parameterize the format control string in the future -->
         <!-- if the need arises. -->
-	formatを使えば必要があればフォーマット文字列をパラメーター化することができます。
+	formatを使えば将来必要に応じてフォーマット制御文字列をパラメーター化できます。
       </p>
       <p>
         <!-- You should use <code>WRITE-CHAR</code> to emit a character -->
         <!-- rather than <code>WRITE-STRING</code> -->
         <!-- to emit a single-character string. -->
-	一文字を出力するなら<code>WRITE-STRING</code>ではなく<code>WRITE-CHAR</code>を使うべきです。
+	一文字を出力するなら、<code>WRITE-STRING</code>で一文字の文字列を出力するのではなく、<code>WRITE-CHAR</code>を使うべきです。
       </p>
       <p>
         <!-- You should not use <code>(format nil "~A" value)</code>; -->
@@ -4529,14 +4497,14 @@ Takashi Kato
         <!-- or <code>~@&lt;Newline&gt;</code> in format strings -->
         <!-- to keep them from wrapping in 100-column editor windows, -->
         <!-- or to indent sections or clauses to make them more readable. -->
-	100桁のエディタのウィンドウが途中で折り返すの防いだり、読み易いようにインデントしたりするのには<code>~&lt;Newline&gt;</code>か<code>~@&lt;Newline&gt;</code>を使うべきです。
+	フォーマット文字列では<code>~&lt;Newline&gt;</code>や<code>~@&lt;Newline&gt;</code>を使って、100桁表示のエディタウィンドウ内で途中で折り返されるのを防いだり、読み易いようにインデントするべきです。
       </p>
       <p>
         <!-- You should not use <code>STRING-UPCASE</code> -->
         <!-- or <code>STRING-DOWNCASE</code> -->
         <!-- on format control parameters; -->
         <!-- instead, it should use <code>"~:@(~A~)"</code> or <code>"~(~A~)"</code>. -->
-	formatの制御引数に対して<code>STRING-UPCASE</code>や<code>STRING-DOWNCASE</code>を使うべきではありません。代わりに<code>"~:@(~A~)"</code>や<code>"~(~A~)"</code>を使いましょう。
+	formatの制御引数に<code>STRING-UPCASE</code>や<code>STRING-DOWNCASE</code>を使うべきではありません。代わりに<code>"~:@(~A~)"</code>や<code>"~(~A~)"</code>を使うべきです。
       </p>
       <p>
         <!-- Be careful when using the <code>FORMAT</code> conditional directive. -->
@@ -4556,7 +4524,7 @@ Takashi Kato
 	  数字が範囲を越えていたら何も出力しません。
           <!-- You can provide a default value -->
           <!-- by putting a <code>":"</code> in front of the last <code>";"</code>. -->
-	  最後の<code>";"</code>の前に<code>":"</code>を入れることでデフォルト値を設定することができます。
+	  最後の<code>";"</code>の前に<code>":"</code>を入れることでデフォルト値を設定できます。
           <!-- E.g. in <code>"~[Siamese~;Manx~;Persian~:;Alley~] Cat"</code>, -->
           <!-- an out-of-range arg prints <code>"Alley"</code>. -->
 	  <code>"~[Siamese~;Manx~;Persian~:;Alley~] Cat"</code>のようにすると範囲外の数字が与えられたときに<code>"Alley"</code>を出力します。
@@ -4611,15 +4579,14 @@ Takashi Kato
         <!-- where storage that is not actually needed -->
         <!-- nevertheless does not get deallocated, -->
         <!-- because it is still reachable. -->
-        自動でメモリ管理が行われる言語(LispやJavaなど)において言われるメモリリークとは、
-	実際にはそのメモリが必要とされていないにもかかわらず、そこに[参照が]到達可能であるがために、
-	メモリが解放されないことを指しています。
+        自動でメモリ管理が行われる言語(LispやJavaなど)で言われるメモリリークとは、
+	実際にはそのメモリが必要でないにもかかわらずそこに[参照が]到達可能であるため、
+	メモリが解放されないことを指します。
       </p>
       <p>
         <!-- You should be careful that when you create objects, -->
         <!-- you don't leave them reachable after they are no longer needed! -->
-        あなたは作り出したオブジェクトが不要になった後にそのオブジェクトに[参照が]届くことのないように、
-        注意してオブジェクトをつくるべきです。
+        オブジェクトを作るときは、不要になった後もそのオジェクトに[参照が]届くことのないように注意するべきです。
       </p>
       <p>
         <!-- Here's a particular trap-for-the-unwary in Common Lisp. -->
@@ -4628,19 +4595,19 @@ Takashi Kato
         <!-- those objects are still reachable as far as Lisp goes -->
         <!-- (the Common Lisp spec says that it's still OK -->
         <!-- to refer to the array entries past the end of the fill pointer). -->
-        ここには特定のCommon Lispにおける、誤解しがちな罠があります。
-        あなたがフィルポインタ付きの配列をつくり、そこにオブジェクトを格納した後に、
-        フィルポインタを0に巻き戻した場合でも、
-        それらのオブジェクトは依然としてLispからは到達可能です。
-        (Common Lispの規格は、配列の要素がフィルポインタの終端以降となっても依然として参照可能とすることを認めています。)
+        ここで不注意な人が陥りやすいCommon Lisp固有の罠があります。
+        フィルポインタ付きの配列を作り、オブジェクトを格納し、
+        フィルポインタを0に戻した場合でも、
+        それらのオブジェクトは依然としてLispから到達可能です。
+        (Common Lispの規格はフィルポインタの終端以降にある配列要素を参照可能とすることを認めています。)
       </p>
       <p>
         <!-- Don't cons (i.e., allocate) unnecessarily. -->
-        不要なコンス(メモリの確保)をしてはなりません。
+        不要なコンシング(メモリの確保)をしてはなりません。
         <!-- Garbage collection is not magic. -->
         ガーベジコレクションは魔法ではありません。
         <!-- Excessive allocation is usually a performance problem. -->
-        行き過ぎたメモリの確保は、大抵、実行性能に問題を与えます。
+        行き過ぎたメモリの確保は大抵実行性能に問題を与えます。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -4650,25 +4617,24 @@ Takashi Kato
       <!-- You must only use faster unsafe operations -->
       <!-- when there is a clear performance need -->
       <!-- and you can document why it's correct. -->
-      性能を必要とすることが明らかで、あなたがそれらの正当性のドキュメントを提供できる場合のみ、
-      あなたは、高速で安全でない命令を使用すべきです。
+      高速で安全でない命令の使用は、性能を必要とすることが明らかでそれらの正当性のドキュメントを提供できる場合のみでなければなりません。
     </SUMMARY>
     <BODY>
       <p>
         <!-- Common Lisp implementations often provide backdoors -->
         <!-- to compute some operations faster in an unsafe way. -->
-		Common Lispの処理系は、しばしば、安全でない方法でいくつかの命令を高速に計算する
-		裏口を提供しています。
+		Common Lispの処理系は、安全でない方法でいくつかの命令を高速に計算する
+		裏口をしばしば提供しています。
         <!-- For instance, some libraries provide arithmetic operations -->
         <!-- that are designed to be used with fixnums only, -->
         <!-- and yield the correct result faster if provided proper arguments. -->
-		実例として、いくつかのライブラリは算術命令をfixnumに限定して使用されるように設計されていて、
-		fixnumの引数が与えられたときのみ正確な結果を高速に提供します。
+		実例として、ライブラリの中には算術命令をfixnumに限定して使用されるように設計されていて、
+		適切な引数なら正確な結果をより高速に得られますものがあります。
         <!-- The downside is that the result of such operations -->
         <!-- is incorrect in case of overflow, and can -->
         <!-- have undefined behavior when called with anything but fixnums. -->
-		これらの命令はfixnumでない何らかの値と共に呼び出されたとき、オーバフローによって、
-		正確でない結果を返したり、未定義の動作をすることがある、欠点があります。
+		欠点は、fixnumでない値で呼び出したとき、オーバフローで
+		不正確な結果を返したり、未定義の振る舞いをすることがあることです。
       </p>
 
       <p>
@@ -4677,23 +4643,23 @@ Takashi Kato
         <!-- than would the equivalent safe operation -->
         <!-- if the arguments satisfy some invariant such a -->
         <!-- being of the correct type and small enough; -->
-	        より一般的にいうと、安全でない命令は、
-		正しい型で十分に小さい[ある範囲に収まる]といった規定を満たす引数とともに呼び出されたとき、
-		正しい結果を等価で安全な命令より、高速に生み出します。
+	        より一般的には、安全でない命令は、
+		正しい型で十分に小さいなどの不変条件を満たす引数で呼び出せば、
+		正しい結果を等価で安全な命令より高速に生み出します。
         <!-- however if the arguments fail to satisfy the required invariants, -->
         <!-- then the operation may have undefined behavior, -->
         <!-- such as crashing the software, or, -->
         <!-- which is sometimes worse, silently giving wrong answers. -->
-		しかしながら、引数が規定を満たさない引数が与えられると、
-		命令はソフトウェアのクラッシュや、なんの警告もなしに間違った答えを返すといった、
-		定義されていない動作をすることがあります。
+		しかしながら、引数が必要な不変条件を満たさないと、
+		命令はソフトウェアのクラッシュや、もっと悪い場合には、何の警告もなしに間違った答えを返すといった、
+		未定義の振る舞いをすることがあります。
         <!-- Depending on whether the software is piloting an aircraft -->
         <!-- or other life-critical device, -->
         <!-- or whether it is accounting for large amounts money, -->
         <!-- such undefined behavior can kill or bankrupt people. -->
-		航空機の操縦など、生命に多大な影響を及ぼす装置や、
-		大金の取扱い等が、未定義の振る舞いをするソフトウェアに依存することは、
-		人を破産に追い込んだり、死に至らしめます。
+		ソフトウェアが航空機や生命に多大な影響を及ぼす装置を制御していたり、
+		大金を取扱う場合という条件は付きますが、そのような未定義の振る舞いは
+		人を破産に追い込んだり、死に至らしめることがあります。
 
         <!-- Yet proper speed can sometimes make the difference between -->
         <!-- software that's unusably slow and software that does its job, -->
@@ -4707,28 +4673,28 @@ Takashi Kato
         <!-- You must not define or use unsafe operations without both -->
         <!-- profiling results indicating the need for this optimization, -->
         <!-- and careful documentation explaining why it is safe to use them. -->
-		あなたは、プロファイリングの結果によってその最適化の必要性を示し、
-		またそれを安全のうちに扱うことができることを充分に説明できる文書なしに、
+		プロファイリングの結果が最適化の必要性を示し、
+		また安全に使える理由を充分に説明できる文書なしに
 		安全でない命令を定義したり、使用してはなりません。
         <!-- Unsafe operations should be restricted to internal functions; -->
 		安全でない命令は[パッケージ]内部の関数に限定すべきです。
         <!-- you should carefully documented how unsafe it is -->
         <!-- to use these functions with the wrong arguments. -->
-		あなたは、それらの関数に対して不適切な引数を与えて使用した際に、
-		安全でないことについて、注意深く文書化すべきです。
+		それらの関数に不適切な引数を与えた際に、
+		どの程度安全でないのかについて、注意深く文書化すべきです。
         <!-- You should only use unsafe operations -->
         <!-- inside functions internal to a package and -->
         <!-- you should document the use of the declarations, -->
         <!-- since calling the functions with arguments of the wrong type -->
         <!-- can lead to undefined behavior. -->
-		あなたは、パッケージ内の内部関数においてのみ、安全でない命令を使用すべきであり、
-		また、あなたは、不適切な型の引数で関数を呼び出して、未定義の振る舞いを引き出すことを
-		宣言を使用して文書化すべきです。
+		パッケージ内の内部関数においてのみ、安全でない命令を使用すべきであり、
+		また、不適切な型の引数で関数を呼び出すと未定義の振る舞いに繋がることがあるので、
+		宣言の使用を文書化すべきです。
         <!-- Use <code>check-type</code> in functions exported from a package -->
         <!-- to sanitize input arguments, -->
         <!-- so that internal functions are never passed illegal values. -->
-		パッケージからエクスポートされる関数内では、<code>check-type</code>を使用し、
-		入力される引数の妥当性を保証すれば、[パッケージ]内部関数は異常値を受け取ることはありません。
+		パッケージからエクスポートされる関数では、<code>check-type</code>を使用し
+		入力される引数の妥当性を保証すれば、[パッケージ]内部関数は異常値を受け取ることは決してありません。
       </p>
       <p>
         <!-- On some compilers, -->
@@ -4736,26 +4702,26 @@ Takashi Kato
         <!-- can usually be defined by combining -->
         <!-- type declarations with an <code>OPTIMIZE</code> declaration -->
         <!-- that has sufficiently high <code>SPEED</code> and low <code>SAFETY</code>. -->
-		いくつかのコンパイラにおいては型宣言と、
-		充分に高い<code>SPEED</code>と低い<code>SAFETY</code>宣言を伴う<code>OPTIMIZE</code>宣言の組み合わせによって、
-		新たに安全でない命令を容易に定義できます。
+		いくつかのコンパイラでは通常、型宣言と、
+		充分に高い<code>SPEED</code>と低い<code>SAFETY</code>を伴う<code>OPTIMIZE</code>宣言の組み合わせで、
+		新たに安全でない命令を定義できます。
         <!-- In addition to providing more speed for production code, -->
         <!-- such declarations may more helpful -->
         <!-- than <code>check-type</code> assertions -->
         <!-- for finding bugs at compile-time, -->
         <!-- on compilers that have type inference. -->
-		くわえて、より速度を必要とする実用に供するコードにおいては、
-		コンパイル時にコンパイラによる型推論がバグを見つけ出してくれるため、
-		これらの宣言は<code>check-type</code>アサーションよりもより助けになるでしょう。
+		プロダクションコードが速くなることに加え、これらの宣言があれば、
+		型推論が可能なコンパイラがコンパイル時にバグを見つけ出してくれるため、
+		<code>check-type</code>アサーションよりも助けになるかもしれません。
         <!-- These compilers may interpret those declarations as assertions -->
         <!-- if you switch to safer and slower optimize settings; -->
-		あなたがより遅く安全な最適化設定に変えたときは、
-		これらアサーションとしての宣言をコンパイラは逐次実行するかもしれません。
+		より安全で遅い最適化設定に変えれば、
+		型推論が可能なコンパイラはそういう宣言をアサーションとして解釈するかもしれません。
         <!-- this is good to locate a dynamic error in your code during development, -->
         <!-- but is not to be used for production code since -->
         <!-- it defeats the purpose of declarations as a performance trick. -->
-		これは、あなたがコードを開発している最中に、動的なエラーを見つけやすくしますが、
-		一方で、実用に供するコードにおいては性能を高めるための宣言の目的を無効化してしまいます。
+		これは開発中にはコードの動的なエラーを見つけ易くなって良いことですが、
+		性能を高めるという宣言の目的を無効化してしまうので、プロダクションコードで使用するものではありません。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -4764,15 +4730,15 @@ Takashi Kato
       <!-- You should only use <code>DYNAMIC-EXTENT</code> -->
       <!-- where it matters for performance, -->
       <!-- and you can document why it is correct. -->
-      <code>DYNAMIC-EXTENT</code> の利用はパフォーマンスが重要である場合に限るべきです。
-      さらには、宣言の利用の正当性を文書化しておきます。
+      <code>DYNAMIC-EXTENT</code> の利用は、パフォーマンスが重要であり、
+      それらの正当性のドキュメントを提供できる場合のみとすべきです。
     </SUMMARY>
     <BODY>
       <p>
         <!-- <code>DYNAMIC-EXTENT</code> declarations are -->
         <!-- a particular case of -->
         <!-- <a href="#Unsafe_Operations">unsafe operations</a>. -->
-	<code>DYNAMIC-EXTENT</code>宣言は<a href="#Unsafe_Operations">安全でない操作</a>のケースの1つです。
+	<code>DYNAMIC-EXTENT</code>宣言は<a href="#Unsafe_Operations">安全でない操作</a>の具体例です。
       </p>
       <p>
         <!-- The purpose of a <code>DYNAMIC-EXTENT</code> declaration -->
@@ -4783,10 +4749,10 @@ Takashi Kato
         <!-- after the function is called, and -->
         <!-- the object is always inaccessible after the function exits by any means. -->
         <code>DYNAMIC-EXTENT</code> 宣言の目的は、
-        該当オブジェクトの生存期間が関数の“動的エクステント″の範囲に収まっていることが明白な場合において、
-        ガベージ・コレクションの発生を抑制することにより、パフォーマンスを向上させることにあります。
-        この動作が意味するところは、関数が呼ばれることにより、ある時点で該当オブジェクトが生成されるとして、
-        この関数の実行が終了した後には、該当オブジェクトには、どのような意味でも常にアクセス不可能になる、ということです。
+        該当オブジェクトの生存期間が関数の“動的エクステント″内にあることが明白だと思われる場合に、
+        ガベージ・コレクションを抑制してパフォーマンスを向上させることにあります。
+        「動的エクステント内にある」とは、関数の呼び出し後ある時点でオブジェクトが生成されるとして、
+        この関数の実行が終了した後にはそのオブジェクトには如何なる手段でも常にアクセス不可能だ、ということです。
       </p>
       <p>
         <!--
@@ -4798,25 +4764,25 @@ Takashi Kato
         that declares the variable.
         もってまわりすぎ？
         -->
-        変数や局所関数に<code>DYNAMIC-EXTENT</code>宣言を付けることにより、プログラマは、
-        変数やクロージャーの寿命は(最内周の)関数の動的エクステント内であることを、Lisp処理系に<em>強引に指定</em>することになります。
+        変数や局所関数が<code>DYNAMIC-EXTENT</code>だと宣言することで、プログラマは、
+        一度でもその変数の値になったオブジェクトや関数の定義であるクロージャーの寿命はその変数を宣言した(最内周の)関数の動的エクステント内であることを、Lisp処理系に<em>表明</em>します。
       </p>
       <p>
         <!-- The Lisp implementation is then free to use that information -->
         <!-- to make the program faster. -->
-        宣言時、Lisp処理系は、任意でこの情報をプログラムの速度向上のために活用することができます。
+        Lisp処理系は任意でこの情報をプログラムの速度向上のために活用することができます。
         <!-- Typically, Lisp implementations can take advantage of this knowledge -->
         <!-- to stack-allocate: -->
-        典型的には、Lisp処理系は、この知識をスタック割付けに役立てます:
+        典型的には、Lisp処理系はこの知識を以下のスタック割付けに役立てます:
       </p>
       <ul>
         <li>
           <!-- The lists created to store <code>&amp;REST</code> parameters. -->
-          <code>&amp;REST</code> 引数により作られるリスト
+          <code>&amp;REST</code> 引数で作られるリスト
         </li>
         <li>
           <!-- Lists, vectors and structures allocated within a function. -->
-          アロケートが関数内で収まっているリスト、ベクタ、構造体
+          関数内にアロケートされるリスト、ベクタ、構造体
         </li>
         <li>
           <!-- Closures. -->
@@ -4829,20 +4795,20 @@ Takashi Kato
         <!-- Lisp can terminate any time after the function returns, -->
         <!-- or it can hang forever, or — worst of all — -->
         <!-- it can produce incorrect results without any runtime error! -->
-	もし指定が間違っていれば、つまりプログラマの主張が真でなければ、<em>大災害</em>にもなるでしょう:
-	Lispは[dynamic-extent指定をした]関数の値が返るときいつでも終了、あるいはフリーズ、最悪の場合エラーすら起さずに間違った値を返し得ます。
+	もし表明が間違っていれば、つまりプログラマの主張が真でなければ、<em>大惨事</em>になりかねません:
+	Lispは[dynamic-extent指定をした]関数から返ってから、どんなタイミングでも終了やフリーズしかねず、最悪の場合では何の実行時エラーを起さずに間違った値を返すことがあります。
       </p>
       <p>
         <!-- Even if the assertion is correct, -->
         <!-- future changes to the function might introduce -->
         <!-- a violation of the assertion. -->
-	もし指定が正しかったとしても将来関数を変更するときに暴発しかねません。
+	たとえ表明が正しかったとしても将来関数を変更するときに表明に違反してしまうかもしれません。
         <!-- This increases the danger. -->
-	危険性は増大します。
+	これは危険です。
       </p>
       <p>
         <!-- In most cases, such objects are ephemeral. -->
-	たいていの場合、そのような[dynamic-extent宣言を付けたくなるような]オブジェクトは短命です。
+	大抵の場合そのような[dynamic-extent宣言を付けたくなるような]オブジェクトは短命です。
         <!-- Modern Lisp implementations use generational garbage collectors, -->
         <!-- which are quite efficient under these circumstances. -->
 	モダンなLisp処理系は世代別ガーベジコレクションを使いますが、それはこのような状況においては非常に効率的です。
@@ -4850,7 +4816,7 @@ Takashi Kato
       <p>
         <!-- Therefore, <code>DYNAMIC-EXTENT</code> declarations -->
         <!-- should be used sparingly. You must only use them if: -->
-	それゆえ、<code>DYNAMIC-EXTENT</code>宣言は滅多に使うべきではありません。使うべき状況は:
+	それゆえ<code>DYNAMIC-EXTENT</code>宣言は滅多に使うべきではありません。使ってもいい状況は:
       </p>
       <ol>
         <li>
@@ -4860,18 +4826,18 @@ Takashi Kato
         </li>
         <li>
           <!-- It is absolutely clear that the assertion is true. -->
-	  その指定が自明に正しい。
+	  その表明が自明に正しい。
         </li>
         <li>
           <!-- It is quite unlikely that the code will be changed -->
           <!-- in ways that cause the declaration to become false. -->
-	  その宣言が正しくなくなるような変更が加えられる可能性が非常に低い。
+	  その宣言が偽になるような変更が加えられる可能性が非常に低い。
         </li>
       </ol>
       <p>
         <!-- Point (1) is a special case of -->
         <!-- the principle of avoiding premature optimization. -->
-	1つめの項目は早過ぎる最適化を避けるの原則の特別な場合です。
+	1つ目の項目は早過ぎる最適化を避ける原則の特例です。
         <!-- An optimization like this only matters if such objects -->
         <!-- are allocated at a very high rate, e.g. "inside an inner loop". -->
 	このような最適化は「[ネストした]内側のループの中」などの非常に高い頻度でアロケートされるような場合にのみ意味があります。
@@ -4883,16 +4849,16 @@ Takashi Kato
         <!-- what other functions it is passed to; -->
         <!-- therefore, you should somewhat wary of declaring a function -->
         <!-- <code>DYNAMIC-EXTENT</code>, but this is not a high-stress declaration. -->
-	関数がどこで呼ばれてどの別の関数に渡されるかを分析すれば、その関数が現在のコールフレームの動的スコープを抜けないことを突き止めることは比較的容易なので、関数に<code>DYNAMIC-EXTENT</code>を宣言するときは用心する必要はありますが、これはそれほどストレスの高いものではないことを覚えておきましょう。
+	関数がどこで呼ばれてどの関数に渡されるかを分析すれば、その関数が現在のコールフレームの動的エクステントを抜けないことを比較的容易に確かめられるので、関数に<code>DYNAMIC-EXTENT</code>を宣言するときは幾分用心すべきですが、これはそれほどストレスの高いものではないことを覚えておきましょう。
         <!-- On the other hand, it is much harder to ascertain that -->
         <!-- none of the objects ever bound or assigned to that variable -->
         <!-- and none of their sub-objects -->
         <!-- will escape the dynamic extent of the current call frame, -->
         <!-- and that they still won't in any future modification of a function. -->
-	逆に、ある変数に束縛されたオブジェクトとそのサブオブジェクトのどれもが現在のコールフレームの動的エクステントを抜けない、そして将来の修正のときにも影響も受けないことを確実にするのは非常に困難を極めます。
+	逆に、その変数に一度でも束縛や代入されたオブジェクトとそのサブオブジェクトのどれもが現在のコールフレームの動的エクステントを抜けないことと、将来の修正でもそれは変わらないことを突き止めるのは非常に困難を極めます。
         <!-- Therefore, you should be extremely wary -->
         <!-- of declaring a variable <code>DYNAMIC-EXTENT</code>. -->
-	それゆえ、変数に<code>DYNAMIC-EXTENT</code>を宣言するときは細心の注意を払いましょう。
+	それゆえ、変数に<code>DYNAMIC-EXTENT</code>を宣言するときは細心の注意を払うべきです。
       </p>
       <p>
         <!-- It's usually hard to predict the effect of such optimization on performance.  -->
@@ -4900,12 +4866,12 @@ Takashi Kato
         <!-- When writing a function or macro -->
         <!-- that is part of a library of reusable code, -->
         <!-- there's no a priori way to know how often the code will run. -->
-	再利用可能なライブラリの一部として関数やマクロを定義するときはどのくらい使われるかを知る有効な手段はありません。
+	再利用可能なライブラリとして関数やマクロを定義しているとき、どのくらい使われるかを推測する手段はありません。
         <!-- Ideally, tools would be available to discover -->
         <!-- the availability and suitability of using such an optimization -->
         <!-- based on running simulations and test cases, but -->
         <!-- in practice this isn't as easy as it ought to be. -->
-	理想的には、シュミレーションをしてそのような最適化が使えるか、適当であるかを判断するツールが使えると良いのですが、実際には難しいものがあります。
+	理想的には、シュミレーションとテストでそのような最適化の有用性と適当性を判断するツールが使えると良いのですが、実際には難しいものがあります。
 	<!-- in practice this isn't as easy as it ought to beを意訳しました -->
         <!-- It's a tradeoff. -->
 	トレードオフです。
@@ -4915,7 +4881,7 @@ Takashi Kato
         <!-- and it's not obvious how much time will be saved -->
         <!-- and it's not easy to measure, -->
         <!-- then it may be better to put in the declaration than to leave it out. -->
-	変数に束縛されたオブジェクトとそのサブオブジェクトのどれもが動的[エクステントとなるような]スコープでしか使われないという絶対の自身があって、どの程度最適化の効果があるか分からず、容易に効果の測定もできないなら、そのまま放っておくよりは、宣言する方が良いでしょう。
+	（変数に束縛されたオブジェクトとそのサブオブジェクトのどれもがあるスコープの動的エクステント内でしか使われないという）表明に絶対の自信がある、最適化でどの程度時間が節約されるか分からない、容易に効果の測定もできないなら、そのまま放っておくよりは、宣言する方が良いかもしれません。
         <!-- (Ideally it would be easier to make such measurements -->
         <!-- than it actually is.) -->
 	(もっと測定が容易であれば良いのですが。)
@@ -4927,7 +4893,7 @@ Takashi Kato
     <SUMMARY>
       <!-- You should use <code>REDUCE</code> -->
       <!-- instead of <code>APPLY</code> where appropriate. -->
-      <code>APPLY</code> を利用する方がより適切な場合を除いて <code>REDUCE</code> を利用すべきです。
+      <code>APPLY</code> を利用する方が適切な場合を除いて <code>REDUCE</code> を利用すべきです。
     </SUMMARY>
     <BODY>
       <p>
@@ -4938,8 +4904,8 @@ Takashi Kato
         <!-- Of course, you must use <code>APPLY</code> -->
         <!-- if it does what you want and <code>REDUCE</code> doesn't. -->
         <!-- For instance -->
-        第一引数の関数の意味論が同じと保証されるなら、<!-- ? -->
-        リストを作って<code>APPLY</code>する代りに<code>REDUCE</code>を使うべきです。 
+        リストを作って<code>APPLY</code>するのではなく、
+        第一引数の関数の意味論が<code>APPLY</code>と違い同じだと保証されている<code>REDUCE</code>を使うべきです。 
         勿論、<code>REDUCE</code>では駄目で、求めるものが<code>APPLY</code>であるなら使わなければなりません。
         例えば:
       </p>
@@ -4957,8 +4923,8 @@ Takashi Kato
         <!-- on implementations where that limit is small, -->
         <!-- which could blow away the stack on long lists -->
         <!-- (we want to avoid gratuitous non-portability in our code). -->
-        これは、余計なコンスをしないのと、<code>CALL-ARGUMENTS-LIMIT</code>
-        の上限が小さい処理系において、長いリストでスタックをあふれさせるリスクがない点で好ましいと言えます。
+        これは余計なコンシングをしないのと、<code>CALL-ARGUMENTS-LIMIT</code>
+        の上限が小さい処理系において長いリストでスタックをあふれさせるリスクがない点で好ましいと言えます。
         (コードに無用な可搬性の無さを持ち込むのは避けたい)
       </p>
       <p>
@@ -4978,27 +4944,27 @@ Takashi Kato
         <!-- that properly handles those cases -->
         <!-- without burdening users with implementation details. -->
         <!-- See for instance <code>UIOP:REDUCE/STRCAT</code>. -->
-        とはいうものの、不要に計算量を増大させるような<code>REDUCE</code>の用法には注意しなければなりません。
-        例えば、<code>(REDUCE #'STRCAT ...)</code>を用いれば<i>O(n^2)</i>となりますが、
-        [<code>REDUCE</code>ではなく]適切な実装を用いた場合には<i>O(n)</i>にしかなりません。
-        加えて、<code>(REDUCE #'APPEND ...)</code>
-        もまた、<code>:FROM-END T</code>を指定しない限り<i>O(n^2)</i>となります。
-        このような場合、<code>REDUCE</code>を使ってはなりませんし、<code>(APPLY 'STRCAT ...)</code>や、<code>(APPLY 'APPEND ...)</code>も使ってはなりません。
-        代わりに、実装の詳細についてをユーザーが負担することなしに、このようなケースを上手く回せるような、
-        利用するにふさわしいライブラリ(もしかするとあなたが協力する必要もあるかもしれない)から適切な抽象化を提供するものを利用しなくてはなりません。
-        例としては、<code>UIOP:REDUCE/STRCAT</code>を参照のこと。
+        とはいうものの、計算の複雑性クラスを不要に増大させるような<code>REDUCE</code>の用法には注意しなければなりません。
+        例えば、<code>(REDUCE #'STRCAT ...)</code>は<i>O(n^2)</i>ですが、
+        [<code>REDUCE</code>ではなく]適切な実装ではたった<i>O(n)</i>です。
+        加えて、<code>(REDUCE #'APPEND ...)</code>も、
+        <code>:FROM-END T</code>を指定しなければ<i>O(n^2)</i>となります。
+        このような場合、<code>REDUCE</code>を決して使ってはなりませんし、<code>(APPLY 'STRCAT ...)</code>や、<code>(APPLY 'APPEND ...)</code>も決して使ってはなりません。
+        代わりに実装の詳細でユーザーに負担をかけることなくこのようなケースを上手く処理できる
+        相応しいライブラリ(もしかするとあなたが協力する必要もあるかもしれない)から適切な抽象化を必ず利用しなくてはなりません。
+        例としては<code>UIOP:REDUCE/STRCAT</code>を参照のこと。
       </p>
       
     </BODY>
   </STYLEPOINT>
   <!-- <STYLEPOINT title="Avoid NCONC"> -->
-  <STYLEPOINT title="NCONCの利用は控えましょう">
+  <STYLEPOINT title="NCONCの利用は避けましょう">
     <SUMMARY>
       <!-- You should not use <code>NCONC</code>; -->
       <!-- you should use <code>APPEND</code> instead, -->
       <!-- or better, better data structures. -->
-      <code>NCONC</code>は利用すべきではありません 
-      ——代りに <code>APPEND</code> を利用すべきです。さらには、よりよい他のデータ構造を利用しましょう
+      <code>NCONC</code>は利用すべきではありません。
+      代わりに <code>APPEND</code> を利用すべきです。さらには、よりよい他のデータ構造を利用しましょう。
     </SUMMARY>
     <BODY>
       <p>
@@ -5014,18 +4980,17 @@ Takashi Kato
         <!-- if you do, you must include a prominent -->
         <!-- comment explaining the use of <code>NCONC</code>; -->
         <!-- and you should probably reconsider your data representation strategy. -->
-	ほぼ必ずといって良いほど<code>NCONC</code>は使わないようにすべきです。
-	副作用を使っていないならAPPENDを使うべきです。
-        変数を更新する必要があるときなら<code>ALEXANDRIA:APPENDF</code>をつかうべきです。
+	<code>NCONC</code>はほとんど決して使うべきではありません。
+	副作用を使わないならAPPENDを使うべきです。
+        変数を更新する必要があるときは<code>ALEXANDRIA:APPENDF</code>を使うべきです。
 	
 	[トラヴァース中の?]現在のCONSセルのCDRをもてあそぶ技法に頼るのは
-	おそらくやめるべきです。
+	恐らくやめるべきです
 	(その技法が良いという人もいるかもしれませんが、
-	その動作は仕様で保証されているわけではありません.)
-        もしそういうことをするのならば、
-	<code>NCONC</code>をその場で使っているという事が
-	はっきりとわかるようなコメントを、そこに残すべきです。
-	そして、おそらくテータの表現方法を考えなおしたほうが良いでしょう。
+	その動作は仕様で保証されているわけではありません)。
+        もしそういうことをするのなら、
+	<code>NCONC</code>を使う理由がはっきりと分かるコメントを残さなければなりません。
+	そして恐らくテータの表現方法を考え直すべきです。
       </p>
       <p>
         <!-- By extension, you should avoid <code>MAPCAN</code> -->
@@ -5033,9 +4998,9 @@ Takashi Kato
         <!-- You should instead respectively use -->
         <!-- <code>ALEXANDRIA:MAPPEND</code> -->
         <!-- and the <code>APPEND</code> feature of <code>LOOP</code>. -->
-	このことの延長として、<code>MAPCAN</code>、および
+	このことの延長として、<code>MAPCAN</code>や
         <code>LOOP</code>の<code>NCONC</code>節の使用も避けるべきです。
-	それらの代わりに、対応してそれぞれ
+	代わりに、それぞれ
         <code>ALEXANDRIA:MAPPEND</code>と
 	<code>LOOP</code>の<code>APPEND</code>節を使うべきです。
       </p>
@@ -5045,10 +5010,10 @@ Takashi Kato
         <!-- its space complexity class also is no better than <code>APPEND</code> -->
         <!-- in the common case where no one else is sharing the side-effected list, -->
         <!-- and its bug complexity class is way higher than <code>APPEND</code>. -->
-	<code>NCONC</code>が良い考えであることはほとんどありません。なぜなら、
-	まず、計算時間複雑性が <code>APPEND</code>と変わりませんし、
-        空間複雑性も<code>APPEND</code>と大抵変わりません(副作用つきのリストが共有されていない場合)。
-	そのくせバグの複雑性は<code>APPEND</code>よりはるかに高くなります。
+	<code>NCONC</code>が良い考えであることは本当に滅多にありません。なぜなら、
+	計算時間複雑性クラスは <code>APPEND</code>と変わりませんし、
+        [<code>NCONC</code>の]副作用の影響を受けるリストが他と共有されていない一般的なケースでは空間複雑性クラスも<code>APPEND</code>と変わりませんし、
+	そしてバグ複雑性クラスは<code>APPEND</code>よりはるかに高くなるからです。
       </p>
       <p>
         <!-- If the small performance hit due -->
@@ -5063,10 +5028,10 @@ Takashi Kato
 	もし<code>APPEND</code> vs. <code>NCONC</code>のわずかな性能の差が
 	あなたのプログラムの性能を頭打ちにする主な要因だというのなら、
         あなたは大きな問題を抱えており、恐らく間違ったデータ構造を使っています。
-	O(1)のAPPENDができる種類のsequenceを使いましょう
+	定数時間でAPPENDができる種類のsequenceを使うべきです
 	(Okasaki<!-- Chris Okasaki -->の本を参照し、lisp-interface-libraryにそれを実装して追加してください)。
-	あるいは、もっと簡単に、木構造にデータを溜めておけば、
-	溜め終わったら線形時間でそれをflattenできるのでよいでしょう。
+	あるいはもっと簡単に、木構造にデータを溜めておけば、
+	線形時間で一気にflattenできるのそうするべきです。
 	(ASDFのやり方を参照しましょう)
       </p>
       <p>
@@ -5082,15 +5047,14 @@ Takashi Kato
         <!-- and accompanied by justifying documentation. -->
 	<code>NCONC</code>や<code>MAPCAN</code>、
 	および<code>LOOP</code>の<code>NCONC</code>節を使っていいのは、
-	次に挙げるような条件を満たす、低層の関数の中だけに限られるべきです。
+	次に挙げるような条件を満たす、低層の関数の中だけです。
 	一、性能が重要であるとき。
-	二、リストが十分に短くその使用が十分に精査されているとき。
-	三、書かれる関数やコード片が新規のリストを返すことを
-	明示的に誓約するとき。
-	(具体的には、それが定数のquoteやbackqupteの式とならない場合)
+	二、リストが十分に短くその使用法が十分に精査されているとき。
+	三、書かれる関数やコード片が累算した結果を返す時それが新規リストであることを
+	明示的に契約されているとき(具体的には、それが定数のquoteやbackquoteの式とならない場合)。
 	これらの条件を満たすような時であっても、
 	それらの命令は滅多なことでは使ってはなりませんし、
-	その使用を正当化するドキュメントを添付する必要があります。
+	その使用を正当化するドキュメントを添付しなければなりません。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -5113,10 +5077,10 @@ Takashi Kato
         <!-- refers to the symbol, which when called -->
         <!-- uses the global <code>FDEFINITION</code> of the symbol. -->
 	前者は <code>(FUNCTION FUN)</code>として読まれ、
-	関数オブジェクトを指し、そしてレキシカルスコープをもちます。
+	関数オブジェクトを指し、そしてレキシカルスコープを持ちます。
 	後者は<code>(QUOTE FUN)</code>と読まれ、シンボルを指し、
 	関数として呼ばれた時にはシンボルのグローバルな
-	<code>FDEFINITION</code>が使われます。
+	<code>FDEFINITION</code>を使います。
       </p>
       <p>
         <!-- When using functions that take a functional argument -->
@@ -5126,15 +5090,15 @@ Takashi Kato
         <!-- not just single quote. -->
 	関数を引数に取る関数を使うときは(例:<code>MAPCAR</code>,
 	<code>APPLY</code>,ないし<code>:TEST</code>や<code>:KEY</code>
-	引数),関数を指定するのには<code>#'</code>を使うべきで、ただのシ
-	ングルクオートを使うべきではありません。
+	引数)、関数の指定には<code>#'</code>を使うべきで、シ
+	ングルクオートだけを使うべきではありません。
       </p>
       <p>
         <!-- An exception is when you explicitly want dynamic linking, -->
         <!-- because you anticipate that -->
         <!-- the global function binding will be updated. -->
-	例外は、グローバルな関数束縛が変更された時のために、
-	ダイナミックな参照を得たい時です。
+	例外は、グローバルな関数束縛の更新を見込んで、
+	明示的に動的な参照が欲しい時です。
       </p>
       <p>
         <!-- Another exception is when you explicitly want to access -->
@@ -5146,10 +5110,10 @@ Takashi Kato
         <!-- This shouldn't happen often, as it is usually a bad idea -->
         <!-- to shadow a function when you will want to use the shadowed function; -->
         <!-- just use a different name for the lexical function. -->
-	これはまれにしか起こっては行けません。
-	なぜなら、関数を参照する予定があるのなら、
-	それをシャドウすべきではないからです。
-	そういう時は単純に、レキシカルな束縛に別の名前を使うべきです。
+	これは頻繁に起こらないはずです。
+	なぜなら、関数を参照する予定があるのに
+	それをシャドウするのは、通常まずい考えだからです。
+	そういう時は単純にレキシカル関数には別の名前を使います。
       </p>
       <p>
         <!-- You must consistently use either <code>#'(lambda ...)</code> -->
@@ -5157,11 +5121,10 @@ Takashi Kato
         <!-- Unlike the case of <code>#'symbol</code> vs <code>'symbol</code>, -->
         <!-- it is only a syntactic difference with no semantic impact, -->
         <!-- except that the former works on Genera and the latter doesn't. -->
-	<code>lambda</code>を使うなら、書き方は
 	<code>#'(lambda ...)</code>か、<code>#'</code>なしの
-	<code>(lambda ...)</code>に統一すべきです。
+	<code>(lambda ...)</code>に全ての場所で統一しなければなりません。
         この場合は<code>#'symbol</code> vs <code>'symbol</code>の場合とは異なり、
-	意味論上の問題のない単なる構文上の問題です。
+	意味論上の問題のない単なる構文上の違いです。
 	唯一ある違いといえば、[Lispマシンの]Generaの上では前者しか動かないというだけです。
         <!-- You must use the former style if your code is intended as a library -->
         <!-- with maximal compatibility to all Common Lisp implementations; -->
@@ -5173,12 +5136,12 @@ Takashi Kato
         <!-- Choose wisely, but above all, -->
         <!-- consistently with yourself and other developers, -->
         <!-- within a same file, package, system, project, etc. -->
-	全Common Lisp実装への最大限の対応を意図するときには、
+	全Common Lisp実装への互換性を最大限意識しているライブラリーを意図しているときには、
 	前者の記法を使わなくてはなりません。
-        そうでないなら、どちらのスタイルでも任意です。
-        <code>#'</code>は、コード中で関数であることを示すヒントとなることがありえます。
-	しかし、<code>lambda</code>自体もふつう十分なヒントになりますし、十分に丁寧です。
-	お好きな方をどうぞ。しかし何に置いても、スタイルを統一することが重要です。
+        そうでないなら、どちらのスタイルかは任意です。
+        <code>#'</code>は式のコンテキストで関数を導入しようとしていることを示すヒントとなりえます。
+	しかし<code>lambda</code>自体も普通十分なヒントになりますし、簡潔さはいいことです。
+	お好きな方をどうぞ。しかし何に置いてもスタイルの統一が重要です。
 	自分の書く中で、あるいは他の開発者間で、あるいはファイル内で、
         あるいはパッケージ内、あるいはシステム内、プロジェクト内でも。
       </p>
@@ -5194,7 +5157,7 @@ Takashi Kato
 	加えて、関数型スタイルを重用してシステムを新規に書き始める際は、
 	<a href="http://cliki.net/lambda-reader">lambda-reader</a>の使用を考えてみても良いでしょう。
 	これは、Unicodeの<code>λ</code>を<code>LAMBDA</code>の代わりに使えるライブラリです。
-	しかし、既にあるシステムに他の開発者の賛同なくこういった構文拡張を導入してはなりません。
+	しかし、他の開発者の許可なく既存のシステムにこういった構文拡張を導入してはなりません。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -5202,18 +5165,18 @@ Takashi Kato
   <STYLEPOINT title="パスネーム">
     <SUMMARY>
       <!-- Common Lisp pathnames are tricky. Be aware of pitfalls. Use <code>UIOP</code>.-->
-      Common Lisp のパスネームはトリッキーです。落とし穴にはまらないよう注意しましょう。<code>UIOP</code>を使いましょう。
+      Common Lisp のパスネームはトリッキーです。落とし穴に注意しましょう。<code>UIOP</code>を使いましょう。
     </SUMMARY>
     <BODY>
       <p>
         <!-- It is surprisingly hard to properly deal with pathnames in Common Lisp. -->
-	Common Lispでパスネームを適切に扱うのは驚くほど難しいです。
+	Common Lispでパスネームを適切に扱うのは驚くほど困難です。
         <!-- <code>ASDF 3</code> comes with a portability library <code>UIOP</code> -->
         <!-- that makes it <em>much</em> easier to deal with pathnames -->
         <!-- portably — and correctly — in Common Lisp. -->
         <!-- You should use it when appropriate. -->
-        <code>ASDF 3</code>に同梱の可搬性のあるライブラリである<code>UIOP</code>は、
-        パスネームの扱いに可搬性 —と正確さ— をCommon Lispに持たせることを<em>より</em>簡単にします。
+        <code>ASDF 3</code>に同梱された可搬性ライブラリ<code>UIOP</code>は、
+        可搬性—と正確さ—のある方法でCommon Lispでパスネームを扱うことが<em>遥かに</em>簡単に出来るようになります。
         適切な場合にはこれを使うべきです。
       </p>
       <p>
@@ -5222,17 +5185,17 @@ Takashi Kato
         <!-- which depends on which implementation and operating system -->
         <!-- you are using, -->
         <!-- and the native syntax of pathnames on your operating system. -->
-	まず、Common Lispのパスネームのシンタックスは処理系、OS、そしてOS自体のパスネームの記法による食い違いがあることに気をつけましょう。
+	第一に、Common Lispのパスネームのシンタックスが使用中の処理系とOSに依存していること、そしてそのシンタックスと使用中のOSのパスネームのシンタックスに食い違いがあることに気をつけましょう。
         <!-- The Lisp syntax may involves quoting of special characters -->
         <!-- such as <code>#\.</code> and <code>#\*</code>, etc., -->
         <!-- in addition to the quoting of -->
         <!-- <code>#\\</code> and <code>#\"</code> within strings. -->
-	Lispのシンタックスでは文字列の<code>#\\</code>や<code>#\"</code>のクォートに加えて<code>#\.</code>や<code>#\*</code>などの特殊文字のクオートも含みます
+	Lispのシンタックスは文字列の<code>#\\</code>や<code>#\"</code>のクォートに加えて<code>#\.</code>や<code>#\*</code>などの特殊文字のクオートが関わります。
         <!-- By contrast, your operating system's other -->
         <!-- system programming languages -->
         <!-- (shell, C, scripting languages) -->
         <!-- may only have one layer of quoting, into strings. -->
-	対照的に、あなたのOSの[Lisp以外の]別のシステムプログラミング言語(shell, C, スクリプト言語)は文字列にするというクォートしかないでしょう。
+	対照的に、あなたのOSの[Lisp以外の]システムプログラミング言語(shell, C, スクリプト言語)は文字列の一段階のクォートしかないかもしれません。
 	<!-- ちょっと自信ないです(κeen) -->
       </p>
       <p>
@@ -5240,7 +5203,7 @@ Takashi Kato
         <!-- be wary of the treatment of the <code>HOST</code> component, -->
         <!-- which matters a lot on non-Unix platforms -->
         <!-- (and even on some Unix implementations). -->
-	次に、<code>MERGE-PATHNAMES</code>を使うときには<code>HOST</code>の扱いに気を配りましょう。これは多くのUNIX以外(そして一部のUNIXでさえ)問題になります。
+	第二に、<code>MERGE-PATHNAMES</code>を使うときは<code>HOST</code>の扱いに気を配りましょう。これはUNIX以外(そして一部のUNIXでさえ)大問題になります。
         <!-- You probably should be using -->
         <!-- <code>UIOP:MERGE-PATHNAMES*</code> or <code>UIOP:SUBPATHNAME</code> -->
         <!-- instead of <code>MERGE-PATHNAMES</code>, -->
@@ -5252,13 +5215,13 @@ Takashi Kato
         <!-- and replace it with the host from the value of -->
         <!-- <code>*DEFAULT-PATHNAME-DEFAULTS*</code> -->
         <!-- at the time the relative pathname was created. -->
-	特に相対パスがUnixやWindowsでのやり方のように伝えられる<!--渡される？-->と期待しているなら<code>MERGE-PATHNAMES</code>ではなく<code>UIOP:MERGE-PATHNAMES*</code>もしくは<code>UIOP:SUBPATHNAME</code>を使うべきなのかもしれません。そうでなければ一部の処理系で相対パスと絶対パスを結合したときに絶対パスのホスト名が相対パスが作られたときの<code>*DEFAULT-PATHNAME-DEFAULTS*</code>のホストの値で上書きされるという奇妙なバグにぶつかるでしょう。 
+	特に相対パスがUnixやWindowsと同じように扱われると期待しているなら、<code>MERGE-PATHNAMES</code>ではなく<code>UIOP:MERGE-PATHNAMES*</code>や<code>UIOP:SUBPATHNAME</code>を使うべきでしょう。そうしないと、相対パスと絶対パスを結合したときに絶対パスのホストが上書きされ、その相対パスが作られた時点での<code>*DEFAULT-PATHNAME-DEFAULTS*</code>のホストの値に置き換わるという一部の処理系の奇妙なバグにぶつかるかもしれません。 
       </p>
       <p>
         <!-- Third, be aware that <code>DIRECTORY</code> -->
         <!-- is not portable across implementations -->
         <!-- in how it handles wildcards, sub-directories, symlinks, etc. -->
-	3つ目に、<code>DIRECTORY</code>はワイルドカード、サブディレクトリ、シンボリックリンクなどの扱いに処理系毎の違いがあることに気を付けましょう。
+	第三に、<code>DIRECTORY</code>はワイルドカード、サブディレクトリ、シンボリックリンクなどの扱いに処理系毎の違いがあり、移植性がないことに気を付けましょう。
         <!-- There again, <code>UIOP</code> provides several -->
         <!-- common abstractions to deal with pathnames,
              but only does so good a job.
@@ -5266,44 +5229,44 @@ Takashi Kato
              though its Windows support lags behind.
         -->
 	繰り返しますが、<code>UIOP</code>はパスネームを扱うのにいくつかの抽象化を提供しています。
-        しかし、良い仕事をしているのは、これだけではありません。ポータブルさに完全を期すならIOLibを使いましょう — Windows対応が遅かったりはしますが。
+        頼り切ってください。ポータブルさに完全を期すならIOLibを使いましょう — Windows対応が遅かったりはしますが。
       </p>
       <p>
         <!-- <code>LOGICAL-PATHNAME</code>s are not a portable abstraction, -->
         <!-- and should not be used in portable code. -->
-	<code>LOGICAL-PATHNAME</code>は可搬性のある抽象化は提供していないので可搬性が必要なコードには使うべきではありません。
+	<code>LOGICAL-PATHNAME</code>は可搬性のある抽象化ではないので可搬性が必要なコードには使うべきではありません。
         <!-- Many implementations have bugs in them, when they are supported at all. -->
-	全ての処理系でサポートされているにも関わらず、多くの処理系でバグがあります。
+	多くの処理系でサポートされていることになっていてもバグがあります。
         <!-- SBCL implements them very well, -->
         <!-- but strictly enforces the limitations on characters -->
         <!-- allowed by the standard, which restricts their applicability. -->
-	SBCLは良く実装されていますが、それが準拠している標準に許可されている文字制限を押しつけてきます。 <!-- ??? -->
+	SBCLでは良く実装されていますが、標準が認めている文字種制限を厳密に押しつけてくるので、使い勝手が悪くなっています。
         <!-- Other implementations allow arbitrary characters in such pathnames, -->
         <!-- but in doing so are not being conformant, -->
         <!-- and are still incompatible with each other in many ways. -->
-	他の処理系は独自の判断でそのような文字を許可してはいますが、処理系毎にバラバラで、多くの点で互換性がありません。
+	他の処理系はパスネームで任意の文字を許可していますが、そうすることは仕様から逸脱していますし、処理系毎にバラバラで、多くの点で互換性がありません。
         <!-- You should use other pathname abstractions, -->
         <!-- such as <code>ASDF:SYSTEM-RELATIVE-PATHNAME</code> or -->
         <!-- the underlying <code>UIOP:SUBPATHNAME</code>. -->
-	<code>ASDF:SYSTEM-RELATIVE-PATHNAME</code>やその下敷になっている<code>UIOP:SUBPATHNAME</code>などの別の抽象化を使うべきです。
+	<code>ASDF:SYSTEM-RELATIVE-PATHNAME</code>やその下敷になっている<code>UIOP:SUBPATHNAME</code>などの別のパスネーム抽象化を使うべきです。
       </p>
       
       <p>
         <!-- Finally, be aware that paths may change between -->
         <!-- the time you build the Lisp image for your application, -->
         <!-- and the time you run the application from its image. -->
-	最後に、パスネームはアプリケーション用にLispイメージを作ったときとそのイメージから実行したときで異なることに気を付けましょう。
+	最後に、パスはアプリケーション用にLispイメージを作ったときとそのイメージからアプリケーションを実行したときで異なるかもしれないことに気を付けましょう。
         <!-- You should be careful to reset your image -->
         <!-- to forget irrelevant build-time paths and -->
         <!-- reinitialize any search path from current environment variables. -->
-	ビルド時の不適切なパスネームを破棄し、環境変数から再度起点のパスを初期化するように注意するべきです。
+	不適切となったビルド時のパスを破棄し、現在の環境変数から再度サーチパスを初期化するように注意するべきです。
         <!-- <code>ASDF</code> for instance requires you to reset its paths -->
         <!-- with <code>ASDF:CLEAR-CONFIGURATION</code>. -->
         <!-- <code>UIOP</code> provides hooks -->
         <!-- to call functions before an image is dumped, -->
         <!-- from which to reset or <code>makunbound</code> relevant variables. -->
-	例えば<code>ASDF</code>は<code>UIOP:CLEAR-CONFIGURATION</code>でリセットすることを要求します。
-        <code>UIOP</code>は、イメージをダンプする前に関連する変数をリセットしたり、<code>makunbound</code>するために関数を呼ぶためのフックを提供しています。
+	例えば<code>ASDF</code>は<code>UIOP:CLEAR-CONFIGURATION</code>でパスをリセットすることを要求します。
+        <code>UIOP</code>は、イメージをダンプする前に関数を呼ぶフックを提供していて、そこから関連する変数を、リセットしたり<code>makunbound</code>することが出来ます。
       </p>
       
     </BODY>
@@ -5314,7 +5277,7 @@ Takashi Kato
     <SUMMARY>
       <!-- You must be careful when using a <code>SATISFIES</code> clause in a type specifier.
       -->
-      <code>SATISFIES</code> 型識別子を使うときは気をつけましょう。
+      型識別子に <code>SATISFIES</code> 節を使うときは気を付けなければなりません。
     </SUMMARY>
     <BODY>
       <p>
@@ -5327,11 +5290,11 @@ Takashi Kato
         <!-- describes the structure of the object -->
         <!-- without any <code>SATISFIES</code> -->
         <!-- and the second term is the <code>SATISFIES</code>. -->
-	ほとんどのlisp処理系は <code>SATISFIES</code> で定義された型を
-	最適化できません。一方、 <code>(AND FOO (SATISFIES
-	BAR-P))</code> という形の型ならば簡単な最適化を行います。すなわち、
-	<code>AND</code> 節の最初の型が <code>SATISFIES</code> なしの型であり、
-	２つ目の型が <code>SATISFIES</code> 型である時です。
+	ほとんどのLisp処理系は <code>SATISFIES</code> で定義された型に基づいて
+	最適化は出来ませんが、その内の多くでは <code>(AND FOO (SATISFIES
+	BAR-P))</code> という形の型ならば簡単な最適化を行います。
+	<code>AND</code> 節の最初の項が <code>SATISFIES</code> なしでオブジェクトの構造を表し、
+	２つ目の項が <code>SATISFIES</code> である時です。
       </p>
       <BAD_CODE_SNIPPET>
         (deftype prime-number () (satisfies prime-number-p)) ; 悪い例
@@ -5339,6 +5302,7 @@ Takashi Kato
       <CODE_SNIPPET>
         (deftype prime-number () (and integer (satisfies prime-number-p)) ; 良い例
       </CODE_SNIPPET>
+      <p>
       <!--
           However, <code>AND</code> in the <code>DEFTYPE</code> language
           isn't a left-to-right short-circuit operator
@@ -5353,32 +5317,29 @@ Takashi Kato
           Implementations may, and some <em>will</em>,
           invoke <code>SATISFIES</code>-specified function
           at compile-time to test various relevant objects.
-          </p>
-          <p>
+      -->
+        ただし、 <code>DEFTYPE</code> の書式での <code>AND</code> は、
+        通常の式で使う <code>AND</code> のような左から右へ評価する短絡演算子ではありません。
+        これはただの「対称」の型連結子であり、
+        子項の並べ変えを許し、短絡は保証されません。そのため、上の例では、
+        <code>PRIME-NUMBER-P</code> の引数に与えられるのが必ず
+        <code>INTEGER</code>になる、というような推測は間違いとなります。
+         
+        コンパイル時、処理系は <code>SATISFIES</code> で記された関数を呼び出し、
+        関連するオブジェクトの検査に使うことが許されていますし、あるもの
+        は<em>実際に</em>そうします。
+      </p>
+      <p>
+          <!--
           That is why any function specified in a <code>SATISFIES</code> clause
           MUST accept objects of any type as argument to the function,
           and MUST be defined within an <code>EVAL-WHEN</code>
           (as well as any variable it uses or function it calls):
-      -->
-      <p>
-        ただし、 <code>DEFTYPE</code> 中の <code>AND</code> は、通常の
-        <code>AND</code>のように、左から右へ評価する短絡演算子の
-        ような動作はしません。これはただの「対称」
-        の型連結子であって、子要素を並べる仕組みを提供するだけであり、
-        そのすべての引数を必ず評価します。そのため、上の例では、
-        <code>PRIME-NUMBER-P</code> の引数に与えられるのが必ず
-        <code>INTEGER</code>になる、というような推測は間違いとなります。
-         
-        コンパイル時、処理系は <code>SATISFIES</code> で記さ
-        れた関数を呼び出し、関連するオブジェクトの検査に使うことが許されていますし、あるもの
-        は <em>なるべくそうしようと</em> します。
-      </p>
-      <p>
-	これこそが、 <code>SATISFIES</code> で指定する関数は、どんな型
-	の引数でも[エラーを出さずに]適用できるようで<em>なくてはならない</em>ことの、そ
-	して<code>EVAL-WHEN</code> の中で定義され<em>なくてはいけない
-	</em>ことの理由です。
-        (それが利用しているすべての変数や呼び出す関数についても同様)
+          -->
+	ですから、 <code>SATISFIES</code> で指定する関数は、どんな型
+	の引数でも[エラーを出さずに]受け付け<em>なくてはならず</em>、そ
+	して<code>EVAL-WHEN</code> の中で定義され<em>なくてはなりません</em>
+        (それが利用している全ての変数や呼び出す関数も<code>EVAL-WHEN</code> の中で定義しなくてはなりません)。
       </p>
       <BAD_CODE_SNIPPET>
         (defun prime-number-p (n) ; 二重に悪い
@@ -5407,35 +5368,34 @@ Takashi Kato
         when passed a non-integer as an argument. 
       -->
       <p>
-	特に、上のコードは<a
-	href="http://www.lispworks.com/documentation/HyperSpec/Body/t_satisf.htm">HyperSpec
-	の例</a>で Common Lisp 標準として示されたものが間違っていることを示しています。
-	つまり上の例では、<code>(and integer (satisfies evenp))</code> は
-	<em>危険</em>で、標準に沿った適切な型の指定方法ではないということです。
-	上の<code>EVENP</code> は、非整数の引数を渡されれば、<code>NIL</code>を返すのではなしに、エラーを投げることでしょう。
+	特に、上のコードはCommon Lisp 標準で使われている<a
+	href="http://www.lispworks.com/documentation/HyperSpec/Body/t_satisf.htm">例</a>が間違っていることを示しています。
+	<code>(and integer (satisfies evenp))</code> は
+	安全で標準に沿った型指定子では<em>ない</em>ということです。
+	なぜなら上の<code>EVENP</code> は、非整数の引数を渡されたとき、<code>NIL</code>を返すのではなく、エラーを投げることでしょう。
       </p>
       <p>
-	最後に。 <code>DEFTYPE</code> が、動的に生成される関数を伴った <code>SATISFIES</code> に展開される場合の落とし穴について触れておきましょう。
         <!-- Finally, there is a catch when your <code>DEFTYPE</code> code expands -->
         <!-- to a <code>SATISFIES</code> with a dynamically generated function: -->
+	最後に、<code>DEFTYPE</code> が動的に生成される関数を伴った <code>SATISFIES</code> に展開される場合の落とし穴について触れておきましょう。
       </p>
       <ul>
         <li>
-	  実装が いつ <code>DEFTYPE</code> を展開するか、これを制御することはできません。
+	  実装がいつ <code>DEFTYPE</code> を展開するのかしないのか、これは制御できません。
           <!-- You cannot control when implementations will or will not -->
           <!-- expand a <code>DEFTYPE</code>. -->
         </li>
         <li>
 	  <!-- The expansion itself cannot contain a function definition -->
           <!-- or any code in the expression language. -->
-	  展開結果それ自身には、関数定義や通常のlispコードを含むことができません。
+	  展開結果それ自身には関数定義や通常のLispコードを含むことができません。
         </li>
         <li>
           <!-- You cannot control when the expansion is used, -->
           <!-- it may happen in a different process -->
           <!-- that didn't expand the definition. -->
-	  展開系がいつ使われるか、これを制御することはできません。例え
-	  ば、展開を行ったのとは別のプロセスが、展開結果だけを使うこと
+	  展開系がいつ使われるか、これは制御できません。例えば、
+	  展開を行ったのとは別のプロセスが展開結果だけを使うこと
 	  も考えられます。
         </li>
       </ul>
@@ -5448,8 +5408,8 @@ Takashi Kato
         <!-- See the very last point -->
         <!-- in the discussion about <a href="#EVAL">EVAL</a>. -->
 	
-	そういうわけで、型展開時に、<code>EVAL</code>を使った展開の副作用として
-	関数を作ることはできないと考えてください。
+	そういうわけで、単純に型展開時に<code>EVAL</code>を使った展開の副作用では
+	関数を作れません。
 	そういうことをしたいなら、
         <code>ASDF-FINALIZERS:EVAL-AT-TOPLEVEL</code> を使ってください。
 	この点については、<a href="#EVAL">EVAL</a>の章でより深く議論しています。
