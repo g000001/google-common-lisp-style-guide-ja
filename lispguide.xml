@@ -300,7 +300,7 @@ Takashi Kato
         これらのガイドラインのいくつかは、よいプログラミングの普遍的な方針として設けられています。
         <!-- Some guidelines are motivated by technical peculiarities of Common Lisp. -->
 	いくつかのガイドラインは、Common Lispの技術的に特別な面に基づいています。
-        <!-- Some guidelines where once motivated by a technical reason, -->
+        <!-- Some guidelines were once motivated by a technical reason, -->
         <!-- but the guideline remained after the reason subsided. -->
 	いくつかのガイドラインは単に技術的な理由に基づいていますが、ガイドラインはその理由がなくなったときに、見直されます。
         <!-- Some guidelines, such those about as comments and indentation, -->
@@ -986,6 +986,7 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
+        <!--
         Common Lisp indentation in Emacs is provided by the cl-indent library.
         The latest version of cl-indent is packaged with
         <a HREF="http://www.common-lisp.net/project/slime/">SLIME</a>
@@ -993,8 +994,7 @@ Takashi Kato
         to load SLIME automatically using
         <a HREF="http://www.common-lisp.net/project/slime/doc/html/Loading-Contribs.html">these instructions</a>, adding slime-indentation to the list of
         contrib libraries to be loaded in the call to slime-setup.
-
-
+        -->
         EmacsでのCommon Lispの字下げは、cl-indentライブラリが提供されています。
         最新のcl-indentバージョンは、<a HREF="http://www.common-lisp.net/project/slime/">SLIME</a>に同梱されています(contrib/slime-cl-indent.el)。
         SLIMEを導入した後、EmacsがSLIMEを自動でロードするよう、<a HREF="http://www.common-lisp.net/project/slime/doc/html/Loading-Contribs.html">この手順</a>で設定します。
@@ -1079,7 +1079,6 @@ Takashi Kato
         <!-- After that <code>in-package</code> form, -->
         <!-- every file should follow with any file-specific -->
         <!-- <code>(declaim (optimize ...))</code> declaration -->
-        <!-- that is not covered by an asdf <code>:around-compile</code> hook. -->
         <!-- that is not covered by an <code>ASDF</code> <code>:around-compile</code> hook. -->
 	すべてのファイルは、<code>in-package</code>フォームのあとに、
 	<code>ASDF</code> <code>:around-compile</code>が関与しない、
@@ -1099,7 +1098,6 @@ Takashi Kato
         <!-- Indeed, whoever was the main author at the time such a mention was included -->
         <!-- might not be who eventually made the most significant contributions to the file, -->
         <!-- and even less who is responsible for the file at the moment. -->
-        <code>OWNERS</code>. 
         ファイルの先頭には作者情報を含めるべきではありません:
         より良い情報は、バージョン管理システムから得られますし、その類の情報は、混乱や面倒を引き起すだけです。
         実際のところ、ファイルにこの手のものが記載される時のメインの開発者が、そのファイルにもっとも貢献が多い人とも限りませんし、
@@ -1164,10 +1162,13 @@ Takashi Kato
 	関数のそれぞれの分割点に書き残すべきです。
       </p>
       <p>
-        <!-- Every top-level form -->
-        <!-- should be fewer than 61 lines long, -->
-        <!-- including comments but excluding the documentation string. -->
+        <!--
+        You should strive to keep top-level forms,
+        including comments but excluding the documentation string, of
+        appropriate length; preferrably short.  Forms extending beyond a
 	すべてのトップレベルフォームはコメントを含め、docstringを除いて61行以下に収めるべきです。
+        single page should be rare and their use should be justfied.
+        -->
         <!-- This applies to each of the forms in an <code>eval-when</code>, -->
         <!-- rather than to the <code>eval-when</code> itself. -->
         <!-- Additionally, <code>defpackage</code> forms may be longer, -->
@@ -1556,6 +1557,9 @@ Takashi Kato
   </STYLEPOINT>
   <STYLEPOINT title="文法と句読点"><!-- Grammar and punctuation -->
     <SUMMARY>
+      <!--
+      You should punctuate documentation correctly.
+      -->
       ドキュメントでの句読は正しく使用すべきです。
     </SUMMARY>
     <BODY>
@@ -1592,17 +1596,22 @@ Takashi Kato
         は、TODOコメントに、その問題のタイプと性質や、どのように問題に取り組めるかを、含めましょう。
       </p>
       <p>
-        <!-- The comments begin with <code>TODO</code> in all capital letters, -->
-
-
-
-        <!-- followed by your email address or other identifier in parentheses, -->
-        <!-- followed by a colon, a space, and -->
-        <!-- an explanation of what additional work is desirable or required. -->
-        <!-- The user name included in the comment is that -->
-        <!-- of a person who understands the deficiency. -->
-        <!-- A TODO comment is not a commitment to fix the problem. -->
-
+        <!--
+        The comments begin with <code>TODO</code> in all capital letters,
+        followed by the
+        
+        name, e-mail address, or other identifier
+        of the person 
+        with the best context about the problem referenced by the <code>TODO</code>.
+        The main purpose is to have a consistent <code>TODO</code> that
+        can be searched to find out how to get more details upon
+        request. A <code>TODO</code> is not a commitment that the
+        person referenced will fix the problem. Thus when you create
+        a <code>TODO</code>,
+        it is almost always your 
+        name
+        that is given.
+        -->
 	コメントはすべて大文字の<code>TODO</code>で始めて、
 	あなたの名前、Eメールアドレス、もしくは、その他個人の識別に使えるID(<code>TODO</code>に記載された問題の処理担当者の文脈でベストなもの)から始めます。
         主な目的は<code>TODO</code>を一貫したものとして、必要に応じてどうやったら事の詳細を知ることができるか、を見付けられるようにすることです。
@@ -1695,7 +1704,6 @@ Takashi Kato
   <STYLEPOINT title="シンボル書法のガイドライン">
     <SUMMARY>
       <!-- You should use lower case. -->
-      <!-- You should not abbreviate. -->
       <!-- You should follow the rules for <a href="#Spelling_and_Abbreviations">Spelling and Abbreviations</a> -->
       <!-- You should follow punctuation conventions. -->
       小文字を用いるべきです。
@@ -2624,7 +2632,9 @@ Takashi Kato
 	  もしそうした場合、コンディションが始末されないと、
 	  スタックトレースは、再通知された地点で停止し、
 	  残りを隠してしまいます。
+          <!--
           And the rest is the part we really care about!
+          -->
           <BAD_CODE_SNIPPET>
             ;; 悪い例
             (handler-case
@@ -4805,7 +4815,6 @@ Takashi Kato
           <code>&amp;REST</code> 引数により作られるリスト
         </li>
         <li>
-          <!-- Lists and vector allocated within a function. -->
           <!-- Lists, vectors and structures allocated within a function. -->
           アロケートが関数内で収まっているリスト、ベクタ、構造体
         </li>
@@ -4879,7 +4888,6 @@ Takashi Kato
         <!-- none of the objects ever bound or assigned to that variable -->
         <!-- and none of their sub-objects -->
         <!-- will escape the dynamic extent of the current call frame, -->
-        <!-- nor will in any future modification of a function. -->
         <!-- and that they still won't in any future modification of a function. -->
 	逆に、ある変数に束縛されたオブジェクトとそのサブオブジェクトのどれもが現在のコールフレームの動的エクステントを抜けない、そして将来の修正のときにも影響も受けないことを確実にするのは非常に困難を極めます。
         <!-- Therefore, you should be extremely wary -->
@@ -4961,10 +4969,6 @@ Takashi Kato
         <!-- when an appropriate implementation is only <i>O(n)</i>. -->
         <!-- Moreover, <code>(REDUCE 'APPEND ...)</code> -->
         <!-- is also <i>O(n^2)</i> unless you specify <code>:FROM-END T</code>. -->
-
-        <!-- In such cases, you must use proper abstractions -->
-        <!-- that cover those cases instead of calling <code>REDUCE</code>, -->
-        <!-- first defining them in a suitable library if need be. -->
 
         <!-- In such cases, you MUST NOT use <code>REDUCE</code>, -->
         <!-- and you MUST NOT use <code>(APPLY 'STRCAT ...)</code> -->
@@ -5091,8 +5095,6 @@ Takashi Kato
     </BODY>
   </STYLEPOINT>
 </CATEGORY>
-
-
 
 <CATEGORY title="Pitfalls">
     <STYLEPOINT title="#'FUN vs. 'FUN">
