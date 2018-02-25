@@ -248,7 +248,7 @@ Takashi Kato
               This word, or the adjective "OPTIONAL",
               means that an item is truly optional.
               -->
-              語「できるでしょう／しても良い:"MAY"」や形容詞「任意に:"OPTIONAL"」はその項目は完全に任意であることを意味します。
+              語「しても良い:"MAY"」や形容詞「任意に:"OPTIONAL"」はその項目は完全に任意であることを意味します。
             </p>
           </td>
         </tr>
@@ -301,20 +301,20 @@ Takashi Kato
     <BODY>
       <p>
         <!-- Some of these guidelines are motivated by universal principles of good programming. -->
-        これらのガイドラインのいくつかは、よいプログラミングの普遍的な原則に基づいています。
+        ガイドラインの中には、よいプログラミングの普遍的な原則に基づいているものがあります。
         <!-- Some guidelines are motivated by technical peculiarities of Common Lisp. -->
-	いくつかのガイドラインは、Common Lispの技術的な特性に基づいています。
+        Common Lispの技術的な特性に基づいているものもあります。
         <!-- Some guidelines were once motivated by a technical reason, -->
         <!-- but the guideline remained after the reason subsided. -->
-	いくつかのガイドラインは、かつては技術的な理由に基づいていましたが、その理由がなくなった後もそのまま残ったものです。
+        かつては技術的な理由に基づいていましたが、その理由がなくなった後もそのまま残ったものもあります。
         <!-- Some guidelines, such those about as comments and indentation, -->
         <!-- are based purely on convention, rather than on clear technical merit. -->
-	いくつかのガイドラインは、コメントや字下げに関するもので、明確な技術的利点というよりは単に慣例に基づいています。
+        コメントや字下げに関するものなど、明確な技術的利点というよりはただの慣例に基づいているものもあります。
         <!-- Whatever the case may be, you must still follow these guidelines, -->
         <!-- as well as other conventional guidelines -->
         <!-- that have not been formalized in this document. -->
-	いかなる場合でも、ここに書かれたガイドライン及び
-	この文書の中に形式化されていない他の慣例的ガイドラインに従わなければなりません。
+        どのケースであれ、この文書で形式化しなかった他の慣例的ガイドラインはもちろんのこと、
+        それらのガイドラインには従わなければなりません。
       </p>
       <p>
 	<!--
@@ -500,7 +500,7 @@ Takashi Kato
         </li>
         <li>
           <!-- Be concise. -->
-	  簡潔に(concise)。
+	  無駄なく。
         </li>
         <li>
           <!-- KISS — Keep It Simple, Stupid. -->
@@ -560,13 +560,13 @@ Takashi Kato
     <BODY>
       <p>
         <!-- Most of these are obvious. -->
-	これらのうちほとんどは明白です。
+	ほとんどは明快でしょう。
       </p>
       <p>
         <!-- Usability by the customer means that the system has to do what the -->
         <!-- customer requires; it has to handle the customer's transaction -->
         <!-- volumes, uptime requirements; etc. -->
-	顧客にとって使いやすいとは、システムが顧客の必要とすることをしなければならないということです。
+	顧客にとっての使いやすさとは、システムが顧客の必要とすることをしなければならないということです。
 	顧客の取引量や稼働時間要求などに応えなければなりません。
       </p>
       <p>
@@ -576,7 +576,7 @@ Takashi Kato
         <!-- (This is often the same as the one that conses less, -->
         <!-- i.e. allocates less storage from the heap.) -->
 	Lispコードの性能については、
-	二つの選択肢があったとして、両方が同程度複雑であったなら、性能の良いものを選びます。
+	二つの選択肢があり、両方が同程度複雑であったなら、性能の良いものを選びます。
 	(これはしばしば、コンシングの少ない方、という意味と等価です。
 	つまり、ヒープから割り当てる領域が少なくて済む方、ということです。）
       </p>
@@ -584,8 +584,8 @@ Takashi Kato
         <!-- Given two options where one is more complex than the other, -->
         <!-- pick the simpler option and revisit the decision only if -->
         <!-- profiling shows it to be a performance bottleneck. -->
-	二つの選択肢があったとして、片方が複雑な場合は、
-	まず簡単な方の選択肢を選び、そしてプロファイルによってそれが性能のボトルネックだと分かった時初めて決定の再検討をしてください。
+	二つの選択肢があり、片方がもう片方より複雑な場合は、
+	簡単な方の選択肢を選び、決定を再検討するのはプロファイルによってそれが性能のボトルネックだと分かった時のみにしてください。
       </p>
       <p>
         <!-- However, avoid premature optimization. -->
@@ -626,7 +626,7 @@ Takashi Kato
       <p>
         <!-- If you don't know or don't care about these issues, -->
         <!-- ask someone who does. -->
-	もしこの点に関して、知らない気にならないと思っているなら、知っている人、気にしている人に尋ねましょう。
+        もしこの点に関して、知らない、気にならないなら、知っている人、気にしている人に尋ねましょう。
      </p>
     </BODY>
   </STYLEPOINT>
@@ -1432,13 +1432,13 @@ Takashi Kato
       <p>
         <!-- When you fix a bug, -->
         <!-- consider whether what the fixed code does is obviously correct or not; -->
-	バグを修正するときは修正後のコードのやっていることが客観的に正しいかを考えます。
+	バグを修正するときは、修正後のコードのやっていることがひと目で正しいと分かるかを考えます。
         <!-- if not, you must add a comment explaining -->
         <!-- the reason for the code in terms of fixing the bug. -->
 	もしそうではないなら、バグ修正の観点からそのコードの根拠を説明するコメントを
 	追加しなければなりません。
         <!-- Adding the bug number, if any, is also recommended. -->
-	もしバグ番号があるならその追加も推奨されます。
+	バグ番号があるならその追加も推奨されます。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -2988,8 +2988,8 @@ Takashi Kato
     <SUMMARY>
       <!-- Use macros when appropriate, which is often. -->
       <!-- Define macros when appropriate, which is seldom. -->
-      マクロを使うことは多いですが、適切な場合に利用しましょう。
-      それほど多くありませんが、それが適切な場合にはマクロを定義しましょう。
+      適切な場合にマクロを使いましょう。これはよくあります。
+      適切な場合にマクロを定義しましょう。これは滅多にありません。
     </SUMMARY>
     <BODY>
       <p>
@@ -3002,10 +3002,10 @@ Takashi Kato
         <!-- But it comes at a cost to the reader, -->
         <!-- which is learning a new syntactic concept for each macro. -->
         <!-- And so it should not be abused. -->
-        マクロは構文的抽象をもたらし、これは素晴らしいことです。
-        実装の詳細に囚われることなく意図を記述することを可能にし、コードを明確にするのを助けます(まさにそれらの詳細を抽象化します)。
-        冗長であったり、無関係であったりする詳細のどちらも省くことで、より簡潔に、より読みやすくすることを助けます。
-        しかし、マクロごとに新しい構文概念の学習という読み手への負担をもたらします。
+        マクロは構文的抽象という、素晴らしいものをもたらします。
+        これは、実装の詳細に足を取られずに（こういう詳細を抽象化します）意図を記述することで、コードを明確にするのを助けになります。
+        冗長さと重要でない詳細の両方を取り除くことで、コードを無駄のなく読みやすいものにする助けになります。
+        しかし一つ一つのマクロ毎に新しい構文概念の学習という読み手への負担をもたらします。
         それ故にマクロは乱用すべきではありません。
       </p>
       <p>
@@ -3014,8 +3014,8 @@ Takashi Kato
         <!-- in a good Common Lisp program. -->
         <!-- The one and only pattern is: <em>use the language</em>, -->
         <!-- which includes defining and using syntactic abstractions. -->
-        一般的結論として、良いCommon Lispのプログラムの中に、何か<em>デザイン・パターン</em>とされるようなものはない筈です。
-        <em>言語を使う</em>のが唯一のパターンであり、これは構文的抽象化の定義と利用を含みます。
+        一般的結論として、良いCommon Lispのプログラムには、何かはっきりとした<em>デザイン・パターン</em>というものはない筈です。
+        ただ唯一のパターンとは<em>言語を使う</em>ことで、これには構文的抽象化の定義と利用が含まれます。
       </p>
       <p>
         <!-- Existing macros must be used -->
@@ -3025,8 +3025,8 @@ Takashi Kato
         <!-- When a macro is available in your project -->
         <!-- that expresses the concept you're using, -->
         <!-- you must not write the expansion rather than use the macro. -->
-        既存のマクロは、意図をより簡潔に伝えることにより、コードがより明確になる場合であれば、いつでも利用されなければなりません。 <!-- which is oftenってなんなの であればあるほど なのか-->
-        マクロがプロジェクトで利用可能な場合で、それがあなたのしたいことを表現できている場合に、そのマクロは利用せず、その展開結果を手書きするようなことをしてはなりません。
+        既存のマクロで意図をより無駄なく伝えられ、コードが明確になるなら、いつでも利用しなければなりません。これはよくあることです。
+        使用中の概念を表現するマクロがプロジェクト内で利用出来る時、そのマクロを利用せずその展開結果を書いてはなりません。
       </p>
       <p>
         <!-- New macros should be defined as appropriate, -->
@@ -3035,8 +3035,9 @@ Takashi Kato
         <!-- by the language and its various libraries, -->
         <!-- and your program typically only needs few new ones -->
         <!-- relative to its size. -->
-        新しいマクロの定義は適切に、しかし滅多に定義することはないようにすべきです。
-        共通で利用されるようなマクロは、既に言語やいくつかのライブラリによって提供されていますし、あなたのプログラムが新しいマクロを必要とすることは通常少しだけです。また、プログラムの小ささに比例して少なくなります。
+        新しいマクロは必要に応じて定義すべきですが、これは滅多にない筈です。
+        というのも、よく利用されるマクロは言語や様々なライブラリが既に提供しているので、
+        新しいマクロが必要になることはプログラムサイズに対しても通常ほとんどありません。
       </p>
       <p>
         <!-- You should follow the OAOOM rule of thumb -->
@@ -3059,12 +3060,13 @@ Takashi Kato
         <!-- however, in doing so it should rather be compared -->
         <!-- to the cost of the programmer writing other code instead -->
         <!-- that may have higher benefits. -->
-        新しい構文の抽象化を作成するか否かを判断する際には、大まかな目安として、OAOOM[Once And Only Once More]に従うべきです:
-        『もし特定のパターンが二度より多く使われているならば、それは恐らく抽象化されるべきである』 
-        抽象化を利用するにあたってのさらに洗練されたルールとして、使われる数とそれら一つ一つがもたらす利益と、コードを読むのに慣れるまでのコストを勘案すべきです。<!-- 厳しい:g000001 -->
-        構文の抽象化についての読み手が負担するコストと利益は、通常、書き手が負担するコストと利益より重要なものです。
-        なぜなら、良いコードは、通常、書かれるのは一度だけですが、沢山の人々によって何度も読まれるからです。(プログラムの内容を忘れてしまってから保守しなければならないプログラマ本人を含む)
-        しかし、[抽象化しないで]代わりのコードを書くコストより、[抽象化した]利益の方が大きいならば、書き手のコストの方が考慮されるべき時もまたあります。<!-- 厳しい:g000001 -->
+        構文的かどうかは別にして、新しい抽象化を作成すべきかを判断する際には、OAOOM[Once And Only Once More]の目安に従うべきです:
+        『もし特定のパターンが二度より多く使われているならば、それは恐らく抽象化するべきだ』。
+        いつ抽象化を使うべきかを判断する詳細なルールは、使う回数とその際に得られる利益から、コードを読むのに慣れが必要があるというコストまでを勘案すべきです。
+        構文的抽象化にとって、読み手が負担するコストと利益は、通常、書き手が負担するコストと利益より重要です。
+        なぜなら、良いコードは、通常、一度書かれ、沢山の人々に何度も読まれるからです（プログラムの内容を忘れてしまってから保守しなければならないプログラマ本人を含む）。
+        とは言ってもマクロの書き手にかかるコストも考慮すべきです。
+        しかしその際に寧ろ比較すべきなのは、もっと価値を生む可能性のある他のコードを代わりに書いているプログラマの[人的]コストです。
       </p>
       <p>
         <!-- Using Lisp macros properly requires taste. -->
@@ -3076,19 +3078,19 @@ Takashi Kato
         <!-- As usual, feel free to consult your colleagues if you're not sure, -->
         <!-- since without a lot of Lisp experience, -->
         <!-- it can be hard to make this judgment. -->
-        Lispのマクロの利用は、分別を弁えて。
-        [複雑にすることによる]恩恵がそのコストを明確に上回ることがない限り、複雑なマクロを書くのは避けましょう。
-        同僚の開発者があなたのマクロを理解するのにより多くの労力を使うことになるため、理解のコストに十分見合うだけの分かりやすさを持つ場合だけ[複雑な]マクロを使用すべきです。
-        判断がつかない場合には、いつでも同僚に遠慮しないで助言を求めましょう。
-        Lispの多くの経験を積んでいなければ、この判断は難しいものだからです。
+        Lispのマクロを正しく使うにはセンスが要ります。
+        利益がコストを明確に上回らない限り、理解しにくいマクロを書くのは避けましょう。
+        同僚の開発者があなたのマクロを理解するのは[書く以上の]努力が必要なので、そのコストに十分見合う表現力がある場合だけマクロを使用すべきです。
+        繰り返しますが、判断がつかない場合は遠慮せず同僚に助言を求めましょう。
+        Lispの多くの経験を積まなければ、この判断は難しいことがあるからです。
       </p>
       <p>
         <!-- You must never use a macro where a function will do. -->
         <!-- That is, if the semantics of what you are writing -->
         <!-- conforms to the semantics of a function, -->
         <!-- then you must write it as a function rather than a macro. -->
-        関数で目的を果せるところでマクロを使ってはなりません。
-        つまり、あなたが書こうとしているものの意味論が、関数の意味論に適合しているならば、マクロではなく、関数で書かなくてはならない、ということです。
+        関数で目的を果たせるところで決してマクロを使ってはなりません。
+        つまり、あなたが書いているものの意味論が関数の意味論に合致するなら、マクロではなく関数で書かなくてはならない、ということです。
       </p>
       <p>
         <!-- You must not transform a function into a macro for performance reasons. -->
@@ -3098,7 +3100,7 @@ Takashi Kato
         <!-- and -->
         <!-- <code>(declaim (inline foo))</code>. -->
         パフォーマンス上の理由で関数をマクロに書き直してはなりません。
-        プロファイリングの結果が、特定の関数<code>FOO</code>にパフォーマンス上の問題があることを示したとすれば、その必要性と適切なプロファイリングの結果を文章化した上で、<code>(declaim (inline foo))</code>を宣言します。
+        プロファイリングの結果が、特定の関数<code>FOO</code>にパフォーマンス上の問題があることを示すなら、その必要性とプロファイリングの結果を適切に文章化した上で、<code>(declaim (inline foo))</code>を宣言します。
       </p>
       
       <p>
@@ -3106,16 +3108,16 @@ Takashi Kato
         <!-- as a way to speed up function execution -->
         <!-- by specifying a source-to-source transformation. -->
         <!-- Beware that it interferes with tracing the optimized function. -->
-        また、関数の実行の速度向上の方法として、ソースコードからソースコードへの変換手順を指定するコンパイラ・マクロを使うこともできるでしょう。
-        ただし、これは最適化された関数をトレースする場合には邪魔になることに用心しておきましょう。
+        またコンパイラ・マクロを使い、ソースコードからソースコードへの変換を指定することで、関数の実行速度向上の方法とすることも出来ます。
+        ただし、これはこの方法で最適化した関数をトレースする場合には邪魔になることに用心しておきましょう。
       </p>
       <p>
         <!-- When you write a macro-defining macro -->
         <!-- (a macro that generates macros), -->
         <!-- document and comment it particularly clearly, -->
         <!-- since these are harder to understand. -->
-        マクロを書くマクロ(マクロを定義するマクロ)を書く場合には、とりわけ分かりやすくドキュメントとコメントを書きましょう。
-        慣れない人には、これらはとても分かり難いものだからです。
+        マクロを定義するマクロ（マクロを書くマクロ）を書く場合には、とりわけ分かりやすくドキュメントとコメントを書きます。
+        これらは、より分かり難いものだからです。
       </p>
       <p>
         <!-- You must not install new reader macros -->
@@ -3129,9 +3131,9 @@ Takashi Kato
         <!-- In any case, your system must be usable -->
         <!-- even to clients who do not use these reader macros. -->
         携わっているシステムの開発者間での合意なしに、新しいリーダーマクロを導入してはなりません。
-        リーダーマクロ[の影響範囲]がシステムを使う側や、同じプロジェクトの他のシステムに漏れ出すようなことがあってはなりません。
-        リーダーマクロの利用を制御するためには、<code>cl-syntax</code>や<code>named-readtables</code>のようなソフトウェアを使わなければなりません。
-        [システムを]使う側は、あなたと同じように同じリーダーマクロを使うかもしれませんが、どうであれ、システムは、リーダーマクロを使わない利用者でも[リーダーマクロを使う場合と]同じように使えるものであらなくてはなりません。
+        リーダーマクロ[の影響範囲]がシステムの利用者や、同じプロジェクトで使っている他のシステムに漏れ出してはなりません。
+        リーダーマクロの利用を制御するために、<code>cl-syntax</code>や<code>named-readtables</code>のようなソフトウェアを使わなければなりません。
+        こうすれば[あなたのシステムの]利用者は、望めばあなたと同じリーダーマクロが使えます。どんな場合でも、システムはリーダーマクロを使わない利用者にも使えるものでなくてはなりません。
       </p>
       <p>
         <!-- If your macro has a parameter that is a Lisp form -->
@@ -3139,8 +3141,8 @@ Takashi Kato
         <!-- you should name the parameter with the suffix <code>-form</code>. -->
         <!-- This convention helps make it clearer to the macro's user -->
         <!-- which parameters are Lisp forms to be evaluated, and which are not. -->
-        もしマクロが、マクロが展開された後に、Lispの式として評価されるような引数を持っている場合、その引数には、<code>-form</code>という接尾辞を付けた名前を付けるべきです。
-        この取り決めは、マクロの利用者から見てどの引数がLispの式として展開され、またそうでないのかを、より分かりやすくします。
+        マクロにフォームを取る引数があり、マクロ展開後のコードが走るときにそのフォームが評価されるなら、その引数の名前には<code>-form</code>という接尾辞を付けるべきです。
+        この慣例でどの引数がLispのフォームとして評価され、どれが評価されないかが、マクロの利用者に対し明確になります。
         <!--
         The common names <code>body</code> and <code>end</code> are
         exceptions to this rule.
@@ -3160,43 +3162,43 @@ Takashi Kato
         <!-- Macro <code>&amp;body</code> arguments are typically -->
         <!-- wrapped into a lambda expression of which they become the body, -->
         <!-- which is passed as one of the arguments of the auxiliary function. -->
-        適用できる場合は、<code>CALL-WITH</code>スタイルと呼ばれるスタイルに倣うべきです。
-        このスタイルは、<a href="http://random-state.net/log/3390120648.html">http://random-state.net/log/3390120648.html</a>で詳細に説明されています。
-        一般的原理としては、マクロは構文の処理に限定して用い、意味論はできる限り通常の関数内に保ったままにしておくというものです。
-        つまり、大体のところ<code>WITH-<em>FOO</em></code>というマクロは、<code>CALL-WITH-<em>FOO</em></code>というマクロの引数から加工された引数を持つ補助関数の呼び出しを生成するためだけのものということです。
-        マクロの<code>&amp;body</code>引数は、典型的には、補助関数に与えられる引数の一つとしてのラムダ式で、ラムダ式のボディ部となるところにまとめられます。
+        所謂<code>CALL-WITH</code>スタイルが適用できる場合にはそれに従うべきです。
+        このスタイルは<a href="http://random-state.net/log/3390120648.html">http://random-state.net/log/3390120648.html</a>で詳細に説明されています。
+        一般的原理は、マクロは構文の処理に厳しく限り、意味論はできる限り通常の関数内に収めるというものです。
+        ゆえに、大抵<code>WITH-<em>FOO</em></code>というマクロは、マクロの引数から演繹した引数を持つ補助関数<code>CALL-WITH-<em>FOO</em></code>の呼び出しの生成に制限します。
+        マクロの<code>&amp;body</code>引数は、典型的にはラムダ式のボディ部になり、そのラムダ式を補助関数の引数の一つとして渡します。
       </p>
       <p>
         <!-- The separation of syntactic and semantic concerns -->
         <!-- is a general principle of style that applies -->
         <!-- beyond the case of <code>WITH-</code> macros. -->
-        構文的な関心と意味論的な関心の分離は、<code>WITH-</code>の事例を敷衍し、スタイルの一般的原理としたものです。
+        構文的関心と意味論的関心の分離は、<code>WITH-</code>マクロの例を超えて適用できる、スタイルの一般原則です。
         <!-- Its advantages are many. -->
-        この手法には沢山のアドバンテージがあります。
+        この手法には沢山の利点があります。
         <!-- By keeping semantics outside the macro, -->
         <!-- the macro is made simpler, easier to get right, and less subject to change, -->
         <!-- which makes it easier to develop and maintain. -->
-        意味論をマクロの外側に保持することにより、マクロは、より単純で、分かりやすく、変更の影響を受けにくくなり、開発と保守が容易になります。        
+        意味論をマクロの外側に保持することで、マクロは、単純で、分かりやすく、変更の影響を受けにくくなり、開発と保守が容易になります。        
  	<!-- The semantics is written in a simpler language — one without staging — -->
         <!-- which also makes it easier to develop and maintain. -->
-        意味論は、土台なしのより単純な言語で書かれますが、そのことがまた、開発と保守を容易にします。<!-- one without staging ?? -->
+        意味論をマクロの絡まない単純な言語で書くことで、これもまた開発と保守が容易になります。
         <!-- It becomes possible to debug and update the semantic function -->
         <!-- without having to recompile all clients of the macro. -->
-        この手法は、マクロを利用するものを再コンパイルすることなしに意味論を担当する関数のデバッグと更新を可能にします。
+        マクロの利用側全てを再コンパイルする必要なく、意味論を担当する関数のデバッグと更新が可能になります。
         <!-- The semantic function appears in the stack trace -->
         <!-- which also helps debug client functions. -->
-        意味論を担当する関数は、スタックトレース中で見えるため、これを利用している関数のデバッグの助けにもなります。
+        意味論の関数はスタックトレースに現れるため、これを利用する関数のデバッグの助けにもなります。
         <!-- The macro expansion is made shorter and -->
         <!-- each expansion shares more code with other expansions, -->
         <!-- which reduces memory pressure which in turn usually makes things faster. -->
-        マクロ展開は、より短かくなり、また、各展開は、他の展開と共有する部分もより多くなるため、メモリへの圧迫も少なくなり、大抵速くなります。
+        マクロの展開結果は短かくなり、一つ一つの展開結果は他の展開結果とより多くのコードを共有するため、メモリへの圧迫も少なくなり、ひいては大抵色々と速くなります。
         <!-- It also makes sense to write the semantic functions first, -->
         <!-- and write the macros last as syntactic sugar on top. -->
-        また、この手法は、意味論を担当する関数を先に書き、その後でその上に糖衣構文としてマクロを書く、という理にかなった筋道を与えます。
+        また、意味論の関数を先に書き、その上にマクロを糖衣構文として書くことは道理に適っています。
         <!-- You should use this style unless the macro is used -->
         <!-- in tight loops where performance matters; -->
         <!-- and even then, see our rules regarding optimization. -->
-        このスタイルは、マクロが、タイトループ内のようなパフォーマンスが重要な場所以外で適用するべきです(最適化の項を参照してください)。
+        マクロがパフォーマンスが重要なタイトループ内で使われていなければ、このスタイルを採用するべきです。その場合でも最適化の項を参照してください。
       </p>
       <p>
         <!-- Any functions (closures) created by the macro should be named, -->
@@ -3205,10 +3207,10 @@ Takashi Kato
         <!-- This also allows you to declare the function to be of dynamic extent -->
         <!-- (if it is — and often it is; yet see below regarding -->
         <!-- <a href="#DYNAMIC-EXTENT">DYNAMIC-EXTENT</a>). -->
-        マクロによって作られる関数(クロージャー)は、名前を持つべきです。
-        これは、<code>FLET</code>を使うことによって可能です。
-        これはまた、関数のDYNAMIC-EXTENT宣言を可能にします。
-        (必要に応じて下記の<a href="#DYNAMIC-EXTENT">DYNAMIC-EXTENT</a>の項を参照してください)
+        マクロが作る関数（クロージャー）には名前を付けるべきです。
+        <code>FLET</code>で可能です。
+        また、こうすれば関数のDYNAMIC-EXTENT宣言を可能になります
+        （もし動的エクステント内にあるならです。大抵はそうです。下記<a href="#DYNAMIC-EXTENT">DYNAMIC-EXTENT</a>を参照してください）。
       </p>
       <p>
         <!-- If a macro call contains a form, -->
@@ -3232,17 +3234,16 @@ Takashi Kato
         <!-- an argument to the auxiliary function, or -->
         <!-- the body of a lambda passed as argument to it; -->
         <!-- you therefore avoid the above complexity. -->
-        マクロが、ある一つのフォームを含んでいて、
-        マクロの展開により、そのフォームがマクロ中に複数のコピーを作るという場合、
-        そのフォームは、複数回評価され得ることになります。
-        また、コードは、複数回マクロ展開やコンパイルされたものを含むことになります。
-        もし誰かがこのマクロ使い、その中で、副作用を利用していたり、長時間の計算をさせていた場合、この振舞いは望ましくないものでしょう(故意にあなたがループのような制御構文を書いているのでもない限り)。
-        この問題を避ける手短な解決策は、フォームの評価は一度きりにして、その結果を(生成した)変数に束縛することです。
-        このようなコードを生成するのには、
-        <code>ALEXANDRIA:ONCE-ONLY</code>というとても便利なマクロがあります。
-        また、コード生成内で一時的な変数を生成するのには、<code>ALEXANDRIA:WITH-GENSYMS</code>を参照してください。
-        我々の<code>CALL-WITH</code>スタイルに従うならば、
-        典型的には、マクロの展開は、補助関数への引数も、補助関数に渡されるボディ部も同じく一度きりであり、従って上述の複雑さも回避することになる、ということに留意しておきましょう。
+        もしマクロの呼び出しにフォームが含まれていて、
+        マクロの展開でそのフォームの複数のコピーを作るなら、
+        そのフォームは複数回評価される可能性があり、
+        そのフォームが含むコードはマクロ展開やコンパイルが複数回されたものになります。
+        もし誰かが、このマクロを副作用があったり計算に時間のかかるフォームで呼び出すと、その振舞いは望ましくないものになるでしょう(意図的にループのような制御構文を書いているのでない限り)。
+        この問題を避ける手短な解決策は、フォームの評価は一度切りにして、その結果を(生成した)変数に束縛することです。
+        <code>ALEXANDRIA:ONCE-ONLY</code>というとても便利なマクロがこれを行うコードを生成します。
+        また、生成したコード内で一時変数を作る<code>ALEXANDRIA:WITH-GENSYMS</code>も参照してください。
+        我々の<code>CALL-WITH</code>スタイルに従えば、
+        コードの展開は補助関数への引数か補助関数に渡されるボディ部として通常一度切りであり、従って上述の複雑さも回避出来ることに留意しておきましょう。
       </p>
       <p>
         <!-- When you write a macro with a body, -->
@@ -3256,13 +3257,13 @@ Takashi Kato
         <!-- That way, if parameters are needed in the future, -->
         <!-- you can add them without necessarily having to change -->
         <!-- all the uses of the macro. -->
-        <code>WITH-xxx</code>のようなボディ部を持ったマクロを書く場合には、
-	引数を取ることがなくても、とりあえず、その為の場所は確保して置くべきです。
-        例を挙げると、<code>WITH-LIGHTS-ON</code>を作成しているとすれば、
+        <code>WITH-xxx</code>マクロのようなボディ部を持つマクロを書く場合、
+	引数がなくてもとりあえずその為の場所は確保しておくべきです。
+        例を挙げると、<code>WITH-LIGHTS-ON</code>を作成するなら、
         <code>(defmacro with-lights-on (&amp;body b) ...)</code>のような形式にはせず、
-        代りに、<code>(defmacro with-lights-on (() &amp;body b) ...)</code>のような形式にしましょう。
-        この方式であれば、将来、引数が必要になった場合、
-	利用中の全部のマクロを変更する必要とは無縁に引数の追加が可能になります。
+        代わりに<code>(defmacro with-lights-on (() &amp;body b) ...)</code>のような形式にします。
+        こうすれば将来引数が必要になった場合、
+	引数を追加するのにマクロの使用箇所全てを変更する必要はなくなります。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -3272,19 +3273,19 @@ Takashi Kato
       <!-- <code>(:compile-toplevel :load-toplevel :execute)</code>. -->
       <code>EVAL-WHEN</code>を使用する場合には、ほぼ必ず
       <code>(:compile-toplevel :load-toplevel :execute)</code>の
-      すべてのオプションを付けて使用するべきです。
+      全てのオプションを使用するべきです。
     </SUMMARY>
     <BODY>
       <p>
         <!-- Lisp evaluation happens at several times, -->
         <!-- some of them interleaved. -->
         <!-- Be aware of them when writing macros. -->
-	Lispでの「評価」は複数回行われる可能性があり、時には評価の順番が入れ替わる時もあります。
+	Lispでの「評価」は複数回行われ、時には評価の順番が入れ替わる時もあります。
 	マクロを書くときには注意しましょう。
         <!-- <a href="https://fare.livejournal.com/146698.html"> -->
 	<!--   EVAL-WHEN considered harmful to your mental health</a>. -->
         <a href="https://fare.livejournal.com/146698.html">
-	  「EVAL-WHEN はあなたの精神衛生を害する」</a>.
+	  「EVAL-WHEN はあなたの精神衛生を害する」</a>。
       </p>
       <p>
         <!-- In summary of the article linked above, -->
@@ -3292,18 +3293,19 @@ Takashi Kato
         <!-- the only valid combination in an <code>EVAL-WHEN</code> -->
         <!-- is to include all of -->
         <!-- <code>(eval-when (:compile-toplevel :load-toplevel :execute) ...)</code> -->
-	上記にリンクした先の記事を要約すると、
-        基本的に<code>(eval-when (:compile-toplevel :load-toplevel :execute) ...)</code>
-	以外の<code>EVAL-WHEN</code>コードはよくない、という事です。
-	例外はマクロを書く<i>本当に</i>優れた技術を持っている場合のみです。
+	上でリンクした記事を要約すると、
+	先端マクロ学をやっているのでなければ、
+        <code>EVAL-WHEN</code>の唯一妥当な組み合わせは
+        <code>(eval-when (:compile-toplevel :load-toplevel :execute) ...)</code>
+	の全てを含むときだけです。
       </p>
       <p>
         <!-- You must use -->
         <!-- <code>(eval-when (:compile-toplevel :load-toplevel :execute) ...)</code> -->
         <!-- whenever you define functions, types, classes, constants, variables, etc., -->
         <!-- that are going to be used in macros. -->
-	マクロの中で使う関数や型、クラス、定数、変数などはすべて
-        <code>(eval-when (:compile-toplevel :load-toplevel :execute) ...)</code>の中で書かなくてはなりません。
+	マクロで使うつもりの関数や型、クラス、定数、変数などを定義するならどんなときも
+        <code>(eval-when (:compile-toplevel :load-toplevel :execute) ...)</code>を使わなくてはなりません。
       </p>
       <p>
         <!-- It is usually an error to omit the <code>:execute</code>, -->
@@ -3315,14 +3317,13 @@ Takashi Kato
         <!-- that depends on the effects that happen at compile-time, -->
         <!-- unless the current file was <code>COMPILE-FILE</code>d -->
         <!-- within the same Lisp session. -->
-	下記の事項はエラーの原因になります。
+	下記は通常誤りです。
 	<ul>
-	  <li><code>:execute</code>を省くこと :
-	  faslではなくソース[ファイル]の<code>LOAD</code>を妨げてしまうため。</li>
-	  <li><code>:load-toplevel</code>を省くこと (readtableの編集やコンパイル時の設定を除く):
-	  コードの動的コンパイルや遅延評価でコンパイルされるソースを<code>LOAD</code>できなくなるため。
-	  もし省くと、動的コンパイルをする時にそれらコンパイル時の効果を使えなくなる。
-	  ただし、それらのソースが<code>COMPILE-FILE</code>でコンパイルされているときは例外。
+	  <li><code>:execute</code>を省くこと:
+	  faslではないソース[ファイル]の<code>LOAD</code>を妨げてしまうため。</li>
+	  <li><code>:load-toplevel</code>を省くこと（readtableの編集やコンパイル時の設定などを除く）:
+	  新規ファイルの<code>LOAD</code>や、コンパイル時に起きる効果に依存しているコードのインタラクティブなコンパイルが出来なくなるため。
+	  ただし、現在のファイルを同じLispセッションの中で<code>COMPILE-FILE</code>した時は問題にならない。
 	  </li>
 	</ul>
       </p>
@@ -3333,8 +3334,8 @@ Takashi Kato
         <!-- being either visible or invisible at the other time. -->
         <!-- There are still valid uses of variables in macros: -->
 	変数について。マクロを展開するプロセスと展開コードを実行するプロセスは別かもしれません。
-	そのため、コンパイル時と実行時で、それぞれの効果が依存しあってはいけません。
-	ただし、許容される使用方法もあります:
+	そのため、コンパイル時と実行時で、互いに利用出来たり出来なかったりする効果に依存してはなりません。
+	ただし、マクロ内での変数の効果的な使用方法というのもあります:
        </p>
       <ul>
         <li>
@@ -3351,33 +3352,28 @@ Takashi Kato
           <!-- you can sometimes use <code>LOAD-TIME-VALUE</code> for good effect. -->
           <!-- In extreme cases, you may have to use -->
           <!-- <code>ASDF-FINALIZERS:EVAL-AT-TOPLEVEL</code>. -->
-	  新種の「定義」系データ・メタデータを辞書テーブルに保存する場合。
-	  <!-- defunやdefclassのこと :: guicho271828 -->
-	  もしそれらのメタデータが実行時に扱えるものなら、
-	  定義マクロの展開結果において、
-	  データを辞書テーブルに登録する実際の動作は
-	  コンパイル時だけでなくロード時にも指定しなくてはならない。
-	  通常、トップレベルでの定義は登録を行うコードに展開される。
-	  トップレベル以外で展開される場合は、<code>LOAD-TIME-VALUE</code>を使っても良い。
-	  極端な場合では、<code>ASDF-FINALIZERS:EVAL-AT-TOPLEVEL</code>
-	  を使わざるを得ない場合もあるだろう。
+	  何らかの新しい定義とその他メタデータを辞書テーブルに保存しても良いです。
+	  もしそういうメタデータを実行時や他のファイルで扱えるべきなら、
+	  確実に、コンパイル時に加え、ロード時にも定義をメタデータ辞書に登録するコードにマクロを展開しなければなりません。
+	  通常、トップレベルでの定義は登録を行うコードに展開されます。
+	  トップレベルで展開されない場合は、<code>LOAD-TIME-VALUE</code>で十分な効果を得られることがあります。
+	  極端な場合では、<code>ASDF-FINALIZERS:EVAL-AT-TOPLEVEL</code>を使わざるを得ない場合もあるかもしれません。
         </li>
         <li>
           <!-- Some variables may hold temporary data -->
           <!-- that is only used at compile-time in the same file, -->
           <!-- and can be cleaned up at the end of the file's compilation. -->
-	  変数によっては、同ファイル内かつコンパイル時にしか使われないような
-	  一時データを保持していることもあるだろう。
-	  それらはコンパイルの終了と共に掃除・消去されることもありうる。
+	  同ファイル内でコンパイル時にしか使わない一時データを変数に保持しても良いです。
+	  その変数はコンパイル終了時に消去して構いません。
           <!-- Predefined such variables would include <code>*readtable*</code> -->
           <!-- or compiler-internal variables holding -->
           <!-- the current optimization settings. -->
           <!-- You can often manage existing and new such variables using -->
           <!-- the <code>:AROUND-COMPILE</code> hooks of <code>ASDF</code>. -->
 	  定義済みのそういった変数には<code>*readtable*</code>や
-	  最適化設定を保持しているコンパイラ内部変数などが上げられる。
-	  これらのような変数を操作したり新たに作るためには、
-	  <code>ASDF</code>の<code>:AROUND-COMPILE</code>を使える。
+	  最適化設定を保持しているコンパイラ内部変数などが挙げられます。
+	  このような変数を操作したり新たに作る際によく使えるのは、
+	  <code>ASDF</code>の<code>:AROUND-COMPILE</code>フックです。
         </li>
       </ul>
     </BODY>
@@ -3388,7 +3384,7 @@ Takashi Kato
       <!-- You should use <code>#.</code> sparingly, -->
       <!-- and you must avoid read-time side-effects. -->
       <code>#.</code> の利用は控え目にすべきです。
-      また、読み取り時に起こす副作用の利用は控えなくてはなりません。
+      また、読み取り時の副作用は避けなければなりません。
     </SUMMARY>
     <BODY>
       <p>
@@ -3396,24 +3392,24 @@ Takashi Kato
         <!-- will read one object, evaluate the object, and -->
         <!-- have the reader return the resulting value. -->
         ANSI標準のリードマクロ<code>#.</code>は、
-	その先のオブジェクトをひとつ読み、これを評価して、評価機にその結果を返させます。
+	オブジェクトを一つ読み、これを評価して、リーダーからその結果を返します。
       </p>
       <p>
         <!-- You must not use it where other idioms will do, such as -->
         <!-- using <code>EVAL-WHEN</code> to evaluate side-effects at compile-time, -->
         <!-- using a regular macro to return an expression computed at compile-time, -->
         <!-- using <code>LOAD-TIME-VALUE</code> to compute it at load-time. -->
-	他の手段が適しているときにこの機能を使ってはいけません。
-        <code>EVAL-WHEN</code>を使えばコンパイル時の副作用を使えます。
-	マクロを使えばコンパイル時にコードを生成できます。
-	<code>LOAD-TIME-VALUE</code>を使えばロード時に生成できます。
+	他のイディオムで十分なときにこの機能を使ってはなりません。
+	他のイディオムとは、<code>EVAL-WHEN</code>でコンパイル時の副作用を評価する、
+	通常のマクロでコンパイル時に計算した式を返す、
+	<code>LOAD-TIME-VALUE</code>でロード時に計算する、などです。
       </p>
       <p>
         <!-- Read-time evaluation is often used as a quick way -->
         <!-- to get something evaluated at compile time -->
         <!-- (actually "read time" but it amounts to the same thing). -->
-	読み取り時評価はコンパイル時評価を行う手軽な方法として使われることがあります
-	(「読み取り時」とはいいますがまあコンパイル時とほぼ同じてみてよいでしょう)。
+	読み取り時評価は、コンパイル時評価を行う手軽な方法としてよく使われます
+	（実際には「読み取り時」ですが、コンパイル時と同じと見てよいでしょう）。
         <!-- If you use this, the evaluation MUST NOT have any side effects -->
         <!-- and MUST NOT depend on any variable global state. -->
         <!-- The <code>#.</code> should be treated as a way -->
@@ -3422,13 +3418,11 @@ Takashi Kato
         <!-- could have figure out all by itself, -->
         <!-- when the compiler isn't sufficiently-clever -->
         <!-- and the difference matters. -->
-	しかしこれを使うなら、評価は副作用を持ってはならず、
-	大域変数に依存してもなりません。
-	<code>#.</code>は「定数のたたみ込み」を
-	コンパイラのかわりに指定する方法としてのみ使うべきです。
-	本来は「十分に賢いコンパイラ」ならそれら定数たたみ込みを自分で判断できるはずですが、
-	現実にはそうではありません。そして、その違いが問題となる場合には
-	<code>#.</code>が必要です。
+	これを使うなら、評価に副作用があってはなりませんし、
+	可変な大域の状態に依存してはなりません。
+	<code>#.</code>は、十分に賢いコンパイラなら「定数のたたみ込み」を自動的に判断できたはずなのに、
+	現実のコンパイラが十分に賢くなく、その違いが問題となる時に、
+	定数のたたみ込みを強制する手段として扱うべきです。
       </p>
       <p>
         <!-- Another use of <code>#.</code> is to expand the equivalent of macros -->
@@ -3436,23 +3430,17 @@ Takashi Kato
         <!-- such as lambda-lists. However, if you find yourself using it a lot, -->
         <!-- it might be time to instead define macros to replace your consumers -->
         <!-- of lambda-lists with something that recognizes an extension. -->
-	<code>#.</code>のもうひとつの用法は、式でも(quasi)quotationでもない部分に
-	マクロを展開することです。たとえば変数リストの中など。
-	しかし、それを何度も使うようなら、それ用にマクロを書くべきでしょう。
+	<code>#.</code>の別の用法は、ラムダリストなどの式でも（準）クォートでもない箇所で展開されるマクロのようなことをすることです。
+	しかし、それを何度も使っていることに気付いたら、代わりにラムダリストの引数を受ける箇所を拡張できるようにするマクロを書く頃合いかもしれません。
       </p>
       <p>
         <!-- Whenever you are going to use <code>#.</code>, -->
         <!-- you should consider using <code>DEFCONSTANT</code> and its variants, -->
         <!-- possibly in an <code>EVAL-WHEN</code>, -->
         <!-- to give the value a name explaining what it means. -->
-	最後に、<code>#.</code>を使う時のtips。
-	使う前に一度は<code>DEFCONSTANT</code>系マクロを
-	使うことを検討してみましょう(<code>EVAL-WHEN</code>内で)。
-	そうすれば、<code>#.</code>で作った定数に名前を与えられます。
-        <!-- 上記なんですが、#.と、defconstantの組み合わせという具体的な方法が
-             思い付かないのですが、
-             #.を使う前に、defconstantで書けるものでないかを良く考えて判断しよう、
-             ということではないんですかね？ g000001 -->
+	<code>#.</code>を使おうとする時は、
+	（もしかしたら<code>EVAL-WHEN</code>の内で）
+	代わりに<code>DEFCONSTANT</code>系マクロを使って、意図が明確な名前を与えられないかを検討するべきです。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -3466,35 +3454,33 @@ Takashi Kato
         <!-- Places where it is actually appropriate to use <code>EVAL</code> -->
         <!-- are so few and far between that you must consult with your reviewers; -->
         <!-- it's easily misused. -->
-        <code>EVAL</code>を使うことが真に適切であるという極まれな場面でも、
-        あなたはあなたの査読者と相談しなければなりません。
-        EVALは容易に誤用されるからです。
+        <code>EVAL</code>の使用が実際に適切である場所は極稀なので、
+        査読者と相談しなければなりません。
+        EVALは容易に誤用されます。
       </p>
       <p>
         <!-- If your code manipulates symbols at runtime -->
         <!-- and needs to get the value of a symbol, -->
         <!-- use <code>SYMBOL-VALUE</code>, not <code>EVAL</code>. -->
-        もしもあなたのコードが、実行時にシンボルを操作し、
-        シンボルの値を取得することを必要とするときは
+        もし実行時に操作したシンボルから値を得る必要があるなら、
         <code>EVAL</code>ではなく<code>SYMBOL-VALUE</code>を使いましょう。
       </p>
       <p>
         <!-- Often, what you really need is to write a macro, -->
         <!-- not to use <code>EVAL</code>. -->
-        良くあること: あなたが本当に必要としていることは「マクロを書く」ことで「<code>EVAL</code>を使う」ことではありません。
+        良くあること: 本当に必要なのは「マクロを書く」ことで「<code>EVAL</code>を使う」ことではありません。
       </p>
       <p>
         <!-- You may be tempted to use <code>EVAL</code> as a shortcut -->
         <!-- to evaluating expressions in a safe subset of the language. -->
-        言語の安全なサブセット内において、式を評価するときの近道として、<code>EVAL</code>
-        を利用する誘惑にかられるかもしれません。
+        言語の安全なサブセットで式を評価する抜け道として、
+        <code>EVAL</code>を利用する誘惑に駆られるかもしれません。
         <!-- But it often requires more scrutiny to properly check and sanitize -->
         <!-- all possible inputs to such use of <code>EVAL</code> -->
         <!-- than to build a special-purpose evaluator. -->
         <!-- You must not use <code>EVAL</code> in this way at runtime. -->
-        しかし、大抵の場合、特殊用途の評価器をつくりあげるよりも<code>EVAL</code>を使う方が、
-        すべての入力の可能性について有効性と安全を保つための監視の手間が増えます。
-        このような場合、<code>EVAL</code>は使わないようにしないとなりません。
+        しかし大抵の場合、専用の評価器を作り上げるより<code>EVAL</code>に渡す可能性のある全ての入力値のチェックとサニタイズを適切にする方が詳しい検査を要します。
+        実行時にこのような方法で<code>EVAL</code>は使ってはなりません。
       </p>
       <p>
         <!-- Places where it is OK to use <code>EVAL</code> are: -->
@@ -3507,13 +3493,13 @@ Takashi Kato
         </li>
         <li>
           <!-- The build infrastructure. -->
-          基盤の構築。
+          ビルド基盤。
         </li>
         <li>
           <!-- Backdoors that are part of testing frameworks. -->
           <!-- (You MUST NOT have such backdoors in production code.) -->
           テストフレームワークにおけるバックドア
-          (実用コードにおいてこの手のバックドアを設けてはなりません)。
+          （プロダクションコードではこの手のバックドアを設けてはなりません）。
         </li>
         <li>
           <!-- Macros that fold constants at compile-time. -->
@@ -3521,11 +3507,11 @@ Takashi Kato
         </li>
         <li>
           <!-- Macros that register definitions to meta-data structures; -->
-          メタデータ構造のための定義を登録するマクロ。
+          メタデータの構造体に定義を登録するマクロ。
           <!-- the registration form is sometimes evaluated at compile-time -->
           <!-- as well as included in the macro-expansion, -->
           <!-- so it is immediately available to other macros. -->
-          登録を行うフォームは時にコンパイル時に評価、もしくは、マクロ展開で組み込まれるので、
+          登録フォームはマクロの展開結果に組み込まれるのもちろん、時にはコンパイル時に評価されるので、
           即座に他のマクロから利用可能になります。
         </li>
       </ul>
@@ -3534,33 +3520,30 @@ Takashi Kato
         <!-- if the macro isn't going to be used at the top-level, -->
         <!-- it might not be possible to make these definitions available -->
         <!-- as part of the expansion. --> <!-- g000001: なんとなく分かりますが具体的にどういうコードになるのか想像できないですね -->
-        注記: 後の例<!-- マクロ展開時のことを指している? g000001 -->において、もしマクロがトップレベルで使用できる状態にならない場合、
-        展開の一部分である定義が展開されず、[結果として]それらの定義も有効にならない可能性があるということに注意が必要です。 
+        注記: 展開結果に組み込まれる時、もしマクロがトップレベルで使われないなら、
+        展開結果の一部としてそれらの定義が有効にならない可能性があります。
         <!-- The same phenomenon may happen in a <code>DEFTYPE</code> expansion, -->
         <!-- or in helper functions used by macros. -->
-        同じような現象は<code>DEFTYPE</code>での展開や、
-        マクロに利用されるヘルパ関数においても起こります。
+        同じ現象は<code>DEFTYPE</code>の展開や、マクロが利用するヘルパ関数でも起こるかもしれません。
         <!-- In these cases, you may actually have to use -->
         <!-- <code>ASDF-FINALIZERS:EVAL-AT-TOPLEVEL</code> in your macro. -->
-	こういった場合、マクロ内において、
-	<code>ASDF-FINALIZERS:EVAL-AT-TOPLEVEL</code>を使う必要が実際にあるかもしれません。
+	こういった場合、マクロから<code>ASDF-FINALIZERS:EVAL-AT-TOPLEVEL</code>を使う必要があるかもしれません。
         <!-- It will not only <code>EVAL</code> your definitions -->
         <!-- at macro-expansion time for immediate availability, -->
         <!-- it will also save the form aside, for inclusion in a -->
         <!-- <code>(ASDF-FINALIZERS:FINAL-FORMS)</code> -->
         <!-- that you need to include at the end of the file being compiled -->
         <!-- (or before the form is needed). -->
-        これは、マクロ展開時に、フォームを<code>EVAL</code>し、即時に有効化するだけでなく、
-        ファイルがコンパイルされる時にファイルの末尾に置く必要があるものとして(もしくは、そのフォームが必要とされる前に)、
-        <code>(ASDF-FINALIZERS:FINAL-FORMS)</code> が含めるフォームとして取っておきます。        
-        <!-- This way, the side-effects are present when loading the fasl --><!-- faslはコンパイルされてると思うのでfileの間違い?: g000001 -->
+        これはマクロ展開時にフォームを<code>EVAL</code>し即時に有効化するだけでなく、
+        フォームを<code>(ASDF-FINALIZERS:FINAL-FORMS)</code>に含めるために脇に避けておきます。<code>(ASDF-FINALIZERS:FINAL-FORMS)</code>はそのコンパイル中のファイルの末尾(か、そのフォームが必要になる前)に置く必要があります。
+        <!-- This way, the side-effects are present when loading the fasl -->
         <!-- without having compiled it as well as while compiling it; -->
-        この方法は、コンパイルしたfasl[ファイル?]においてもしないものにおいても副作用を持っています。
+        こうすれば、コンパイルの最中だけでなく、コンパイルせずにfaslをロードしただけの時も副作用が現れます。
         <!-- in either case, the form is made available at load-time. -->
         どちらの場合も、フォームはロード時に使えるようになります。
         <!-- <code>ASDF-FINALIZERS</code> ensures that the form is present, -->
         <!-- by throwing an error if you omit it. -->
-        <code>ASDF-FINALIZERS</code>はフォームが存在することを保証し、[フォームを]省略した場合はエラーを投げます。
+        <code>ASDF-FINALIZERS</code>はフォームを省略した場合はエラーを投げることでフォームの存在を保証します。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -3581,15 +3564,14 @@ Takashi Kato
         <!-- This creates opportunities for memory leaks, denial of service attacks, -->
         <!-- unauthorized access to internals, clashes with other symbols. -->
         <code>INTERN</code>を実行時に使用してはなりません。
-        これは[GCに]回収されない恒久的なシンボルの生成であろうと、内部シンボルの生成であろうと良くありません。
-        <!-- pros and consのconsか、それともはboxingのことか、それとも「construct」の意味か -g000001 -->
-        これらの実行は、メモリリーク・DoS攻撃・内部への不正アクセス・他のシンボルとの競合、等の発生を生む可能性があります。
+        コンシングするだけでなく、[GCに]回収されない恒久的なシンボルの生成か、内部シンボルへアクセス手段になってしまいます。
+        これにより、メモリリーク・DoS攻撃・内部への不正アクセス・他のシンボルとの競合、等の発生の可能性があります。
       </p>
       <p>
         <!-- You must not <code>INTERN</code> a string -->
         <!-- just to compare it to a keyword; -->
         <!-- use <code>STRING=</code> or <code>STRING-EQUAL</code>. -->
-        単にキーワード[シンボル]を比較するためだけに、文字列を<code>INTERN</code>してはなりません。
+        単にキーワード[シンボル]と比較するためだけに、文字列を<code>INTERN</code>してはなりません。
         <code>STRING=</code>か<code>STRING-EQUAL</code>を使いましょう。
       </p>
       <BAD_CODE_SNIPPET>
@@ -3605,9 +3587,9 @@ Takashi Kato
         <!-- You must not dynamically intern any new symbol, -->
         <!-- and therefore you need not dynamically unintern anything. -->
         <code>UNINTERN</code>を実行時に使用してはなりません。
-        これは、動的な束縛に依存したコードを破壊する可能性があります。
-        また、これは、デバッグを困難なものにします。
-        動的に新しいシンボルを<code>INTERN</code>してはなりませんし、そうなると、まったく動的にシンボルを<code>UNINTERN</code>する必要もありません。<!-- un/internは別個のものでは？ -g000001 -->
+        これは動的束縛に依存したコードを破壊する可能性があります。
+        また、これはデバッグを困難なものにします。
+        動的に新しいシンボルを<code>INTERN</code>してはなりません。そうすれば、動的にシンボルを<code>UNINTERN</code>する必要もなくなります。
       </p>
       <p>
         <!-- You may of course use <code>INTERN</code> at compile-time, -->
@@ -3617,9 +3599,8 @@ Takashi Kato
         <!-- <code>ALEXANDRIA:SYMBOLICATE</code> or -->
         <!-- <code>ALEXANDRIA:FORMAT-SYMBOL</code> -->
         <!-- to create the symbols you need. -->
-        勿論、コンパイル時には、マクロの組み立ての中で<code>INTERN</code>は使えるでしょう。
-        とはいえ、大抵は[<code>INTERN</code>を直に使うより]、それを抽象化したものを使うのがより適切であり、
-        必要なシンボルを生成するのには<code>ALEXANDRIA:SYMBOLICATE</code>や<code>ALEXANDRIA:FORMAT-SYMBOL</code>のようなものを使うことでしょう。
+        勿論、コンパイル時にはマクロの実装の中で<code>INTERN</code>しても良いです。
+        とはいえ、<code>ALEXANDRIA:SYMBOLICATE</code>や<code>ALEXANDRIA:FORMAT-SYMBOL</code>のような、抽象化したものを使って必要なシンボルの生成するのが、大抵は[<code>INTERN</code>を直に使うより]適切です。
       </p>
       
     </BODY>
@@ -3631,51 +3612,51 @@ Takashi Kato
   <STYLEPOINT title="NIL: 空リスト、偽値、なにやら分からない値">
     <SUMMARY>
       <!-- Appropriately use or avoid using <code>NIL</code>. -->
-      <code>NIL</code>の使用/不使用は適切に行ないましょう。
+      <code>NIL</code>の使用/不使用は適切に行いましょう。
     </SUMMARY>
     <BODY>
       <p>
         <!-- <code>NIL</code> can have several different interpretations: -->
-	<code>NIL</code>はいくつかの意味を持ち得ます。
+	<code>NIL</code>はいくつかの意味を持ちます。
       </p>
       <ul>
         <li>
           <!-- "False." -->
-	  偽値として
+	  「偽値」。
           <!-- In this case, use <code>NIL</code>. -->
-	  この場合は<code>NIL</code>を使いましょう。
+	  この場合は<code>NIL</code>を使います。
           <!-- You should test for false <code>NIL</code> -->
           <!-- using the operator <code>NOT</code> or -->
           <!-- using the predicate function <code>NULL</code>. -->
-	  偽値である<code>NIL</code>を判定するときは、オペレータ<code>NOT</code>か述語<code>NULL</code>を使うべきです。
+	  偽値<code>NIL</code>を判定するときは、オペレータ<code>NOT</code>か述語<code>NULL</code>を使うべきです。
         </li>
         <li>
           <!-- "Empty-list." -->
-	  空リストとして
+	  「空リスト」。
           <!-- In this case, use <code>'()</code>. -->
-	  この場合は<code>'()</code>を使いましょう。
+	  この場合は<code>'()</code>を使います。
           <!-- (Be careful about quoting the empty-list when calling macros.) -->
-	  (マクロを呼ぶときは、[引数に与える]空リストのクォートについては注意を払いましょう。)
+	  （マクロを呼ぶときは、[引数に与える]空リストのクォートについて注意を払いましょう。）
           <!-- You should use <code>ENDP</code> to test for the empty list -->
           <!-- when the argument is known to be a proper list, -->
           <!-- or with <code>NULL</code> otherwise. -->
-	  引数が真性リストであることが分っている場合での空リストの判定は<code>ENDP</code>を使うべきです。
-          それ以外の[空リストの判定]には、<code>NULL</code>を使います。
+	  引数が真正リストだと分っている場合、空リストの判定は<code>ENDP</code>を使うべきです。
+          それ以外[の空リストの判定]には、<code>NULL</code>を使うべきです。
         </li>
         <li>
           <!-- A statement about some value being unspecified. -->
-	  ある値が未定義であることの表明として
+	  「未規定（unspecified）である値の表現」。
           <!-- In this case, you may use <code>NIL</code> -->
           <!-- if there is no risk of ambiguity anywhere in your code; -->
           <!-- otherwise you should use an explicit, descriptive symbol. -->
-	  この場合、曖昧さが無ければ<code>NIL</code>を使っても構いませんが、そうでなければはっきりそれと分かるシンボルを使うべきです。
+	  この場合、曖昧さの残るリスクがコード中のどこにも無ければ、<code>NIL</code>を使っても良いです。そうでなければ、明確で説明的な名前の付いたシンボルを使うべきです。
         </li>
         <li>
           <!-- A statement about some value being known not to exist. -->
-	  値が存在しないと分っている状態として
+          「存在しないと分っている値の表現」。
           <!-- In this case, you should use an explicit, descriptive symbol -->
           <!-- instead of <code>NIL</code>. -->
-	  この場合は<code>NIL</code>ではなしに、はっきりそれと分かるシンボルを使うべきです。
+	  この場合は<code>NIL</code>ではなく、明確で説明的なシンボルを使うべきです。
         </li>
       </ul>
       <p>
@@ -3686,10 +3667,10 @@ Takashi Kato
         <!-- you should use an explicit, descriptive symbol or keyword -->
         <!-- for each case, -->
         <!-- instead of using <code>NIL</code> for either. -->
-	もし曖昧さの残る可能性があるなら、なんでもかんでも<code>NIL</code>を使わず、はっきりそれと分かるシンボルやキーワードをそれぞれの場合に用いるべきです。
+	もし曖昧さの残るリスクがあるなら、<code>NIL</code>を使わず、明確で説明的なシンボルやキーワードをそれぞれのケースに合わせて用いるべきです。
         <!-- If you do use <code>NIL</code>, -->
         <!-- you must make sure that the distinction is well documented. -->
-	それでも、<code>NIL</code>を使うなら、その区別をしっかりドキュメントとして残さなければなりません。
+	それでも<code>NIL</code>を使うなら、その区別をしっかりドキュメントとして残さなければなりません。
       </p>
       <p>
         <!-- In many contexts, -->
@@ -3697,16 +3678,16 @@ Takashi Kato
         <!-- you should instead use multiple values, -->
         <!-- one for the value that is known if any, -->
         <!-- and one to denote whether the value was known or found. -->
-	多くの場合、ある値について「なにやら分からない」と表現するのではなく、多値を用いて1つめの値で、[求めたい値が]あればそれを、2つめの値で[求めたい値が]あったかどうかを表わすべきです。
+	多くの場合、ある値を使って「なにやら分からない」ものを表現するのではなく、多値を用いて1つめの値で、[求めたい値が]あればそれを、2つめの値で[求めたい値が]あったかどうかを表わすべきです。
       </p>
       
       <p>
         <!-- When working with database classes, keep in mind that -->
         <!-- <code>NIL</code> need not always map to <code>'NULL'</code> -->
         <!-- (and vice-versa)! -->
-	データベースクラスを扱っているときは、常に<code>NIL</code>が[データベースの]<code>'NULL'</code>としてマップされる必用はない(逆も然り!)ことを覚えておきましょう。
+	データベースクラスを扱っているときは、<code>NIL</code>が[データベースの]<code>'NULL'</code>としてマップされる必要は必ずしもない（逆も然り）ことを覚えておきましょう！
         <!-- The needs of the database may differ from the needs of the Lisp. -->
-	データベースでのニーズとLispでのニーズは恐らく違うものでしょう。
+	データベースでのニーズとLispでのニーズは違う場合があります。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -3723,29 +3704,29 @@ Takashi Kato
         <!-- Even though back in 1958, LISP was short for "LISt Processing", -->
         <!-- its successor Common Lisp has been a modern programming language -->
         <!-- with modern data structures since the 1980s. -->
-	1958の昔にまで遡ればLISPは"LISt Processing"の略でありましたが、1980年代以降、その後継であるCommon Lispはモダンなデータ構造を持ったモダンなプログラミング言語であり続けています 。
+	1958年のLISPは"LISt Processing"の略だったとしても、1980年代以降、その後継であるCommon Lispはモダンなデータ構造を持ったモダンなプログラミング言語です。
         <!-- You must use the proper data structures in your programs. -->
-	プログラムには適切なデータ構造を使わなければなりません。
+	プログラムには正しいデータ構造を使わなければなりません。
       </p>
       <p>
         <!-- You must not abuse the builtin (single-linked) <code>LIST</code> -->
         <!-- data structure where it is not appropriate, -->
         <!-- even though Common Lisp makes it especially easy to use it. -->
-	Common Lispは確かにビルトインの(単方向連結)<code>LIST</code>の操作が簡単になっていますが、不適切な場面でそれを乱用してはなりません。
+	Common Lispのビルトインの（単方向連結）<code>LIST</code>の操作が特に簡単だとしても、不適切な場面でそれを乱用してはなりません。
       </p>
       <p>
         <!-- You must only use lists -->
         <!-- when their performance characteristics -->
         <!-- is appropriate for the algorithm at hand: -->
         <!-- sequential iteration over the entire contents of the list. -->
-	リストを使うときはそのパフォーマンスの特徴上適切なアルゴリズム ─ シーケンシャルにリスト全体を舐めるようなもの ─ で操作する場合に限らなければなりません。
+        リストを使うときは、そのパフォーマンス特性が問題のアルゴリズムに対し適切でなければなりません。例えば、シーケンシャルにリスト全体を舐めるようなもの。
       </p>
       <p>
         <!-- An exception where it is appropriate to use lists -->
         <!-- is when it is known in advance -->
         <!-- that the size of the list will remain very short -->
         <!-- (say, less than 16 elements). -->
-        例外として事前にリストのサイズが小さい(具体的には要素数が16未満)と分かっている場合があげられます。
+        例外として、事前にリストのサイズがとても小さいままで大きくならない（例えば要素数が16未満）と分かっている場合があります。
       </p>
       <p>
         <!-- List data structures are often (but not always) -->
@@ -3753,23 +3734,24 @@ Takashi Kato
         <!-- indeed, not only is source code passed as lists in Common Lisp, -->
         <!-- but the macro-expansion and compilation processes -->
         <!-- will typically walk over the entire source code, sequentially, once. -->
-	リストは大抵の場合(だがしかしいつもではない)マクロやコンパイル時に使われる関数には適切です。
-	というのも、Common Lispのソースコードがリストとして渡されるだけでなく、マクロ展開やコンパイル処理で典型的には全ソースコードを1回舐めるからです。
+	リストは大抵の場合（いつもではない）、マクロやコンパイル時にマクロで使う関数に適切です。
+	というのも、Common Lispはソースコードをリストとして渡すというだけでなく、典型的なマクロ展開やコンパイル処理は渡されたソースコードを順次1回舐めるだけだからです。
 	<!-- (Note that advanced macro systems don't directly use lists, but instead -->
         <!-- use abstract syntax objects that track source code location and scope; -->
         <!-- however there is no such advanced macro system -->
         <!-- in Common Lisp at this time.) -->
-	(進んだマクロシステムでは直接はリストを使わずソースコードの位置やスコープを追跡する抽象構文オブジェクトを使いますが、現時点ではCommon Lispにはそのようなマクロシステムは存在しないことに気を付けましょう。)
+        （進んだマクロシステムでは直接リストを使わずに、ソースコードの位置やスコープを追跡する抽象構文オブジェクトを使います。しかし現時点のCommon Lispはそんな進んだマクロシステムを持っていません。）
       </p>
       <p>
         <!-- Another exception where it is appropriate to use lists is -->
         <!-- for introducing literal constants -->
         <!-- that will be transformed into more appropriate data structures -->
         <!-- at compile-time or load-time. -->
-	もう一つの例外としてコンパイル時やロード時に適切なデータ構造に変換される[リストの]リテラルを導入する場合があげられます。
+	もう一つの例外として、[リストの]リテラルを導入し、コンパイル時やロード時に適切なデータ構造に変換する場合があります。
         <!-- It is a good to have a function with a relatively short name -->
         <!-- to build your program's data structures from such literals. -->
-	比較的短かい名前でそのようなリテラルから自分のプログラムのデータ構造を構成する関数を用意するのは良いことです。
+	比較的短かい名前の関数を用意し、そのようなリテラルから自分のプログラムのデータ構造を作るのは良いことです。
+        <!-- 短い名前にする理由が不明。元ネタがある？誤訳になってる？ -->
       </p>
       <p>
         <!-- In the many cases when lists are not the appropriate data structure, -->
@@ -3778,7 +3760,7 @@ Takashi Kato
         <!-- <a href="http://cliki.net/lisp-interface-library">lisp-interface-library</a> -->
         <!-- provide plenty of different data structures -->
         <!-- that should fulfill all the basic needs of your programs. -->
-	リストがデータ構造として適切でない場合は<a href="http://cliki.net/cl-containers">cl-containers</a>や<a href="http://cliki.net/lisp-interface-library">lisp-interface-library</a>などのライブラリがプログラムの基本的な需要を全て満足する多種多様なデータ構造を提供してくれます。
+	リストがデータ構造に不適切な多くの場合には、<a href="http://cliki.net/cl-containers">cl-containers</a>や<a href="http://cliki.net/lisp-interface-library">lisp-interface-library</a>など様々なライブラリがプログラムの基本的欲求全て満たす多種多様なデータ構造を提供します。
         <!-- If the existing libraries are not satisfactory, see above about -->
         <!-- <a href="#Using_Libraries">Using Libraries</a> and -->
         <!-- <a href="#Open-Sourcing_Code">Open-Sourcing Code</a>. -->
@@ -3790,50 +3772,49 @@ Takashi Kato
   <STYLEPOINT title="リストか構造体か多値か">
     <SUMMARY>
       <!-- You should use the appropriate representation for product types. -->
-      作るものに応じて適材適所で用いる<!-- SOULD -->べきです。
+      直積型には適切な表現を用いるべきです。
     </SUMMARY>
     <BODY>
       <p>
         <!-- You should avoid using a list as anything besides a container of elements of like type. -->
-	リストを似通った要素のコンテナとして以外に使うべきではありません。
-        <!-- リストをなにか似たようなタイプもの入れ物として使うことからそれて使うべきではありません。??? -->
+	リストは同種の要素のコンテナとして使い、それ以外の使用は避けるべきです。
         <!-- You must not use a list as method of passing multiple separate values of different types in and out of function calls. -->
-	関数呼び出しの内外でリストを違う型の別々の複数の値を渡す手段として使ってはなりません。
+	リストを関数に与えたり、関数から返したりする際の、違う型の関連しない複数の値を渡す手段として使ってはなりません。
         <!-- Sometimes it is convenient to use a list as a little ad hoc structure, -->
-        時にはリストを少しアドホックな構造体と見做して使うのも便利でしょう。
+        リストをちょっとしたアドホックな構造体と見做して使うのが便利なこともありますが
         <!-- i.e. "the first element of the list is a FOO, and the second is a BAR", -->
-        すなわち、"そのリストの最初の第一の要素はFOO、そして第二はBARとする"、のように。
+        （すなわち、"リストの一番目の要素はFOOで二番目はBAR"、のように）、
         <!-- but this should be used minimally since it gets harder to remember the little convention. -->
-        しかし、このような使い方は最小限であるべきで、なぜならこのような細々とした取り決めを思い出すのは難しいからです。
+        このような使い方は最小限にすべきで、なぜならこのちょっとした取り決めを思い出すのは難しくなっていくからです。
         <!-- You must only use a list that way when destructuring the list of arguments from a function, -->
         <!-- or creating a list of arguments to which to <code>APPLY</code> a function. -->
-	そのような使い方は関数の返り値を分配する場合、あるいは<code>APPLY</code>するためのリストを作る場合に限られるべきです。
+	リストをこの様に使わなければならないのは、関数の引数のリストを分割する時か、関数に<code>APPLY</code>する引数のリストを作る時だけです。
       </p>
       <p>
         <!-- The proper way to pass around an object -->
         <!-- comprising several values of heterogeneous types -->
         <!-- is to use a structure as defined by <code>DEFSTRUCT</code> -->
         <!-- or <code>DEFCLASS</code>. -->
-	型の異なる複数の値からなるオブジェクトを渡す正しい方法は<code>DEFSTRUCT</code>や<code>DEFCLASS</code>で定義された構造を使うことです。
+	型の異なった、複数の値から成るオブジェクトを渡す正しい方法は、<code>DEFSTRUCT</code>や<code>DEFCLASS</code>で定義した構造を使うことです。
       </p>
       <p>
         <!-- You should use multiple values only -->
         <!-- when function returns a small number of values -->
         <!-- that are meant to be destructured immediately by the caller, -->
         <!-- rather than passed together as arguments to further functions. -->
-        多値の利用は、関数が少数の値を返し、[これらの値が、]呼び出し側よりさらに先の関数に引数などとして一緒に渡されたりするよりは寧ろ、呼び出し側によって値が即座に分解されるように使われる場合に限るべきです。
+        多値の利用は、関数が少数の値を返し、呼び出し側で即座に分割される意図がある場合に限るべきで、さらに先の関数に引数としてまとめて渡される場合には避けるべきです。
       </p>
       <p>
         <!-- You should not return a condition object -->
         <!-- as one of a set of multiple values. -->
         <!-- Instead, you should signal the condition to denote an unusual outcome. -->
-	コンディションオブジェクトを多値の一式として返すべきではありません。代りに、異常が出たことを通知するのにコンディションを発するべきです。
+        コンディションオブジェクトを多値の一部として返すべきではありません。代わりにコンディションを発信し、異常が出たことを通知すべきです。
         <!-- TODO: コンディションを多値で返すという、NGの場合の具体的な状況が分からないので調べる -->
       </p>
       <p>
         <!-- You should signal a condition to denote an unusual outcome, -->
         <!-- rather than relying on a special return type. -->
-        普通でない結果であることを示したい場合は、特殊な型を返すよりもコンディションを発するべきです。
+        特別な戻り値の型に頼るより、コンディションを発信し、異常が出たことを通知すべきです。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -3848,10 +3829,10 @@ Takashi Kato
         <!-- <code>SECOND</code> to access the second element, etc. -->
         <!-- Use <code>REST</code> to access the tail of a list. -->
         <!-- Use <code>ENDP</code> to test for the end of the list. -->
-        リストの第一要素へのアクセスには<code>FIRST</code>を使いましょう。
-        また、<code>SECOND</code>は第二要素へのアクセスに使いましょう(以降同様)。
-        リストのテール部へのアクセスには<code>REST</code>を使いましょう。
-        リスト終端の判定には<code>ENDP</code>を使いましょう。
+        リストの第一要素へのアクセスには<code>FIRST</code>を使います。
+        また、<code>SECOND</code>は第二要素へのアクセスに使います（以降同様）。
+        リストのテール部へのアクセスには<code>REST</code>を使います。
+        リスト終端の判定には<code>ENDP</code>を使います。
       </p>
       <p>
         <!-- Use <code>CAR</code> and <code>CDR</code> -->
@@ -3859,15 +3840,15 @@ Takashi Kato
         <!-- and is instead being treated as a pair of more general objects. -->
         <!-- Use <code>NULL</code> to test for <code>NIL</code> in this context. -->
         <code>CAR</code>と<code>CDR</code>は、
-        コンスセルが真正リストとして使われない場合や、[コンスセルに限らず]オブジェクト一般のペアの表現とみなされるものに使いましょう。
-        また、この[用法の]文脈では、<code>NULL</code>を<code>NIL</code>かどうかの判定に使います。
+        コンスセルを真正リストになるように使っていない、もっと一般的なオブジェクトのペアと見做せるものに使いましょう。
+        また、この[用法の]文脈では、<code>NULL</code>で<code>NIL</code>の判定をします。
       </p>
       <p>
         <!-- The latter case should be rare outside of alists, -->
         <!-- since you should be using structures and classes where they apply, -->
         <!-- and data structure libraries when you want trees. -->
         <!-- @nfunato https://twitter.com/nfunato/status/264814210570129408 -->
-        後者の場合はalistを別とすれば稀でしょう。構造体やクラスが適切なときはそちらを、木構造を使いたいときはデータ構造のライブラリを使うべきだからです。
+        一般的なオブジェクトのペアというのは、alistを別とすれば稀でしょう。構造体やクラスが適切なときはそれを、木構造を使いたいときはデータ構造のライブラリを使うべきだからです。
       </p>
       <p>
         <!-- Exceptionally, you may use <code>CDADR</code> and other variants -->
@@ -3878,12 +3859,12 @@ Takashi Kato
         <!-- However, keep in mind that it might be more appropriate in such cases -->
         <!-- to use higher-level constructs such as -->
         <!-- <code>DESTRUCTURING-BIND</code> or <code>OPTIMA:MATCH</code>. -->
-        手動でリストを腑分けするような場合、リストのアクセス関数を組み合わせる代わりに、
-        例外的に<code>CDADR</code>やそれに類するものを使っても良いでしょう。
-        この文脈では<code>FIRST</code>や<code>REST</code>でなく、代りに<code>CAR</code>や<code>CDR</code>を利用するのも理にかなったことでしょう。
-        しかし、これらの場合、より高い[視点で]構造を扱うものとして、
-        <code>DESTRUCTURING-BIND</code>や<code>OPTIMA:MATCH</code>
-        を使った方が適切な場合もあるということを常に念頭に置いておきましょう。
+        例外として、手動でリストを分割する場合は、リストのアクセス関数を組み合わせずに
+        <code>CDADR</code>系のものを使っても良いです。
+        この文脈では<code>FIRST</code>や<code>REST</code>の代わりに、<code>CAR</code>や<code>CDR</code>を使っても理に叶います。
+        しかし、これらの場合、
+        <code>DESTRUCTURING-BIND</code>や<code>OPTIMA:MATCH</code>のような
+        高レベルの構文を使った方が適切かもしれないことは念頭に置いておきましょう。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -3895,7 +3876,7 @@ Takashi Kato
       <!-- 
       You should use arrays rather than lists where random access matters.
       -->
-      (要素に)ランダムアクセスをする場合には、リストではなく配列を用いるべきです。
+      ランダムアクセスが重要な場合には、リストではなく配列を用いるべきです。
     </SUMMARY>
     <BODY>
       <p>
@@ -3904,19 +3885,19 @@ Takashi Kato
         If you are to use random element access on an object,
         use arrays and <code>AREF</code> instead.
         -->
-        <code>ELT</code> がリストで用いられた場合 <i>O(n)</i> の効率になります。
-        要素にランダムアクセスする場合、配列と<code>AREF</code>の組み合せを用いましょう。
+        <code>ELT</code> はリストに使うと <i>O(n)</i> の効率になります。
+        要素にランダムアクセスしたい場合、配列と<code>AREF</code>を用いましょう。
       </p>
       <p>
         <!--
         The exception is for code outside the critical path
         where the list is known to be small anyway.
         -->
-        クリティカルパスの外側で、かつ、そのサイズが小さいことが予期されている場合等の例外的利用はあります。
+        クリティカルパスの外側で、リストサイズが小さいと分かっている場合は例外です。
       </p>
     </BODY>
   </STYLEPOINT>
-  <STYLEPOINT title="リストか集合か">
+  <STYLEPOINT title="リストか集合（set）か">
   <!-- <STYLEPOINT title="Lists vs. Sets"> -->
     <SUMMARY>
       <!-- You should only use lists as sets for very small lists. -->
@@ -3929,15 +3910,15 @@ Takashi Kato
         <!-- for accessors are <i>O(n)</i> instead of <i>O(log n)</i>. -->
         <!-- For arbitrary big sets, use balanced binary trees, -->
         <!-- for instance using <code>lisp-interface-library</code>. -->
-        リストが小規模であることが事前に把握できる場合を除いて、リストを集合の表現として利用するのはまずい考えです。
-        [リスト表現の場合]アクセサは<i>O(log n)</i>で済むところが<i>O(n)</i>のコストをかけることになります。
-        任意で大きい集合には、<code>lisp-interface-library</code>での例のように平衡2分木を使います。
+        リストが小さいだろうと分かる場合を除いて、リストを集合の表現として利用するのはまずい考えです。
+        [リスト表現の場合]アクセサは<i>O(log n)</i>で済むところが<i>O(n)</i>のコストがかかってしまいます。
+        任意の大きな集合には、例えば<code>lisp-interface-library</code>を利用し、平衡2分木を使います。
       </p>
       <p>
         <!-- If you still use lists as sets, -->
         <!-- you should not <code>UNION</code> lists just to search them. -->
-        それでもなお集合としてのリストを使いたいという場合、
-        単に要素を探索するようなことに<code>UNION</code>[で合成した]リストを使うべきではありません。
+        まだリストを集合として使うなら、
+        単に要素を探索するのにリストを<code>UNION</code>すべきではありません。
       </p>
       <BAD_CODE_SNIPPET>
         (member foo (union list-1 list-2)) ; Bad
@@ -3949,40 +3930,40 @@ Takashi Kato
         <!-- Indeed, <code>UNION</code> not only conses unnecessarily, -->
         <!-- but it can be <i>O(n^2)</i> on some implementations, -->
         <!-- and is rather slow even when it's <i>O(n)</i>. -->
-        勿論、<code>UNION</code>は不要なコンスを発生させるだけでなく、
-        幾つかの処理系では、<i>O(n^2)</i>[の処理コスト]となることもあり、
-        [良くて]<i>O(n)</i>[のコスト]だったとしても依然として遅いものです。
+        <code>UNION</code>は不要なコンシングを発生させるだけでなく、
+        <i>O(n^2)</i>[の処理コスト]になる処理系もありますし、
+        たとえ<i>O(n)</i>[のコスト]だったとしてもかなり遅いものです。
       </p>
     </BODY>
   </STYLEPOINT>
 </CATEGORY>
 
 <!-- <CATEGORY title="Proper Forms"> -->
-<CATEGORY title="形式の書式">
+<CATEGORY title="正しいフォーム">
   <p>
     <!-- You must follow the proper usage regarding -->
     <!-- well-known functions, macros and special forms. -->
-    関数、マクロ、スペシャルフォームの使用方法として正しいと周知されていることには*絶対に*従うべきです。
+    よく知られている関数、マクロ、スペシャルフォームに関しては、正しい使用方法に従わなければなりません。
   </p>
   <!-- <STYLEPOINT title="Defining Constants"> -->
   <STYLEPOINT title="定数の定義">
     <SUMMARY>
       <!-- You must use proper defining forms for constant values. -->
-      定数の定義式は、正しく用いらなければなりません。
+      定数値には正しい定義フォームを用いなければなりません。
     </SUMMARY>
     <BODY>
       <p>
         <!-- The Lisp system we primarily use, SBCL, is very picky and -->
         <!-- signals a condition whenever a constant is redefined to a value not -->
         <!-- <code>EQL</code> to its previous setting. -->
-	私たちが主に使うSBCLはとても口うるさく、定数が前の定義と<code>EQL</code>でないものに設定されるとコンディションを発します。
+	私たちが主に使うSBCLはとても口うるさく、定数を、前の定義と<code>EQL</code>でないものに再定義するとコンディションを発します。
         <!-- You must not use <code>DEFCONSTANT</code> -->
         <!-- when defining variables that are not -->
         <!-- numbers, characters, or symbols (including booleans and keywords). -->
-	数字や文字やシンボル(含真偽値、キーワード)でない値に<code>DEFCONSTANT</code>を使ってはなりません。
+	数字や文字やシンボル（含真偽値、キーワード）でない変数を定義するときは<code>DEFCONSTANT</code>を使ってはなりません。
         <!-- Instead, consistently use whichever alternative -->
         <!-- is recommended for your project. -->
-	代りに、プロジェクトで首尾一貫して代替品のどれかを使うことが推奨されます。
+	代わりに、プロジェクトで推奨される代替品がなんであれ、それを首尾一貫して使います。
       </p>
       <BAD_CODE_SNIPPET>
         ;; 悪い例<!-- Bad -->
@@ -3998,10 +3979,10 @@ Takashi Kato
         <!-- <code>ALEXANDRIA:DEFINE-CONSTANT</code> -->
         <!-- for constants other than numbers, characters and symbols -->
         <!-- (including booleans and keywords). -->
-	数字や文字やシンボル(含真偽値、キーワード)でない値を定数にしたいのなら、オープンソースライブラリは<code>ALEXANDRIA:DEFINE-CONSTANT</code>が使えます。
+        オープンソースライブラリでは、数字や文字やシンボル（含真偽値、キーワード）でない定数には、<code>ALEXANDRIA:DEFINE-CONSTANT</code>が使っても良いです。
         <!-- You may use the <code>:TEST</code> keyword argument -->
         <!-- to specify an equality predicate. -->
-	<code>:TEST</code>キーワード引数で等価性をテストする述語を指定できます。
+	<code>:TEST</code>キーワード引数で等価性をテストする述語を指定して良いです。
       </p>
       <CODE_SNIPPET>
         ;; 良い例 オープンソース向け:<!-- Better, for Open-Source code: -->
@@ -4013,10 +3994,10 @@ Takashi Kato
         <!-- defining constants this way precludes any later redefinition -->
         <!-- short of <code>UNINTERN</code>ing the symbol -->
         <!-- and recompiling all its clients. -->
-	SBCLやCMUCLなどの最適化をする処理系ではこのように定数を定義するとシンボルを<code>UNINTERN</code>してしまうため、定数を使っているコード全てを再コンパイルする以外には後から定数を再定義する方法は無いことを覚えておきましょう。
+	SBCLやCMUCLなどの、最適化をする処理系でこのように定数を定義すると、後で定数を再定義する方法は、まずそのシンボルを<code>UNINTERN</code>して、次に定数を使っているコード全てを再コンパイルする以外に無いことに注意が必要です。
         <!-- This may make it "interesting" to debug things at the REPL -->
         <!-- or to deploy live code upgrades. -->
-	これによってREPLでのデバッグやホットデプロイが「愉快な」ことになってしまいます。
+	これによって、REPLでのデバッグやホットデプロイが「愉快な」ことになってしまいます。
         <!-- If there is a chance that your "constants" are not going to be constant -->
         <!-- over the lifetime of your server processes -->
         <!-- after taking into consideration scheduled and unscheduled code patches, -->
@@ -4025,18 +4006,15 @@ Takashi Kato
         <!-- or possibly a variant of <code>DEFINE-CONSTANT</code> -->
         <!-- that builds upon some future library implementing global lexicals -->
         <!-- rather than <code>DEFCONSTANT</code>. -->
-	もし想定内/外のパッチを考慮するならば、サーバー上で動いている間に「定数」の値が変更され得るなら<code>DEFCONSTANT</code>ではなく<code>DEFPARAMETER</code>や<code>DEFVAR</code>、あるいは[未来のグローバルレキシカル変数の上に実装された|???]<code>DEFINE-CONSTANT</code>の変種の使用を考えるべきです。
-	<!-- TODO: builds upon some future library implementing global lexicalsの訳が分りませんでした。global lexicals?(κeen) -->
-        <!-- featureなんですかね？。それとも、グローバルなレキシカル変数が実現されることを未来と呼んでいるのか。
-             なんにしろ無用な修飾の気もしますね…。 g000001 -->
+	もし想定内/外のパッチを考慮して、サーバープロセスの生存期間内に「定数」が定数でなくなる可能性があるなら、代わりに<code>DEFPARAMETER</code>や<code>DEFVAR</code>か、あり得るなら<code>DEFCONSTANT</code>ではなく、大域レキシカル変数を実装した未来のライブラリの上に構築した<code>DEFINE-CONSTANT</code>系の使用を考えるべきです。
         <!-- You may keep the <code>+plus+</code> convention in these cases -->
         <!-- to document the intent of the parameter as a constant. -->
-	この場合は定数として扱う意図であることを示すために<code>+plus+</code>のコーディング規約を一貫して用いることができるでしょう。
+	この場合は<code>+plus+</code>の慣例を一貫して用い、このパラメータが定数である意図を示しても良いです。
       </p>
       <p>
         <!-- Also note that <code>LOAD-TIME-VALUE</code> may help you -->
         <!-- avoid the need for defined constants. -->
-	また、<code>LOAD-TIME-VALUE</code>を使えば定数を使わなくて済むことがあることも覚えておきましょう。
+	また、<code>LOAD-TIME-VALUE</code>を使えば、定数を前もって定義しておく必要がなくなるかもしれないことも覚えておきましょう。
       </p>
     </BODY>
   </STYLEPOINT>
@@ -4047,41 +4025,41 @@ Takashi Kato
       <!-- <code>&amp;OPTIONAL</code> and -->
       <!-- <code>&amp;KEY</code> arguments. -->
       <!-- You should not use <code>&amp;AUX</code> arguments.  -->
-      <code>&amp;OPTIONAL</code>や<code>&amp;KEY</code>は適切に利用すべきです。
+      <code>&amp;OPTIONAL</code>や<code>&amp;KEY</code>は正しい使い方をすべきです。
       <code>&amp;AUX</code>引数は利用すべきではありません。
     </SUMMARY>
     <BODY>
       <p>
         <!-- You should avoid using <code>&amp;ALLOW-OTHER-KEYS</code>, -->
         <!-- since it blurs the contract of a function. -->
-	<code>&amp;ALLOW-OTHER-KEYS</code>は関数の契約を曖昧にさせるので、使用は避けるべきです。
+	<code>&amp;ALLOW-OTHER-KEYS</code>は関数の契約を曖昧にするので、使用は避けるべきです。
         <!-- Almost any real function (generic or not) allows a certain -->
         <!-- fixed set of keywords, as far as its caller is concerned, -->
         <!-- and those are part of its contract. -->
-	ほとんどの実際の(総称も含めた)関数はある呼び出す側に関しては定まったキーワードを許しますが、これは関数の契約の一部です。
+	ほとんど全ての（総称も含めた）関数は、ある定まったキーワードを許しますが、呼び出す側から見れば、これも契約です。
         <!-- If you are implementing a method of a generic function, -->
         <!-- and it does not need to know -->
         <!-- the values of some of the keyword arguments, -->
         <!-- you should explicitly <code>(DECLARE (IGNORE ...))</code> -->
         <!-- all the arguments that you are not using. -->
-	総称関数のメソッドを実装をしていて、いくつかのキーワード引数の値に関知しないときは、該当引数すべてに明示的に<code>(DECLARE (IGNORE ...))</code>を使うべきです。
+	総称関数のメソッドを実装していて、知る必要のないキーワード引数の値があるなら、該当引数全てに明示的に<code>(DECLARE (IGNORE ...))</code>すべきです。
         <!-- You must not use <code>&amp;ALLOW-OTHER-KEYS</code> -->
         <!-- unless you explicitly want to disable checking of allowed keys -->
         <!-- for all methods when invoking the generic function on arguments -->
         <!-- that match this particular method. -->
-	<code>&amp;ALLOW-OTHER-KEYS</code>は総称関数がディスパッチするときに、あるパターンにマッチした全てのメソッドでキーワードのチェックの処理を明示的に無効にしたいとき以外は使ってはなりません。
+	<code>&amp;ALLOW-OTHER-KEYS</code>を、使ってはなりません。ただし、そのメソッドにマッチした引数で総称関数を起動するときに、全てのメソッドで使えるキーワード引数のチェックを明示的に無効化したいときは除きます。
         <!-- Note that the contract of a generic function belongs in -->
         <!-- the <code>DEFGENERIC</code>, not in the <code>DEFMETHOD</code> -->
         <!-- which is basically an "implementation detail" of the generic function -->
         <!-- as far as the caller of the generic is concerned. -->
-	総称関数の契約は呼び出すときに関しては基本的に総称関数の「詳細の実装」である<code>DEFMETHOD</code>ではなく<code>DEFGENERIC</code>に属することを念頭に置きましょう。
+	総称関数の契約は、呼び出し側から見たとき<code>DEFGENERIC</code>に属すもので、基本的に総称関数の「実装の詳細」である<code>DEFMETHOD</code>に属すものではないことを念頭に置きましょう。
       </p>
       <p>
         <!-- A case where <code>&amp;ALLOW-OTHER-KEYS</code> is appropriate -->
         <!-- is when you write a wrapper function to other some other functions -->
         <!-- that may vary (within the computation or during development), -->
         <!-- and pass around a plist as a <code>&amp;REST</code> argument. -->
-	<code>&amp;ALLOW-OTHER-KEYS</code>が適切であるケースには他の関数を呼び出すラッパ関数を書いていて、呼び出される関数が(実行時や開発中に)変わる可能性があり、<code>&amp;REST</code>として属性リストを渡すときなどがあります。
+	<code>&amp;ALLOW-OTHER-KEYS</code>が適切であるケースは、ラッパ関数を書いていて、そこから呼び出す関数が（計算中や開発時に）変わる可能性があるときと、plistを<code>&amp;REST</code>引数として渡すときです。
       </p>
       <p>
         <!-- You should avoid using <code>&amp;AUX</code> arguments. -->
@@ -4092,43 +4070,42 @@ Takashi Kato
         <!-- and <code>&amp;KEY</code> arguments, -->
         <!-- unless it never makes sense to specify keyword arguments -->
         <!-- when the optional arguments are not all specified. -->
-	<code>&amp;OPTIONAL</code>と<code>&amp;KEY</code>の併用はオプショナル引数を指定しなければキーワード引数に意味がなくなる場合以外は避けるべきです。
+	<code>&amp;OPTIONAL</code>と<code>&amp;KEY</code>の併用は避けるべきです。ただし、オプショナル引数に未指定部があるとき、キーワード引数を指定することに全く意味がない場合を除きます。
         <!-- You must not have non-<code>NIL</code> defaults -->
         <!-- to your <code>&amp;OPTIONAL</code> arguments -->
         <!-- when your function has both <code>&amp;OPTIONAL</code> -->
         <!-- and <code>&amp;KEY</code> arguments. -->
-	<code>&amp;OPTIONAL</code>と<code>&amp;KEY</code>を併用するときは<code>&amp;OPTIONAL</code>引数に<code>NIL</code>でないデフォルト値を持たせるべきではありません。
+	<code>&amp;OPTIONAL</code>と<code>&amp;KEY</code>を併用するときは、<code>&amp;OPTIONAL</code>引数に<code>NIL</code>でないデフォルト値を持たせてはなりません。
       </p>
       <p>
         <!-- For maximum portability of a library, it is good form -->
         <!-- that <code>DEFMETHOD</code> definitions should -->
         <!-- <code>(DECLARE (IGNORABLE ...))</code> -->
         <!-- all the required arguments that they are not using. -->
-	ライブラリに最大限のポータビリティを持たせるなら、<code>DEFMETHOD</code>が全ての必須引数のうちで使わないものを<code>(DECLARE (IGNORABLE ...))</code>するのは良いことです。
+	ライブラリに最大限の可搬性を持たせるなら、<code>DEFMETHOD</code>の定義で、使わない必須引数の全てに<code>(DECLARE (IGNORABLE ...))</code>するのは良いことです。
         <!-- Indeed, some implementations will issue a warning -->
         <!-- if you <code>(DECLARE (IGNORE ...))</code> those arguments, -->
         <!-- whereas other implementations will issue a warning -->
         <!-- if you fail to <code>(DECLARE (IGNORE ...))</code> them. -->
-	実のところ処理系の中にはそのような[未使用]引数に<code>(DECLARE (IGNORE ...))</code>すると警告を出すものもある一方で、<code>(DECLARE (IGNORE ...))</code>に失敗すると警告を出すものもあります。
+	実のところ、処理系の中にはそのような[未使用]引数に<code>(DECLARE (IGNORE ...))</code>すると警告を出すものがあり、その一方で<code>(DECLARE (IGNORE ...))</code>しないと警告を出すものもあります。
         <!-- <code>(DECLARE (IGNORABLE ...))</code> works on all implementations. -->
-	<code>(DECLARE (IGNORABLE ...))</code>は全ての処理系で動きます。
+	<code>(DECLARE (IGNORABLE ...))</code>は全ての処理系で上手く行きます。
       </p>
       <p>
         <!-- You should avoid excessive nesting of binding forms inside a function. -->
-	関数内で過剰な束縛の入れ子は避けるべきです。
+	関数内で束縛フォームの過剰な入れ子は避けるべきです。
         <!-- If your function ends up with massive nesting, -->
         <!-- you should probably break it up into several functions or macros. -->
-	大量の入れ子が出来上がったなら、その関数はいくつかの関数やマクロに分割すべきでしょう。
+	大量の入れ子が出来上がったなら、その関数は恐らくいくつかの関数やマクロに分割すべきです。
         <!-- If it is really a single conceptual unit, -->
         <!-- consider using a macro such as <code>FARE-UTILS:NEST</code> -->
         <!-- to at least reduce the amount of indentation required. -->
-	もしそれが本当に必要最低限の機能しか有していないなら、最低でもインデントの数を減らすためにも<code>FARE-UTILS:NEST</code>などのマクロの利用を検討できるでしょう。
-	<!-- single conceptual unit を必要最低限の機能と訳しました。言いたいことは同じですが少しニュアンスが違う？-->
+	もしそれが本当に単一概念の塊なら、<code>FARE-UTILS:NEST</code>の様なマクロを使い、最低でもインデントの数を減らすことを検討しましょう。
         <!-- It is bad form to use <code>NEST</code> in typical short functions -->
         <!-- with 4 or fewer levels of nesting, -->
         <!-- but also bad form not to use it in the exceptional long functions -->
         <!-- with 10 or more levels of nesting. -->
-	<code>NEST</code>を4つ以下の典型的な短かい関数に適用するのは望ましくありませんが、例外的に10つ以上のネストを持つ関数に適用しないのも良くありません。
+	<code>NEST</code>をネストが4段以下のよくある短かい関数に適用するのは良くありませんが、10段以上のネストを持つ別格に長い関数に適用しないのも良くありません。
         <!-- Use your judgment and consult your reviewers. -->
 	自分で判断してレビュワーに相談しましょう。
       </p>
@@ -4145,15 +4122,15 @@ Takashi Kato
       <p>
         <!-- Use <code>WHEN</code> and <code>UNLESS</code> -->
         <!-- when there is only one alternative. -->
-	他に分岐がないなら<code>WHEN</code>や<code>UNLESS</code>を使いましょう。
+	他に分岐がないなら<code>WHEN</code>や<code>UNLESS</code>を使います。
         <!-- Use <code>IF</code> when there are two alternatives -->
         <!-- and <code>COND</code> when there are several. -->
-	分岐が二つなら<code>IF</code>を、それ以上なら<code>COND</code>を使いましょう。
+	分岐が二つなら<code>IF</code>を、それ以上なら<code>COND</code>を使います。
       </p>
       <p>
         <!-- However, don't use <code>PROGN</code> for an <code>IF</code> clause -->
         <!-- — use <code>COND</code>, <code>WHEN</code>, or <code>UNLESS</code>. -->
-	ですが<code>PROGN</code>を<code>IF</code>の中に書くのはやめましょう。代りに<code>COND</code>や<code>WHEN</code>や<code>UNLESS</code>を使いましょう。
+	ですが、<code>PROGN</code>を<code>IF</code>節に書くのはやめましょう。代りに<code>COND</code>や<code>WHEN</code>や<code>UNLESS</code>を使いましょう。
       </p>
       <p>
         <!-- Note that in Common Lisp, -->
@@ -4161,20 +4138,20 @@ Takashi Kato
         <!-- when the condition is not met. -->
 	Common Lispでは<code>WHEN</code>や<code>UNLESS</code>は条件を満足しなかったとき、<code>NIL</code>を返すことを覚えておきましょう。
         <!-- You may take advantage of it. -->
-	この仕様はうまく活用しても良いです。
+	この仕様は活用しても良いです。
         <!-- Nevertheless, you may use an <code>IF</code> -->
         <!-- to explicitly return <code>NIL</code> -->
         <!-- if you have a specific reason to insist on the return value. -->
-        そうであっても、<code>NIL</code>を返すことにこだわる特別な理由があるときは、<code>IF</code>を使って明示的に<code>NIL</code>を返しても良いです。
+        とは言え、<code>NIL</code>を返すことにこだわる特別な理由があるときは、<code>IF</code>を使って明示的に<code>NIL</code>を返しても良いです。
         <!-- You may similarly include a fall-through clause <code>(t nil)</code> -->
         <!-- as the last in your <cond>COND</cond>, -->
         <!-- or <code>(otherwise nil)</code> as the last in your <cond>CASE</cond>, -->
         <!-- to insist on the fact that the value returned by the conditional matters -->
         <!-- and that such a case is going to be used. -->
-        同様に、<cond>COND</cond>の一番最後に受け皿として<code>(t nil)</code>を入れたり、<cond>CASE</cond>に<code>(otherwise nil)</code>を入れて、条件式から返る値が重要である点と<code>NIL</code>が返るケースもある点を強調しても良いです。
+        同様に、<code>COND</code>の最後に<code>(t nil)</code>を入れたり、<code>CASE</code>の最後に<code>(otherwise nil)</code>を入れたりして、条件式から返る値が重要である点と<code>NIL</code>が返るケースもある点を強調しても良いです。
         <!-- You should omit the fall-through clause -->
         <!-- when the conditional is used for side-effects. -->
-	条件式が副作用のために使われるときは受け皿節は省略すべきです。
+	条件式を副作用のために使うときは、受け皿節を省略するべきです。
       </p>
       <p>
         <!-- You should prefer <code>AND</code> and <code>OR</code> -->
@@ -4182,8 +4159,7 @@ Takashi Kato
         <!-- <code>IF</code>, <code>COND</code>, -->
         <!-- <code>WHEN</code> or <code>UNLESS</code>, -->
         <!-- and there are no side-effects involved. -->
-        <code>IF</code>、<code>COND</code>、<code>WHEN</code>、<code>UNLESS</code>を使うよりもコードが簡潔になり、副作用がないときは<code>AND</code>や<code>OR</code>を優先すべきです。
-
+        <code>AND</code>や<code>OR</code>を優先すべきなのは、<code>IF</code>、<code>COND</code>、<code>WHEN</code>、<code>UNLESS</code>を使うよりもコードが簡潔になるときと、副作用がないときです。
         <!-- You may also use an <code>ERROR</code> -->
         <!-- as a side-effect in the final clause of an <code>OR</code>. -->
 	<code>OR</code>の最後の節に副作用として<code>ERROR</code>を入れてもいいです。
@@ -4192,16 +4168,16 @@ Takashi Kato
         <!-- You should only use <code>CASE</code> and <code>ECASE</code> -->
         <!-- to compare numbers, characters or symbols -->
         <!-- (including booleans and keywords). -->
-	<code>CASE</code>や<code>ECASE</code>の使用は、数字、文字、シンボル(含真偽値、キーワード)を比較する場合に限るべきです。
+	<code>CASE</code>や<code>ECASE</code>の使用は、数字、文字、シンボル（含真偽値、キーワード）を比較する場合に限るべきです。
         <!-- Indeed, <code>CASE</code> uses <code>EQL</code> for comparisons, -->
         <!-- so strings, pathnames and structures may not compare the way you expect, -->
         <!-- and <code>1</code> will differ from <code>1.0</code>. -->
-	もちろん、<code>CASE</code>は比較に<code>EQL</code>を使うため、文字列、パスネーム、構造体などは期待通りに比較されませんし、<code>1</code>は<code>1.0</code>とは異なったものとされます。
+	当然、<code>CASE</code>は比較に<code>EQL</code>を使うため、文字列、パスネーム、構造体などは期待通りに比較されませんし、<code>1</code>は<code>1.0</code>とは異なったものとされます。
       </p>
       <p>
         <!-- You should use <code>ECASE</code> and <code>ETYPECASE</code> -->
         <!-- in preference to <code>CASE</code> and <code>TYPECASE</code>. -->
-	<code>CASE</code>や<code>TYPECASE</code>よりも<code>ECASE</code>や<code>ETYPECASE</code>を好んで使うべきです。
+	<code>CASE</code>や<code>TYPECASE</code>よりも、<code>ECASE</code>や<code>ETYPECASE</code>を使うべきです。
         <!-- It is better to catch erroneous values early. -->
 	間違った値は早めに捕まえておくに越したことはありません。
       </p>
@@ -4239,7 +4215,7 @@ Takashi Kato
         <!-- if <code>X</code> is <code>QUOTE</code>... -->
         <!-- and ditto for the second leg -->
         <!-- (though <code>QUOTE</code> will be caught by the first clause). -->
-	ここの<code>'BAR</code>は<code>(QUOTE BAR)</code>ですので、<code>X</code>が<code>QUOTE</code>だったときにこの節が実行されますし、第2節でも同様です(この場合は第1節で<code>QUOTE</code>は捕捉されてしまいますが)。
+	ここの<code>'BAR</code>は<code>(QUOTE BAR)</code>ですので、<code>X</code>が<code>QUOTE</code>だったときにこの節が実行されますし、第2節でも同様です（この場合は第1節で<code>QUOTE</code>は捕捉されてしまいますが）。
         <!-- This is unlikely to be what you really want. -->
 	これは恐らく望んだことではないでしょう。
       </p>
@@ -4247,19 +4223,19 @@ Takashi Kato
         <!-- In <code>CASE</code> forms, -->
         <!-- you must use <code>otherwise</code> instead of <code>t</code> -->
         <!-- when you mean "execute this clause if the others fail". -->
-	<code>CASE</code>式では「他の条件にマッチしなかったとき実行する」という意味では<code>t</code>ではなく<code>otherwise</code>を使わなければなりません。
+	<code>CASE</code>式では「他の条件にマッチしなかったとき実行する」という意味では、<code>t</code>ではなく<code>otherwise</code>を使わなければなりません。
         <!-- You must use <code>((t) ...)</code> -->
         <!-- when you mean "match the symbol T" rather than "match anything". -->
-	「全てにマッチする」ではなく「シンボルTにマッチしたとき」の意味では<code>((t) ...)</code>を使わなければなりません。
+	「全てにマッチする」ではなく「シンボルTにマッチしたとき」の意味では、<code>((t) ...)</code>を使わなければなりません。
         <!-- You must also use <code>((nil) ...)</code> -->
         <!-- when you mean "match the symbol NIL" rather than "match nothing". -->
-	また「何にもマッチしなかったとき」ではなく「シンボルNILにマッチしたとき」は<code>((nil) ...)</code>を使わなければなりません。
+	また「何にもマッチしなかったとき」ではなく「シンボルNILにマッチしたとき」は、<code>((nil) ...)</code>を使わなければなりません。
       </p>
       <p>
         <!-- Therefore, if you want to map booleans <code>NIL</code> and <code>T</code> -->
         <!-- to respective symbols <code>:BAR</code> and <code>:QUUX</code>, -->
         <!-- you should avoid the former way and do it the latter way: -->
-        従って真偽値<code>NIL</code>と<code>T</code>を、それぞれ<code>:BAR</code>と<code>:QUUX</code>にマップしたいときは[下記の]後者の表現を使うべきで、前者ではありません:
+        従って真偽値<code>NIL</code>と<code>T</code>を、それぞれ<code>:BAR</code>と<code>:QUUX</code>にマップしたいときは、[下記の]前者を避け、後者を使うべきです:
       </p>
       <BAD_CODE_SNIPPET>
         (ecase x ; 悪い例: 実際にはエラーを出すことはない<!-- Bad: has no actual error case! -->
@@ -4289,7 +4265,7 @@ Takashi Kato
         <!-- Additionally, Lisp provides the type-specific predicates -->
         <!-- <code>=</code>, <code>CHAR=</code>, <code>CHAR-EQUAL</code>, -->
         <!-- <code>STRING=</code>, and <code>STRING-EQUAL</code>. -->
-	さらにLispには型に特化した述語もあります。<code>=</code>、<code>CHAR=</code>、<code>CHAR-EQUAL</code>、<code>STRING=</code>そして <code>STRING-EQUAL</code>です。
+	さらにLispには型に特化した述語もあります。<code>=</code>、<code>CHAR=</code>、<code>CHAR-EQUAL</code>、<code>STRING=</code>、そして<code>STRING-EQUAL</code>です。
         <!-- Know the distinction! -->
 	これらの違いは知っておきましょう。
 	<!-- 下で違いを説明してるので「違いを見ていきましょう」の方がしっくりきますけど、コーディング規約で解説はおかしいかなと思ってこうしました。(κeen) -->
@@ -4297,7 +4273,7 @@ Takashi Kato
       <p>
         <!-- You should use <code>EQL</code> to compare objects and symbols -->
         <!-- for <em>identity</em>. -->
-	<em>同一</em>のオブジェクトやシンボルを比較するときは<code>EQL</code>を使うべきです。
+	<em>同一性</em>でオブジェクトやシンボルを比較するときは<code>EQL</code>を使うべきです。
       </p>
       <p>
         <!-- You must not use <code>EQ</code> to compare numbers or characters. -->
@@ -4314,7 +4290,7 @@ Takashi Kato
         <!-- <code>EQL</code> reduces the opportunity -->
         <!-- for a class of embarrassing errors -->
         <!-- (i.e. if numbers or characters are ever compared). -->
-	<code>EQL</code>を使えばある種の理解不能なエラーを減らせます(数字や文字が比較されたときのことです)。
+        <code>EQL</code>を使えば、ある種の理解不能なエラーを減らせます（数字や文字が比較されたとしてです）。
         <!-- There may a tiny performance cost relative to <code>EQ</code>, -->
         <!-- although under SBCL, it often compiles away entirely. -->
 	<code>EQ</code>に比べてわずかにパフォーマンスで劣るかもしれませんが、SBCLでは大抵の場合コンパイルで完全に差はなくなります。
@@ -4354,7 +4330,7 @@ Takashi Kato
         <!-- CCL (at least as of 8/2008) -->
         <!-- creates a one-character string upon each comparison, for example, -->
         <!-- which is very expensive. -->
-	一例ですが(少なくとも2008年8月時点の)CCLでは比較ごとに1文字の文字列を生成しますが、この処理が非常に高価です。
+	一例ですが（少なくとも2008年8月時点の）CCLでは比較ごとに1文字の文字列を生成しますが、この処理が非常に高価です。
 	<!-- (2008年8月現在)の方が日本語っぽい？(κeen) -->
       </p>
       <p>
@@ -4364,7 +4340,7 @@ Takashi Kato
         <!-- e.g. <code>(string-equal (subseq s1 2 6) s2)</code> should instead be -->
         <!-- <code>(string-equal s1 s2 :start1 2 :end1 6)</code> -->
         <!-- This is preferable because it does not cons. -->
-	また、<code>STRING=</code>や<code>STRING-EQUAL</code>には、<code>SUBSEQ</code>を使うのではく、<code>:START</code>や<code>:END</code>を指定すべきです。<code>(string-equal (subseq s1 2 6) s2)</code>ではなく<code>(string-equal s1 s2 :start1 2 :end1 6)</code>です。これによって不要なコンシングが起きません。
+	また、<code>STRING=</code>や<code>STRING-EQUAL</code>には、<code>SUBSEQ</code>を使うのではなく、<code>:START</code>や<code>:END</code>を指定すべきです。<code>(string-equal (subseq s1 2 6) s2)</code>ではなく<code>(string-equal s1 s2 :start1 2 :end1 6)</code>です。これによって不要なコンシングが起きません。
       </p>
       <p>
         <!-- You should use <code>ZEROP</code>, -->
@@ -4398,7 +4374,7 @@ Takashi Kato
         <!-- unless you really mean for <code>0</code>, -->
         <!-- <code>0.0</code> and <code>-0.0</code> to compare unequal, -->
         <!-- in which case you should use <code>EQL</code>. -->
-	数字を比較するには<code>=</code>を使わなければなりません。ただし、<code>0</code>と<code>0.0</code>と<code>-0.0</code>が不等だと本当に意図しているなら<code>EQL</code>を使うべきです。
+	数字を比較するには<code>=</code>を使わなければなりません。ただし、<code>0</code>と<code>0.0</code>と<code>-0.0</code>が不等だと本当に意図しているなら、<code>EQL</code>を使うべきです。
         <!-- Then again, you must not usually use exact comparison -->
         <!-- on floating point numbers. -->
 	繰り返しますが、浮動小数点数に厳密な比較を使ってはなりません。
@@ -4407,7 +4383,7 @@ Takashi Kato
         <!-- Monetary amounts should be using decimal (rational) numbers -->
         <!-- to avoid the complexities and rounding errors -->
         <!-- of floating-point arithmetic. -->
-	お金を表わすには10進(有理)数を使って、浮動小数点数計算の複雑さや丸め誤差を避けるべきです。
+	お金を表わすには10進（有理）数を使って、浮動小数点数計算の複雑さや丸め誤差を避けるべきです。
         <!-- Libraries such as -->
         <!-- <a href="http://wukix.com/lisp-decimals">wu-decimal</a> -->
         <!-- may help you; -->
@@ -4510,7 +4486,7 @@ Takashi Kato
       <p>
         <!-- You should not use <code>(format nil "~A" value)</code>; -->
         <!-- you should use <code>PRINC-TO-STRING</code> instead. -->
-	<code>(format nil "~A" value)</code>は使うべきではなく、<code>PRINC-TO-STRING</code>を使うべきです。
+	<code>(format nil "~A" value)</code>を使うべきではありません。代わりに<code>PRINC-TO-STRING</code>を使うべきです。
       </p>
       <p>
         <!-- You should use <code>~&lt;Newline&gt;</code> -->
@@ -4637,7 +4613,7 @@ Takashi Kato
       <!-- You must only use faster unsafe operations -->
       <!-- when there is a clear performance need -->
       <!-- and you can document why it's correct. -->
-      高速で安全でない命令の使用は、性能を必要とすることが明らかでそれらの正当性のドキュメントを提供できる場合のみでなければなりません。
+      高速で安全でない命令の使用は、性能を必要とすることが明らかで、それらの正当性のドキュメントを提供できる場合のみでなければなりません。
     </SUMMARY>
     <BODY>
       <p>
@@ -4649,7 +4625,7 @@ Takashi Kato
         <!-- that are designed to be used with fixnums only, -->
         <!-- and yield the correct result faster if provided proper arguments. -->
 		実例として、ライブラリの中には算術命令をfixnumに限定して使用されるように設計されていて、
-		適切な引数なら正確な結果をより高速に得られますものがあります。
+		適切な引数なら正確な結果をより高速に得られるものがあります。
         <!-- The downside is that the result of such operations -->
         <!-- is incorrect in case of overflow, and can -->
         <!-- have undefined behavior when called with anything but fixnums. -->
@@ -5050,7 +5026,7 @@ Takashi Kato
 	あなたのプログラムの性能を頭打ちにする主な要因だというのなら、
         あなたは大きな問題を抱えており、恐らく間違ったデータ構造を使っています。
 	定数時間でAPPENDができる種類のsequenceを使うべきです
-	(Okasaki<!-- Chris Okasaki -->の本を参照し、lisp-interface-libraryにそれを実装して追加してください)。
+	(Okasaki<!-- Chris Okasaki -->の本を参照し、それをlisp-interface-libraryに追加してください)。
 	あるいはもっと簡単に、木構造にデータを溜めておけば、
 	線形時間で一気にflattenできるのそうするべきです。
       </p>
