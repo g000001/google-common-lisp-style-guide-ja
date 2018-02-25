@@ -9,6 +9,7 @@
 </div>
 
 <p align="right">
+
 Revision 1.28
 </p>
 
@@ -61,6 +62,7 @@ Takashi Kato
 <cite>「パターンとは『言語の表現力を超えてしまった』ということだ」</cite> — Rich Hickey
 <!-- Patterns mean "I have run out of language."  -->
 </p>
+
 
 <OVERVIEW>
 <CATEGORY title="重要事項">
@@ -134,6 +136,7 @@ Takashi Kato
     あなたの他の優先事項と競合しない範囲でこれらの中に有用なものがあるかもしれません。
     我々のガイドへの改善案と、あなたの下で上手くいっているスタイルとその理由について、建設的なフィードバックを歓迎します。
   </p>
+  
   <p>
     <!--
     This guide is not a Common Lisp tutorial.
@@ -161,10 +164,10 @@ Takashi Kato
       <!--
       Each guideline's level of importance is indicated
       by use of the following keywords and phrases, adapted from
-      <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>.
+      <a href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>.
       -->
       それぞれのガイドラインの重要度のレベルは
-      <a href="http://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>から
+      <a href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a>から
       採用した以下の語句で示します。
     </SUMMARY>
     <BODY>
@@ -275,6 +278,7 @@ Takashi Kato
         <!--Permission comes from the owners of your project.-->
         許可はあなたのプロジェクトの所有者から得ます。
       </p>
+      
       <p>
         <!--
         Forgiveness is requested in a comment near the point of guideline violation, 
@@ -331,6 +335,7 @@ Takashi Kato
 	<!--
         Conventional guidelines <em>are</em> indoctrination.
         Their purpose is to make you follow the mores of the community,
+        
         so you can more effectively cooperate with existing members.
         -->
         慣例的ガイドラインとは<em>正に</em>宗教です。
@@ -778,14 +783,14 @@ Takashi Kato
           <!-- framework (part of <code>UIOP</code>, part of <code>ASDF 3</code>), -->
 
           <!--   either around the entire project, or around individual files -->
-          <!--   (using asdf's <code>:around-compile</code> hooks). -->
+          <!--   (using <code>ASDF</code>'s <code>:around-compile</code> hooks). -->
           もし、コンパイラが無視すべき警告を発したら
           (<code>ASDF 3</code>に含まれる<code>UIOP</code>の)
           <code>UIOP:WITH-MUFFLED-COMPILER-CONDITIONS</code>と
           <code>UIOP:*UNINTERESTING-COMPILER-CONDITIONS*</code>フレームワーク 
           をプロジェクト全体か独立したファイルに対して使い、
           その警告を消し去ってください
-          (asdfの<code>:around-compile</code>フックを使います)。
+          (<code>ASDF</code>の<code>:around-compile</code>フックを使います)。
         </li>
         <li>
           <!--   All code should be checked in an appropriate source control system, -->
@@ -961,6 +966,7 @@ Takashi Kato
         今日では変数や関数に説明的な名前を付けることが良いスタイルとして推奨されているので、
         100文字まで許すのが良さそうです。
       </p>
+      
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="字下げ"><!-- Indentation -->
@@ -983,15 +989,15 @@ Takashi Kato
         <!--
         Common Lisp indentation in Emacs is provided by the cl-indent library.
         The latest version of cl-indent is packaged with
-        <a HREF="http://www.common-lisp.net/project/slime/">SLIME</a>
+        <a HREF="https://www.common-lisp.net/project/slime/">SLIME</a>
         (under contrib/slime-cl-indent.el). After installing SLIME, set up Emacs
         to load SLIME automatically using
-        <a HREF="http://www.common-lisp.net/project/slime/doc/html/Loading-Contribs.html">these instructions</a>, adding slime-indentation to the list of
+        <a HREF="https://www.common-lisp.net/project/slime/doc/html/Loading-Contribs.html">these instructions</a>, adding slime-indentation to the list of
         contrib libraries to be loaded in the call to slime-setup.
         -->
         EmacsでのCommon Lispの字下げは、cl-indentライブラリが提供されています。
-        最新のcl-indentバージョンは、<a HREF="http://www.common-lisp.net/project/slime/">SLIME</a>に同梱されています(contrib/slime-cl-indent.el)。
-        SLIMEを導入した後、EmacsがSLIMEを自動でロードするよう、<a HREF="http://www.common-lisp.net/project/slime/doc/html/Loading-Contribs.html">この手順</a>で設定します。
+        最新のcl-indentバージョンは、<a HREF="https://www.common-lisp.net/project/slime/">SLIME</a>に同梱されています(contrib/slime-cl-indent.el)。
+        SLIMEを導入した後、EmacsがSLIMEを自動でロードするよう、<a HREF="https://www.common-lisp.net/project/slime/doc/html/Loading-Contribs.html">この手順</a>で設定します。
         slime-indentationをslime-contribsのリストに追加すれば、slime-setupを呼ぶことでロードされます。
       </p>
       <p>
@@ -1004,15 +1010,17 @@ Takashi Kato
         <!-- This is particularly useful when creating forms that behave like macros -->
         <!-- or special operators that are indented differently than standard -->
         <!-- function calls (e.g. defun, labels, or let). Add a -->
-        <!-- <a HREF="http://www.gnu.org/software/emacs/manual/html_node/emacs/Hooks.html">hook</a> to 'lisp-mode-hook that calls common-lisp-set-style to set -->
+        <!-- <a HREF="https://www.gnu.org/software/emacs/manual/html_node/emacs/Hooks.html">hook</a> to 'lisp-mode-hook that calls common-lisp-set-style to set -->
         <!-- the appropriate style automatically. -->
         slime-indentationで提供されるデフォルトの字下げの設定を使うのが理想ですが、
         既存のプロジェクトの字下げスタイルに合せる必要があるなど、字下げのカスタマイズが必要な場合は、
         define-common-lisp-styleの:variables設定で行うことが可能です。
         特定のフォームでの字下げについては、define-common-lisp-styleの:indented設定をカスタマイズすることで可能です。
         これは、典型的なところでは、標準的な関数呼び出しとは違う、マクロやスペシャルオペレーターの字下げで有用です(defun、labelsやletなど)。
-        そして、common-lisp-set-styleが呼び出す'lisp-mode-hookに<a HREF="http://www.gnu.org/software/emacs/manual/html_node/emacs/Hooks.html">フック</a>することで、自動で適切なスタイルにします。
+        そして、common-lisp-set-styleが呼び出す'lisp-mode-hookに<a HREF="https://www.gnu.org/software/emacs/manual/html_node/emacs/Hooks.html">フック</a>することで、自動で適切なスタイルにします。
       </p>
+      
+      
       <p>
         <!-- Use indentation to make complex function applications easier to read. -->
         字下げを使って、複雑な関数適用を簡単に読めるようにしてください。
@@ -1625,11 +1633,11 @@ Takashi Kato
       <p>
         <!-- Be specific when indicating times or software releases -->
         <!-- in a TODO comment and use
-        <a HREF="http://www.w3.org/TR/NOTE-datetime">YYYY-MM-DD</a>
+        <a HREF="https://www.w3.org/TR/NOTE-datetime">YYYY-MM-DD</a>
         format for dates to make automated processing of such dates easier,
         e.g., 2038-01-20 for the end of the 32-bit signed <code>time_t</code>. -->
 	TODOコメントで時間やリリースを指すときは具体的に表現しましょう。
-        また、日付の形式としては、<a HREF="http://www.w3.org/TR/NOTE-datetime">YYYY-MM-DD</a>を用いて、こういった日付処理の自動化が楽にできるようにしておきましょう。
+        また、日付の形式としては、<a HREF="https://www.w3.org/TR/NOTE-datetime">YYYY-MM-DD</a>を用いて、こういった日付処理の自動化が楽にできるようにしておきましょう。
         例えば、 2038-01-20 を符号付き32ビット整数 <code>time_t</code>の終わりとして使うなど。
       </p>
       <CODE_SNIPPET>
@@ -2598,7 +2606,7 @@ Takashi Kato
           <!-- Code should not signal conditions from inside the cleanup form of -->
           <!-- <code>UNWIND-PROTECT</code> -->
           <!-- (unless they are always handled inside the cleanup form), -->
-          <!-- or otherwise do non-local exits from cleanup handers -->
+          <!-- or otherwise do non-local exits from cleanup handlers -->
           <!-- outside of the handler e.g. <code>INVOKE-RESTART</code>. -->
           <code>UNWIND-PROTECT</code>のクリーンアップフォームからコンディションを通知するべきではありません
           （常にクリーンアップフォーム内でコンディションを扱っているのでもない限り）。
@@ -2774,14 +2782,14 @@ Takashi Kato
 
         <!-- However, there may indeed be an abstract CLOS class -->
         <!-- or an -->
-        <!-- <a href="http://common-lisp.net/~frideau/lil-ilc2012/lil-ilc2012.html">Interface-Passing Style</a> interface -->
+        <!-- <a href="https://common-lisp.net/~frideau/lil-ilc2012/lil-ilc2012.html">Interface-Passing Style</a> interface -->
         <!-- that embodies the protocol. -->
         <!-- Further (sub)classes or (sub)interfaces may then implement -->
         <!-- all or part of a protocol by defining -->
         <!-- some methods for (generic) functions in the protocol, -->
         <!-- including readers and writers. -->
         しかしながら、実際にそのプロトコルを具体的に表現する抽象CLOSクラスや
-        <a href="http://common-lisp.net/~frideau/lil-ilc2012/lil-ilc2012.html">Interface-Passing Style</a>
+        <a href="https://common-lisp.net/~frideau/lil-ilc2012/lil-ilc2012.html">Interface-Passing Style</a>
         のインターフェイスはありえます。
         そういうときに、更なる(下位の)クラスや(下位の)インターフェイスが、リーダやライター等の、
         プロトコルに含まれる(総称)関数のためのメソッドを定義することで、プロトコルの一部または全部を実装することができます。
@@ -3092,6 +3100,7 @@ Takashi Kato
         パフォーマンス上の理由で関数をマクロに書き直してはなりません。
         プロファイリングの結果が、特定の関数<code>FOO</code>にパフォーマンス上の問題があることを示したとすれば、その必要性と適切なプロファイリングの結果を文章化した上で、<code>(declaim (inline foo))</code>を宣言します。
       </p>
+      
       <p>
         <!-- You can also use a compiler-macro -->
         <!-- as a way to speed up function execution -->
@@ -3132,6 +3141,11 @@ Takashi Kato
         <!-- which parameters are Lisp forms to be evaluated, and which are not. -->
         もしマクロが、マクロが展開された後に、Lispの式として評価されるような引数を持っている場合、その引数には、<code>-form</code>という接尾辞を付けた名前を付けるべきです。
         この取り決めは、マクロの利用者から見てどの引数がLispの式として展開され、またそうでないのかを、より分かりやすくします。
+        <!--
+        The common names <code>body</code> and <code>end</code> are
+        exceptions to this rule.
+        -->
+        よく使われる<code>body</code>と<code>end</code>はこのルールの例外です。
       </p>
       <p>
         <!-- You should follow the so-called <code>CALL-WITH</code> style when it applies. -->
@@ -3267,9 +3281,9 @@ Takashi Kato
         <!-- Be aware of them when writing macros. -->
 	Lispでの「評価」は複数回行われる可能性があり、時には評価の順番が入れ替わる時もあります。
 	マクロを書くときには注意しましょう。
-        <!-- <a href="http://fare.livejournal.com/146698.html"> -->
+        <!-- <a href="https://fare.livejournal.com/146698.html"> -->
 	<!--   EVAL-WHEN considered harmful to your mental health</a>. -->
-        <a href="http://fare.livejournal.com/146698.html">
+        <a href="https://fare.livejournal.com/146698.html">
 	  「EVAL-WHEN はあなたの精神衛生を害する」</a>.
       </p>
       <p>
@@ -3607,6 +3621,7 @@ Takashi Kato
         とはいえ、大抵は[<code>INTERN</code>を直に使うより]、それを抽象化したものを使うのがより適切であり、
         必要なシンボルを生成するのには<code>ALEXANDRIA:SYMBOLICATE</code>や<code>ALEXANDRIA:FORMAT-SYMBOL</code>のようなものを使うことでしょう。
       </p>
+      
     </BODY>
   </STYLEPOINT>
 </CATEGORY>
@@ -3684,6 +3699,7 @@ Takashi Kato
         <!-- and one to denote whether the value was known or found. -->
 	多くの場合、ある値について「なにやら分からない」と表現するのではなく、多値を用いて1つめの値で、[求めたい値が]あればそれを、2つめの値で[求めたい値が]あったかどうかを表わすべきです。
       </p>
+      
       <p>
         <!-- When working with database classes, keep in mind that -->
         <!-- <code>NIL</code> need not always map to <code>'NULL'</code> -->
@@ -3698,7 +3714,7 @@ Takashi Kato
   <STYLEPOINT title="リストの乱用はしない">
     <SUMMARY>
       <!-- You must select proper data representation. 
-           You must not abuse the LIST data structure.  -->
+           You must not abuse the <code>LIST</code> data structure.  -->
       データ表現は正しく選択しなければなりません。
       <code>LIST</code>構造を乱用してはなりません。
     </SUMMARY>
@@ -3862,7 +3878,6 @@ Takashi Kato
         <!-- However, keep in mind that it might be more appropriate in such cases -->
         <!-- to use higher-level constructs such as -->
         <!-- <code>DESTRUCTURING-BIND</code> or <code>OPTIMA:MATCH</code>. -->
-        <!-- <code>DESTRUCTURING-BIND</code> or <code>OPTIMA:MATCH</code>. -->
         手動でリストを腑分けするような場合、リストのアクセス関数を組み合わせる代わりに、
         例外的に<code>CDADR</code>やそれに類するものを使っても良いでしょう。
         この文脈では<code>FIRST</code>や<code>REST</code>でなく、代りに<code>CAR</code>や<code>CDR</code>を利用するのも理にかなったことでしょう。
@@ -3974,6 +3989,10 @@ Takashi Kato
         (defconstant +google-url+ "http://www.google.com/")
         (defconstant +valid-colors+ '(red green blue))
       </BAD_CODE_SNIPPET>
+      
+      
+      
+      
       <p>
         <!-- Open-Source libraries may use -->
         <!-- <code>ALEXANDRIA:DEFINE-CONSTANT</code> -->
@@ -3986,7 +4005,7 @@ Takashi Kato
       </p>
       <CODE_SNIPPET>
         ;; 良い例 オープンソース向け:<!-- Better, for Open-Source code: -->
-        (define-constant +google-url+ "http://www.google.com/" :test #'string=)
+        (define-constant +google-url+ "https://www.google.com/" :test #'string=)
         (define-constant +valid-colors+ '(red green blue))
       </CODE_SNIPPET>
       <p>
@@ -4065,10 +4084,8 @@ Takashi Kato
 	<code>&amp;ALLOW-OTHER-KEYS</code>が適切であるケースには他の関数を呼び出すラッパ関数を書いていて、呼び出される関数が(実行時や開発中に)変わる可能性があり、<code>&amp;REST</code>として属性リストを渡すときなどがあります。
       </p>
       <p>
-        <!-- You should avoid using <code>&amp;AUX</code> arguments, -->
-        <!-- except in very short helper functions -->
-        <!-- where they allow you to eschew a <code>LET</code>. -->
-	<code>&amp;AUX</code>の使用は、とても短かいヘルパー関数で、それを使えば<code>LET</code>を省略できるような場合以外は避けるべきです。
+        <!-- You should avoid using <code>&amp;AUX</code> arguments. -->
+	<code>&amp;AUX</code>の使用は避けるべきです。
       </p>
       <p>
         <!-- You should avoid having both <code>&amp;OPTIONAL</code> -->
@@ -4410,7 +4427,7 @@ Takashi Kato
     </SUMMARY>
     <BODY>
       <p>
-        <!-- You should simpler forms such as -->
+        <!-- You should use simpler forms such as -->
         <!-- <code>DOLIST</code> or <code>DOTIMES</code> -->
         <!-- instead of <code>LOOP</code> -->
         <!-- in simple cases when you're not going to use any -->
@@ -4639,12 +4656,12 @@ Takashi Kato
 		欠点は、fixnumでない値で呼び出したとき、オーバフローで
 		不正確な結果を返したり、未定義の振る舞いをすることがあることです。
       </p>
-
+      
       <p>
         <!-- More generally, unsafe operations -->
         <!-- will yield the correct result faster -->
         <!-- than would the equivalent safe operation -->
-        <!-- if the arguments satisfy some invariant such a -->
+        <!-- if the arguments satisfy some invariant such as -->
         <!-- being of the correct type and small enough; -->
 	        より一般的には、安全でない命令は、
 		正しい型で十分に小さいなどの不変条件を満たす引数で呼び出せば、
@@ -4726,6 +4743,7 @@ Takashi Kato
 		これは開発中にはコードの動的なエラーを見つけ易くなって良いことですが、
 		性能を高めるという宣言の目的を無効化してしまうので、プロダクションコードで使用するものではありません。
       </p>
+      
     </BODY>
   </STYLEPOINT>
   <STYLEPOINT title="DYNAMIC-EXTENT">
@@ -5027,7 +5045,7 @@ Takashi Kato
         <!-- (see Okasaki's book, and add them to lisp-interface-library), -->
         <!-- or more simply you should be accumulating data in a tree -->
         <!-- that will get flattened once in linear time -->
-        <!-- after the accumulation phase is complete (see how ASDF does it). -->
+        <!-- after the accumulation phase is complete. -->
 	もし<code>APPEND</code> vs. <code>NCONC</code>のわずかな性能の差が
 	あなたのプログラムの性能を頭打ちにする主な要因だというのなら、
         あなたは大きな問題を抱えており、恐らく間違ったデータ構造を使っています。
@@ -5035,7 +5053,6 @@ Takashi Kato
 	(Okasaki<!-- Chris Okasaki -->の本を参照し、lisp-interface-libraryにそれを実装して追加してください)。
 	あるいはもっと簡単に、木構造にデータを溜めておけば、
 	線形時間で一気にflattenできるのそうするべきです。
-	(ASDFのやり方を参照しましょう)
       </p>
       <p>
         <!-- You may only use <code>NCONC</code>, <code>MAPCAN</code> -->
@@ -5174,6 +5191,8 @@ Takashi Kato
       <p>
         <!-- It is surprisingly hard to properly deal with pathnames in Common Lisp. -->
 	Common Lispでパスネームを適切に扱うのは驚くほど困難です。
+      </p>
+      <p>
         <!-- <code>ASDF 3</code> comes with a portability library <code>UIOP</code> -->
         <!-- that makes it <em>much</em> easier to deal with pathnames -->
         <!-- portably — and correctly — in Common Lisp. -->
@@ -5250,8 +5269,9 @@ Takashi Kato
 	他の処理系はパスネームで任意の文字を許可していますが、そうすることは仕様から逸脱していますし、処理系毎にバラバラで、多くの点で互換性がありません。
         <!-- You should use other pathname abstractions, -->
         <!-- such as <code>ASDF:SYSTEM-RELATIVE-PATHNAME</code> or -->
-        <!-- the underlying <code>UIOP:SUBPATHNAME</code>. -->
-	<code>ASDF:SYSTEM-RELATIVE-PATHNAME</code>やその下敷になっている<code>UIOP:SUBPATHNAME</code>などの別のパスネーム抽象化を使うべきです。
+        <!-- the underlying <code>UIOP:SUBPATHNAME</code> and -->
+        <!-- <code>UIOP:PARSE-UNIX-NAMESTRING</code>. -->
+	<code>ASDF:SYSTEM-RELATIVE-PATHNAME</code>やその下敷になっている<code>UIOP:SUBPATHNAME</code>と<code>UIOP:PARSE-UNIX-NAMESTRING</code>などの別のパスネーム抽象化を使うべきです。
       </p>
       
       <p>
@@ -5264,7 +5284,7 @@ Takashi Kato
         <!-- reinitialize any search path from current environment variables. -->
 	不適切となったビルド時のパスを破棄し、現在の環境変数から再度サーチパスを初期化するように注意するべきです。
         <!-- <code>ASDF</code> for instance requires you to reset its paths -->
-        <!-- with <code>ASDF:CLEAR-CONFIGURATION</code>. -->
+        <!-- with <code>UIOP:CLEAR-CONFIGURATION</code>. -->
         <!-- <code>UIOP</code> provides hooks -->
         <!-- to call functions before an image is dumped, -->
         <!-- from which to reset or <code>makunbound</code> relevant variables. -->
@@ -5274,8 +5294,6 @@ Takashi Kato
       
     </BODY>
   </STYLEPOINT>
-
-
   <STYLEPOINT title="SATISFIES">
     <SUMMARY>
       <!-- You must be careful when using a <code>SATISFIES</code> clause in a type specifier.
@@ -5360,19 +5378,19 @@ Takashi Kato
                     (small-prime-number-p m)
                     (big-prime-number-p m))))))
       </CODE_SNIPPET>
+      <p>
       <!--
         In particular, the above means that the
-        <a href="http://www.lispworks.com/documentation/HyperSpec/Body/t_satisf.htm">example</a>
+        <a href="https://www.lispworks.com/documentation/HyperSpec/Body/t_satisf.htm">example</a>
         used in the Common Lisp Standard is erroneous:
         <code>(and integer (satisfies evenp))</code>
         is <em>not</em> a safe, conformant type specifier to use,
         because <code>EVENP</code> will throw an error
         rather than return <code>NIL</code>
-        when passed a non-integer as an argument. 
+        when passed a non-integer as an argument.
       -->
-      <p>
 	特に、上のコードはCommon Lisp 標準で使われている<a
-	href="http://www.lispworks.com/documentation/HyperSpec/Body/t_satisf.htm">例</a>が間違っていることを示しています。
+	href="https://www.lispworks.com/documentation/HyperSpec/Body/t_satisf.htm">例</a>が間違っていることを示しています。
 	<code>(and integer (satisfies evenp))</code> は
 	安全で標準に沿った型指定子では<em>ない</em>ということです。
 	なぜなら上の<code>EVENP</code> は、非整数の引数を渡されたとき、<code>NIL</code>を返すのではなく、エラーを投げることでしょう。
@@ -5453,3 +5471,4 @@ Robert Brown
 
 
 </GUIDE>
+
